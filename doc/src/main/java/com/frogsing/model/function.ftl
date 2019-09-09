@@ -1,0 +1,754 @@
+<#macro upper1 str><#assign strlen=str?length-1 /><#assign right=str[1..strlen] /><#assign left=str[0..0]?upper_case/>${left+right}</#macro>
+
+<#macro fieldToHiberateType field>
+<#switch field.type?lower_case>
+<#case "string">string<#break>
+<#case "json">string<#break>
+<#case "timestamp">timestamp<#break>
+<#case "date">timestamp<#break>
+<#case "datetime">timestamp<#break>
+<#case "base64binary" >binary<#break>
+<#default>${field.type?lower_case}<#break>
+</#switch>
+</#macro>
+<#macro typeDefaultValue field>
+<#switch fToType(field.type)>
+<#case "string"><#break>
+<#case "timestamp"><#break>
+<#case "date"><#break>
+<#case "number"><#break>
+<#case "int"><#break>
+<#case "float">=0<#break>
+<#case "decimal"><#break>
+<#default><#break>
+</#switch>
+</#macro>
+<#function typeToCsharpType field>
+<#if field.type=="json">
+    <#return "String"/>
+<#else>
+
+	<#return field.type/>
+
+</#if>
+</#function>
+<#function fToJavaType field>
+<#switch fToType(field.type)>
+<#case "string"><#return "String"><#break>
+<#case "json"><#return "String"><#break>
+<#case "timestamp"><#return "DateTime"><#break>
+<#case "date"><#return "DateTime"><#break>
+<#case "dateTime"><#return "DateTime"><#break>
+<#case "number"><#return "long"><#break>
+<#case "int"><#return "int"><#break>
+<#case "long"><#if ["Quantity"]?seq_contains(field.type)><#return "long?"><#else><#return "long?"></#if><#break><#break>
+<#case "double"><#if ["weight"]?seq_contains(field.type)><#return "double?"><#else><#return "double?"></#if><#break>
+<#case "float"><#if ["weight"]?seq_contains(field.type)><#return "double?"><#else><#return "double?"></#if><#break>
+<#case "decimal">
+	<#switch field.type>
+	<#case "Long">
+	<#case "VersionNo">
+	<#case "CurrentVersion">
+	<#case "GlassSize">
+		<#return "double">
+	<#default>
+		<#return "double">
+	</#switch>
+	<#break>
+<#case "base64binary"><#return "byte[]"><#break>
+<#default>
+	<#return field.type>
+<#break>
+</#switch>
+</#function>
+<#function fToOracleType field>
+<#switch fToType(field.type)>
+<#case "string"><#return "String"><#break>
+<#case "timestamp"><#return "Date"><#break>
+<#case "date"><#return "Date"><#break>
+<#case "number"><#return "long"><#break>
+<#case "int"><#return "int"><#break>
+<#case "float"><#return "double"><#break>
+<#case "text"><#return "String"><#break>
+<#case "decimal"><#if field.type=="Long"||field.type=="VersionNo"||field.type=="CurrentVersion"><#return "long"><#else><#return "double"></#if><#break>
+<#case "base64binary"><#return "byte[]"><#break>
+<#default><#return field.type><#break>
+</#switch>
+</#function>
+<#macro typeToJavaType field>${fToJavaType(field)?trim}</#macro>
+
+<#macro typeToHiberateType field>
+<#switch field.type>
+<#case "string"><#if (field.len?number<4000) >string<#else>org.springframework.orm.hibernate3.support.ClobStringType</#if><#break>
+<#case "timestamp">timestamp<#break>
+<#case "date">date<#break>
+<#default>${field.type}<#break>
+</#switch>
+</#macro>
+<#macro javaValueObjectToJavaValue field>
+<#switch field.type>
+<#case "string"><#nested><#break>
+<#case "timestamp"><#nested><#break>
+<#case "date"><#nested><#break>
+<#case "int"><#nested>.intValue<#break>
+<#case "long"><#nested>.longValue<#break>
+<#case "double"><#nested>.doubleValue<#break>
+<#default><#nested><#break>
+</#switch>
+</#macro>
+
+<#macro typeToJavaObjectType field>
+<#switch field.type>
+<#case "string">String<#break>
+<#case "timestamp">DATE<#break>
+<#case "date">DATE<#break>
+<#case "int">Integer<#break>
+<#case "long">Long<#break>
+<#case "double">Double<#break>
+<#default>${field.type}<#break>
+</#switch>
+</#macro>
+
+<#macro typeToSqlType field>
+<#switch field.type>
+<#case "string"><#if (field.len?number>4000) >CLOB<#else>VARCHAR(${field.len})</#if><#break>
+<#case "timestamp">DATE<#break>
+<#case "date">DATE<#break>
+<#case "int">NUMBER(6,0)<#break>
+<#case "long">NUMBER(12,0)<#break>
+<#case "double">NUMBER(${field.len})<#break>
+<#default>${field.type}<#break>
+</#switch>
+</#macro>
+
+
+
+
+<#macro objectToJavaType field>
+<#switch field.type>
+<#case "string">ObjectChangeTool.getString(<#nested>)<#break>
+<#case "double">ObjectChangeTool.getDouble(<#nested>)<#break>
+<#case "float">ObjectChangeTool.getFloat(<#nested>)<#break>
+<#case "int">ObjectChangeTool.getInt(<#nested>)<#break>
+<#case "long">ObjectChangeTool.getLong(<#nested>)<#break>
+<#case "timestamp">ObjectChangeTool.getTime(<#nested>)<#break>
+<#case "date">ObjectChangeTool.getDate(<#nested>)<#break>
+<#default>get${field.type}(<#nested>)<#break>
+</#switch>
+</#macro>
+
+
+<#macro stringToFieldValue field>
+	<#switch field.type>
+	<#case "string"><#nested><#break>
+	<#case "double">(<#nested>==""?consts.double_min:Convert.ToDouble(<#nested>))<#break>
+	<#case "int" >(<#nested>==""?consts.int_min:Convert.ToInt32(<#nested>))<#break>
+	<#case "long" >(<#nested>==""?consts.long_min:Convert.ToInt32(<#nested>))<#break>
+	<#case "DateTime" >(<#nested>==""?new DateTime(1000,1,1):Convert.ToDateTime(<#nested>))<#break>
+	<#default>
+	 do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+<#macro fieldValueToString entity field>
+<#if (field.enum?if_exists?size>0)>
+	${entity.entity_name}.enum_${field.name}[<#nested>.ToString()].ToString()
+<#else>
+	<#switch field.type>
+	<#case "string"><#nested><#break>
+	<#case "double">(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+					Convert.ToDouble(<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>)<(consts.double_min+1)?"":<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					<#else>
+						<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					</#if>)
+					<#break>
+	<#case "int" >(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "long" >
+				(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "DateTime" >
+		<#if (field.size?if_exists?size>0)>
+			<#nested>.ToString().CompareTo("1001-1-1")<0?"":string.Format("{0:${field.size}}",<#nested>)
+		<#else>
+			<#nested>.ToString().CompareTo("1001-1-1")<0?"":((DateTime)<#nested>).Hour + ((DateTime)<#nested>).Minute==0?string.Format("{0:d}",<#nested>):string.Format("{0:G}",<#nested>)
+		</#if>
+	<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#if>
+</#macro>
+<#macro objectToFieldValue entity field>
+
+	<#switch field.type>
+	<#case "string"><#nested>.ToString()<#break>
+	<#case "double">Convert.ToDouble(<#nested>)
+					<#break>
+	<#case "int" >Convert.ToInt32(<#nested>)
+				  <#break>
+	<#case "long" >Convert.ToInt64(<#nested>)
+				  <#break>	
+	<#case "DateTime">Convert.ToDateTime(<#nested>)
+				<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+
+<#macro fieldValueObjectToString entity field>
+<#if (field.enum?if_exists?size>0)>
+	${entity.entity_name}.enum_${field.name}[<#nested>.ToString()].ToString()
+<#else>
+	<#switch field.type>
+	<#case "string"><#nested>.ToString()<#break>
+	<#case "double">(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+					Convert.ToDouble(<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>)<(consts.double_min+1)?"":<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					<#else>
+					<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					</#if>)
+					<#break>
+	<#case "int" >(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "long" >
+				(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "DateTime" >
+		<#if (field.size?if_exists?size>0)>
+			<#nested>.ToString().CompareTo("1001-1-1")<0?"":string.Format("{0:${field.size}}",<#nested>)
+		<#else>
+			<#nested>.ToString().CompareTo("1001-1-1")<0?"":((DateTime)<#nested>).Hour + ((DateTime)<#nested>).Minute==0?string.Format("{0:d}",<#nested>):string.Format("{0:G}",<#nested>)
+		</#if>
+	<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#if>
+</#macro>
+
+<#macro fieldValueToShow field>
+<#if (field.enum?if_exists?size>0)>
+	m_enum_${field.name}[<#nested>.ToString()]
+<#else>
+	<#if (field.show?if_exists?size>0)>
+	<#switch field.type>
+	<#case "string"><#nested><#break>
+	<#case "double">(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+					Convert.ToDouble(<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>)<(consts.double_min+1)?"":<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					<#else>string.Format("{0:F0}",<#nested>)
+					</#if>)
+					<#break>
+	<#case "int" >(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "long" >
+				(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "DateTime" >((DateTime)<#nested>).Hour + ((DateTime)<#nested>).Minute==0?string.Format("{0:d}",<#nested>):string.Format("{0:G}",<#nested>)
+	<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+	<#else>
+	<#switch field.type>
+	<#case "string"><#nested><#break>
+	<#case "double">(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+					Convert.ToDouble(<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>)<(consts.double_min+1)?"":<#if (field.size?if_exists?size>0)>string.Format("{0:F${field.size}}",<#nested>)<#else>string.Format("{0:F0}",<#nested>)</#if>
+					<#else>string.Format("{0:F0}",<#nested>)
+					</#if>)
+					<#break>
+	<#case "int" >(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>
+	<#case "long" >
+				(<#if (field.notnull?if_exists?size>0)&&(field.notnull="no") >
+				  Convert.ToInt32(string.Format("{0}",<#nested>))<(consts.int_min+1)?"":string.Format("{0}",<#nested>)
+				 <#else>
+				  string.Format("{0}",<#nested>)
+				  </#if>)
+				  <#break>	<#case "DateTime" >((DateTime)<#nested>).Hour + ((DateTime)<#nested>).Minute==0?string.Format("{0:d}",<#nested>):string.Format("{0:G}",<#nested>)
+	<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+	</#if>
+</#if>
+</#macro>
+<#macro numberToFieldValue field>
+	<#switch field.type>
+	<#case "string">string.Format("{0}",<#nested>)<#break>
+	<#case "double"><#nested><#break>
+	<#case "int" ><#nested><#break>
+	<#case "long" ><#nested><#break>
+	<#case "DateTime" >Convert.ToDateTime(<#nested>)<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+
+<#macro fieldValueToSqlValue field>
+	<#switch field.type>
+	<#case "string">string.Format("'{0}'",<#nested>)<#break>
+	<#case "double"><#nested><#break>
+	<#case "int" ><#nested><#break>
+	<#case "long" ><#nested><#break>
+	<#case "DateTime" >string.Format("${"#"+"{0:G}#"}",<#nested>)<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+<#macro javaScriptFieldValueToSqlValue field>
+	<#switch field.type>
+	<#case "string">""(${field.name} like '%""+<#nested>+""%')""<#break>
+	<#case "double">""(int(${field.name}+0.00001)=""+<#nested>+"")""<#break>
+	<#case "int" >""(${field.name}=""+<#nested>+"")""<#break>
+	<#case "long" >""(${field.name}=""+<#nested>+"")""<#break>
+	<#case "DateTime" >""(${field.name}>=#""+<#nested>+""#""+"" and ${field.name}<=#""+<#nested>+"" 23:59:59#)""<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+
+<#macro isPrimKeyDo entity field>
+	<#assign c=0>
+	<#list entity.prim_key as primkey>
+				<#if field.name=primkey.field >
+				<#assign c=c+1>
+	<#nested>
+				<#break>
+				</#if>
+	</#list>
+</#macro>
+<#macro notPrimKeyDo entity field>
+	<#local isp=0 />
+	<#list entity.prim_key as primkey>
+				<#if (field.name=primkey.field) >
+				<#local isp=1 />
+				<#break>
+				</#if>
+	</#list>
+	<#if isp=0>
+	<#nested>
+	</#if>
+</#macro>
+<#macro fieldAtrributeToFieldValue field>
+	<#switch field.type>
+	<#case "string">"<#nested>"<#break>
+	<#case "double"><#nested><#break>
+	<#case "int" ><#nested><#break>
+	<#case "long" ><#nested><#break>
+	<#case "DateTime" >Convert.ToDateTime("<#nested>")<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+
+<#macro fieldValueInit field>
+	<#switch field.type>
+	<#case "string">"<#nested>"<#break>
+	<#case "double">consts.double_min<#break>
+	<#case "int" >consts.int_min<#break>
+	<#case "long" >consts.long_min<#break>
+	<#case "DateTime" >DateTime.Now<#break>
+	<#default>
+	do note suppoert this type ${field.type}
+	</#switch>
+</#macro>
+
+
+
+
+
+<#macro fieldViewParaList entity=entity field=field>
+<#if (field.viewtype?if_exists?size>0) >
+<#if (field.enum?if_exists?size>0)><#-- **************************************************************************** -->
+<#switch field.viewtype>
+<#case "combox">
+		{  
+           ${entity.entity_name} p = new ${entity.entity_name}();
+            foreach (DictionaryEntry objDE in ${entity.entity_name}.enum_${field.name})
+            {
+                ListItem item1 = new ListItem(objDE.Value.ToString(), objDE.Key.ToString());
+                ${field.name}.Items.Add(item1);
+            }
+            ${field.name}.SelectedValue =  ${entity.entity_name}.<#list field.enum as enum>${enum.name}<#break></#list>.ToString();
+            
+        }
+		<#break>
+<#case "DropDownList">
+		{
+           ${entity.entity_name} p = new ${entity.entity_name}();
+            foreach (DictionaryEntry objDE in ${entity.entity_name}.enum_${field.name})
+            {
+                ListItem item1 = new ListItem(objDE.Value.ToString(), objDE.Key.ToString());
+                ${field.name}.Items.Add(item1);
+            }
+            ${field.name}.SelectedValue = ${entity.entity_name}.<#list field.enum as enum>${enum.name}<#break></#list>.ToString();
+            
+        }
+		<#break>
+<#default>
+		<#break>
+</#switch>
+<#else><#-- **************************************************************************** -->
+<#if (field.show?if_exists?size>0)>
+<#list field.show as show>
+<#switch field.viewtype>
+<#case "combox">
+		{
+            ${show.entity_name} p = new ${show.entity_name}();
+            DataSet set = p.query("", "");
+            DataTable dt = set.Tables[0];
+            foreach (DataRow r in dt.Rows)
+            {
+				ListItem item1 = new ListItem(r["${show.refvalue}"].ToString(), r["${show.ref}"].ToString());
+                ${field.name}.Items.Add(item1);
+            }
+        }
+		<#break>
+<#case "DropDownList">
+		{
+		
+            ${show.entity_name} p = new ${show.entity_name}();
+            DataSet set = p.query("", "");
+            DataTable dt = set.Tables[0];
+            ${field.name}.Items.Add(new ListItem("",""));
+            foreach (DataRow r in dt.Rows)
+            {
+				ListItem item1 = new ListItem(r["${show.refvalue}"].ToString(), r["${show.ref}"].ToString());
+                ${field.name}.Items.Add(item1);
+            }
+        }
+		<#break>
+<#default>
+		<#break>
+</#switch>
+</#list>
+</#if>
+</#if><#-- **************************************************************************** -->
+</#if>
+</#macro>
+
+
+<#macro fieldToQuery  field=field>
+<#if (field.show?if_exists?size>0) ><#-- **************************************************************************** -->
+<#if (field.enum?if_exists?size>0)><#-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+sb.Append(@"<td style=""width:${field.show}px"">
+	<select id=""p${field.name}""  >
+	<option  value=""""></option>
+	<#list field.enum as enum>
+            <option  value=""${enum.value}"">${enum.label}</option>
+	</#list>
+     </select>
+     </td>");
+<#else><#-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<#if (field.show?if_exists?size>0)><#-- **************************************************************************** -->
+		{
+		<#list field.show as show>
+		${show.entity_name} pEntity=new ${show.entity_name}();
+		 DataSet pset=pEntity.query("","");
+		 DataTable pdt=pset.Tables[0];
+		 sb.Append(@"<td style=""width:${field.show}px"">
+		<select id=""p${field.name}""  ><option value="""" ></option> ");
+		 foreach (DataRow row in pdt.Rows)
+		 {
+			sb.Append(string.Format(@"<option  value=""{1}"">{0}</option>",row["${show.refvalue}"].ToString(),row["${show.ref}"].ToString()));
+		 }	 
+		 sb.Append(@"
+		</select>
+		</td>");
+		</#list>
+		}
+<#else>
+	sb.Append(@"<td style=""width:${field.show}px"">
+	<input id=""p${field.name}"" type=""text"" />
+	</td>");
+</#if>
+</#if><#-- |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+</#if><#-- **************************************************************************** -->
+
+</#macro>
+
+<#macro fieldTypeToSqlType field>
+	<#switch field.type>
+	<#case "string">
+<#if (field.size?if_exists?size>0)>
+	<#if ("${field.size}"?number >254)>
+	${field.name} longText
+	<#else>
+	${field.name} ${field.type}(${field.size})
+	</#if>
+<#else>
+	${field.name} ${field.type}
+</#if>
+	<#break>
+	<#case "double">${field.name} ${field.type}<#break>
+	<#case "int" >${field.name} ${field.type}<#break>
+	<#case "long" >${field.name} ${field.type}<#break>
+	<#case "DateTime" >${field.name} ${field.type}<#break>
+	<#default>
+	error.........
+	</#switch>
+</#macro>
+
+<#macro entityToTableSql entity >
+create table ${entity.entity_name} (
+	<#list entity.field as field>
+		<@fieldTypeToSqlType field=field />
+	<#if (field.notnull?if_exists?size>0) && (field.notnull="yes")>
+	not null 
+	</#if>
+	<@isPrimKeyDo entity=entity field=field>primary key</@isPrimKeyDo><#if field_has_next>,</#if>
+	</#list>
+)
+</#macro>
+
+<#function toJavaName p>
+	<#return p?substring(p?index_of('_')+1)?cap_first>
+</#function>
+<#function toPackageName p>
+	<#assign a=p?index_of('_')>
+	<#if (a<0) >
+	<#assign a=0 >
+	</#if>
+	<#return p?substring(0,a)>
+</#function>
+<#function s1 p,index>
+	<#assign a=p?index_of('_')>
+	<#if (a<0) >
+	<#assign a=0 >
+	</#if>
+	<#return p?substring(0,a)>
+</#function>
+<#function fupper1 p>
+<#assign str=p?lower_case>
+<#assign strlen=str?length-1 />
+<#assign right=str[1..strlen] />
+<#assign left=str[0..0]?upper_case/>
+<#return left+right>
+</#function>
+<#function flower1 p>
+<#assign str=p>
+<#assign strlen=str?length-1 />
+<#assign right=str[1..strlen] />
+<#assign left=str[0..0]?lower_case/>
+<#return left+right>
+</#function>
+	
+<#function tojsp p >
+<#assign res = p?matches("(.+)([A-Z])(.+)")>
+<#if res>
+<#list res as m>
+<#assign r= m?groups />
+<#assign str=""/>
+<#list r as a>
+<#if (a_index>0)>
+<#if (a_index==2)>
+<#assign str=str+ "-"+a?uncap_first/>
+<#else>
+<#assign str=str+ a?uncap_first/>
+</#if>
+</#if>
+</#list>
+</#list>  
+<#else>
+<#assign str=p/>
+</#if>
+<#return str />  
+</#function>
+<#macro fToExtField field>
+<#switch fToType(field.type)>
+<#case "string">
+{
+		fieldLabel: '${field.label}',
+		id:'${field.name?lower_case}_id',
+        name:'${field.name?lower_case}',
+        maxLength:${fToDesc(field.type)},
+        allowBlank:false,
+        xtype:'textfield',
+        blankText:'请输入${field.label}'
+	//	regex : /^\+?[1-9][0-9]*$/,
+	//	regexText : '${field.label}格式不正確!'
+}
+<#break>
+<#case "number">
+<#case "int">
+  <#if field.type="Bool">
+				new Ext.form.Checkbox({   
+					id : '${field.name?lower_case}_hid',
+					boxLabel : '${field.label}',  
+                    checked : false,
+                	listeners:{
+        				check:function(th,checked){
+        						if(checked)
+        							Ext.getCmp("${field.name?lower_case}_id").setValue(1);
+        						else
+        							Ext.getCmp("${field.name?lower_case}_id").setValue(0);
+        				}
+        			}
+
+				}),
+				{ id:'${field.name?lower_case}_id',name:'${field.name?lower_case}', xtype : 'hidden',value:0}
+  <#else>
+  <#if fToDesc(field.type)!="">
+  new Ext.form.ComboBox({
+	            fieldLabel: '${field.label}',
+				id:'${field.name?lower_case}_id',
+       			hiddenName:'${field.name?lower_case}',
+	  				store : <ts:label name='${field.type}'/>,
+	  				anchor:'94%',
+					valueField : "id",
+					displayField : "name",
+					mode : 'local',
+					forceSelection : true,
+					editable : false,
+					triggerAction : 'all',
+	                allowBlank:false,
+	                blankText:'请输入${field.label}'
+	 			})
+  <#else>
+	{
+		fieldLabel: '${field.label}',
+		id:'${field.name?lower_case}_id',
+        name:'${field.name?lower_case}',
+      // maxLength:100,
+        allowBlank:false,
+        xtype:'textfield',
+        blankText:'请输入${field.label}',
+		regex : /^\+?[1-9][0-9]*$/,
+		regexText : '${field.label}格式不正確!'
+	}
+</#if>
+</#if>
+	<#break>
+<#case "float"><#break>
+<#case "decimal">
+{
+		fieldLabel: '${field.label}',
+		id:'${field.name?lower_case}_id',
+        name:'${field.name?lower_case}',
+      // maxLength:100,
+        allowBlank:false,
+        xtype:'textfield',
+        blankText:'请输入${field.label}',
+		regex : /^[0-9]+(.[0-9]{2})?$/,
+		regexText : '${field.label}格式不正確!'
+}
+	<#break>
+<#default>
+   {
+		fieldLabel: '${field.label}',
+		id:'${field.name?lower_case}_id',
+        name:'${field.name?lower_case}',
+      // maxLength:100,
+        allowBlank:false,
+        xtype:'textfield',
+        blankText:'请输入${field.label}'
+	//	regex : /^[0-9]+(.[0-9]{2})?$/,
+	//	regexText : '${field.label}格式不正確!''
+	}
+<#break>
+</#switch>
+</#macro>
+
+
+<#macro fToExtHeader field>
+<#assign headercommon="header : '<center>${field.label}</center>',dataIndex:'${field.name?lower_case}'" />
+<#switch fToType(field.type)>
+<#case "number">
+<#case "int">
+  <#if field.type="Bool">
+	{${headercommon},renderer:function(val){
+						if(val==0)
+							return "否";
+						else
+							return "是";
+					}}			
+  <#else>
+  <#if fToDesc(field.type)!="">
+ 	{${headercommon},renderer:function(val){
+				return getNameById(<ts:label name='${field.type}'/>,val);
+			}}
+  <#else>
+	 {${headercommon}}
+</#if>
+</#if>
+	<#break>
+<#case "float"><#break>
+<#case "decimal">
+		{${headercommon},renderer:function(val){
+				return formatNumber(val);
+			}}
+	
+	<#break>
+<#default>
+ {${headercommon}}
+<#break>
+</#switch>
+</#macro>
+<#macro checkDomain domain >
+	<#if fToType(domain.name)=="string" >
+			return	check_${fToType(domain.name)}(tag,val, 0);
+	<#else>
+			return	check_${fToType(domain.name)}( tag,val);
+	</#if>
+</#macro>
+<#macro domainToString domain >
+	<#switch domain.type?lower_case>
+	<#case "string">val.ToString()<#break>
+	<#case "timestamp">String.Format("{0:g}", val)<#break>
+	<#case "date">String.Format("{0:g}", val)<#break>
+	<#case "datetime">String.Format("{0:g}", val)<#break>
+	<#case "base64binary" >"....."<#break>
+	<#case "int">
+		<#if  domain.consts?? >
+			${domain.code}.labelOf(int.Parse(val.ToString()));
+		<#else>
+			val.ToString();
+		</#if>
+	<#break>
+	<#default>val.ToString()<#break>
+	</#switch>
+</#macro>
+<#macro domainToWidth domain >
+	<#switch domain.type?lower_case>
+	<#case "string"><#if (domain.length>200)>200<#else>120</#if><#break>
+	<#case "timestamp">150<#break>
+	<#case "date">80<#break>
+	<#case "datetime">150<#break>
+	<#case "base64binary" >300<#break>
+	<#case "int">
+		<#if  domain.consts?? >
+			80
+		<#else>
+			80
+		</#if>
+	<#break>
+	<#default>100<#break>
+	</#switch>
+</#macro>

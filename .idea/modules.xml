@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/server/admin/admin.iml" filepath="$PROJECT_DIR$/server/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/doc/doc.iml" filepath="$PROJECT_DIR$/doc/doc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/file/file-api/file-api.iml" filepath="$PROJECT_DIR$/server/file/file-api/file-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/file/file-service/file-service.iml" filepath="$PROJECT_DIR$/server/file/file-service/file-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/heart/jiajia-erd-heart.iml" filepath="$PROJECT_DIR$/server/heart/jiajia-erd-heart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/jiajia-erd-server.iml" filepath="$PROJECT_DIR$/server/jiajia-erd-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/log/log-api/log-api.iml" filepath="$PROJECT_DIR$/server/log/log-api/log-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/log/log-service/log-service.iml" filepath="$PROJECT_DIR$/server/log/log-service/log-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/operator/operator-api/operator-api.iml" filepath="$PROJECT_DIR$/server/operator/operator-api/operator-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/operator/operator-service/operator-service.iml" filepath="$PROJECT_DIR$/server/operator/operator-service/operator-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/parameter/parameter-api/parameter-api.iml" filepath="$PROJECT_DIR$/server/parameter/parameter-api/parameter-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/parameter/parameter-service/parameter-service.iml" filepath="$PROJECT_DIR$/server/parameter/parameter-service/parameter-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/parent/parent.iml" filepath="$PROJECT_DIR$/server/parent/parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/project/project-api/project-api.iml" filepath="$PROJECT_DIR$/server/project/project-api/project-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/project/project-service/project-service.iml" filepath="$PROJECT_DIR$/server/project/project-service/project-service.iml" />
+    </modules>
+  </component>
+</project>

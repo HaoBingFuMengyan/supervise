@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rights>
+	<n name="会员管理">
+		<r key="member:register">会员注册</r>
+	</n>
+</rights>

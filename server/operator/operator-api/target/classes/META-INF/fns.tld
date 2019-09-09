@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+  <description>menutag</description>
+  <display-name>opmenutag</display-name>
+  <tlib-version>1.1</tlib-version>
+  <short-name>fns</short-name>
+  <uri>http://www.frogsing.com/tags/fns</uri>
+
+  
+  <!-- UserUtils -->
+    <function>
+    <description>获取当前用户的菜单对象列表</description>
+    <name>getTopMenu</name>
+    <function-class>com.frogsing.operator.tag.MenuUtils</function-class>
+    <function-signature>com.frogsing.parameter.vo.TreeVo getTopMenu()</function-signature>
+    <example>${fns:getTopMenu()}</example>  
+  </function>
+  
+  
+  <!-- JsonMapper -->
+  <function>
+    <description>对象转换JSON字符串</description>
+    <name>toJson</name>
+    <function-class>com.frogsing.heart.mapper.TagJsonMapper</function-class>
+    <function-signature>java.lang.String toJsonString(java.lang.Object)</function-signature>
+    <example>${fns:toJson(object)}</example>  
+  </function>
+  
+  <function>
+    <description>获取字典对象列表</description>
+    <name>getSysParmGroupDetail</name>
+    <function-class>com.frogsing.heart.web.utils.ParaGroupUtils</function-class>
+    <function-signature>java.util.List getSysParmGroupDetail(java.lang.String)</function-signature>
+    <example>${fns:getSysParmGroupDetail(type)}</example>  
+  </function>
+  
+</taglib>

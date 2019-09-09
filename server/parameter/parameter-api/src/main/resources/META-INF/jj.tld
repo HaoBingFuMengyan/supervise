@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+    <description>frogsing常量</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>table</short-name>
+    <uri>http://www.frogsing.com/tags/jj</uri>
+    <tag-file>
+        <name>btn</name>
+        <path>/META-INF/tags/jj/btn.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>listbtn</name>
+        <path>/META-INF/tags/jj/listbtn.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>radio</name>
+        <path>/META-INF/tags/jj/radio.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>select</name>
+        <path>/META-INF/tags/jj/select.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>bizselect</name>
+        <path>/META-INF/tags/jj/bizselect.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>check</name>
+        <path>/META-INF/tags/jj/check.tag</path>
+    </tag-file>
+    <function>
+        <description>formatValue</description>
+        <name>weight</name>
+        <function-class>com.frogsing.parameter.utils.WeightUtils</function-class>
+        <function-signature> java.lang.String weight(java.lang.Double)</function-signature>
+        <example>obj:json()</example>
+    </function>
+</taglib>

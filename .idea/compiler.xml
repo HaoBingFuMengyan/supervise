@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin" />
+        <module name="doc" />
+        <module name="file-api" />
+        <module name="file-service" />
+        <module name="jiajia-erd-heart" />
+        <module name="log-api" />
+        <module name="log-service" />
+        <module name="operator-api" />
+        <module name="operator-service" />
+        <module name="parameter-api" />
+        <module name="parameter-service" />
+        <module name="project-api" />
+        <module name="project-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="doc" target="6" />
+      <module name="file-api" target="1.8" />
+      <module name="file-service" target="1.8" />
+      <module name="jiajia-erd-heart" target="1.8" />
+      <module name="jiajia-erd-server" target="1.5" />
+      <module name="log-api" target="1.8" />
+      <module name="log-service" target="1.8" />
+      <module name="operator-api" target="1.8" />
+      <module name="operator-service" target="1.8" />
+      <module name="parameter-api" target="1.8" />
+      <module name="parameter-service" target="1.8" />
+      <module name="parent" target="1.5" />
+      <module name="po" target="1.5" />
+      <module name="project-api" target="1.8" />
+      <module name="project-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

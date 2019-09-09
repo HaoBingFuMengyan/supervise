@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>frogsing常量</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>table</short-name>
+    <uri>http://www.frogsing.com/tags/table</uri>
+
+    <tag-file>
+        <name>addRow</name>
+        <path>/META-INF/tags/table/addRow.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>delRow</name>
+        <path>/META-INF/tags/table/delRow.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>editRow</name>
+        <path>/META-INF/tags/table/editRow.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>exportExcel</name>
+        <path>/META-INF/tags/table/exportExcel.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>importExcel</name>
+        <path>/META-INF/tags/table/importExcel.tag</path>
+    </tag-file>
+    <tag-file>
+        <name>sortColumn</name>
+        <path>/META-INF/tags/table/sortColumn.tag</path>
+    </tag-file>
+</taglib>

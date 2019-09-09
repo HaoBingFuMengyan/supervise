@@ -1,0 +1,1099 @@
+public enum _BuyerOrSeller {
+
+	BUYER
+
+	,SELLER
+
+;
+   public static _BuyerOrSeller enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return BUYER;
+    	case       1:
+    		return SELLER;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case BUYER:
+    		return       0;
+    	case SELLER:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _PaymentStatus {
+
+	NOTPAY
+
+	,PAID
+
+;
+   public static _PaymentStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return NOTPAY;
+    	case       1:
+    		return PAID;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case NOTPAY:
+    		return       0;
+    	case PAID:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _MarketType {
+
+	EXCHANGE
+
+	,MEMBER
+
+	,PROXY
+
+;
+   public static _MarketType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return EXCHANGE;
+    	case       1:
+    		return MEMBER;
+    	case       2:
+    		return PROXY;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case EXCHANGE:
+    		return       0;
+    	case MEMBER:
+    		return       1;
+    	case PROXY:
+    		return       2;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _OperatorOrAdmin {
+
+
+;
+   public static _OperatorOrAdmin enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ReceiveType {
+
+
+;
+   public static _ReceiveType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ResourceType {
+
+	INDENTURE
+
+	,MARGIN
+
+	,ALL
+
+;
+   public static _ResourceType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return INDENTURE;
+    	case       1:
+    		return MARGIN;
+    	case       2:
+    		return ALL;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case INDENTURE:
+    		return       0;
+    	case MARGIN:
+    		return       1;
+    	case ALL:
+    		return       2;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _CardType {
+
+
+;
+   public static _CardType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _Warranty {
+
+	NO
+
+	,YES
+
+	,UNKNOW
+
+;
+   public static _Warranty enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return NO;
+    	case       1:
+    		return YES;
+    	case       2:
+    		return UNKNOW;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case NO:
+    		return       0;
+    	case YES:
+    		return       1;
+    	case UNKNOW:
+    		return       2;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _RoleType {
+
+	SYSTEM
+
+	,MEMBER
+
+;
+   public static _RoleType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return SYSTEM;
+    	case       1:
+    		return MEMBER;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case SYSTEM:
+    		return       0;
+    	case MEMBER:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _DeliveryStatus {
+
+
+;
+   public static _DeliveryStatus enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _TaskType {
+
+
+;
+   public static _TaskType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _MemberType {
+
+	EXCHANGE
+
+	,MEMBER
+
+	,OTHER
+
+;
+   public static _MemberType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return EXCHANGE;
+    	case       1:
+    		return MEMBER;
+    	case       2:
+    		return OTHER;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case EXCHANGE:
+    		return       0;
+    	case MEMBER:
+    		return       1;
+    	case OTHER:
+    		return       2;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _InfoType {
+
+
+;
+   public static _InfoType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _FullOrBatch {
+
+	FULL
+
+	,BATCH
+
+;
+   public static _FullOrBatch enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return FULL;
+    	case       1:
+    		return BATCH;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case FULL:
+    		return       0;
+    	case BATCH:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _FundType {
+
+
+;
+   public static _FundType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _FeeType {
+
+
+;
+   public static _FeeType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ContractStatus {
+
+
+;
+   public static _ContractStatus enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _OutOrderType {
+
+	OPERATOR
+
+	,WAREHOUSE
+
+;
+   public static _OutOrderType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return OPERATOR;
+    	case       1:
+    		return WAREHOUSE;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case OPERATOR:
+    		return       0;
+    	case WAREHOUSE:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ModelType {
+
+	SELL
+
+	,BUY
+
+;
+   public static _ModelType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return SELL;
+    	case       1:
+    		return BUY;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case SELL:
+    		return       0;
+    	case BUY:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _PayType {
+
+
+;
+   public static _PayType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _MemberStatus {
+
+	WAIT
+
+	,CHECK
+
+	, REJECT
+
+	,NORMAL
+
+	,FLEEZE
+
+;
+   public static _MemberStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return WAIT;
+    	case       1:
+    		return CHECK;
+    	case       2:
+    		return  REJECT;
+    	case       3 :
+    		return NORMAL;
+    	case       4 :
+    		return FLEEZE;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case WAIT:
+    		return       0;
+    	case CHECK:
+    		return       1;
+    	case  REJECT:
+    		return       2;
+    	case NORMAL:
+    		return       3 ;
+    	case FLEEZE:
+    		return       4 ;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _BreachType {
+
+	A
+
+	,B
+
+	,C
+
+	,D
+
+;
+   public static _BreachType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return A;
+    	case       1:
+    		return B;
+    	case       2:
+    		return C;
+    	case       3:
+    		return D;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case A:
+    		return       0;
+    	case B:
+    		return       1;
+    	case C:
+    		return       2;
+    	case D:
+    		return       3;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _OrderStatus {
+
+	TALKING
+
+	,BUYEROK
+
+	,SELLEROK
+
+	,CANCEL
+
+;
+   public static _OrderStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return TALKING;
+    	case       1:
+    		return BUYEROK;
+    	case       2:
+    		return SELLEROK;
+    	case       3:
+    		return CANCEL;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case TALKING:
+    		return       0;
+    	case BUYEROK:
+    		return       1;
+    	case SELLEROK:
+    		return       2;
+    	case CANCEL:
+    		return       3;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _OutOrderStatus {
+
+	 WAIT
+
+	,FINISH
+
+;
+   public static _OutOrderStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return  WAIT;
+    	case       1:
+    		return FINISH;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case  WAIT:
+    		return       0;
+    	case FINISH:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ContractPlusStatus {
+
+	BUYEROK 
+
+	,SELLEROK
+
+	,BOTHOK" 
+
+	,BUYEROK  
+
+;
+   public static _ContractPlusStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return BUYEROK ;
+    	case       1:
+    		return SELLEROK;
+    	case       2:
+    		return BOTHOK" ;
+    	case       3:
+    		return BUYEROK  ;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case BUYEROK :
+    		return       0;
+    	case SELLEROK:
+    		return       1;
+    	case BOTHOK" :
+    		return       2;
+    	case BUYEROK  :
+    		return       3;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ResourceStatus {
+
+	
+
+	,
+
+	, CANCEL
+
+	, OVER
+
+;
+   public static _ResourceStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return ;
+    	case       1:
+    		return ;
+    	case       2:
+    		return  CANCEL;
+    	case       3:
+    		return  OVER;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case :
+    		return       0;
+    	case :
+    		return       1;
+    	case  CANCEL:
+    		return       2;
+    	case  OVER:
+    		return       3;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ExceptionStatus {
+
+	NEW
+
+	,NONE
+
+	,C
+
+	,D
+
+	,E
+
+	,F
+
+;
+   public static _ExceptionStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0 :
+    		return NEW;
+    	case       1 :
+    		return NONE;
+    	case       2:
+    		return C;
+    	case       3:
+    		return D;
+    	case       4:
+    		return E;
+    	case       5:
+    		return F;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case NEW:
+    		return       0 ;
+    	case NONE:
+    		return       1 ;
+    	case C:
+    		return       2;
+    	case D:
+    		return       3;
+    	case E:
+    		return       4;
+    	case F:
+    		return       5;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _RemindType {
+
+	 A
+
+	,B
+
+	, C
+
+	, D
+
+	,E
+
+	, F
+
+	,G
+
+;
+   public static _RemindType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return  A;
+    	case       1 :
+    		return B;
+    	case       2:
+    		return  C;
+    	case       3:
+    		return  D;
+    	case       4 :
+    		return E;
+    	case       5:
+    		return  F;
+    	case       6 :
+    		return G;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case  A:
+    		return       0;
+    	case B:
+    		return       1 ;
+    	case  C:
+    		return       2;
+    	case  D:
+    		return       3;
+    	case E:
+    		return       4 ;
+    	case  F:
+    		return       5;
+    	case G:
+    		return       6 ;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ApplyStatus {
+
+	NEW
+
+	,CHECK1
+
+	,CHECK2
+
+	, CHECKED
+
+	,REJECT
+
+;
+   public static _ApplyStatus enumOf(int i){
+    	switch(i)
+    	{
+    	case       0 :
+    		return NEW;
+    	case       1 :
+    		return CHECK1;
+    	case       2 :
+    		return CHECK2;
+    	case       10:
+    		return  CHECKED;
+    	case       11 :
+    		return REJECT;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case NEW:
+    		return       0 ;
+    	case CHECK1:
+    		return       1 ;
+    	case CHECK2:
+    		return       2 ;
+    	case  CHECKED:
+    		return       10;
+    	case REJECT:
+    		return       11 ;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ObjectType {
+
+	SALERESOURCE
+
+	,BUYRESOURCE
+
+	,FEE
+
+	,CONTRACT
+
+	,BREACH
+
+;
+   public static _ObjectType enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return SALERESOURCE;
+    	case       1:
+    		return BUYRESOURCE;
+    	case       2:
+    		return FEE;
+    	case       101:
+    		return CONTRACT;
+    	case       102:
+    		return BREACH;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case SALERESOURCE:
+    		return       0;
+    	case BUYRESOURCE:
+    		return       1;
+    	case FEE:
+    		return       2;
+    	case CONTRACT:
+    		return       101;
+    	case BREACH:
+    		return       102;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _PurType {
+
+
+;
+   public static _PurType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _RegMoneyType {
+
+
+;
+   public static _RegMoneyType enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ServiceArea {
+
+	a
+
+	,b
+
+	,c
+
+	,d
+
+;
+   public static _ServiceArea enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return a;
+    	case       1:
+    		return b;
+    	case       2:
+    		return c;
+    	case       3:
+    		return d;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case a:
+    		return       0;
+    	case b:
+    		return       1;
+    	case c:
+    		return       2;
+    	case d:
+    		return       3;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _Sex {
+
+	,男
+
+	,女
+
+;
+   public static _Sex enumOf(int i){
+    	switch(i)
+    	{
+    	case       0:
+    		return ,男;
+    	case       1:
+    		return 女;
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	case ,男:
+    		return       0;
+    	case 女:
+    		return       1;
+    	default:
+    		return -1;
+    	}
+    }
+}
+public enum _ExchangeStatus {
+
+
+;
+   public static _ExchangeStatus enumOf(int i){
+    	switch(i)
+    	{
+    	default:
+    		return null;
+    	}
+    }
+	public  int val(){
+    	switch(this)
+    	{
+    	default:
+    		return -1;
+    	}
+    }
+}

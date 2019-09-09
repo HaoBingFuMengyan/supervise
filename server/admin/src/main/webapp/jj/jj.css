@@ -1,0 +1,342 @@
+.top10{
+   margin-top: 10px;
+}
+#searchForm  .layui-input-inline{
+   width: 150px!important;
+}
+#searchForm  .layui-form-item{
+   margin-bottom: 0!important;
+   /*margin-top: 5px;
+   margin-left: 5px;*/
+}
+.pull-left{
+   margin-left: 5px;
+}
+.layui-table-body{
+   /*overflow-x: scroll;*/
+}
+.jj-main{
+   padding: 15px;
+}
+.jj-box {
+   padding: 20px;
+   border: 1px solid #eee;
+}
+#searchForm{
+   padding: 15px 0 0 0;
+   margin-bottom: -5px;
+}
+
+#searchForm .layui-input, #searchForm .layui-select, #searchForm .layui-textarea{
+   height: 30px!important;
+   line-height: 30px!important;
+}
+#searchForm .layui-form-label,#searchForm  .layui-form-mid,#searchForm  .layui-textarea {
+   line-height: 15px!important;
+   padding-left: 0!important;
+}
+#searchForm input[type="text"],input[type="password"],select {
+   height: 34px;
+   line-height: 30px;
+   border: 1px solid #d4d4d4;
+   color: #616161;
+   width: 150px;
+   vertical-align: middle;
+   color: #666666;
+   font-family:"Microsoft yahei", "微软雅黑";
+   padding: 1px 3px;
+}
+.layui-form-label{
+   /* font-size: 14px!important;*/
+   padding: 7px 15px;
+   width:100px;
+}
+.layui-btn-sm{
+   /* font-size: 14px!important;*/
+}
+.layui-table[lay-size=sm] th,.layui-table[lay-size=sm] td{
+   /*font-size: 14px!important;*/
+}
+.layui-btn-sm i {
+   font-size: 12px!important;
+}
+.layui-form-switch{
+   box-sizing: content-box;
+   margin-top: 6px;
+}
+.layui-main{
+   width: 98%;
+}
+.layui-form{
+   /*margin: 10px 5px -10px 5px;*/
+}
+.layui-layer-iframe .layui-layer-btn{
+   padding-bottom: 10px!important;
+}
+.layui-layer-title{
+   height: 35px;
+   line-height: 35px;
+}
+.layui-layer-setwin{
+   top:10px;
+}
+.layui-table-tool-temp .layui-table-tool-right{
+   float: right;
+}
+
+a.layui-abtn  {
+   cursor: pointer;
+   color: #3366cc;
+}
+
+a.layui-abtn:hover {
+   color: #3366cc;
+}
+
+.readonly{background-color:#F6F6F6;}
+
+
+
+
+/**
+详细页面样式扩展块
+ */
+.layui-info {
+   /* margin: 10px;*/
+}
+
+.layui-info .layui-form-item{
+   border-bottom: #eee 1px solid;
+   overflow: hidden;
+   margin-bottom: 0px;
+}
+
+.layui-info .layui-form-item:last-child{
+   border-bottom: #eee 0px solid;
+   margin-bottom: 0px;
+}
+
+.layui-info .layui-form-item .layui-inline{
+   width: 33%;
+   margin-right: 0;
+}
+.layui-info .layui-form-item .layui-inline .layui-form-label,
+.layui-info .layui-form-item .layui-block .layui-form-label{
+   padding: 6px 5px;
+}
+.layui-info .layui-form-item .layui-inline .layui-input-inline{
+   width: auto;!important;
+   padding: 6px 5px;
+   line-height: 20px;
+   text-align: left;
+   font-size: 13px;
+}
+.layui-info .layui-inline .layui-input-inline em{
+   color: red;
+}
+
+.layui-info .layui-form-item .layui-block{
+   width: 100%;
+   vertical-align: middle;
+   position: relative;
+}
+
+.layui-info .layui-form-item .layui-block .layui-input-block{
+   width: auto;!important;
+   padding: 6px 5px;
+   line-height: 20px;
+   text-align: left;
+   font-size: 12px;
+   margin-left: 0px;
+}
+
+
+.layui-layer-iframe .layui-layer-content{
+   padding: 0 15px;
+}
+
+
+
+/*提醒内容*/
+.mtip_msg {
+   /*width: 1002px;*/
+   margin: 4px auto;
+}
+
+.mtip_msg p {
+
+}
+
+.mtip_msg .error {
+   margin: 0;
+   BORDER-RIGHT: #ddd 1px solid;
+   PADDING-RIGHT: 10px;
+   BORDER-TOP: #ddd 1px solid;
+   PADDING-LEFT: 56px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 14px;
+   BACKGROUND: url(../common/images/msg_bg.png) no-repeat;
+   PADDING-BOTTOM: 17px;
+   BORDER-LEFT: #ddd 1px solid;
+   COLOR: #404040;
+   LINE-HEIGHT: 22px;
+   PADDING-TOP: 17px;
+   BORDER-BOTTOM: #ddd 1px solid
+}
+
+.mtip_msg .attention {
+   margin: 0;
+   BORDER-RIGHT: #ddd 1px solid;
+   PADDING-RIGHT: 10px;
+   BORDER-TOP: #ddd 1px solid;
+   PADDING-LEFT: 56px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 14px;
+   BACKGROUND: url(../common/images/msg_bg.png) no-repeat;
+   PADDING-BOTTOM: 17px;
+   BORDER-LEFT: #ddd 1px solid;
+   COLOR: #404040;
+   LINE-HEIGHT: 22px;
+   PADDING-TOP: 17px;
+   BORDER-BOTTOM: #ddd 1px solid
+}
+
+.mtip_msg .tips {
+   margin: 0;
+   BORDER-RIGHT: #ddd 1px solid;
+   PADDING-RIGHT: 10px;
+   BORDER-TOP: #ddd 1px solid;
+   PADDING-LEFT: 56px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 14px;
+   BACKGROUND: url(../common/images/msg_bg.png) no-repeat;
+   PADDING-BOTTOM: 17px;
+   BORDER-LEFT: #ddd 1px solid;
+   COLOR: #404040;
+   LINE-HEIGHT: 22px;
+   PADDING-TOP: 17px;
+   BORDER-BOTTOM: #ddd 1px solid
+}
+
+.mtip_msg .ok {
+   margin: 0;
+   BORDER-RIGHT: #ddd 1px solid;
+   PADDING-RIGHT: 10px;
+   BORDER-TOP: #ddd 1px solid;
+   PADDING-LEFT: 56px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 14px;
+   BACKGROUND: url(../common/images/msg_bg.png) no-repeat;
+   PADDING-BOTTOM: 17px;
+   BORDER-LEFT: #ddd 1px solid;
+   COLOR: #404040;
+   LINE-HEIGHT: 22px;
+   PADDING-TOP: 17px;
+   BORDER-BOTTOM: #ddd 1px solid
+}
+
+.mtip_msg .question {
+   margin: 0;
+   BORDER-RIGHT: #ddd 1px solid;
+   PADDING-RIGHT: 10px;
+   BORDER-TOP: #ddd 1px solid;
+   PADDING-LEFT: 56px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 14px;
+   BACKGROUND: url(../common/images/msg_bg.png) no-repeat;
+   PADDING-BOTTOM: 17px;
+   BORDER-LEFT: #ddd 1px solid;
+   COLOR: #404040;
+   LINE-HEIGHT: 22px;
+   PADDING-TOP: 17px;
+   BORDER-BOTTOM: #ddd 1px solid
+}
+
+.mtip_msg .error {
+   BACKGROUND-POSITION: 12px -388px;
+   BORDER-LEFT-COLOR: #ff8080;
+   BORDER-BOTTOM-COLOR: #ff8080;
+   BORDER-TOP-COLOR: #ff8080;
+   BACKGROUND-COLOR: #fff2f2;
+   BORDER-RIGHT-COLOR: #ff8080
+}
+
+.mtip_msg .attention {
+   BACKGROUND-POSITION: 12px -488px;
+   BORDER-LEFT-COLOR: #40b3ff;
+   BORDER-BOTTOM-COLOR: #40b3ff;
+   BORDER-TOP-COLOR: #40b3ff;
+   BACKGROUND-COLOR: #e5f5ff;
+   BORDER-RIGHT-COLOR: #40b3ff
+}
+
+.mtip_msg .tips {
+   BACKGROUND-POSITION: 15px -888px;
+   BORDER-LEFT-COLOR: #ffcc7f;
+   BORDER-BOTTOM-COLOR: #ffcc7f;
+   BORDER-TOP-COLOR: #ffcc7f;
+   BACKGROUND-COLOR: #ffffe5;
+   BORDER-RIGHT-COLOR: #ffcc7f
+}
+
+.mtip_msg .ok {
+   BACKGROUND-POSITION: 12px -988px;
+   BORDER-LEFT-COLOR: #4dbf00;
+   BORDER-BOTTOM-COLOR: #4dbf00;
+   BORDER-TOP-COLOR: #4dbf00;
+   BACKGROUND-COLOR: #f0ffe5;
+   BORDER-RIGHT-COLOR: #4dbf00
+}
+
+.mtip_msg .question {
+   BACKGROUND-POSITION: 12px -788px;
+   BORDER-LEFT-COLOR: #bfbfbf;
+   BORDER-BOTTOM-COLOR: #bfbfbf;
+   BORDER-TOP-COLOR: #bfbfbf;
+   BACKGROUND-COLOR: #f2f2f2;
+   BORDER-RIGHT-COLOR: #bfbfbf
+}
+
+.mtip_msg .naked {
+   BORDER-TOP-STYLE: none;
+   BORDER-RIGHT-STYLE: none;
+   BORDER-LEFT-STYLE: none;
+   BACKGROUND-COLOR: transparent;
+   BORDER-BOTTOM-STYLE: none
+}
+
+.mtip_msg .naked-tips {
+   BACKGROUND-POSITION: 15px -688px
+}
+
+.mtip_msg .naked-ok {
+   BACKGROUND-POSITION: 12px -588px
+}
+
+.mtip_msg:unknown {
+   CLEAR: both;
+   DISPLAY: block;
+   HEIGHT: 0px;
+   content: ' '
+}
+
+/*提醒关闭按钮*/
+.mtip_x {
+   margin: 5px 5px 0 0;
+   float: right;
+   height: 12px;
+   width: 12px;
+   background: url(../common/images/all-close-bg.gif) no-repeat 0px 0px;
+   position: relative;
+   cursor: pointer;
+}
+
+.mtip_x:hover {
+   background: url(../common/images/all-close-bg.gif) no-repeat 0px -20px;
+   cursor: pointer;
+}
+
+/*select层级问题*/
+.layui-form-selected dl{
+   z-index: 10000;
+}

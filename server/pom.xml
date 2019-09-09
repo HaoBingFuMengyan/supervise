@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+    <parent>
+		<groupId>com.frogsing</groupId>
+		<artifactId>parent</artifactId>
+		<version>jiajia-erd1.0-SNAPSHOT</version>
+		<relativePath>parent/</relativePath>
+	</parent>	
+	<artifactId>jiajia-erd-server</artifactId>
+	<name>frogsing :: jiajia-erd-server</name>
+	<packaging>pom</packaging>
+	<modules>
+		<module>heart</module>
+		<module>log/log-api</module>
+		<module>file/file-api</module>
+		<module>file/file-service</module>
+		<module>operator/operator-api</module>
+		<module>log/log-service</module>
+		<module>operator/operator-service</module>
+		<module>parameter/parameter-api</module>
+		<module>parameter/parameter-service</module>
+		<module>project/project-api</module>
+		<module>project/project-service</module>
+		<module>admin</module>
+	</modules>
+	<distributionManagement>
+		<repository>
+			<id>frogrepo</id>
+			<name>frogrepo</name>
+			<url>${pom.url}</url>
+		</repository>
+
+	</distributionManagement>
+</project>

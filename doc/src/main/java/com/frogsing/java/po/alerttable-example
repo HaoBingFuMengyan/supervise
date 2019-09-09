@@ -1,0 +1,14 @@
+ALTER TABLE hy_member
+ADD   sshortname           varchar2(50)    not null   default 0 ,
+ADD   srisklevel           varchar2(50)    not null   default 0 ,
+ADD   imemberlevel         int             not null   default 0 ; 
+要删除表中的列，请使用下列语法：
+
+ALTER TABLE table_name 
+DROP COLUMN column_name
+注释：某些数据库系统不允许这种在数据库表中删除列的方式 (DROP COLUMN column_name)。
+
+要改变表中列的数据类型，请使用下列语法：
+
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype
