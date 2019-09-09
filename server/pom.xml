@@ -16,6 +16,8 @@
 		<module>log/log-api</module>
 		<module>file/file-api</module>
 		<module>file/file-service</module>
+		<module>member/member-api</module>
+		<module>member/member-service</module>
 		<module>operator/operator-api</module>
 		<module>log/log-service</module>
 		<module>operator/operator-service</module>

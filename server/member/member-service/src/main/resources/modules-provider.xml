@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:util="http://www.springframework.org/schema/util"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        
+	http://www.springframework.org/schema/beans/spring-beans.xsd        
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://code.alibabatech.com/schema/dubbo        
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!--member相关服务 -->
+	<dubbo:service interface="com.frogsing.member.IActorRightService" ref="actorRightService" />
+	<dubbo:service interface="com.frogsing.member.IActorService" ref="actorService" />
+	<dubbo:service interface="com.frogsing.member.IAuthapplyService" ref="authapplyService" />
+	<dubbo:service interface="com.frogsing.member.IMemberService" ref="memberService" />
+	<dubbo:service interface="com.frogsing.member.IUserService" ref="userService" />
+	<dubbo:service interface="com.frogsing.member.IRightService" ref="rightService" />
+	<dubbo:service interface="com.frogsing.member.IMemberShopService" ref="memberShopService" />
+	<dubbo:service interface="com.frogsing.member.IInvoiceInfoService" ref="invoiceInfoService" />
+	<dubbo:service interface="com.frogsing.member.IPayAccountService" ref="payAccountService" />
+	<dubbo:service interface="com.frogsing.member.IMemberAddressService" ref="memberAddressService" />
+	<dubbo:service interface="com.frogsing.member.IMemberShopApplyService" ref="memberShopApplyService" />
+	<dubbo:service interface="com.frogsing.member.IFeedbackService" ref="feedbackService" />
+	<dubbo:service interface="com.frogsing.member.IShopProductService" ref="shopProductService" />
+	<dubbo:service interface="com.frogsing.member.IRelaResourceService" ref="relaResourceService" />
+	<dubbo:service interface="com.frogsing.member.IShopproductsourceService" ref="shopproductsourceService" />
+</beans>
