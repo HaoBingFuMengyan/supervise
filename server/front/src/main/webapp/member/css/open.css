@@ -1,0 +1,137 @@
+@charset "utf-8";
+/* CSS Document */
+body,p{
+	font-family:"Microsoft YaHei UI"!important;
+	font-weight:normal;
+	padding:0;
+	margin:0;
+	}
+a{
+	text-decoration:none;
+	}
+ul,li{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+ }
+.sqcon{
+	width:660px;
+	margin:0 auto;
+	border-top:1px dashed #d4d4d4;
+	padding:30px 0;
+	position:relative;
+}
+.diffwid{
+	width:726px;
+	margin-left:150px
+}
+.sqcon p{
+	position:absolute;
+	top:-16px;
+	left:-123px;
+	width:110px;
+	height:30px;
+	background:#0078bf;
+	color:#fff;
+	line-height:30px;
+	text-align:center;
+	font-size:14px;
+}
+.form_control::-webkit-input-placeholder {
+    color: #aab2bd;
+    font-size:12px;
+   }
+.form_control:-moz-placeholder {
+    color: #aab2bd;
+    font-size:12px;
+   }
+.form_control::-moz-placeholder {
+    color: #aab2bd;
+    font-size:12px;
+   }
+.form_control:-ms-input-placeholder {
+    color: #aab2bd;
+    font-size:12px;
+   }
+.comfir{
+	border:none!important;
+	background:#f29c39;
+	color:#fff;
+	text-align:center;
+	cursor:pointer;
+}
+.comfir:hover{
+	color:#fff!important;
+}
+.sqcon ul.kdxz{
+	padding-left:95px;
+}
+.sqcon ul.kdxz li{
+	color:#999;
+	font-size:12px;
+	line-height:30px;
+}
+.sqcon a.demo{
+	padding-left:30px;
+}
+.sqcon #demoimg{
+	position:absolute;
+	top:20px;
+	left:108px;
+	width:500px;
+	border:5px solid #ccc;
+	display:none;
+}
+.suc{
+	padding-top:60px;
+	position:relative;
+}
+.suc img.bingo{
+	position:absolute;
+	top: 66px;
+    left: 240px;
+}
+.suc h2{
+	color:#333;
+	font-size:22px;
+	height:40px;
+	line-height:40px;
+	margin:0;
+	font-weight:normal;
+	padding-left:315px
+}
+.suc p{
+	color:#999;
+	font-size:14px;
+	height:30px;
+	line-height:30px;
+	margin:0;
+	padding-left:315px
+}
+.suc p a{
+	color:#2a81e8;
+}
+.suc a.back{
+	width:110px;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	color:#2a81e8;
+	border:1px solid #2a81e8;
+	display:block;
+	margin-top:30px;
+	border-radius:18px;
+	font-size:14px;
+	margin-left:315px;
+}

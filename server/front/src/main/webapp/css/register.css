@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+body,p{
+	font-weight:normal;
+	padding:0;
+	margin:0;
+	}
+a{
+	text-decoration:none;
+	}
+ul,li{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+ }
+.logo_regi{
+	background: url(../images/headbg.jpg) repeat-x left bottom;
+	}
+.reg-con{
+	background: #050c21;
+	font-size: 14px;
+	color: #323232;
+	overflow: hidden;
+}
+.register{
+	height:600px;
+	padding-top: 120px;
+	box-sizing: border-box;
+	background: url(../images/login-bg2.jpg) no-repeat center;
+	background-size:100% 100%;
+	box-sizing: border-box;
+	}
+.reg .posi{
+	position:relative;
+	}
+.reg .reg_le{
+	position:absolute;
+	left:80px;
+	top:60px;
+	}
+.reg_le {
+	position: relative;
+	width: 485px;
+	float: left;
+	z-index: 1000;
+}
+.reg_le img{
+	width:100%;
+}
+.regBox {
+	width: 360px;
+	padding: 20px 36px;
+	margin: 0 auto;
+	box-shadow: 0 0 20px rgba(153, 153, 153, 0.5);
+	background: rgba(255, 255, 255, 0.8);
+	position: relative;
+	border-radius: 5px;
+	float: right;
+	margin-right: 80px;
+	}
+.regBox h2 {
+    font-weight: normal;
+    height:40px;
+    line-height:40px;
+    text-align:center;
+    font-size:24px;
+    color:#333;
+}
+.regBox h2.diffh {
+	margin-top: 0px;
+}
+.regBox p.fbdone{
+	padding-left: 109px;
+	font-size: 14px;
+	margin-top: -1px;
+}
+.regBox img.bingo{
+	position: absolute;
+	left: 68px;
+	top: 16px;
+}
+.regBox #message{
+	text-align: center;
+    font-size: 12px;
+    color: #ff0000;
+}
+.regBox .form {
+    padding: 15px 0 0 0;
+}
+.regBox .form .input_box {
+    margin-bottom: 20px;
+    position: relative;
+}
+.regBox .form .input_box #error{
+	color:#ff0000;
+	font-size:12px;
+	margin-top:10px;
+}
+.input_box input {
+    width: 360px;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 10px 0 35px;
+    border: 1px solid #bfbfbf;
+    background-color: #fff;
+}
+.input_box input.num{
+	width:252px;
+}
+.input_box input.yzm{
+	width:100px;
+	height: 36px;
+    line-height: 34px;
+    background:#317ee7;
+    color:#fff;
+    font-size:14px;
+    text-align:center;
+    display:inline-block;
+    cursor:pointer;
+    border:none;
+    padding:0;
+}
+.regBox .input_box i{
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    background-position: 0 -19px;
+	color:#999;
+	font-size:18px;
+}
+.regBox .form .btns {
+    width: 360px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 0;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #c7181e;
+    background-color: #c7181e;
+}
+.regBox .form .link {
+    overflow: hidden;
+    margin-top: 20px;
+}
+.regBox .form .link a.le{
+	float:left;
+	color: #3a83e8;
+	font-size:12px;
+	}
+.regBox .form .link a.rg{
+	float:right;
+	color: #3a83e8;
+	font-size:12px;
+	}
+.regBox .form .link label{
+	color:#999;
+	font-size:12px;
+}
+.regBox .form .link label a{
+	color:#3a83e8;
+	font-size:12px;
+}
+.regBox .form .qustion {
+	 margin-top:42px;
+	 text-align:center;
+	}
+.regBox .form .diffques{
+	position:absolute;
+	bottom:60px;
+	left:188px;
+}
+.regBox .form .qustion p{
+	font-size:12px;
+	color:#999;
+	}
+.alert-danger{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+}
+label.error {
+	display:block;
+	margin-top:5px;
+}

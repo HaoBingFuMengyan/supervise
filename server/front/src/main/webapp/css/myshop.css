@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.supermarket-more {
+    width: 885px;
+}
+.supermarket-content {
+    width: 626px;
+}
+.order-tb thead th.maij{
+	display:none;
+}
+.order-tb tbody tr td.diff_mj{
+	display:none;
+}
+.order-tb thead th.cangk{
+	width:140px;
+}
+.supermarket-more{
+	margin-top:0;
+}

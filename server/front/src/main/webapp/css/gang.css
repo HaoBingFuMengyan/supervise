@@ -1,0 +1,89 @@
+.layout-tag {
+	display: none
+}
+
+.design-main .layout-box-fluid,.design-main .x-layout-fluid {
+	min-width: 1194px
+}
+
+.design-main .mobile .layout-box-fluid,.design-main .mobile .x-layout-fluid {
+	min-width: auto
+}
+
+.design-main .mobile .layout-box-hover,.design-main .mobile .layout-box-selected,.design-main .mobile .layout-can-insert {
+	outline: none
+}
+
+.design-main .layout-tag {
+	display: block;
+	position: absolute;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	top: 20px;
+	width: 100%;
+	color: #999
+}
+
+.x-layout {
+	margin-bottom: 10px
+}
+
+.x-layout:last-child {
+	margin-bottom: 0
+}
+
+.layout-box-fluid,.x-layout-fluid {
+	width: 100%
+}
+
+.layout-box-full,.x-layout-full {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.layout-box-full .x-box,.x-layout-full .x-box {
+	max-width: 1190px;
+	margin: 0 auto
+}
+
+.w-1190 .layout-box-fluid,.w-1190 .x-layout-fluid {
+	width: 100%;
+	min-width: 1194px
+}
+
+.w-1200 {
+	min-width: 1200px
+}
+
+.w-1200 .layout-box-full .x-box,.w-1200 .x-layout-full .x-box {
+	max-width: 1200px;
+	margin: 0 auto
+}
+
+.design-main .w-1200 .layout-box-fluid,.design-main .w-1200 .x-layout-fluid {
+	min-width: 1204px
+}
+
+.design-main .w-1200 .layout-box-full,.design-main .w-1200 .x-layout-full {
+	width: 1210px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.x-layout-col2 {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.x-layout-col2 .x-box-float {
+	float: left
+}
+
+.x-layout-col2 .x-layout-container {
+	max-width: 1190px;
+	margin: 0 auto
+}

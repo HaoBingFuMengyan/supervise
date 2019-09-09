@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/WEB-INF/layouts/">
+	<excludes>
+		<pattern>/static/*</pattern>
+		<pattern>/api/*</pattern>
+		<pattern>*/css/*</pattern>
+		<pattern>*/images/*</pattern>
+		<pattern>*/ajax/*</pattern>
+		<pattern>*/up/*</pattern>
+	</excludes>
+	<!-- 默认装饰页面, 在需要装饰的页面增加<meta name="decorator" content="default"/> -->
+
+	<decorator name="blank" page="blank.jsp" />
+	<decorator name="none" page="none.jsp" />
+	<decorator name="jj" page="jj.jsp" />
+	<decorator name="iframe" page="iframe.jsp" />
+	<decorator name="center" page="_office.jsp" >
+		<pattern>*.shtml</pattern>
+	</decorator>
+	<decorator name="default" page="default.jsp" >
+		<pattern>*.html</pattern>
+	</decorator>
+	<decorator name="no" >
+	  <pattern>*/template.shtml</pattern>
+      <pattern>*/newslist.html</pattern>
+      <pattern>*/print.shtml</pattern>
+      <pattern>*/passexcel.shtml</pattern>
+      <pattern>*/notpassexcel.shtml</pattern>
+    </decorator>
+</decorators>

@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+body,p{
+	font: 14px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
+	font-weight:normal;
+	padding:0;
+	margin:0;
+	font-size:14px;
+	}
+a{
+	text-decoration:none;
+	}
+ul,li{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+ }
+.nav_btn .map_con_wrap{
+	display:none;
+	}
+#container {
+    background-color: #fff;
+	height:auto;
+}
+.wid{
+	width:1200px;
+	margin:0 auto;
+	height:auto;
+	}
+#content {
+    padding-left: 212px;
+    display: block;
+	height:auto;
+}
+#menu {
+    float: left;
+    width: 212px;
+    position: relative;
+    left: -212px;
+	background:#f8f8f8;
+	height:auto;
+	min-height:540px;
+	padding-bottom: 30px;
+}
+#main {
+    float: left;
+    width: 99.9%;
+    margin-left: -212px;
+    overflow: hidden;
+	height:auto;
+	min-height:620px;
+	padding-bottom:60px;
+}
+#menu .admin_tit{
+	width:190px;
+	heigh:32px;
+	line-height: 32px;
+	text-align: center;
+	color:#666;
+	font-size: 14px;
+	margin:0 auto;
+	margin-top: 10px;
+	background:#eeeeee;
+	-moz-box-shadow:2px 2px 5px #999 inset;               /* For Firefox3.6+ */
+	-webkit-box-shadow:2px 2px 5px #999 inset;            /* For Chrome5+, Safari5+ */
+	box-shadow:2px 2px 5px #999 inset;                    /* For Latest Opera */
+}
+#menu ul.mainlist{
+	padding-top:20px;
+	}
+#menu ul.mainlist li{
+	color:#333;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	position:relative;
+	padding-left:15px;
+	}
+#menu ul.mainlist li:hover{
+	cursor:pointer;
+	}
+#menu ul.mainlist li span.icon{
+	color:#999;
+	font-size:18px;
+	margin-right:6px;
+	font-weight:normal!important;
+	}
+#menu ul.mainlist li i{
+	position:absolute;
+	top:1px;
+	right:10px;
+	color:#999;
+	font-size:14px;
+	cursor:pointer;
+	}
+#menu ul.mainlist li ul{
+	display:none;
+	}
+#menu ul.mainlist li ul li{
+	color:#666;
+	font-size:14px;
+	padding-left:30px;
+	height:30px;
+	line-height:30px;
+	}
+#menu ul.mainlist li ul li a{
+	color:#333;
+	display:block;
+	font-weight: normal;
+	}
+#menu ul.mainlist li ul li a.cur,#menu ul.mainlist li ul li a.cur span{
+	color:#ff0000;
+}
+#menu ul.mainlist li ul li a:hover{
+	color:#ff0000;
+	}
+#menu ul.mainlist li ul li a:hover .icon{
+	color:#ff0000;
+	}
+#main .main_con{
+	padding:10px 5px 0 12px;
+	}
+.main_con .tit{
+	height:38px;
+	line-height:38px;
+	background:#f5f5f5;
+	color:#0078bf;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:10px;
+	margin-bottom:30px;
+	}
+.layui-radi{
+	border-radius: 50%!important;
+}
+#menu .mainlist .mark{
+	height: 18px;
+	line-height: 18px;
+	position: absolute;
+	width: 18px;
+	padding: 0!important;
+	margin-left: 1px!important;
+	top: 0px;
+}
