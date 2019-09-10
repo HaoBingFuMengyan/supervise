@@ -3,146 +3,95 @@
 <%@ include file="/include/taglib.jsp" %>
 <link rel="stylesheet" href="${ctx}/font/iconfont.css"/>
 <script type="text/javascript">
-    $().ready(function () {
-        $.post("${ctx}/zy/cart/cartcount.json",{},function(result){
-            $("#addcart").html(result.obj);
-        });
-    });
+    $(function(){
+        $(".has-login").click(function(){
+            if($(this).hasClass('open')){
+                $(this).unbind('focus');
+                $(this).removeClass('open');
+                $(this).find('img.icon').attr('src','${ctx}/images/menber-open-black.png');
+                $(this).find('ul').animate({"max-height":0},500);
+                $(this).find('ul').css({"border":"none"})
+            }
+            else{
+                $(this).focus();
+                $(this).addClass('open');
+                $(this).find('img.icon').attr('src','${ctx}/images/menber-close-black.png');
+                $(this).find('ul').animate({"max-height":"200px"},500);
+                $(this).find('ul').css({"border":"1px solid #d9d9d9"})
+            }
+        })
+        $(".has-login").blur(function(){
+            if($(this).hasClass('open')){
+                $(this).unbind('focus');
+                $(this).removeClass('open');
+                $(this).find('img.icon').attr('src','${ctx}/images/menber-open-black.png');
+                $(this).find('ul').animate({"max-height":0},500);
+                $(this).find('ul').css({"border":"none"})
+            }
+        })
+        $(".membertype").click(function(){
+            if($(this).hasClass('open')){
+                $(this).unbind('focus');
+                $(this).removeClass('open');
+                $(this).parents('.admin-nav-btn').find('ul').animate({"max-height":0},500);
+                $(this).parents('.admin-nav-btn').find('ul').css({"border":"none"})
+            }
+            else{
+                $(this).focus();
+                $(this).addClass('open');
+                $(this).parents('.admin-nav-btn').find('ul').animate({"max-height":"200px"},500);
+                $(this).parents('.admin-nav-btn').find('ul').css({"border":"1px solid #d9d9d9"})
+            }
+        })
+        $(".membertype").blur(function(){
+            if($(this).hasClass('open')){
+                $(this).removeClass('open');
+                $(this).parents('.admin-nav-btn').find('ul').animate({"max-height":0},500);
+                $(this).parents('.admin-nav-btn').find('ul').css({"border":"none"})
+            }
+        })
+    })
 </script>
-<c:if test="${mw:user().membertype eq 1}">
-    <div class="layout-top" style="background: #fff">
-        <!-----------------------------------------顶部-------------->
-        <header style="clear:both;width:100%;height:30px;line-height:30px;background:#F1F1F1;">
-            <div class="header-box">
-                <ul class="header-left">
-                    <shiro:notAuthenticated>
-                        <li class="denglu"><a href="${ctx}/login.html">您好，请登录</a> <a href="${ctx}/register.html"
-                                                                                     class="red">免费注册</a></li>
-                    </shiro:notAuthenticated>
-                    <shiro:authenticated>
-                    <li class="denglu">您好，<a href="${ctx}/index.shtml" class="red"><shiro:principal
-                            property="memberName"/> <c:set var="user" value="${mw:user()}"/>
-                            ${ (empty mw:user().name)?mw:user().loginName: mw:user().name}
-                        </font></a><a href="${ctx}/logout.html">,退出</a>
-                        </shiro:authenticated>
-                </ul>
-                    <li class="shouji bj">
-                        <a href="#">Android客户端</a>
-                        <i class="ci-right ">
-                            <s class="jt">◇</s>
-                        </i>
-                        <div class="shouji1">
-                            <img src="${ctx}/images/page/androia1.png" class="shouji4">
-                            <div class="shouji2">
-                                <p style="margin-top:10px;">Android客户端</p>
-                                <p class="red">煤亮子商城</p>
-                                <img src="${ctx}/images/page/333.jpg" class="shouji3">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="shouji bj">
-                        <a href="#">IOS客户端</a>
-                        <i class="ci-right ">
-                            <s class="jt">◇</s>
-                        </i>
-                        <div class="shouji1">
-                            <img src="${ctx}/images/page/ios1.jpg" class="shouji4">
-                            <div class="shouji2">
-                                <p style="margin-top:10px;">IOS客户端</p>
-                                <p class="red">煤亮子商城</p>
-                                <img src="${ctx}/images/page/ios-icon.jpg" class="shouji3">
-                            </div>
-                        </div>
-                    </li>
-                    <li class="shu"></li>
-                    <li class="denglu"><a href="${ctx}/index.shtml">会员中心</a></li>
-                </ul>
-            </div>
-        </header>
-        <div class="w clearfix">
-                <%--<shiro:notAuthenticated>--%>
-                <%--<div class="right">--%>
-                <%--<i class="gw-left icon icon-wsmp-payuser"></i>--%>
-                <%--<a href="${ctx}/login.html">登录</a>／<a href="${ctx}/register.html">注册</a>--%>
-                <%--</div>--%>
-                <%--</shiro:notAuthenticated>--%>
-                <%--<shiro:authenticated>--%>
-                <%--<div class="right" style="width:54px;padding: 0 28px 0 40px;">--%>
-                <%--<i class="gw-left icon icon-wsmp-payuser"></i>--%>
-                <%--<a href="${ctx}/logout.html">退出账户</a>--%>
-                <%--</div>--%>
-                <%--</shiro:authenticated>--%>
-        </div>
-
-        <div class="clear"></div>
-        <!--轮播图上方导航栏  一栏-->
-        <div id="navv">
-            <div class="nav-img" style="background:url(${ctx}/images/page/568a1258N2edec1ab.jpg) repeat-x"></div>
-            <div class="nav-imgs"
-                 style="background:url(${ctx}/images/page/568a0a8eNe8f4df82.jpg) no-repeat center top"></div>
-        </div>
-
-    </div>
-</c:if>
-<c:if test="${mw:user().membertype eq 2}">
-    <div class="header">
-        <div class="topbar">
-            <div class="topLogo">
-                <div class="logo-gly">
-                    <div class="gly-img">
-                        <a href="${ctx}/index.html"><img height="50" src="${ctx }/of/images/frontlogo2.png" border="0"
-                                                         style="margin-top: 5px;"/></a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="frontright">
-                <ul>
-                    <li>
-                        <a href="${ctx}/index.shtml" class="red"><shiro:principal property="memberName"/> <c:set
-                                var="user" value="${mw:user()}"/>
-                                ${ (empty mw:user().name)?mw:user().loginName: mw:user().name}
-                            </font>,</a>
-                        <a href="${ctx}/logout.html" style="margin-left:5px;">退出</a></li>
-                </ul>
-            </div>
-            <div class="center_dh">
-                <ul>
-                    <li style="width:80px;"><a style="width:80px;" href="${ctx}/index.html" target="_blank">煤亮子商城</a>
-                    </li>
-                </ul>
-            </div>
-
-
-        </div>
-    </div>
-</c:if>
-<c:if test="${mw:user().membertype eq 3}">
-    <div class="header">
-        <div class="topbar">
-            <div class="topLogo" >
-                <div class="logo-gly">
-                    <div class="gly-img">
-                        <a href="${ctx}/index.html"><img height="50" src="${ctx }/of/images/frontlogo2.png" border="0"
-                                                         style="margin-top: 5px;"/></a>
-                    </div>
+<div class="header">
+    <div class="topbar">
+        <div class="topLogo">
+            <div class="logo-gly">
+                <div class="gly-img">
+                    <a href="${ctx}/index.html"><img src="${ctx }/images/logo.png" border="0" style="margin-left: 10px;"/></a>
                 </div>
             </div>
-            <div class="frontright" >
-                <ul>
-                    <li>
-                        <a href="${ctx}/index.shtml" class="red"><shiro:principal property="memberName"/> <c:set
-                                var="user" value="${mw:user()}"/>
-                                ${ (empty mw:user().name)?mw:user().loginName: mw:user().name}
-                            </font>,</a>
-                        <a href="${ctx}/logout.html" style="margin-left:5px;">退出</a></li>
-                </ul>
-            </div>
-            <div class="center_dh" style="width: 884px;">
-                <ul>
-                    <li style="width:auto;">煤亮子平台金融机构工作台</li>
-                </ul>
-            </div>
+
         </div>
+        <div class="nav-btn">
+            <div class="has-login" tabindex="1">
+                <img id="memberlogo" width="28" width="28" src="${ctx}/images/personimg.png" />
+                <span>001</span>
+                <img class="icon" src="${ctx}/images/menber-open-black.png">
+                <ul>
+                    <li><a href="${ctx}/index.shtml">管理中心</a></li>
+                    <li><a href="${ctx}/user/modify.shtml">账户设置</a></li>
+                    <li><a href="${ctx}/logout.html">退出登入</a></li>
+                </ul>
+            </div>
+            <a class="imformations" href="${ctx}/message/list.shtml?search_eq_bisread=0"><i class="icon icon-xinxi1"></i><label id="countUnRead">(0)</label></a>
+        </div>
+
+            <div class="admin-nav-btn">
+                <a class="btn membertype" tabindex="1">提交/参与<i class="icon icon-xia2"></i></a>
+                <ul class="clearfix">
+                    <li>
+                        <a href="${ctx}/projectinformation/add.shtml">提交情报</a>
+                    </li>
+                    <li>
+                        <a href="${ctx}/projectloophole/add.shtml">提交漏洞</a>
+                    </li>
+                    <li>
+                        <a href="${ctx}/memberarticle/list.shtml?add=1">提交资讯</a>
+                    </li>
+                    <li>
+                        <a href="${ctx}/reward.html">参与悬赏</a>
+                    </li>
+                </ul>
+            </div>
     </div>
-</c:if>
+</div>

@@ -59,6 +59,39 @@
                 if (typeof close_TipDiv != "undefined")
                     close_TipDiv('closeTipID', 'tipDivID');
             });
+
+            var o = $.cookie('_openmenu') || {};
+            for (var i in o) {
+                if (o[i]) {
+                    if ($(this).attr("data-flag") == "close") {
+                        $(this).attr("data-flag", "open");
+                        $(this).find("i").html("&#xe636;");
+                        $(this).parent().find("div.left_middle").show();
+                    }
+                }
+            }
+
+            $("#leftbar").find("div.menu").find("div.trade").click(function () {
+                var o = {};
+                try {
+                    o = JSON.parse($.cookie('_openmenu'));
+                } catch (e) {
+                }
+
+                if ($(this).attr("data-flag") == "close") {
+                    o[$(this).text().trim()] = 1;
+                    $(this).attr("data-flag", "open");
+
+                    $(this).find("i").html("&#xe636;");
+                    $(this).parent().find("div.left_middle").show(600);
+                } else {
+                    o[$(this).text().trim()] = 0;
+                    $(this).attr("data-flag", "close");
+                    $(this).find("i").html("&#xe626;");
+                    $(this).parent().find("div.left_middle").hide(600);
+                }
+                $.cookie('_openmenu', JSON.stringify(o));
+            });
         })
     </script>
     <sitemesh:head></sitemesh:head>
@@ -82,11 +115,11 @@
         <!-- 左边菜单分类导航开始 -->
         <div id="leftbar">
             <div class="menu" style="border-bottom:none;">
-                <div class="trade" data-flag="close">
-                    <span class="icon icon-ren"></span><strong>会员信息</strong><i class="icon fr">&#xe626;</i>
+                <div class="trade" data-flag="open">
+                    <span class="icon icon-ren"></span><strong>会员信息</strong><i class="icon fr">&#xe636;</i>
                 </div>
 
-                <div class="left_middle none">
+                <div class="left_middle">
                     <ul>
                         <li>
                             <i></i>
