@@ -64,21 +64,6 @@ public class OfficeAction {
     }
 
     /**
-     * 发布产品
-     * @param model
-     * @param request
-     * @return
-     */
-    /*@RequestMapping(value = "issue.shtml", method = RequestMethod.GET)
-	public String issue(Model model,HttpServletRequest request) {
-		return "of/issue";
-	}*/
-	/*@RequestMapping(value = "issuetwo.shtml", method = RequestMethod.GET)
-	public String issuetwo(Model model,HttpServletRequest request) {
-		return "of/issuetwo";
-	}*/
-
-    /**
      * 修改登陆密码
      *
      * @param model
@@ -129,22 +114,6 @@ public class OfficeAction {
         return "of/collect";
     }
 
-    @RequestMapping(value = "order.shtml", method = RequestMethod.GET)
-    public String order(Model model, HttpServletRequest request) {
-        return "contract/contract-buylist";
-    }
 
-    @RequestMapping(value = "recharge.shtml", method = RequestMethod.GET)
-    public String recharge(Model model, HttpServletRequest request) {
-        return "of/recharge";
-    }
-	/*@RequestMapping(value = "getSaleNum.json", method = RequestMethod.GET)
-	public String getSaleNum(Model model,HttpServletRequest request) {
-		return "contract/contract-buylist";
-	}*/
-	/*@RequestMapping(value = "balance.shtml", method = RequestMethod.GET)
-	public String balance(Model model,HttpServletRequest request) {
-		return "of/balance";
-	}*/
 
 }
