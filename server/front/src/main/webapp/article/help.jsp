@@ -9,7 +9,7 @@
     <title>煤亮子(www.meiliangzi.cn)-帮助中心</title>
 	<meta name="keywords" content="煤亮子,煤亮子商城"/>
 	<meta name="description" content="煤亮子商城(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
-	<link type="image/x-icon" href="${ctx}/title/favicon.ico" rel="shortcut icon">
+	<link type="image/x-icon" href="${ctx}/title/favicon.png" rel="shortcut icon">
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/css/common.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="${ctx}/font/iconfont.css">

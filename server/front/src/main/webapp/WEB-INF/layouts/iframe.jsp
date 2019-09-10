@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title><sitemesh:title/></title>
-	<link type="image/x-icon" href="${ctx}/title/favicon.ico" rel="shortcut icon">
+	<link type="image/x-icon" href="${ctx}/title/favicon.png" rel="shortcut icon">
     <link href="${ctx}/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/common.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="${ctx}/font/iconfont.css"/>

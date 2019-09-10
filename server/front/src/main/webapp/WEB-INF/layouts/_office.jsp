@@ -14,12 +14,12 @@
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="pragma" content="no-cache"/>
     <title>会员中心-煤亮子</title>
-    <link type="image/x-icon" href="${ctx}/images/favicon.ico" rel="shortcut icon">
+    <link type="image/x-icon" href="${ctx}/images/favicon.png" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="${ctx }/of/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx }/of/icon/iconfont.css"/>
     <link href="${ctx}/of/css/centercss.css" rel="stylesheet" type="text/css"/>
     <link href="${ctx}/css/main.css" rel="stylesheet" type="text/css"/>
-    <link type="image/x-icon" href="${ctx}/images/favicon.ico" rel="shortcut icon"/>
+    <link type="image/x-icon" href="${ctx}/images/favicon.png" rel="shortcut icon"/>
     <link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet"/>
     <link href="${ctxStatic}/bigautocomplete/jquery.bigautocomplete.css" rel="stylesheet" type="text/css">
     <link href="${ctxStatic}/jj/jj.css?v=1" rel="stylesheet" type="text/css"/>
