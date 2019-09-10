@@ -123,7 +123,7 @@
                     <ul>
                         <li>
                             <i></i>
-                            <a href="${ctx}/hy/member/authapply.shtml"><i class="icon icon-guanli"></i>会员认证</a></li>
+                            <a href="${ctx}/hy/member/authapply.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
 
                         <li>
                             <i></i>
