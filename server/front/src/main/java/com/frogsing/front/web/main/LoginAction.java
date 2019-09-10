@@ -9,6 +9,8 @@ import com.frogsing.heart.utils.T;
 import com.frogsing.member.IMemberService;
 import com.frogsing.member.IUserService;
 import com.frogsing.member.po.User;
+import com.frogsing.member.service.MemberService;
+import com.frogsing.member.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +34,10 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginAction {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Autowired
-    private IMemberService memberService;
+    private MemberService memberService;
 
     @RequestMapping(value = "login.html", method = RequestMethod.GET)
     public String login(Model model) {
