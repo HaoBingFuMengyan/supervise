@@ -19,19 +19,19 @@ import java.util.Map;
 @RequestMapping(value = "/dt/role")
 public class RoleController extends BaseController<Role, Role> {
 
-	@Autowired
-	QueryService queryService;
+    @Autowired
+    QueryService queryService;
 
-	@RequestMapping(value = "list.shtml")
-	protected String dolist(
-			@RequestParam(value = "start", defaultValue = "0") int start,
-			@RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
-			@RequestParam(value = "sort", defaultValue = "") String sort,Model model,
-			ServletRequest request) {
-		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
-		Pageable page = PageUtils.page(start, limit, sort);
-		model.addAttribute("list",queryService.listPage(Role.class,page,searchParams));
-		return "/operator/role-list";
-	}
+    @RequestMapping(value = "list.shtml")
+    protected String dolist(
+            @RequestParam(value = "start", defaultValue = "0") int start,
+            @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
+            @RequestParam(value = "sort", defaultValue = "") String sort, Model model,
+            ServletRequest request) {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
+        Pageable page = PageUtils.page(start, limit, sort);
+        model.addAttribute("list", queryService.listPage(Role.class, page, searchParams));
+        return "/operator/role-list";
+    }
 
 }
