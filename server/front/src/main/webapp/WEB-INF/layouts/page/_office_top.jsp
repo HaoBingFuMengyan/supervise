@@ -1,6 +1,6 @@
+<%@ taglib prefix="mw" uri="http://www.frogsing.com/tags/frogsing" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/include/taglib.jsp" %>
-<%@ taglib prefix="layout" uri="http://www.frogsing.com/tags/layout" %>
 <link rel="stylesheet" href="${ctx}/font/iconfont.css"/>
 <script type="text/javascript">
     $().ready(function () {
@@ -26,33 +26,6 @@
                         </font></a><a href="${ctx}/logout.html">,退出</a>
                         </shiro:authenticated>
                 </ul>
-                <ul class="header-right">
-                        <%--  <li class="shu"></li>
-                          <li class="shouji bj">
-                              <a href="#">手机煤亮子</a>
-                              <i class="ci-right ">
-                                  <s class="jt">◇</s>
-                              </i>
-                              <div class="shouji1">
-                                  <img src="${ctx}/images/page/11.jpg"class="shouji4">
-                              </div>
-                          </li>
-                          <li class="shu"></li>
-                          <li class="kehu bj">
-                              <a href="#">客户服务</a>
-                              <i class="ci-right ">
-                                  <s class="jt">◇</s>
-                              </i>
-                              <div class="kehu1">
-                                  <h3 class="neirong2">客户</h3>
-                                  <ul class="kehu2">
-                                      <li><a href="">帮助中心</a></li>
-                                      <li><a href="">售后服务</a></li>
-                                      <li><a href="">在线客服</a></li>
-                                      <li><a href="">客服邮箱</a></li>
-                                  </ul>
-                              </div>--%>
-                    </li>
                     <li class="shouji bj">
                         <a href="#">Android客户端</a>
                         <i class="ci-right ">
@@ -125,32 +98,7 @@
             <div class="nav-imgs"
                  style="background:url(${ctx}/images/page/568a0a8eNe8f4df82.jpg) no-repeat center top"></div>
         </div>
-        <div class="focus">
-            <div class="focus-a">
-                <div class="fouc-img1"><img src="${ctx}/images/page/5689d4ebN19f155a6.jpg" class="nav-img2"></div>
-                <div class="fouc-font"><a href="">全部商品分类</a></div>
-            </div>
-            <div class="focus-b">
-                <ul>
-                    <layout:text key="head_top"></layout:text>
-                        <%--<li><a href="http://www.meiliangzi.cn" target="_blank">首页</a></li>--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/operate" target="_blank">生产运营</a></li>--%>
-                        <%--<li><a href="${ctx}/index.html">设备物资</a></li>--%>
-                        <%--&lt;%&ndash;<li><a href="${ctx}/goods_stock.html">资源专区</a></li>&ndash;%&gt;--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/professional" target="_blank">专业技术</a></li>--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/cultivate" target="_blank">人力资源</a></li>--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/finance" target="_blank">金融服务</a></li>--%>
-                        <%--<li><a href="http://www.snincubator.cn" target="_blank">科技孵化</a></li>--%>
-                        <%--<li><a href="http://meiliangzi.zlw.net/vipcenter/vip/index.html" target="_blank">电子招标</a></li>--%>
-                        <%--&lt;%&ndash;<li><a href="http://www.meiliangzi.cn/meeting2" target="_blank">在线诊断</a></li>&ndash;%&gt;--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/requirement" target="_blank">信息集市</a></li>--%>
-                        <%--<li><a href="http://www.meiliangzi.cn/news" target="_blank">行业资讯</a></li>--%>
-                </ul>
-            </div>
-            <div class="focus-d"><a href=""><img src="${ctx}/images/page/nianhuo.jpg"></a></div>
-            <!--轮播图左边当行蓝-->
-            <div class="bb"></div>
-        </div>
+
     </div>
 </c:if>
 <c:if test="${mw:user().membertype eq 2}">

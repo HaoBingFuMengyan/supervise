@@ -48,11 +48,6 @@ public class OfficeAction {
         User user = userService.fetchUser(u.getId());
         model.addAttribute("user", user);
         Member member = queryService.fetchOne(Member.class, u.getMemberId());
-        if (Consts.BoolType.YES.isEq(member.getBisopenshop())) {
-            MemberShop memberShop = queryService.findOneByProperty(MemberShop.class, MEMBERCol.hy_membershop.smemberid, member.getId());
-            model.addAttribute("membershop", memberShop);
-        }
-
 
         return "of/member_index";
 
