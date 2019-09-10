@@ -60,16 +60,6 @@
             </div>
         </header>
         <div class="w clearfix">
-            <div class="logo"><a href="${ctx}/index.html"><img src="${ctx}/images/logo-zi.png"></a></div>
-            <div class="search">
-                <input type="text" placeholder="请输入关键词" class="text" id="textt">
-                <input type="button" class="button" value="搜索"/>
-            </div>
-            <div class="right" style="width:48px;padding: 0 28px 0 40px;color:#f10214">
-                <i class="gw-left icon icon-gouwuche3"></i>
-                <a href="${ctx}/zy/cart/addcart.shtml">购物车</a>
-                <span id="addcart">0</span>
-            </div>
                 <%--<shiro:notAuthenticated>--%>
                 <%--<div class="right">--%>
                 <%--<i class="gw-left icon icon-wsmp-payuser"></i>--%>
@@ -82,13 +72,6 @@
                 <%--<a href="${ctx}/logout.html">退出账户</a>--%>
                 <%--</div>--%>
                 <%--</shiro:authenticated>--%>
-            <div class="hotwords">
-                <a href="#" class="red">采煤机配件</a>
-                <a href="#">输送机配件</a>
-                <a href="#">轴承</a>
-                <a href="#">矿用特种车</a>
-                <a href="#">皮带机配件</a>
-            </div>
         </div>
 
         <div class="clear"></div>
