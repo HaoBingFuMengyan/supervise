@@ -54,6 +54,7 @@ public class UserService implements IUserService {
 
     @Autowired
     private ActorDao actorDao;
+
     @Autowired
     private ActorService actorService;
 

@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator" %>
-<%@ taglib prefix="layout" uri="http://www.frogsing.com/tags/layout" %>
 <link href="${ctx}/css/page.css" type="text/css" rel="stylesheet">
 <%--footer--%>
 <div class="lazy-fn lazy-fn-done top10">

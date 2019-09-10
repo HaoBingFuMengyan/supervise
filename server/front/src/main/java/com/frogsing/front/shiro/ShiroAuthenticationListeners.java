@@ -2,7 +2,6 @@ package com.frogsing.front.shiro;
 
 import com.frogsing.heart.security.shiro.ShiroUsernamePasswordToken;
 import com.frogsing.heart.utils.T;
-import com.frogsing.member.IUserService;
 import com.frogsing.member.service.UserService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.PrincipalCollection;

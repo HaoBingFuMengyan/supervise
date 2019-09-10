@@ -12,6 +12,12 @@
     <artifactId>front</artifactId>
     <packaging>war</packaging>
     <name>frogsing::webs::front</name>
+    <properties>
+        <!-- 主要依赖库的版本定义 -->
+        <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
+        <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
+        <jdbc.driver.version>5.1.45</jdbc.driver.version>
+    </properties>
 
     <repositories>
 
@@ -102,6 +108,11 @@
 
         </dependency>
 
+        <!-- jdbc driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
 
         <!-- AOP begin -->
         <dependency>

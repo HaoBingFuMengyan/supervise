@@ -6,10 +6,10 @@ import com.frogsing.heart.log.Lg;
 import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.security.utils.AnnotationUtils;
 import com.frogsing.heart.web.Msg;
-import com.frogsing.member.IMemberService;
 import com.frogsing.member.po.MemberShop;
 import com.frogsing.member.po.MemberShopApply;
 import com.frogsing.member.po.Right;
+import com.frogsing.member.service.MemberService;
 import com.frogsing.member.service.UserService;
 import com.frogsing.member.vo.LoginUser;
 import com.frogsing.parameter.service.QueryService;
@@ -48,7 +48,7 @@ PageAction {
     private QueryService iQueryService;
 
     @Autowired
-    private IMemberService memberService;
+    private MemberService memberService;
 
 
     /**
