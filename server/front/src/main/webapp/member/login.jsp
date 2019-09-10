@@ -75,20 +75,12 @@
 </script>
 </head>
 <body>
-<div class="login-tit">
-	<div class="mycon">
-		<a href="${ctx}/index.html"><img src="${ctx}/images/logo.png" /></a>
-		<span>欢迎登录</span>
-	</div>
-</div>
 <div class="login_page">
-	<div class="mycon">
-		<div class="login">
-			<%--<div class="login_bg">--%>
-				<%--<img src="${ctx}/images/login_bg.png" />--%>
-			<%--</div>--%>
+	<div class="login-card">
+		<div class="login clearfix">
 			<div class="login_le">
-				<img src="${ctx}/images/login-le-img.png" />
+				<h2>欢迎来到<img src="${ctx}/images/login-icon.png" /> </h2>
+				<h4>基金协同监管系统</h4>
 			</div>
 			<div class="login_rg clearfix" align="center">
 				<h2>会员登录</h2>
@@ -116,7 +108,7 @@
 					</form>
 					<div class="link">
 						<a href="${ctx}/hy/user/forgetpwdindex.html" class="le">忘记密码？</a>
-						<a href="${ctx}/register.html" class="rg">免费注册</a>
+						<%--<a href="${ctx}/register.html" class="rg">免费注册</a>--%>
 					</div>
 					<div class="center"></div>
 					<div class="qustion">
