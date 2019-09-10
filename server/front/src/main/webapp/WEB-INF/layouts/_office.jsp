@@ -130,7 +130,7 @@
                             <a href="${ctx}/hy/user/modifysmobile.shtml"><i class="icon icon-mima"></i>修改手机号</a></li>
                         <li>
                             <i></i>
-                            <a href="${ctx}/hy/user/list.shtml"><i class="icon icon-ren"></i>员工账号</a></li>
+                            <a href="${ctx}/hy/user/list.shtml"><i class="icon icon-xinxi1"></i>站内信</a></li>
 
                         <li>
                             <i></i>
