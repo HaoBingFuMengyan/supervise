@@ -19,9 +19,9 @@ public class User  extends  UserBase{
 	private static final long serialVersionUID = 1L;
 	
 //frogsingcode//
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private List<Actor> actorList;
 
@@ -71,7 +71,7 @@ public class User  extends  UserBase{
 	public void setMember(Mber member) {
 		this.member = member;
 	}
-	
+
 	
 	//frogsingcode//
 	

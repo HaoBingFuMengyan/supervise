@@ -313,6 +313,13 @@ function abbr(name, maxLength){
 function openHref(url){
 	openHref(url,false);
 }
+
+function isnull(val){
+	if (val == undefined || val == '' || val == null)
+		return true;
+	else
+		return false;
+}
 //打开链接
 function openHref(url,nosubmit,target){
 	if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){//如果是移动端，就使用自适应大小弹窗

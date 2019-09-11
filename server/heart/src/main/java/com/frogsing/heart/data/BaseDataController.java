@@ -119,6 +119,7 @@ public abstract class BaseDataController {
 	}
 	
 	private String  dir(Class<?> cls,String page){
+		System.out.println(String.format("/%s/%s-%s", cls.getName().split("\\.")[2],cls.getSimpleName().toLowerCase(),page));
 		return String.format("/%s/%s-%s", cls.getName().split("\\.")[2],cls.getSimpleName().toLowerCase(),page);
 	}
 	

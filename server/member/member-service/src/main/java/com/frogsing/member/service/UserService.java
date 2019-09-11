@@ -465,57 +465,14 @@ public class UserService implements IUserService {
     }
 
     /**
-     * 添加子帐号
+     * 添加交易员
+     *
+     * @param obj
+     * @param u
      */
     @Override
-    public void addUser(final User obj, ILoginUser u) {
-        if (B.Y(obj.getSmemberid()))
-            E.S("会员不存在!");
-        long count = userDao.countUser(obj.getSmemberid());
+    public void addUser(User obj, ILoginUser u) {
 
-        long imobile = userDao.countMobile(obj.getSmobile());
-        if (imobile > 0)
-            E.S("手机号重复了!");
-
-        Member m = memberDao.findOne(obj.getSmemberid());
-        if (m == null)
-            E.S("会员不存在!");
-        if (B.Y(obj.getId())) {
-            obj.setId(null);
-            obj.setDadddate(DateUtils.getCurrentDateTime());
-            obj.setSaddoperator(u.getLoginName());
-            obj.setBisdelete(0);
-            obj.setBisvalid(Consts.BoolType.YES.val());
-            String userno = ParaUtils.seqno(hy_user.tablename);
-            if (B.Y(userno))
-                E.S("用户编号生成错误!");
-            obj.setSoperatorno(userno);
-            if (B.Y(obj.getSusername()))
-                obj.setSusername(userno);
-            obj.setBisymobile(BoolType.YES.val());
-            obj.setBisyemail(BoolType.NO.val());
-            obj.setSpassword(ShiroUtils.EncodePassword(obj.getSpassword()));
-
-        } else {
-//			obj.setDmodifydate(DateUtils.getCurrentDateTime());
-//			obj.setSmodifyoperator(u.getLoginName());
-            E.S("新增操作,id必须为空!");
-        }
-        if (count == 0) {
-            obj.setBisadmin(BoolType.YES.val());
-        }
-        this.userDao.save(obj);
-        if (obj.getBisadmin() == Consts.BoolType.NO.val() && obj.getSroleids()!=null) {
-            userActorDao.deleteByUserid(obj.getId());
-            String[] actorids = obj.getSroleids();
-
-            for (String id : actorids) {
-                UserActor e = new UserActor();
-                e.setSroleid(id);
-                e.setSuserid(obj.getId());
-                userActorDao.save(e);
-            }
-        }
     }
 
     /* (non-Javadoc)
@@ -548,17 +505,17 @@ public class UserService implements IUserService {
         u.setSmodifyoperator(iu.getLoginName());
         this.userDao.save(u);
 
-        if (u.getBisadmin() == Consts.BoolType.NO.val()) {
-            userActorDao.deleteByUserid(u.getId());
-            String[] actorids = user.getSroleids();
-            if(actorids!=null)
-            for (String id : actorids) {
-                UserActor e = new UserActor();
-                e.setSroleid(id);
-                e.setSuserid(u.getId());
-                userActorDao.save(e);
-            }
-        }
+//        if (u.getBisadmin() == Consts.BoolType.NO.val()) {
+//            userActorDao.deleteByUserid(u.getId());
+//            String[] actorids = user.getSroleids();
+//            if(actorids!=null)
+//            for (String id : actorids) {
+//                UserActor e = new UserActor();
+//                e.setSroleid(id);
+//                e.setSuserid(u.getId());
+//                userActorDao.save(e);
+//            }
+//        }
     }
 
     /* (non-Javadoc)

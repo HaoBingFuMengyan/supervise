@@ -139,6 +139,15 @@
                 }
             });
 
+            jj.add = function (obj) {
+                jj.xopen({
+                    title:'账号分配',
+                    target: top,
+                    area: ['90%', '90%'],
+//                    full: true,
+                    content: '${ctx}/dt/user/add.shtml'
+                });
+            };
 
             jj.edit = function (obj) {
 
@@ -173,7 +182,7 @@
         </div>
     </script>
     <script type="text/html" id="xtoolbar">
-
+        <jj:btn name="添加" event="add" purview=""/>
 	</script>
 
 </div>
