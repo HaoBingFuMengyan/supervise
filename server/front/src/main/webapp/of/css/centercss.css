@@ -3238,3 +3238,195 @@ ul.cgLink li:last-child a{
 	font-size: 18px;
 	margin-top: 130px;
 }
+.fillIn{
+	padding: 30px 0;
+}
+.fill-box{
+	background: #fff;
+	/*box-shadow: 0 8px 16px rgba(0,0,0,.1);*/
+	padding: 30px;
+	box-sizing: border-box;
+}
+.fill-form select{
+	width: 250px!important;
+}
+.fill-form .input_group_half .form_control {
+	width: 250px!important;
+}
+.fill-form .input_group textarea{
+	width: 650px;
+}
+.fill-form .eqs {
+	margin-bottom: 10px;
+	color: #666;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 30px;
+}
+.fill-form .eqs a.rule {
+	color: #4c0d7f;
+}
+.fill-form button.submit{
+	color: #fff;
+	background: #2ebc4f;
+	width: 240px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 2px;
+	font-size: 16px;
+	margin: 30px auto;
+	margin-top: 0;
+	display: block;
+	border: none;
+	outline: none;
+}
+.fill-form a.view{
+	color:#1277eb;
+	margin-left: 18px;
+}
+.fill-form a.view:hover{
+	text-decoration: underline;
+}
+.fill-box .fill-tit{
+	margin-top: 20px;
+	font-size: 24px;
+	color: #353535;
+	font-weight: 400;
+	line-height: 33px;
+}
+.file input{
+	outline: none;
+	background: none;
+	border:none
+}
+.fill-label{
+	padding-bottom: 16px;
+	line-height: 25px;
+	font-size: 16px;
+	color: #353535;
+	font-weight: 400;
+	margin-top:10px;
+	position: relative;
+}
+.fill-label button {
+	margin-left: 10px;
+	background: none;
+	border: none;
+	color: #5f88f1;
+	font-size: 14px;
+	cursor: pointer;
+}
+.fill-label button img {
+	width: 20px;
+	margin-right: 3px;
+}
+.fill-label span{
+	margin-left: 50px;
+	font-size: 14px;
+	color: #417505;
+}
+.fill-label i{
+	color: #417505;
+	margin-left: 3px;
+	cursor: pointer;
+}
+.fill-label em{
+	color:#ff0000
+}
+.fill-label .tips{
+	position: absolute;
+	background: #333;
+	color: #fff;
+	font-size: 12px;
+	padding: 20px 10px;
+	border-radius: 3px;
+	right: -100%;
+	top: -45px;
+	display: none;
+}
+.fill-upload{
+	width: 650px;
+	border: 1px solid #ccc;
+	padding: 10px;
+	padding-bottom: 30px;
+}
+.fill-upload .sm{
+	padding: 10px 0;
+	border-bottom: 1px solid #f1f1f1;
+	padding-bottom: 0px;
+	margin-bottom: 15px;
+}
+.fill-upload .sm p{
+	color:#999
+}
+.fill-upload .sm p a{
+	color:#4c0d7f;
+	font-size: 14px;
+}
+.file-calc{
+	position: relative;
+	margin-bottom: 40px;
+}
+.file-calc button{
+	position: absolute;
+	right: 0;
+	padding: 5px 20px;
+	color: #fff;
+	background: #2ebc4f;
+	top: 0;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+}
+.file-calc a.download{
+	position: absolute;
+	right: 0;
+	padding:7px 15px;
+	color: #fff;
+	background: #5986F9;
+	top: 0;
+	border: none;
+	border-radius: 2px;
+	outline: none;
+}
+.file-result p{
+	line-height: 2;
+	font-size: 14px;
+}
+.file-result p label{
+	width: 100px;
+	display: inline-block;
+}
+.file-result p span{
+	font-size: 18px;
+	margin-right: 5px;
+	color:#F08642
+}
+.fill-form .input_group .checkbox{
+	width: inherit;
+}
+.fill-form .input_group .checkbox img{
+	width: 62px;
+}
+.fill-form .order-btn{
+	text-align: center;
+}
+.fill-form .order-btn a{
+	display: inline-block;
+	margin: 30px 5px;
+	border: none;
+	outline: none;
+	width: 140px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 2px;
+	font-size: 16px;
+}
+.fill-form .order-btn a.prev{
+	color: #fff;
+	background: #666;
+}
+.fill-form .order-btn a.pay{
+	color: #fff;
+	background: #2ebc4f;
+}
