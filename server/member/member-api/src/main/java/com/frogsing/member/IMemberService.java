@@ -8,11 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
-import com.frogsing.member.po.InvoiceInfo;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.MemberAddress;
 import com.frogsing.member.utils.MEMBER.MemberType;
-import com.frogsing.member.vo.LoginUser;
 
 public interface IMemberService{
 
@@ -167,10 +165,6 @@ public interface IMemberService{
      */
 	void doDeleteAddress(String saddressid);
 
-	List<InvoiceInfo> findByMemberID(String memberid);
-
-	void saveInvoiceInfo(InvoiceInfo invoiceinfo,ILoginUser user);
-	
 	void saveCompanyinfo(String id,String smobile,String slinkman,String scompanydesc, ILoginUser user);
 
 	void modifyImembertype(String id,Integer imembertype);

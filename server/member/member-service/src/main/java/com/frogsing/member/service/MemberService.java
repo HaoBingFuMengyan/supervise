@@ -5,7 +5,6 @@
  */
 package com.frogsing.member.service;
 
-import com.frogsing.common.utils.JobUtils;
 import com.frogsing.common.utils.NoticeUtils;
 import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.exception.E;
@@ -15,10 +14,15 @@ import com.frogsing.heart.utils.StringHelper;
 import com.frogsing.heart.utils.T;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IMemberService;
-import com.frogsing.member.dao.*;
-import com.frogsing.member.po.*;
+import com.frogsing.member.dao.AuthapplyDao;
+import com.frogsing.member.dao.MemberAddressDao;
+import com.frogsing.member.dao.MemberDao;
+import com.frogsing.member.dao.MemberImageDao;
+import com.frogsing.member.po.Authapply;
+import com.frogsing.member.po.Member;
+import com.frogsing.member.po.MemberAddress;
+import com.frogsing.member.po.MemberImage;
 import com.frogsing.member.utils.MEMBER.*;
-import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.member.utils.MEMBERCol.hy_authapply;
 import com.frogsing.member.utils.MEMBERCol.hy_member;
 import com.frogsing.parameter.utils.ParaUtils;
@@ -55,9 +59,6 @@ public class MemberService  implements IMemberService {
 	private MemberImageDao memberImageDao;
 	@Autowired
 	private MemberAddressDao memberAddressDao;
-
-	@Autowired
-	private InvoiceInfoDao invoiceInfoDao;
 
 
 
@@ -636,37 +637,6 @@ public class MemberService  implements IMemberService {
 		memberAddressDao.delete(memberAddress);
 	}
 
-	@Override
-	public List<InvoiceInfo> findByMemberID(String memberid) {
-		return invoiceInfoDao.findAll(new Specification<InvoiceInfo>() {
-			@Override
-			public Predicate toPredicate(Root<InvoiceInfo> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.and(cb.equal(root.get(MEMBERCol.hy_invoiceinfo.smemberid), memberid));
-			}
-		}, new Sort(Sort.Direction.DESC, MEMBERCol.hy_invoiceinfo.dadddate));
-	}
-
-	@Override
-	public void saveInvoiceInfo(InvoiceInfo invoiceinfo,ILoginUser user) {
-		InvoiceInfo invoiceInfo = new InvoiceInfo();
-		if(B.N(invoiceinfo.getId())){
-			invoiceInfo.setId(invoiceinfo.getId());
-		}
-		invoiceInfo.setSmemberid(user.getMemberId());
-		invoiceInfo.setDadddate(new Date());
-		invoiceInfo.setDmodifydate(new Date());
-		invoiceInfo.setSadduserid(user.getId());
-		invoiceInfo.setSmodifyuserid(user.getId());
-		invoiceInfo.setScompanynmae(invoiceinfo.getScompanynmae());
-		invoiceInfo.setStaxno(invoiceinfo.getStaxno());
-		invoiceInfo.setSaddress(invoiceinfo.getSaddress());
-		invoiceInfo.setStel(invoiceinfo.getStel());
-		invoiceInfo.setSbank(invoiceinfo.getSbank());
-		invoiceInfo.setSbankaccount(invoiceinfo.getSbankaccount());
-
-		invoiceInfoDao.save(invoiceInfo);
-	}
-	
 	@Override
 	public void saveCompanyinfo(String id,String smobile,String slinkman,String scompanydesc, ILoginUser user) {
 		if(B.Y(id))

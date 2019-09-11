@@ -10,7 +10,6 @@ import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.*;
 import com.frogsing.member.service.AuthapplyService;
-import com.frogsing.member.service.InvoiceInfoService;
 import com.frogsing.member.service.MemberService;
 import com.frogsing.member.service.UserService;
 import com.frogsing.member.utils.MEMBER.AuthenticateType;
@@ -54,8 +53,6 @@ public class MemberAction extends BaseAction {
     private AuthapplyService authapplyService;
     @Autowired
     private QueryService queryService;
-    @Autowired
-    private InvoiceInfoService iInvoiceInfoService;
 
 
     /**
