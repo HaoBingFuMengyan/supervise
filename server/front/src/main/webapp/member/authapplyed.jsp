@@ -131,6 +131,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="jj-submit">
+                    <button>提交信息</button>
+                </div>
             </form>
         </div>
     </div>

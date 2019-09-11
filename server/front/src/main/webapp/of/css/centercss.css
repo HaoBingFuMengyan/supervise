@@ -3299,6 +3299,19 @@ ul.cgLink li:last-child a{
 	background: none;
 	border:none
 }
+.jj-submit{
+	margin-top: 30px;
+}
+.jj-submit button{
+	width: 200px;
+	height:42px;
+	border-radius: 3px;
+	border: 1px solid #0077d5;
+	background-color: #0077d5;
+	color:#fff;
+	font-size: 18px;
+	cursor: pointer;
+}
 .mask-bg{
 	padding: 15px;
 	background: #efe;
