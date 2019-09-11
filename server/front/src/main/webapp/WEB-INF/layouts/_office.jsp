@@ -13,7 +13,7 @@
     <META http-equiv="X-UA-Compatible" content="IE=9"/>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="pragma" content="no-cache"/>
-    <title>会员中心-煤亮子</title>
+    <title>会员中心-基金协同监管系统沟通</title>
     <link type="image/x-icon" href="${ctx}/images/favicon.png" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="${ctx }/of/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx }/of/icon/iconfont.css"/>
@@ -123,7 +123,7 @@
                     <ul>
                         <li>
                             <i></i>
-                            <a href="${ctx}/hy/member/authapply.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
+                            <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
 
                         <li>
                             <i></i>

@@ -6,7 +6,7 @@
     <meta name="description" content=""/>
     <meta name="decorator" content="jj"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>定向销售-煤亮子</title>
+    <title>定向销售-基金协同监管系统沟通</title>
     <style>
         .layui-form-item .layui-input-inline {
             width: 300px ;

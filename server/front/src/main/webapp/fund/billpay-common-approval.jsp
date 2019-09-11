@@ -21,7 +21,7 @@
                             名称
                         </label>
                         <div class="layui-input-block">
-                            <input type="text" id="sname" name="sname" autocomplete="off" placeholder="请输入名称" value="“煤亮子”煤炭生产综合服务平台<c:choose><c:when test="${obj.spaymemberid == mw:user().memberId}">采购</c:when><c:otherwise>销售</c:otherwise></c:choose>合同" readonly="readonly" class="layui-input" />
+                            <input type="text" id="sname" name="sname" autocomplete="off" placeholder="请输入名称" value="“基金协同监管系统沟通”煤炭生产综合服务平台<c:choose><c:when test="${obj.spaymemberid == mw:user().memberId}">采购</c:when><c:otherwise>销售</c:otherwise></c:choose>合同" readonly="readonly" class="layui-input" />
                         </div>
                     </div>
                 </div>

@@ -6,9 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="decorator" content="none" />
-	<meta name="keywords" content="煤亮子,煤亮子商城"/>
-	<meta name="description" content="煤亮子商城(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
-<title>煤亮子-找回密码</title>
+	<meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
+	<meta name="description" content="基金协同监管系统沟通(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
+<title>基金协同监管系统沟通-找回密码</title>
 	<link href="${ctx}/css/style.css" rel="stylesheet" type="text/css">
 	<link href="${ctx}/css/common.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="${ctx}/font/iconfont.css">

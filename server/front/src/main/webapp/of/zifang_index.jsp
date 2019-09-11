@@ -5,9 +5,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="煤亮子,煤亮子商城"/>
-    <meta name="description" content="煤亮子商城(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
-    <title>供应链会员中心-煤亮子</title>
+    <meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
+    <meta name="description" content="基金协同监管系统沟通(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
+    <title>供应链会员中心-基金协同监管系统沟通</title>
     <link href="${ctx}/of/css/office.css" rel="stylesheet" type="text/css"/>
     <script src="${ctx }/echarts/echarts.js" type="text/javascript"></script>
     <script src="${ctx }/echarts/jquery-1.9.1.min.js" type="text/javascript"></script>

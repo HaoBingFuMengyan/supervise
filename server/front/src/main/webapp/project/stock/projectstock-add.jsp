@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="keywords" content="煤亮子,煤亮子商城"/>
-    <meta name="description" content="煤亮子商城(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
+    <meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
+    <meta name="description" content="基金协同监管系统沟通(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="decorator" charset="" content="jj">
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <title>订单发起-煤亮子</title>
+    <title>订单发起-基金协同监管系统沟通</title>
     <style>
         .layui-form-item .layui-input-inline {
             width: 270px ;

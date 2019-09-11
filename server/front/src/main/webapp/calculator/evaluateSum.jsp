@@ -36,14 +36,14 @@
 			</div>
 		</div>
 		<div class="modleList" @click="goMore1('caigou')">
-			<div class="name black">煤亮子采购</div>
+			<div class="name black">基金协同监管系统沟通采购</div>
 			<div class="value">
 				<div class="black">成本:{{caigou.resultSet.zongCB}}万元</div>
 				<div class="black">盈利:{{caigou.resultSet.qiYeSY}}万元</div>
 			</div>
 		</div>
 		<div class="modleList" @click="goMore1('gongyinglian')">
-			<div class="name black">煤亮子采购+供应链金融</div>
+			<div class="name black">基金协同监管系统沟通采购+供应链金融</div>
 			<div class="value">
 				<div class="black">成本:{{gongyinglian.resultSet.zongCB}}万元</div>
 				<div class="black">盈利:{{gongyinglian.resultSet.qiYeSY}}万元</div>

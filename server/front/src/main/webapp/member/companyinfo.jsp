@@ -13,7 +13,7 @@
 
 <html>
 <head>
-<title>煤亮子</title>
+<title>基金协同监管系统沟通</title>
 <link href="${ctx}/of/css/open.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="${ctxStatic}/common/jquery.searchableSelect.css" />
 <style type="text/css">

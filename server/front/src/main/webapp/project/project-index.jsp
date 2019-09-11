@@ -4,9 +4,9 @@
 <!DOCTYPE html >
 <html>
 <head>
-    <meta name="description" content="煤亮子" />
+    <meta name="description" content="基金协同监管系统沟通" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>融资项目发起-煤亮子</title>
+    <title>融资项目发起-基金协同监管系统沟通</title>
     <link href="${ctx}/project/css/project.css" rel="stylesheet" type="text/css">
 
 </head>

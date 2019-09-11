@@ -184,7 +184,7 @@
                         qiYeSY:0
                     }
                 },
-                //煤亮子采购
+                //基金协同监管系统沟通采购
                 caigou:{
                     heTongE:0,  //合同额
                     jinHuoCB:0,   //进货成本
@@ -204,7 +204,7 @@
                         qiYeSY:0
                     }
                 },
-                //煤亮子采购+供应链金融
+                //基金协同监管系统沟通采购+供应链金融
                 gongyinglian:{
                     heTongE:0,  //合同额
                     jinHuoCB:0,   //进货成本
@@ -259,7 +259,7 @@
                 this.yuanyou.resultSet.qiYeSY=this.toMoney(D3-D11) ;
 
 
-                //煤亮子采购模式
+                //基金协同监管系统沟通采购模式
                 var D13=this.caigou.heTongE=D3;
 
                 var F13=this.caigou.jinHuoCB=F3;
