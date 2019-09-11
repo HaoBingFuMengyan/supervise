@@ -146,9 +146,25 @@ public class UserService implements IUserService {
         operatorBean.setIsex(obj.getIsex());
         operatorBean.setDmodifydate(new Date());// 设置最后修改日期
         operatorBean.setSmodifyoperator(user.getId());//添加人
+        operatorBean.setBisvalid(obj.getBisvalid());// 设置交易员是否有效
 
         this.userDao.save(operatorBean);
         return operatorBean;
+    }
+
+    @Override
+    public User updateSpassword(String id, String spassword, ILoginUser user) {
+        if (B.Y(id))
+            E.S("请先添加用户");
+
+        if (B.Y(spassword))
+            E.S("修改密码不能为空");
+
+        User u = this.userDao.findOne(id);
+
+        u.setSpassword(MD5.encode(spassword));
+
+        return this.userDao.save(u);
     }
 
     @Override
@@ -918,7 +934,7 @@ public class UserService implements IUserService {
 
     @Override
     public User findBySusername(String susername) {
-        User rs = userDao.findBySusername(susername);
+        User rs = userDao.findBySusernameAndBisvalid(susername,BoolType.YES.val());
         if (rs == null)
             return null;
         return rs;

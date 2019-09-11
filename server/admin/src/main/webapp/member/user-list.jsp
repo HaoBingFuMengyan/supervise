@@ -15,7 +15,7 @@
             <!-- 查询条件 -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form:form id="searchForm" action="${ctx}/dt/user/list.shtml" method="post" class="form-inline">
+                    <form:form id="searchForm" action="${ctx}/hy/user/list.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
                             <span>真实姓名：</span>
@@ -72,10 +72,10 @@
                                 <a href="javascript:openlog('会员账号编辑','${ctx}/dt/user/add.shtml?id=${obj.id}&type=1','90%','70%')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>编辑</a>
                             </shiro:hasPermission>
                             <shiro:hasPermission name="user:edit">
-                                <a href="javascript:openHref('${ctx}/dt/user/list.shtml?id=${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>密码重置</a>
+                                <a href="javascript:openlog('密码重置','${ctx}/dt/user/reset.shtml?id=${obj.id}','90%','70%')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>密码重置</a>
                             </shiro:hasPermission>
-                            <shiro:hasPermission name="user:delete">
-                                <a  id="${obj.id}"  href="javascript:deleteSome('确定删除该内容及其子内容吗？','${ctx}/dt/user/deleteJson.shtml','${obj.id}')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> 删除</a>
+                            <shiro:hasPermission name="user:edit">
+                                <a href="javascript:openlog('账号禁用','${ctx}/dt/user/add.shtml?id=${obj.id}&type=2','90%','70%')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>禁用</a>
                             </shiro:hasPermission>
                     </tr>
                 </c:forEach>

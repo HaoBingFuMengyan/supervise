@@ -26,6 +26,8 @@ public interface UserDao extends BaseDao<User, String>{
 
 	User findBySusername(String username);
 
+	User findBySusernameAndBisvalid(String username,int bisvalid);
+
 	User findBySmobile(String username);
 	/**
 	 *

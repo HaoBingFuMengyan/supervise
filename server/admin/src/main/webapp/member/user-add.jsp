@@ -78,6 +78,7 @@
                                     <td class="active width-15"><label class="pull-right">邮箱:</label></td>
                                     <td><form:input path="semail" class="form-control"/></td>
                                 </tr>
+
                                 <tr>
                                     <td class="active width-15"><label class="pull-right">性别:</label></td>
                                     <td>
@@ -90,7 +91,17 @@
                                     <td><form:input path="sqq" htmlEscape="false" maxlength="20"
                                                     class="form-control"/></td>
                                 </tr>
-
+                                <c:if test="${param.type eq 2}">
+                                    <tr>
+                                        <td class="active width-15"><label class="pull-right">是否有效:</label></td>
+                                        <td>
+                                            <select name="bisvalid" class="form-control required">
+                                                <option value="0">否</option>
+                                                <option value="1" ${data.bisvalid eq 1 ? "selected" : ""}>是</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </c:if>
                                 </tbody>
                             </table>
                         </div>
