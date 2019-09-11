@@ -3299,6 +3299,11 @@ ul.cgLink li:last-child a{
 	background: none;
 	border:none
 }
+.mask-bg{
+	padding: 15px;
+	background: #efe;
+	border-radius: 5px;
+}
 .fill-label{
 	padding-bottom: 16px;
 	line-height: 25px;
@@ -3403,7 +3408,7 @@ ul.cgLink li:last-child a{
 	color:#F08642
 }
 .fill-form .input_group .checkbox{
-	width: inherit;
+	width: 100%;
 }
 .fill-form .input_group .checkbox img{
 	width: 62px;
