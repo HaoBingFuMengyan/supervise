@@ -44,7 +44,7 @@ public class UserLoginService implements ILoginService {
 	 */
 	@Override
 	public ILoginUser getIUser(ShiroUsernamePasswordToken token) {
-		User user = userService.findBySusernameOrSmobile(token.getUsername(), token.getUsername());
+		User user = userService.findBySusername(token.getUsername());
 		if (user == null)
 			return null;
 		if (user.getBisdelete() == Consts.BoolType.YES.val())

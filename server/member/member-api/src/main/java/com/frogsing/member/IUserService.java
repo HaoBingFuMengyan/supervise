@@ -180,6 +180,8 @@ public interface IUserService {
 
 	User findBySusernameOrSmobile(String susername, String smobile);
 
+	User findBySusername(String susername);
+
 	Collection<String> getAllPurview(int membertype, int authtype, String memberId);
 
 	void updateLoginTime(String id, Date currentDateTime);

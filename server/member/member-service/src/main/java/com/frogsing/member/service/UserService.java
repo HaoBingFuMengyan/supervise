@@ -917,6 +917,14 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User findBySusername(String susername) {
+        User rs = userDao.findBySusername(susername);
+        if (rs == null)
+            return null;
+        return rs;
+    }
+
+    @Override
     public Collection<String> getAllPurview(int membertype, int iauthtype, String smemberid) {
         return userDao.getAllPurview(membertype, iauthtype, smemberid);
     }
