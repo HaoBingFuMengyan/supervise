@@ -92,7 +92,6 @@ public class MemberAddressService implements IMemberAddressService {
             public Predicate toPredicate(Root<MemberAddress> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder cb) {
                 List<Predicate> predicateList = Lists.newArrayList();
 
-                predicateList.add(cb.equal(MEMBERCol.hy_memberaddress.smemberid(root),smemberid));
                 predicateList.add(cb.not(root.get("id").in(id)));
 
                 return S.andList(cb,predicateList);

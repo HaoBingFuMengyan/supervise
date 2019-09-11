@@ -84,7 +84,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>jh-plugins</finalName>
+        <finalName>operator-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

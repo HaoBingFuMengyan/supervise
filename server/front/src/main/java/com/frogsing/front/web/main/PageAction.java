@@ -1,18 +1,12 @@
 package com.frogsing.front.web.main;
 
-import com.frogsing.heart.exception.E;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.log.Lg;
-import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.security.utils.AnnotationUtils;
 import com.frogsing.heart.utils.S;
-import com.frogsing.heart.web.Msg;
-import com.frogsing.member.po.MemberShop;
-import com.frogsing.member.po.MemberShopApply;
 import com.frogsing.member.po.Right;
 import com.frogsing.member.service.MemberService;
 import com.frogsing.member.service.UserService;
-import com.frogsing.member.vo.LoginUser;
 import com.frogsing.parameter.service.QueryService;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -25,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.frogsing.exception.ServiceException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
@@ -173,56 +166,6 @@ PageAction {
         return "page/declaration";
     }
 
-
-
-
-
-
-    //开通店铺预览
-    @RequestMapping(value = "shop.html", method = RequestMethod.GET)
-    public String shop(@RequestParam(value = "id", required = true) String id,
-                       Model model, HttpServletRequest request) {
-        try {
-            MemberShop memberShop = iQueryService.fetchOne(MemberShop.class, id);
-            if (memberShop == null)
-                E.S("抱歉，还未开通店铺");
-            model.addAttribute("membershop", memberShop);
-        } catch (ServiceException ex) {
-            ex.printStackTrace();
-            Msg.error(model,ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msg.error(model,"系统错误，请联系管理员");
-        }
-        return "page/shop";
-    }
-    //未开通店铺预览
-    @RequestMapping(value = "apply.html", method = RequestMethod.GET)
-    public String shopApply(@RequestParam(value = "id", required = true) String id,
-                       Model model, HttpServletRequest request) {
-        try {
-            MemberShopApply memberShopApply = iQueryService.fetchOne(MemberShopApply.class,id);
-            if (memberShopApply == null)
-                E.S("抱歉，还未申请开通店铺");
-            model.addAttribute("membershop", memberShopApply);
-        } catch (ServiceException ex) {
-            ex.printStackTrace();
-            Msg.error(model,ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msg.error(model,"系统错误，请联系管理员");
-        }
-        return "page/shop";
-    }
-   /* @RequestMapping(value = "combinebuy.html", method = RequestMethod.GET)
-    public String combinebuy(Model model, HttpServletRequest request) {
-        return "page/combinebuy";
-    }*/
-
-    /*@RequestMapping(value = "combinebuy_view.html", method = RequestMethod.GET)
-    public String combinebuy_view(Model model, HttpServletRequest request) {
-        return "page/combinebuy_view";
-    }*/
 
 
     @RequestMapping(value = "check.shtml", method = RequestMethod.GET)

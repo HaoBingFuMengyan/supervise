@@ -6,14 +6,13 @@ import com.frogsing.heart.consts.Consts.BoolType;
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
 import com.frogsing.heart.utils.ObjectUtils;
-import com.frogsing.heart.utils.T;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyService;
 import com.frogsing.member.IMemberService;
-import com.frogsing.member.dao.*;
+import com.frogsing.member.dao.AuthapplyDao;
+import com.frogsing.member.dao.MemberDao;
 import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
-import com.frogsing.member.po.PayAccount;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBER.AuthenticateType;
 import com.frogsing.member.utils.MEMBER.CheckStatus;
@@ -44,15 +43,9 @@ public class AuthapplyService implements IAuthapplyService {
 	@Autowired
 	private MemberDao memberDao;
 	@Autowired
-	private PayAccountDao payAccountDao;
-	@Autowired
 	private IMemberService memberService;
 	@Autowired
 	private IQueryService queryService;
-	@Autowired
-	private MemberShopDao memberShopDao;
-	@Autowired
-	private MemberShopApplyDao memberShopApplyDao;
 
 
 
@@ -147,16 +140,6 @@ public class AuthapplyService implements IAuthapplyService {
 		member.setImembertype(MEMBER.MemberType.MEMBER.val());
 		memberDao.save(member);
 		memberDao.flush();
-
-		PayAccount pac=new PayAccount();
-		pac.setId(null);
-		pac.setSmemberid(apply.getSmemberid());
-		pac.setSbank(member.getSopenbank());
-		pac.setSbankaccount(member.getSopenaccount());
-		pac.setSrecvname(member.getScnname());
-		pac.setDadddate(T.now());
-		pac.setDmodifydate(T.now());
-		payAccountDao.save(pac);
 
 		member.setBisopenshop(BoolType.NO.val());
 		memberDao.save(member);
