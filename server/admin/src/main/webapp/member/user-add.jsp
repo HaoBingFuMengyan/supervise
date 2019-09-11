@@ -40,7 +40,7 @@
                 <div class="ibox-content">
                     <sys:message content="${message}"/>
 
-                    <form:form id="inputForm" modelAttribute="data" action="${ctx}/dt/user/save.shtml" method="post"
+                    <form:form id="inputForm" modelAttribute="data" action="${ctx}/hy/user/save.shtml" method="post"
                                enctype="multipart/form-data" class="form-horizontal form-group">
                         <form:hidden path="id"/>
                         <div class="control-group">
@@ -49,7 +49,7 @@
                                 <tr>
                                     <td class="active width-15"><label class="pull-right">用户名:<font color="red">*</font></label>
                                     </td>
-                                    <td><input name="susername" value="${data.susername}"
+                                    <td><input name="susername" value="${data.susername}" <c:if test="${data.susername ne null}">readOnly</c:if>
                                                class="form-control required"/></td>
                                     <td class="active width-15"><label class="pull-right">真是姓名:<font
                                             color="red">*</font></label></td>

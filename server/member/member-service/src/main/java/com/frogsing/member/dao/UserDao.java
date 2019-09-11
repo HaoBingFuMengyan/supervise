@@ -81,6 +81,9 @@ public interface UserDao extends BaseDao<User, String>{
 	@Query("select count(*) from User where smobile=?1")
 	long countMobile(String smobile);
 
+	@Query("select count(*) from User where susername=?1")
+	long countSusername(String susername);
+
 
 //frogsingcode//
 }

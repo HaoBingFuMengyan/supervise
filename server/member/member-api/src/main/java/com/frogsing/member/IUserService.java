@@ -14,6 +14,23 @@ import java.util.List;
 
 public interface IUserService {
 
+	/**
+	 * 新增用户
+	 * @param obj
+	 * @param user
+	 * @return
+	 */
+	User newUser(User obj,ILoginUser user);
+
+	/**
+	 * 修改
+	 * @param obj
+	 * @param user
+	 * @return
+	 */
+	User modifyUser(User obj,ILoginUser user);
+
+
 	Member findBySmemberid(String smemberid);
 
 	List<Member> findUserByMemberName(String sMemberid, String MemberName) throws ServiceException;

@@ -16,6 +16,7 @@ import com.frogsing.member.IMemberService;
 import com.frogsing.member.IUserService;
 import com.frogsing.member.dao.*;
 import com.frogsing.member.po.*;
+import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBER.AuthenticateType;
 import com.frogsing.member.utils.MEMBER.MemberStatus;
 import com.frogsing.member.utils.MEMBER.MemberType;
@@ -64,6 +65,91 @@ public class UserService implements IUserService {
     @Autowired
     private IQueryService queryService;
 
+
+    /**
+     * 新增用户
+     *
+     * @param obj
+     * @param user
+     * @return
+     */
+    @Override
+    public User newUser(User obj, ILoginUser user) {
+        if (userDao.countSusername(obj.getSusername()) > 0) {
+            throw new ServiceException("用户名不能重复");
+        }
+        Member memberBean = new Member();
+        memberBean.setIregsource(MEMBER.IRegSource.PARTNER.val());
+
+        memberBean.setImembertype(MemberType.MEMBER.val());// 公司类型（交易会员）
+        memberBean.setIscope(BoolType.NO.val());
+        Date currDate = DateUtils.getCurrentDateTime();
+        memberBean.setSmemberno(ParaUtils.seqno(hy_member.tablename));
+        memberBean.setScountry("");// 默认中国
+        memberBean.setBcaflag(0);// 默认设置使用CA
+        memberBean.setDapplydate(currDate);// 申请日期
+        memberBean.setDadddate(currDate);// 设置会员注册日期
+        memberBean.setDmodifydate(currDate);// 设置最后修改日期
+        memberBean.setImemberstatus(MemberStatus.NORMAL.val());// 设置会员为待完善资料
+        memberBean.setBdelete(0);// 设置会员是否删除
+        memberBean.setIauthtype(AuthenticateType.No.val());
+        memberBean.setSmobile(obj.getSmobile());
+        memberBean.setScnname("");
+        memberBean.setSpyname("");// 设置拼音全称
+        memberBean.setSjpname("");// 设置拼音简称
+
+        memberDao.save(memberBean);
+
+        // 地理位置信息
+        memberBean.setSlocation("");
+
+        User operatorBean = new User();
+        operatorBean.setSoperatorno(ParaUtils.seqno(hy_user.tablename));// 设置交易员编号
+        operatorBean.setSusername(obj.getSusername());// 交易员登录名 //fan:手机号可以改,所以手机号不要作为用户名
+        operatorBean.setSname(obj.getSname());// 交易员名称
+        operatorBean.setSmobile(obj.getSmobile());// 联系手机
+        operatorBean.setSemail(obj.getSemail());// 联系邮箱
+        operatorBean.setSphone(obj.getSphone());// 联系电话
+
+        operatorBean.setSmemberid(memberBean.getId());// 设置会员ID
+        operatorBean.setSpassword(MD5.encode(obj.getSpassword()));// 加密密码
+        operatorBean.setDadddate(currDate);// 设置交易员添加日期
+        operatorBean.setDmodifydate(currDate);// 设置最后修改日期
+        operatorBean.setBisadmin(Consts.BoolType.YES.val());// 设置为默认管理员
+        operatorBean.setBisvalid(Consts.BoolType.YES.val());// 设置交易员是否有效
+        operatorBean.setBisdelete(Consts.BoolType.NO.val());// 设置交易员是否删除
+        operatorBean.setBisymobile(1);
+        operatorBean.setBisyemail(0);
+        operatorBean.setSaddoperator(user.getId());//添加人
+        operatorBean.setSqq(obj.getSqq());
+        operatorBean.setIsex(obj.getIsex());
+        userDao.saveAndFlush(operatorBean);// 保存交易员信息
+
+        return operatorBean;
+    }
+
+    /**
+     * 修改
+     *
+     * @param obj
+     * @param user
+     * @return
+     */
+    @Override
+    public User modifyUser(User obj, ILoginUser user) {
+        User operatorBean = this.userDao.findOne(obj.getId());
+
+        operatorBean.setSmobile(obj.getSmobile());// 联系手机
+        operatorBean.setSemail(obj.getSemail());// 联系邮箱
+        operatorBean.setSphone(obj.getSphone());// 联系电话
+        operatorBean.setSqq(obj.getSqq());
+        operatorBean.setIsex(obj.getIsex());
+        operatorBean.setDmodifydate(new Date());// 设置最后修改日期
+        operatorBean.setSmodifyoperator(user.getId());//添加人
+
+        this.userDao.save(operatorBean);
+        return operatorBean;
+    }
 
     @Override
     public Member findBySmemberid(String smemberid) {
@@ -427,7 +513,7 @@ public class UserService implements IUserService {
         if (B.Y(r.getSmobile()))
             E.S("手机号格式不正确!");
         /*if (userDao.count(new Specification<User>() {
-			@Override
+            @Override
 			public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				Predicate p = cb.equal(root.get(hy_user.smobile), mobile);
 				return p;
@@ -495,7 +581,7 @@ public class UserService implements IUserService {
         u.setSphone(user.getSphone());
         u.setSfax(user.getSfax());
 
-     //   u.setSmobile(user.getSmobile());
+        //   u.setSmobile(user.getSmobile());
         u.setSemail(user.getSemail());
         u.setSqq(user.getSqq());
         u.setSmsn(user.getSmsn());
@@ -530,13 +616,13 @@ public class UserService implements IUserService {
 
 
     @Override
-    public List<UserActorVo> userRoleList(int authType,int roleType, String smemberid,String userid) {
+    public List<UserActorVo> userRoleList(int authType, int roleType, String smemberid, String userid) {
         List<Actor> defaults = this.findDefaultRole(authType, roleType, smemberid);
         List<UserActorVo> userActorVos = Lists.newArrayList();
         List<String> actorids = Lists.newArrayList();
         if (B.N(userid)) {
             List<UserActor> userActors = queryService.list(null, MEMBERCol.hy_useractor.xspec().and(SearchFilter.eq(MEMBERCol.hy_useractor.suserid, userid)));
-            actorids=userActors.stream().map(UserActor::getSroleid).collect(Collectors.toList());
+            actorids = userActors.stream().map(UserActor::getSroleid).collect(Collectors.toList());
         }
         for (Actor actor : defaults) {
             UserActorVo userActorVo = new UserActorVo();
@@ -618,7 +704,7 @@ public class UserService implements IUserService {
             E.S("用户不存在");
         if (B.Y(user.getStradepassword()))
             E.S("您还未设置交易密码，请先设置交易密码");
-            //E.REDIRECT("请先设置交易密码", "/hy/user/gotradepassword.shtml");
+        //E.REDIRECT("请先设置交易密码", "/hy/user/gotradepassword.shtml");
         if (!user.getStradepassword().equals(ShiroUtils.EncodePassword(password)))
             E.S("交易密码输入有误");
     }
@@ -923,21 +1009,22 @@ public class UserService implements IUserService {
         if (B.Y(u.getStradepassword())) {
             this.firstTradePwd(suerid, newpwd);
         } else {
-            this.updatePassword(oldpwd,newpwd,suerid,u.getSmemberid(),1);
+            this.updatePassword(oldpwd, newpwd, suerid, u.getSmemberid(), 1);
         }
 
     }
 
     /**
      * 获取管理员账户
+     *
      * @param smemberid
      * @return
      */
-    public User getBisadmin(String smemberid){
-        List<User> userList = this.userDao.findByPropertyName(MEMBERCol.hy_user.smemberid,smemberid);
+    public User getBisadmin(String smemberid) {
+        List<User> userList = this.userDao.findByPropertyName(MEMBERCol.hy_user.smemberid, smemberid);
         User user = new User();
-        for (User obj :userList){
-            if (Consts.BoolType.YES.isEq(obj.getBisadmin())){
+        for (User obj : userList) {
+            if (Consts.BoolType.YES.isEq(obj.getBisadmin())) {
                 user = obj;
                 break;
             }
@@ -950,8 +1037,8 @@ public class UserService implements IUserService {
 
     @Override
     public List<User> findUserByRight(String right) {
-        List<Actor> roles=this.actorService.findActorsByRight(right);
-        final List<String> rolses=Lists.newArrayList();
+        List<Actor> roles = this.actorService.findActorsByRight(right);
+        final List<String> rolses = Lists.newArrayList();
         roles.forEach(actor -> {
             rolses.add(actor.getId());
         });
@@ -960,7 +1047,7 @@ public class UserService implements IUserService {
         return this.userDao.findAll(new Specification<User>() {
             @Override
             public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                ListJoin<User,Actor> join = root.join(root.getModel().getList("actorList",Actor.class),JoinType.LEFT);
+                ListJoin<User, Actor> join = root.join(root.getModel().getList("actorList", Actor.class), JoinType.LEFT);
                 In<Object> inO = cb.in(join.get("id"));
                 return inO.value(rolses);
             }
@@ -969,21 +1056,21 @@ public class UserService implements IUserService {
 
     @Override
     public List<User> findUserByRole(String role) {
-        Actor actor=this.actorDao.findBySrolecode(role);
-        if(actor == null)
+        Actor actor = this.actorDao.findBySrolecode(role);
+        if (actor == null)
             return Lists.newArrayList();
         return this.userDao.findAll(new Specification<User>() {
             @Override
             public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                ListJoin<User,Actor> join = root.join(root.getModel().getList("actorList",Actor.class),JoinType.LEFT);
-                return cb.equal(join.get("id"),actor.getId());
+                ListJoin<User, Actor> join = root.join(root.getModel().getList("actorList", Actor.class), JoinType.LEFT);
+                return cb.equal(join.get("id"), actor.getId());
             }
         });
     }
 
     @Override
-    public void updateTerminal(String userid,int terminaltype, String clientid) {
-        User user=this.userDao.lock(userid);
+    public void updateTerminal(String userid, int terminaltype, String clientid) {
+        User user = this.userDao.lock(userid);
         user.setIlastterminaltype(terminaltype);
         user.setSlastterminalid(clientid);
 
