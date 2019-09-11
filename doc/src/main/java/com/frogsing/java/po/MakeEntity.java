@@ -20,6 +20,7 @@ public class MakeEntity {
 		list.add("operator.pdm");
 		list.add("project.pdm");
 		list.add("file.pdm");
+		list.add("member.pdm");
 
 		for(int i=0;i<list.size();i++){
 			System.out.println(String.format("%d:%s",i,list.get(i)));
