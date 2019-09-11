@@ -61,7 +61,7 @@
 </head>
 <body>
 <div class="table-con">
-    <div class="title">陕煤集团神南产业发展有限公司<br/>“煤亮子”煤炭生产综合服务平台付款单</div>
+    <div class="title">陕煤集团神南产业发展有限公司<br/>“基金协同监管系统沟通”煤炭生产综合服务平台付款单</div>
     <div class="table">
         <table style="table-layout:fixed; width:100%;" cellspacing="0">
             <colgroup width="12%"></colgroup>

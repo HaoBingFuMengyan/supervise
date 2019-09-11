@@ -10,7 +10,7 @@
 
 <html>
 <head>
-<title>煤亮子</title>
+<title>基金协同监管系统沟通</title>
 
 <link href="${ctx}/of/css/setup.css" rel="stylesheet" type="text/css">
 <script src="${ctx}/js/jquery.timer.dev.js" type="text/javascript"></script>

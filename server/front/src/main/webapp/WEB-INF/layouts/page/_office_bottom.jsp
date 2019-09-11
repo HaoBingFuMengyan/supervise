@@ -15,7 +15,7 @@
             </div>
         </div>
          -->
-        <!-- <p>COPYRIGHT © 煤亮子 www.1strade.com 沪ICP备：16006604号 粤ICP备：16091015号</p> -->
+        <!-- <p>COPYRIGHT © 基金协同监管系统沟通 www.1strade.com 沪ICP备：16006604号 粤ICP备：16091015号</p> -->
         <layout:text key="1005" newpage="true" separate="|"></layout:text>
             <p style="margin-top:0px;">COPYRIGHT © 2018 meiliangzi.cn 陕ICP备10000586号-2</p>
         </div>    

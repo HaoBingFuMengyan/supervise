@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<title>煤亮子</title>
+<title>基金协同监管系统沟通</title>
 <link href="${ctx}/of/css/setup.css" rel="stylesheet" type="text/css">
 <style>
 .step-list-con .step-list li.item-step2,.step-list-con .step-list li.item-step3 {

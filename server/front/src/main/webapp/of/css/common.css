@@ -12,7 +12,6 @@ body {
 }
 
 * html {
-	background: url(*) fixed;
 } /*IE6,IE7*/
 * html body {
 	margin: 0;

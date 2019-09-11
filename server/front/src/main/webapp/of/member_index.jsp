@@ -5,9 +5,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="煤亮子,煤亮子商城"/>
-    <meta name="description" content="煤亮子商城(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
-    <title>普通会员中心-煤亮子</title>
+    <meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
+    <meta name="description" content="基金协同监管系统沟通(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
+    <title>普通会员中心-基金协同监管系统沟通</title>
 
     <script type="text/javascript">
 
@@ -33,17 +33,17 @@
             <div class="apply-card apply-card1">
                 <h2>有限责任公司</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a>立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
             </div>
             <div class="apply-card apply-card2">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a>立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
             </div>
             <div class="apply-card apply-card3">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为创投风投基金</p>
-                <a>立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
             </div>
         </div>
     </div>

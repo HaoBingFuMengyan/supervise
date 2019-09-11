@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>煤亮子</title>
+    <title>基金协同监管系统沟通</title>
     <meta name="decorator" content="jj"/>
     <script src="${ctx}/js/jquery.timer.dev.js" type="text/javascript"></script>
     <script src="${ctx}/js/sendmobile.js" type="text/javascript"></script>

@@ -895,9 +895,9 @@ div.mitems span label {
 }
 
 .file div {
-	display: inline-block;
-	/*border:1px #99f solid;*/
-	position: relative;
+	/*display: inline-block;*/
+	/*!*border:1px #99f solid;*!*/
+	/*position: relative;*/
 }
 
 .file span {

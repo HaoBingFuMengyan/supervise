@@ -75,7 +75,7 @@
 </head>
 <body>
 <div class="table-con">
-    <div class="title">陕煤集团神南产业发展有限公司<br/>“煤亮子”合同审批表</div>
+    <div class="title">陕煤集团神南产业发展有限公司<br/>“基金协同监管系统沟通”合同审批表</div>
     <div class="ht-number">合同编号：${data.sbizno}</div>
     <div class="table">
         <table style="table-layout:fixed; width:100%;" cellspacing="0">

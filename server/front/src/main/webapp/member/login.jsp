@@ -7,7 +7,7 @@
 	<shiro:authenticated>
 		<meta http-equiv="refresh" content="0;url=${ctx}/logout.html" />
 	</shiro:authenticated>
-<title>煤亮子-登录</title>
+<title>基金协同监管系统沟通-登录</title>
 <link rel="stylesheet" href="${ctx}/css/buxiu.css">
 <link rel="stylesheet" href="${ctx}/css/static.css">
 <style>

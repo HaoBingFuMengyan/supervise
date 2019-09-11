@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/side.css">
 <meta name="data-spm" content="">
-<title>煤亮子-注册</title>
+<title>基金协同监管系统沟通-注册</title>
 <link rel="stylesheet" href="css/buxiu.css">
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/static.css">
