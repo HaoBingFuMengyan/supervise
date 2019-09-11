@@ -27,7 +27,26 @@
 </head>
 <body>
 <div class="wrapper wrapper-content jy-content">
-member_index
+    <div class="apply-con">
+        <div class="apply-tips">请选择企业业务类型</div>
+        <div class="apply-box clearfix">
+            <div class="apply-card apply-card1">
+                <h2>有限责任公司</h2>
+                <p>拟备案为私募基金管理人</p>
+                <a>立即申请</a>
+            </div>
+            <div class="apply-card apply-card2">
+                <h2>有限合伙企业</h2>
+                <p>拟备案为私募基金管理人</p>
+                <a>立即申请</a>
+            </div>
+            <div class="apply-card apply-card3">
+                <h2>有限合伙企业</h2>
+                <p>拟备案为创投风投基金</p>
+                <a>立即申请</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
