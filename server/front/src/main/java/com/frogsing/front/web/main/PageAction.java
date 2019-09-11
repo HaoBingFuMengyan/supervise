@@ -175,56 +175,6 @@ PageAction {
 
 
 
-
-
-
-    //开通店铺预览
-    @RequestMapping(value = "shop.html", method = RequestMethod.GET)
-    public String shop(@RequestParam(value = "id", required = true) String id,
-                       Model model, HttpServletRequest request) {
-        try {
-            MemberShop memberShop = iQueryService.fetchOne(MemberShop.class, id);
-            if (memberShop == null)
-                E.S("抱歉，还未开通店铺");
-            model.addAttribute("membershop", memberShop);
-        } catch (ServiceException ex) {
-            ex.printStackTrace();
-            Msg.error(model,ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msg.error(model,"系统错误，请联系管理员");
-        }
-        return "page/shop";
-    }
-    //未开通店铺预览
-    @RequestMapping(value = "apply.html", method = RequestMethod.GET)
-    public String shopApply(@RequestParam(value = "id", required = true) String id,
-                       Model model, HttpServletRequest request) {
-        try {
-            MemberShopApply memberShopApply = iQueryService.fetchOne(MemberShopApply.class,id);
-            if (memberShopApply == null)
-                E.S("抱歉，还未申请开通店铺");
-            model.addAttribute("membershop", memberShopApply);
-        } catch (ServiceException ex) {
-            ex.printStackTrace();
-            Msg.error(model,ex.getMessage());
-        } catch (Exception e) {
-            e.printStackTrace();
-            Msg.error(model,"系统错误，请联系管理员");
-        }
-        return "page/shop";
-    }
-   /* @RequestMapping(value = "combinebuy.html", method = RequestMethod.GET)
-    public String combinebuy(Model model, HttpServletRequest request) {
-        return "page/combinebuy";
-    }*/
-
-    /*@RequestMapping(value = "combinebuy_view.html", method = RequestMethod.GET)
-    public String combinebuy_view(Model model, HttpServletRequest request) {
-        return "page/combinebuy_view";
-    }*/
-
-
     @RequestMapping(value = "check.shtml", method = RequestMethod.GET)
     @ResponseBody
     public List<Set<String>> checkRight() {
