@@ -4,7 +4,6 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-    		classpath*:/dubbo-consumer.xml,
 			classpath*:/applicationContext.xml,
 			classpath*:/applicationContext-shiro.xml,
 	</param-value>

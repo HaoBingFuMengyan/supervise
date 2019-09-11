@@ -27,7 +27,7 @@
 </head>
 <body>
 <div class="wrapper wrapper-content jy-content">
-
+member_index
 </div>
 </body>
 </html>

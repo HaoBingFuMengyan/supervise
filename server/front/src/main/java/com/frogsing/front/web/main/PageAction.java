@@ -5,6 +5,7 @@ import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.log.Lg;
 import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.security.utils.AnnotationUtils;
+import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Msg;
 import com.frogsing.member.po.MemberShop;
 import com.frogsing.member.po.MemberShopApply;
@@ -51,37 +52,13 @@ PageAction {
     private MemberService memberService;
 
 
-    /**
-     * 煤亮子商城
-     *
-     * @param start
-     * @param limit
-     * @param sort
-     * @param model
-     * @param request
-     * @return
-     */
+
     @RequestMapping(value = "index.html", method = RequestMethod.GET)
-    public String index(@RequestParam(value = "pageNo", defaultValue = "0") int start,
-                        @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
-                        @RequestParam(value = "sort", defaultValue = "") String sort,
-                        Model model, HttpServletRequest request) {
-        try {
+    public String index(Model model, HttpServletRequest request) {
 
-            LoginUser user = ShiroUtils.getCurrentUser();
-            model.addAttribute("user", user);
-            model.addAttribute("skeywords", request.getParameter("skeywords"));
-
-        } catch (ServiceException ex) {
-            ex.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "page/index";
+        return S.redirect("/login.html");
+//        return "page/index";
     }
-
-
-
 
 
 
