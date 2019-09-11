@@ -309,6 +309,7 @@ font.must{
 	height: 36px;
 	width: 354px;
 	border: 1px solid #ccc;
+	background: #fff;
 	text-indent: 5px;
 	display: inline-block;
 	margin-right: 10px;
@@ -387,10 +388,17 @@ font.must{
 	margin-top: 30px;
 	width: 120px;
 	display: inline-block;
+	font-size: 13px;
+	color: #666;
 }
 .input_group .checkbox p{
-	color:#333;
+	color:#37a888;
 	margin-bottom: 10px;
+}
+.input_group .checkbox h3{
+	color:#666;
+	line-height: 1.8;
+	font-size: 13px;
 }
 .input_group .checkbox input{
 	margin-right: 10px;

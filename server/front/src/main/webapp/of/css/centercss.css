@@ -3299,6 +3299,24 @@ ul.cgLink li:last-child a{
 	background: none;
 	border:none
 }
+.jj-submit{
+	margin-top: 30px;
+}
+.jj-submit button{
+	width: 200px;
+	height:42px;
+	border-radius: 3px;
+	border: 1px solid #0077d5;
+	background-color: #0077d5;
+	color:#fff;
+	font-size: 18px;
+	cursor: pointer;
+}
+.mask-bg{
+	padding: 15px;
+	background: #efe;
+	border-radius: 5px;
+}
 .fill-label{
 	padding-bottom: 16px;
 	line-height: 25px;
@@ -3403,7 +3421,7 @@ ul.cgLink li:last-child a{
 	color:#F08642
 }
 .fill-form .input_group .checkbox{
-	width: inherit;
+	width: 100%;
 }
 .fill-form .input_group .checkbox img{
 	width: 62px;
