@@ -26,22 +26,28 @@
 <body>
 	<div class="top50 ac">
 		<form action="">
-        	<div class="step-list-con bottom50">
-		        <ul class="step-list fn-clear current-step1">
-		            <li class="step-item item-step1">
-		              <span class="step-index num-family">1</span>
-		                                      验证原手机号
-		            </li>
-		            <li class="step-item item-step2">
-		              <span class="step-index num-family">2</span>
-		                                      验证新手机号
-		            </li>
-		            <li class="step-item item-step3">
-		              <span class="step-index num-family">3</span>
-		                                      成功
-		            </li>
-		        </ul>
-		    </div>
+			<div class="step-list-con bottom50">
+				<ul class="step-list fn-clear current-step1 clearfix" style="margin-left: 96px">
+					<li class="step-item item-step1">
+						<img src="${ctx}/images/cgStep1.jpg">
+						<p class="cur">验证原手机号</p>
+					</li>
+					<li class="step-item item-space">
+						<label class="pass"></label>
+					</li>
+					<li class="step-item item-step2">
+						<img src="${ctx}/images/cgStep22.jpg">
+						<p class="cur">验证新手机号</p>
+					</li>
+					<li class="step-item item-space">
+						<label class="pass"></label>
+					</li>
+					<li class="step-item item-step3">
+						<img src="${ctx}/images/cgStep33.jpg">
+						<p class="cur">成功</p>
+					</li>
+				</ul>
+			</div>
 		    <div class="suc">手机号码修改成功！
 		    	<img class="aha" src="${ctx}/images/choose.png" /> 
 		    </div>

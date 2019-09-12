@@ -54,33 +54,39 @@
 		<form id="inputForm" action="${ctx}/hy/user/boundsmobile.shtml" method="post">
 			<input type="hidden" name="smobile" id="smobile" value="${sphone}" />
 			<input type="hidden" value="${user.id}" name="id">
-        	<div class="step-list-con bottom50">
-		        <ul class="step-list fn-clear current-step1" style="margin-left: 205px">
-		            <li class="step-item item-step1">
-		              <span class="step-index num-family">1</span>
-		                                      验证原手机号
-		            </li>
-		            <li class="step-item item-step2">
-		              <span class="step-index num-family">2</span>
-		                                      验证新手机号
-		            </li>
-		            <li class="step-item item-step3">
-		              <span class="step-index num-family">3</span>
-		                                      成功
-		            </li>
-		        </ul>
-		    </div>
-		    <div class="input_group input_group_lg bottom20 left205">
+			<div class="step-list-con bottom50">
+				<ul class="step-list fn-clear current-step1 clearfix" style="margin-left: 96px">
+					<li class="step-item item-step1">
+						<img src="${ctx}/images/cgStep1.jpg">
+						<p class="cur">验证原手机号</p>
+					</li>
+					<li class="step-item item-space">
+						<label></label>
+					</li>
+					<li class="step-item item-step2">
+						<img src="${ctx}/images/cgStep2.jpg">
+						<p>验证新手机号</p>
+					</li>
+					<li class="step-item item-space">
+						<label></label>
+					</li>
+					<li class="step-item item-step3">
+						<img src="${ctx}/images/cgStep3.jpg">
+						<p>成功</p>
+					</li>
+				</ul>
+			</div>
+		    <div class="input_group input_group_lg bottom20 left100">
             	<label>原手机号码：</label>${smobile}
             </div>
-            <div class="input_group input_group_lg bottom20 left205">
+            <div class="input_group input_group_lg bottom20 left100">
             	<label>手机验证码：</label><input type="text" name="scheckword" id="scheckword" class="form_control" placeholder="输入手机验证码" />
             	<div class="get"><input class="code bluefont" id="sendCode" value="获取验证码 " readonly="readonly"/></div>
             </div>
-            <div class="input_group input_group_lg bottom20 left205">
+            <div class="input_group input_group_lg bottom20 left100">
             	<label>登陆密码：</label><input type="password" name="spassword" id="spassword" minlength="6" class="form_control" placeholder="密码长度不少于6位" />
             </div>
-            <div class="input_group input_group_lg bottom20 left205 top50">
+            <div class="input_group input_group_lg bottom20 left100 top50">
             	<label></label>
             	<input type="button" class="form_control comfir" onclick="nextStep();" value="下一步" />
             </div>

@@ -5,15 +5,15 @@ body,p{
 	font-weight:normal;
 	padding:0;
 	margin:0;
-	}
+}
 a{
 	text-decoration:none;
-	}
+}
 ul,li{
 	list-style-type:none;
 	margin:0;
 	padding:0;
-	}
+}
 .clearfix {
 	zoom: 1;
 }
@@ -24,10 +24,10 @@ ul,li{
 	content: " ";
 	clear: both;
 	height: 0;
- }
- .main_con .tit{
- 	margin-bottom:0;
- }
+}
+.main_con .tit{
+	margin-bottom:0;
+}
 .set_list{
 	width:765px;
 }
@@ -39,11 +39,11 @@ ul,li{
 }
 .set_list .relist .set_name{
 	width: 335px;
-    height: 95px;
-    line-height: 80px;
-    color: #333;
-    padding-left: 38px;
-    font-size: 14px;
+	height: 95px;
+	line-height: 80px;
+	color: #333;
+	padding-left: 38px;
+	font-size: 14px;
 }
 .set_list .relist .set_value{
 	width:250px;
@@ -71,35 +71,63 @@ ul,li{
 }
 .comfir{
 	border:none;
-	background:#e73426;
+	background:#5986F9;
 	color:#fff;
 	text-align:center;
 	cursor:pointer;
+	width: 120px!important;
+	height: 42px!important;
+	border:none!important;
+	cursor: pointer!important;
 }
 .step-list-con .step-list {
-    margin: auto;
-    width: 630px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
+	margin: auto;
+	text-align: center;
 }
 .step-list-con .step-list li {
-    margin-left: -4px;
-    width: 209px;
-    float: left;
-    font-size: 14px;
-    color: #999;
-    background: url(../../images/setup.png) center no-repeat;
+	margin-left: -4px;
+	width: 100px;
+	float: left;
+	font-size: 14px;
+	color: #999;
+	/*background: url(../../images/setup.png) center no-repeat;*/
+}
+.step-list-con .step-list li img{
+	display: block;
+	margin:10px auto;
+	width: 36px;
+}
+.step-list-con .step-list li p{
+	text-align: center;
+	color:#b4b4b4;
+}
+.step-list-con .step-list li p.cur{
+	color:#1440d5
+}
+.step-list-con .step-list li.item-space{
+	width: 165px;
+	padding-top: 27px;
+	margin-left: -25px;
+	margin-right: -25px;
+}
+.step-list-con .step-list li label{
+	width: 160px;
+	height: 3px;
+	background: #bfbfbf;
+	display: block;
+}
+.step-list-con .step-list li label.pass{
+	background: #246ed7;
 }
 .step-list-con .step-list.current-step1 .item-step1 {
-    color: #0078bf;
-    background-position: 0 0;
+	color: #0078bf;
+	background-position: 0 0;
 }
 .step-list-con .step-list li.item-step2 {
-    background-position: 0 -143px;
+	background-position: 0 -143px;
 }
 .step-list-con .step-list li.item-step3 {
-    background-position: 0 -237px;
+	background-position: 0 -237px;
 }
 .input_group a.code{
 	position:absolute;
@@ -108,36 +136,35 @@ ul,li{
 }
 .input_group input.code{
 	position:absolute;
-	right:10px;
-	top:13px;
-	width:90px;
+	top:9px;
+	width:105px;
 	border:none;
 	background:none;
 	cursor:pointer
 }
 .input_group .get{
 	position: absolute;
-    width: 100px;
-    height: 30px;
-    top: 1px;
-    left: 365px;
+	width: 100px;
+	height: 30px;
+	top: 5px;
+	left: 350px;
 }
 .input_group .get span.error{
-    position: absolute;
-    left: 90px;
-    width: 256px;
-    top: 13px;
+	position: absolute;
+	left: 90px;
+	width: 256px;
+	top: 13px;
 }
 .input_group .get label.error{
 	position: absolute;
-	left: 110px;
+	left: 160px;
 	width:300px;
 	top: 5px;
 	text-align: left;
 }
 .input_group .get label.success{
 	position: absolute;
-	left: 110px;
+	left: 160px;
 	width: 300px;
 	top: 5px;
 	text-align: left;
