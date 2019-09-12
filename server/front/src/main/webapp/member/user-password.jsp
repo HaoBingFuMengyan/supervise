@@ -61,20 +61,20 @@
 			<input type="hidden" name="id" value="${user.id}">
 			<input type="hidden" name="smobile" id="smobile" value="${user.smobile}">
 			<div class="sqcon top30" style="width: 660px;">
-				<div class="input_group input_group_lg bottom20 left120">
+				<div class="input_group input_group_lg bottom20 left100">
 					<label>原密码：</label><input type="password" name="oldpassword" id="oldpassword" class="form_control" required placeholder="请输入您的原密码" />
 				</div>
-				<div class="input_group input_group_lg bottom20 left120">
+				<div class="input_group input_group_lg bottom20 left100">
 					<label>新密码：</label><input type="password" name="newpassword" id="newpassword1" minlength="6" maxlength="20" class="form_control" required placeholder="密码由6-20字母、字符或数字组成" />
 				</div>
-				<div class="input_group input_group_lg bottom20 left120">
+				<div class="input_group input_group_lg bottom20 left100">
 					<label>确认新密码：</label><input type="password" name="newpassword2" minlength="6" maxlength="20" class="form_control" required equalTo="#newpassword1" placeholder="请再次输入您的新密码" /><!-- equalTo="newpassword" -->
 				</div>
-				<div class="input_group input_group_lg bottom20 left120">
+				<div class="input_group input_group_lg bottom20 left100">
 					<label>手机验证码：</label><input type="text" name="code" id="code" class="form_control" required placeholder="输入手机验证码" />
 					<div class="get"><input class="code bluefont" id="sendCode" value="获取验证码 " readonly="readonly"/></div>
 				</div>
-				<div class="input_group input_group_lg bottom20 left120 top50">
+				<div class="input_group input_group_lg bottom20 left100 top50">
 					<label></label>
 					<input onclick="doSubmit()" type="button" class="form_control comfir" style="width:356px;" value="确定" />
 				</div>
