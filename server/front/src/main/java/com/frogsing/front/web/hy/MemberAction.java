@@ -128,6 +128,9 @@ public class MemberAction extends BaseAction {
     		Model model, RedirectAttributes rmodel, ServletRequest request) {
         try {
             ILoginUser user = ShiroUtils.getCurrentUser();
+
+            memberService.doAuthApply_b(memVo,user);
+
             model.addAttribute("issuccess",true);
             return "member/authapply";
         } catch (ServiceException e) {

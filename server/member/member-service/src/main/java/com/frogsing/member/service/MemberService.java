@@ -7,6 +7,7 @@ package com.frogsing.member.service;
 
 import com.frogsing.common.utils.NoticeUtils;
 import com.frogsing.heart.consts.Consts;
+import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
 import com.frogsing.heart.utils.B;
 import com.frogsing.heart.utils.DateUtils;
@@ -14,17 +15,12 @@ import com.frogsing.heart.utils.StringHelper;
 import com.frogsing.heart.utils.T;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IMemberService;
-import com.frogsing.member.dao.AuthapplyDao;
-import com.frogsing.member.dao.MemberAddressDao;
-import com.frogsing.member.dao.MemberDao;
-import com.frogsing.member.dao.MemberImageDao;
-import com.frogsing.member.po.Authapply;
-import com.frogsing.member.po.Member;
-import com.frogsing.member.po.MemberAddress;
-import com.frogsing.member.po.MemberImage;
+import com.frogsing.member.dao.*;
+import com.frogsing.member.po.*;
 import com.frogsing.member.utils.MEMBER.*;
 import com.frogsing.member.utils.MEMBERCol.hy_authapply;
 import com.frogsing.member.utils.MEMBERCol.hy_member;
+import com.frogsing.member.vo.MemVo;
 import com.frogsing.parameter.utils.ParaUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,9 +53,24 @@ public class MemberService  implements IMemberService {
 
 	@Autowired
 	private MemberImageDao memberImageDao;
+
 	@Autowired
 	private MemberAddressDao memberAddressDao;
 
+	@Autowired
+	private IQueryService queryService;
+
+	@Autowired
+	private AuthapplyDao authapplyDao;
+
+	@Autowired
+	private NaturalHolderDao naturalHolderDao;
+
+	@Autowired
+	private CompanyHolderDao companyHolderDao;
+
+	@Autowired
+	private ControHolderDao controHolderDao;
 
 
 	/* (non-Javadoc)
@@ -375,154 +386,138 @@ public class MemberService  implements IMemberService {
 		if(member != null)
 			member.setImembertype(imembertype);
 	}
-	@Autowired
-	private AuthapplyDao authapplyDao;
 
 
 	/**
 	 * 申请认证
-	 * @author XiaoYao
-	 * @param obj   //页面上的vo
-	 * @user  //LoginUser
+	 * @author haobingfu
+	 * @param obj
+	 * @user
 	 */
 	@Override
-	public void doAuthApply_b(final Authapply obj,ILoginUser user) { 
+	public void doAuthApply_b(MemVo obj, ILoginUser user) {
 		Member member = memberDao.lock(user.getMemberId());
-		//普通的检查，与authapply相关的检查都在里面了，方便审核的时候再检查一遍
+
 		authRequired(obj);
-		boolean b = isUniqueUserUpdate(obj.getScnname().replace(" ",""), member.getId());
-		if (!b) {
-			E.S("该公司名已被使用");
-		}
-		
-		
-		List<Authapply> applylist =authapplyDao.findAll(new Specification<Authapply>() {
-			
-			@Override
-			public Predicate toPredicate(Root<Authapply> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
-				return cb.and(cb.equal(root.get(hy_authapply.smemberid), user.getMemberId()),cb.equal(root.get(hy_authapply.istatus), CheckStatus.WAIT.val()));
-			}
-		});
-		List<Authapply> sapplylist =authapplyDao.findAll(new Specification<Authapply>() {
 
-			@Override
-			public Predicate toPredicate(Root<Authapply> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
-				return cb.and(cb.equal(root.get(hy_authapply.ssocialcreditno), obj.getSsocialcreditno()),cb.equal(root.get(hy_authapply.istatus), CheckStatus.CHECKED.val()));
-			}
-		});
-		if(B.N(sapplylist)){
-			E.S("统一社会代码已存在");
-		}
-				//authapplyDao.findOneByPropertyName(hy_authapply.smemberid, obj.getSmemberid());
-		Authapply apply=null;
-		if(B.N(applylist))
-			apply=applylist.get(0);
-		if (apply == null) {   //第一次申请
-			apply = new Authapply();
-			apply.setSmemberid(member.getId());
-			apply.setSmemberno(member.getSmemberno());
-			
+		if (member == null)
+			E.S("会员不存在，请先开通会员");
 
-			apply.setSapplyuserid(user.getId()); //申请人
-			apply.setDapplydate(new Date());
-			apply.setDadddate(new Date());
-			apply.setSadduser(user.getName());
-			apply.setSapplyuserid(user.getId());
-			apply.setIapplytype(AuthenticateType.Company.val());
-		}
-		if(apply.getIauthtype()==AuthenticateType.Company.val()){
-			E.S("已经通过企业认证了");
-		}
-		apply.setDmodifydate(new Date());    
-		apply.setSmodifyoperator(user.getName());    
-		//需要保存的字段
-		//认证的数据
+		member.setIregmoney(obj.getIregmoney());
+		member.setSlegalperson(obj.getSlegalperson());
+		member.setIlegaltype(obj.getIlegaltype());
+		member.setSlegalpersoncode(obj.getSlegalpersoncode());
+		member.setBisjoblegal(obj.getBisjoblegal());
 
-		apply.setScnname(obj.getScnname().replace(" ",""));
-		if(StringHelper.hasCn(obj.getScnname())){
-			apply.setSpyname(StringHelper.getFullSpell(obj.getScnname()));  //拼音名
-			apply.setSjpname(StringHelper.getFirstSpell(obj.getScnname()));	//简拼名
-		}else{
-			apply.setSenname(obj.getScnname());
-			apply.setSjpname(StringHelper.getFirstSpell(obj.getScnname()));	//简拼名
-		}
-		apply.setSsocialcreditno(obj.getSsocialcreditno());
-		apply.setSbusinessno(obj.getSbusinessno());
-		apply.setIstatus(CheckStatus.WAIT.val());
-		apply.setSlinkman(obj.getSlinkman());
+		member.setSmanagername(obj.getSmanagername());
+		member.setImanagertype(obj.getImanagertype());
+		member.setSmanagerno(obj.getSmanagerno());
+		member.setBisjobmanager(obj.getBisjobmanager());
+
+		member.setIcorporatetype(obj.getIcorporatetype());
+
+		this.memberDao.save(member);
+
+
+		Authapply apply = new Authapply();
+
+		apply.setId(null);
+		apply.setSmemberid(member.getId());
+		apply.setSmemberno(member.getSmemberno());
+		apply.setSapplyuserid(member.getId());
+		apply.setIcompanytype(member.getIcompanytype());//默认
+		apply.setImembertype(member.getImembertype());
+		apply.setIregmoney(obj.getIregmoney().longValue());
+		apply.setSlegalperson(obj.getSlegalperson());
+		apply.setIlegaltype(obj.getIlegaltype());
+		apply.setSlegalpersoncode(obj.getSlegalpersoncode());
+		apply.setBisjoblegal(obj.getBisjoblegal());
+
+		apply.setSmanagername(obj.getSmanagername());
+		apply.setImanagertype(obj.getImanagertype());
+		apply.setSmanagerno(obj.getSmanagerno());
+		apply.setBisjobmanager(obj.getBisjobmanager());
+
+		apply.setIcorporatetype(obj.getIcorporatetype());
+
+		apply.setScnname(member.getScnname());
+		apply.setSsocialcreditno(member.getSsocialcreditno());
+		apply.setSbusinessno(member.getSbusinessno());
+		apply.setIstatus(CheckStatus.WAIT.val());//moren状态为待审核
+		apply.setSlinkman(member.getSlinkman());
 		apply.setSmobile(member.getSmobile());
-		apply.setSphone(obj.getSphone());
+		apply.setSphone(member.getSphone());
 
-		apply.setScountry(obj.getScountry());
-		apply.setSprovince(obj.getSprovince());
-		apply.setScity(obj.getScity());
-		apply.setSregion(obj.getSregion());
-		apply.setSbusaddress(obj.getSbusaddress());
-		apply.setSbusinessmode(obj.getSbusinessmode());//经营模式
-		apply.setSopenbank(obj.getSopenbank());//开户行
-		apply.setSopenname(obj.getSopenname());//开户名称
-		apply.setSopenaccount(obj.getSopenaccount());//开户行账号
-		apply.setSunionaccount(obj.getSunionaccount());//联行号
-		//apply.setIcompanytype(obj.getIcompanytype());//公司类型 int
-		apply.setScompanydesc(obj.getScompanydesc()); //公司简介
-		authapplyDao.save(apply);
-		// 企业认证申请发短信
-		Map<String, Object> ma = new HashMap<String, Object>();
-		ma.put(NoticeUtils.SendMessageType.SENDTYPE, NoticeUtils.SendMessageType.ToUser.val());
-		ma.put(NoticeUtils.SendMessageType.NODECODE, "CompanyApply");
-		ma.put(NoticeUtils.SendMessageType.TOUSERID, apply.getSapplyuserid());
-		ma.put("obj", apply);
-//		JobUtils.nowJob(ITaskSendMemberMsg.class, "企业认证申请提交成功给会员发短信", ma);
+		apply.setScountry(member.getScountry());
+		apply.setSprovince(member.getSprovince());
+		apply.setScity(member.getScity());
+		apply.setSregion(member.getSregion());
+		apply.setSbusaddress(member.getSbusaddress());
+		apply.setSbusinessmode(member.getSbusinessmode());//经营模式
+		apply.setSopenbank(member.getSopenbank());//开户行
+		apply.setSopenname(member.getSopenname());//开户名称
+		apply.setSopenaccount(member.getSopenaccount());//开户行账号
+		apply.setSunionaccount(member.getSunionaccount());//联行号
+		apply.setScompanydesc(member.getScompanydesc()); //公司简介
 
-		//企业认证申请通知平台客服
-		Map<String, Object> _map_zhujun = new HashMap<String, Object>();
-		_map_zhujun.put(NoticeUtils.SendMessageType.SENDTYPE, NoticeUtils.SendMessageType.ToPlatRight.val());
-		_map_zhujun.put(NoticeUtils.SendMessageType.NODECODE, "CompanyApplyToPingtai");
-		_map_zhujun.put(NoticeUtils.SendMessageType.SENDRIGHT, "companyapply:send");
-		_map_zhujun.put("scnname",apply.getScnname());//企业名称
-//		JobUtils.nowJob(ITaskSendMemberMsg.class, "企业认证申请发送短信给客服", _map_zhujun);
+		apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
+
+		Authapply authapply = authapplyDao.saveAndFlush(apply);
+
+		//添加自然人股东信息
+		for (int i = 0; i < obj.getSname().length; i++) {
+			NaturalHolder naturalHolder = new NaturalHolder();
+
+			naturalHolder.setId(null);
+			naturalHolder.setSmemberid(authapply.getId());
+			naturalHolder.setIsortno(i);
+			naturalHolder.setSname(obj.getSname()[i]);
+			naturalHolder.setIcardtype(obj.getIcardtype()[i]);
+			naturalHolder.setScardno(obj.getScardno()[i]);
+			naturalHolder.setFamount(obj.getFamount()[i]);
+			naturalHolder.setBisjob(obj.getBisjob()[0]);
+
+			naturalHolderDao.save(naturalHolder);
+		}
+
+		//添加机构股东信息
+		for (int i = 0; i < obj.getScompanyname().length; i++) {
+			CompanyHolder companyHolder = new CompanyHolder();
+
+			companyHolder.setId(null);
+			companyHolder.setSmemberid(authapply.getId());
+			companyHolder.setIsortno(i);
+			companyHolder.setSname(obj.getScompanyname()[i]);
+			companyHolder.setIlicensetype(obj.getIcompanycardtype()[i]);
+			companyHolder.setSsocialcreditno(obj.getScompanycardno()[i]);
+			companyHolder.setFamount(obj.getFcompanyamount()[i]);
+
+			companyHolderDao.save(companyHolder);
+		}
+
+		//添加控股人股东信息
+		for (int i = 0; i < obj.getSconname().length; i++) {
+			ControHolder controHolder = new ControHolder();
+
+			controHolder.setId(null);
+			controHolder.setSmemberid(authapply.getId());
+			controHolder.setIsortno(i);
+			controHolder.setSname(obj.getSconname()[i]);
+			controHolder.setIcardtype(obj.getIconcardtype()[i]);
+			controHolder.setSsocialcreditno(obj.getSsocialcreditno()[i]);
+			controHolder.setIcomtype(obj.getIconpanytype()[i]);
+
+			controHolderDao.save(controHolder);
+		}
 	}
 
 
 	/**
-	 * 与认证有关的检查，方便审核的时候再检查一遍
-	 * @author XiaoYao
+	 * 验证是否否和申请条件
+	 * @param obj
 	 */
-	public void authRequired(Authapply obj){
-		if(B.Y(obj.getScnname())){
-			E.S("请填写公司名称");
-		}
-		if(B.Y(obj.getSsocialcreditno())){
-			E.S("请填写统一社会信用代码");
-		}
-		if (B.Y(obj.getSopenbank()))
-			E.S("开户行不能为空");
-		if (B.Y(obj.getSopenname()))
-			E.S("账户全称不能为空");
-		if (B.Y(obj.getSopenaccount()))
-			E.S("开户行账号不能为空");
-		if(B.Y(obj.getSlinkman())){
-			E.S("请填写联系人");
-		}
-		if(B.Y(obj.getSphone())){
-			E.S("请填写公司电话");
-		}
-		if(obj.getIcompanytype()==null){
-			E.S("请填写公司类型");
-		}
-		if (memberImageDao.countImageType(obj.getSmemberid(), ImageType.BUSINESSNO.val()) == 0){
-			E.S("请先上传营业执照副本");
-		}
-		if(B.Y(obj.getSprovince())|| B.Y(obj.getScity())){
-			E.S("请填写完整的公司所在地");
-		}
-		if (B.Y(obj.getSbusaddress())) {
-			E.S("请填写公司详细地址");
-		}
-		
-		if (obj.getIapplytype() != AuthenticateType.Company.val()){
-			E.S("认证类型不正确");
-		}
+	public void authRequired(MemVo obj){
+
 	}
 	
 	

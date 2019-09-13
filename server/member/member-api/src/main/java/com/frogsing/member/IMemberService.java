@@ -11,6 +11,7 @@ import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.MemberAddress;
 import com.frogsing.member.utils.MEMBER.MemberType;
+import com.frogsing.member.vo.MemVo;
 
 public interface IMemberService{
 
@@ -111,7 +112,7 @@ public interface IMemberService{
 	 * @param user
 	 * @param params  可能会用到的参数
 	 */
-	void doAuthApply_b(Authapply obj,ILoginUser user);
+	void doAuthApply_b(MemVo obj, ILoginUser user);
 
 	/*
 	 * 查询所有的挂牌交易会员
@@ -140,12 +141,7 @@ public interface IMemberService{
 	 *	校验企业全称是否重复 
 	 */
 	Member findByScnname(String scnname);
-	
-	/**
-	 * 认证和审核时的检查都在里面，方便检查两次
-	 * @param apply
-	 */
-	void authRequired(Authapply apply);
+
 
 	/**
 	 * 保存收货地址

@@ -94,7 +94,7 @@ public class AuthapplyService implements IAuthapplyService {
 		Objects.requireNonNull(id);
 		Authapply apply =Objects.requireNonNull(authapplyDao.findOne(id)) ;
 		//再次检查认证信息
-		memberService.authRequired(apply);
+//		memberService.authRequired(apply);
 
 		Member member=Objects.requireNonNull(queryService.fetchOne(Member.class,apply.getSmemberid())) ;
 		if (member == null ||AuthenticateType.Company.val()!=apply.getIapplytype()){

@@ -1,16 +1,13 @@
 package com.frogsing.member.vo;
 
-import com.frogsing.member.po.NaturalHolder;
-
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by haobingfu on 2019/9/13.
  */
 public class MemVo implements Serializable {
 
-    private double iregmoney;//注册资本
+    private Integer iregmoney;//注册资本
     private String slegalperson;//执行董事姓名
     private Integer ilegaltype;//执行董事证件类型
     private String slegalpersoncode;//执行董事证件号码
@@ -41,12 +38,14 @@ public class MemVo implements Serializable {
     private String[] ssocialcreditno;//社会统一信用代码
     private Integer[] iconpanytype;//公司类型
 
+    private Integer icorbiztype;//企业业务类型
 
-    public double getIregmoney() {
+
+    public Integer getIregmoney() {
         return iregmoney;
     }
 
-    public void setIregmoney(double iregmoney) {
+    public void setIregmoney(Integer iregmoney) {
         this.iregmoney = iregmoney;
     }
 
@@ -224,5 +223,13 @@ public class MemVo implements Serializable {
 
     public void setIconpanytype(Integer[] iconpanytype) {
         this.iconpanytype = iconpanytype;
+    }
+
+    public Integer getIcorbiztype() {
+        return icorbiztype;
+    }
+
+    public void setIcorbiztype(Integer icorbiztype) {
+        this.icorbiztype = icorbiztype;
     }
 }
