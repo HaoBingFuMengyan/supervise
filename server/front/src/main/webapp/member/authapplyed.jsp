@@ -59,36 +59,28 @@
 
             //添加自然人股东信息
             $("#addbtn").click(function () {
-                var innerHTML = '<div class="mask-bg"><div ><input name="sname" class="form_control" placeholder="股东姓名">'
+                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label"><em class="red">*</em>填写自然人股东信息<button type="button"><img src="${ctx}/images/add.png">删除</button></div>'
+                    + '<div class="mask-bg"><div ><input name="sname" class="form_control" placeholder="股东姓名">'
                     + '<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" defval="999" option="class=\\'form_control\\'"/>'
                     + '<input name="scardno" class="form_control" placeholder="证件号码">'
                     + '<input name="famount" class="form_control" placeholder="认缴出资额">万元</div<div class="checkbox"><p>兼职情况</p>'
                     + '<input name="bisjob" type="radio" value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务'
-                    + '<input name="bisjob" type="radio" value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</div></div>';
+                    + '<input name="bisjob" type="radio" value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</div></div></div>';
 
-                $("#natural").append(innerHTML);
+                $("#company").before(innerHTML);
             });
 
             //添加机构股东信息
             $('#addbtn1').click(function () {
-                var innerHTML = '<div class="mask-bg"><div ><input name="scompanyname" class="form_control" placeholder="股东名称">'
+                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label"><em class="red">*</em>填写机构股东信息<button type="button"><img src="${ctx}/images/add.png">删除</button></div>'
+                    + '<div class="mask-bg"><div ><input name="scompanyname" class="form_control" placeholder="股东名称">'
                     + '<member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" defval="999" option="class=\\'form_control\\'"/>'
                     + '<input name="scompanycardno" class="form_control" placeholder="填写统一社会信用代码">'
-                    + '<input name="fcompanyamount" class="form_control" placeholder="认缴出资额">万元</div></div>';
+                    + '<input name="fcompanyamount" class="form_control" placeholder="认缴出资额">万元</div></div></div>';
 
-                $("#company").append(innerHTML);
+                $("#control").before(innerHTML);
             });
 
-            //添加控股信息
-            $('#addbtn2').click(function () {
-               var innerHTML = '<div class="mask-bg" style="width: 1119px;box-sizing: border-box"><div ><input name="sconname" class="form_control" placeholder="名称">'
-                    + '<member:CardType op="select" name="iconcardtype" defname="请选择证件类型" defval="999" option="class=\\'form_control\\'"/>'
-                   + '<input name="ssocialcreditno" class="form_control" placeholder="填写统一社会信用代码">'
-                   + '<member:ComType op="select" name="iconpanytype" defname="请选择类型" defval="999" option="class=\\'form_control\\'"/></div><div class="checkbox"><p>备注：</p>'
-                   + '<h3>实际控制人是指控股股东（或派出董事最多的股东、互相之间签有一致行动协议的股东）或能够实际支配企业行为的自然人、法人或其他组织。认定实际控制人应一直追溯到最后的自然人、国资控股企业或集体企业、上市公司、受国外金融监管部门监管的境外机构。可以为共同实际控制。在符合上述要求的前提下，实际控制人可按照下列情形进行认定：</br>1）持股50%以上的；</br>2）通过行使表决权能够决定董事会半数以上成员当选的；</br>3）通过投资关系、协议或者其他安排能够实际支配公司行为且表决权持股超过50%的；</br>4）合伙企业的执行事务合伙人；</br>5）在无法满足前述认定标准时，可以填报“第一大股东”</h3></div></div>';
-
-               $("#control").append(innerHTML);
-            });
         });
 
 
@@ -140,7 +132,8 @@
                     <div class="fill-label"><em class="red">*</em>选择法定代表人</div>
                     <member:CorporateType op="select" name="icorporatetype" defname="请选择法人代表" defval="999" option="class='form_control'"/>
                 </div>
-                <div id="natural" class="input_group bottom20 input_group_half">
+
+                <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写自然人股东信息<button id="addbtn" type="button"><img src="${ctx}/images/add.png">添加</button></div>
                     <div class="mask-bg">
                         <div >
@@ -169,7 +162,7 @@
                     </div>
                 </div>
                 <div id="control" class="input_group bottom20 input_group_half">
-                    <div class="fill-label"><em class="red">*</em>填写实际控制人信息<button id="addbtn2" type="button"><img src="${ctx}/images/add.png">添加</button></div>
+                    <div class="fill-label"><em class="red">*</em>填写实际控制人信息</div>
                     <div class="mask-bg" style="width: 1119px;box-sizing: border-box">
                         <div >
                             <input name="sconname" class="form_control" placeholder="名称">
