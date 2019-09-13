@@ -1,15 +1,21 @@
 package com.frogsing.admin.web.hy;
 
+import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
+import com.frogsing.heart.exception.E;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.security.shiro.ShiroUtils;
+import com.frogsing.heart.utils.B;
 import com.frogsing.heart.utils.S;
+import com.frogsing.heart.web.Msg;
 import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.*;
+import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -90,5 +96,42 @@ public class AuthapplyController {
 
         model.addAttribute("list",controHolders);
         return "/member/authapply-control-detail";
+    }
+
+    /**
+     * 通过注册地址查询
+     * @param sregaddress
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "register-address.shtml")
+    @RequiresPermissions("authapply:register-address")
+    public String registerAddress(@RequestParam(value = "type",defaultValue = "1") int type,
+            @RequestParam(value = "sregaddress",defaultValue = "") String sregaddress,Model model,HttpServletRequest request){
+        try {
+            if (Consts.BoolType.NO.isEq(type)) {
+                return "/member/authapply-register-address";
+            }else {
+
+                model.addAttribute("search_eq_sregaddress", sregaddress);
+                if (B.Y(sregaddress))
+                    E.S("注册地址不能为空");
+
+                Authapply authapply = queryService.fetchOne(MEMBERCol.hy_authapply.xspec().and(
+                        SearchFilter.eq(MEMBERCol.hy_authapply.sregaddress, sregaddress)).and(
+                        SearchFilter.eq(MEMBERCol.hy_authapply.istatus, MEMBER.CheckStatus.CHECKED.val())).and(
+                        SearchFilter.eq(MEMBERCol.hy_authapply.iapprovalstatus, MEMBER.ApprovalStatus.CHECKED.val())));
+                if (authapply == null)
+                    model.addAttribute("obj",null);
+                else
+                    model.addAttribute("obj", authapply);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Msg.error(model,e.getMessage());
+        }
+
+        return "/member/authapply-register-address";
     }
 }
