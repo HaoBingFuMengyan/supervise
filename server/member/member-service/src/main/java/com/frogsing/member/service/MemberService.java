@@ -459,6 +459,7 @@ public class MemberService  implements IMemberService {
 		apply.setSopenaccount(member.getSopenaccount());//开户行账号
 		apply.setSunionaccount(member.getSunionaccount());//联行号
 		apply.setScompanydesc(member.getScompanydesc()); //公司简介
+		apply.setDapplydate(new Date());
 
 		apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
 

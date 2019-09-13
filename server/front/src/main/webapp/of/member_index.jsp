@@ -33,17 +33,17 @@
             <div class="apply-card apply-card1">
                 <h2>有限责任公司</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=10">立即申请</a>
             </div>
             <div class="apply-card apply-card2">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=20">立即申请</a>
             </div>
             <div class="apply-card apply-card3">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为创投风投基金</p>
-                <a href="${ctx}/hy/member/authapply.shtml">立即申请</a>
+                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=30">立即申请</a>
             </div>
         </div>
     </div>

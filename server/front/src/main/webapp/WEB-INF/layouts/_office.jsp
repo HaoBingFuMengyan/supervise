@@ -125,6 +125,11 @@
                             <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
 
                         <li>
+                        <li>
+                            <i></i>
+                            <a href="${ctx}/hy/authapply/list.shtml"><i class="icon icon-guanli"></i>申请列表</a></li>
+
+                        <li>
                             <i></i>
                             <a href="${ctx}/hy/user/modifysmobile.shtml"><i class="icon icon-mima"></i>修改手机号</a></li>
                         <li>

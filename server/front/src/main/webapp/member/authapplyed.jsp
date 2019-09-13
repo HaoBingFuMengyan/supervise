@@ -101,6 +101,7 @@
         <div class="fill-form">
             <sys:message content="${message}"/>
             <form id="orderForm" action="${ctx}/hy/member/authapply.shtml"  method="post"  enctype="multipart/form-data">
+                <input type="hidden" name="icorbiztype" value="${param.icorbiztype}">
                 <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写注册资本</div>
                     <input id="iregmoney" name="iregmoney" class="form_control" placeholder="请填写注册资本">万元
