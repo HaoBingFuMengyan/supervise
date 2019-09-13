@@ -1218,10 +1218,10 @@ public class MemberBase  extends  BaseEntity{
 		}
 	   /**
 		公司经理证件类型 int
-	    CorporateType:
-	    10:ZXDS:执行董事
-20:JL:经理
-30:ZXDSJJL:执行董事兼经理 
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
 		*/
 		@Column(name="imanagertype")
 		public Integer getImanagertype() {
@@ -1229,10 +1229,10 @@ public class MemberBase  extends  BaseEntity{
 		}
 		/**
 		公司经理证件类型 int
-	    CorporateType:
-	    10:ZXDS:执行董事
-20:JL:经理
-30:ZXDSJJL:执行董事兼经理 
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
 		*/
 		public void setImanagertype(Integer  imanagertype) {
 			this.imanagertype =  imanagertype;//公司经理证件类型 int
