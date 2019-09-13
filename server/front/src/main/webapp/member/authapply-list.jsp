@@ -76,12 +76,14 @@
                         <td>${obj.slegalpersoncode}</td>
                         <td>${obj.smanagername}</td>
                         <td>
-
+                            <member:MemberCardType op="label" val="${obj.imanagertype}"/>
                         </td>
                         <td>${obj.smanagerno}</td>
-                        <td>${obj.smanagerno}</td>
                         <td>
-
+                            <member:CorporateType op="label" val="${obj.icorporatetype}"/>
+                        </td>
+                        <td>
+                            <member:CheckStatus op="label" val="${obj.istatus}"/>
                         </td>
                         <td>${obj.dapplydate}</td>
                         <td>
