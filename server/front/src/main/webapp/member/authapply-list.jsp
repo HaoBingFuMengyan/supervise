@@ -18,7 +18,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>基金账号列表</h5>
+            <h5>申请列表</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>

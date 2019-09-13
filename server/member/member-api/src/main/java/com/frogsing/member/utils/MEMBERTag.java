@@ -440,4 +440,24 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.CompanyBizType.values();
 		}
 	}
+	public static class TagApprovalStatus extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.ApprovalStatus.get(val);
+		}
+		public void setWait(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ApprovalStatus.WAIT,val);
+		}
+		public void setChecked(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ApprovalStatus. CHECKED,val);
+		}
+		public void setReject(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ApprovalStatus.REJECT,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.ApprovalStatus.values();
+		}
+	}
 }

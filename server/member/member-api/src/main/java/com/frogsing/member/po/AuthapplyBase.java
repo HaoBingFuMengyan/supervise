@@ -90,6 +90,9 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Integer bisjobmanager=0; //公司经理是否兼职 int
 	private   Integer icorporatetype=0; //法定代表人 int
 	private   Integer icorbiztype=0; //企业业务类型 int
+	private   Integer iapprovalstatus=0; //审核状态 int
+	private   String sriskresult; //风险监测报告结果 String
+	private   String srisktext; //风险监测报告内文 String
 	   /**
 		会员ID String
 		*/
@@ -1203,6 +1206,55 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setIcorbiztype(Integer  icorbiztype) {
 			this.icorbiztype =  icorbiztype;//企业业务类型 int
+		}
+	   /**
+		审核状态 int
+	    ApprovalStatus:
+	    0 :WAIT:审核中
+1: CHECKED:审核通过
+2 :REJECT:审核驳回
+ 
+		*/
+		@Column(name="iapprovalstatus")
+		public Integer getIapprovalstatus() {
+			return  iapprovalstatus;//审核状态 int
+		}
+		/**
+		审核状态 int
+	    ApprovalStatus:
+	    0 :WAIT:审核中
+1: CHECKED:审核通过
+2 :REJECT:审核驳回
+ 
+		*/
+		public void setIapprovalstatus(Integer  iapprovalstatus) {
+			this.iapprovalstatus =  iapprovalstatus;//审核状态 int
+		}
+	   /**
+		风险监测报告结果 String
+		*/
+		@Column(name="sriskresult",length=4000)
+		public String getSriskresult() {
+			return  sriskresult;//风险监测报告结果 String
+		}
+		/**
+		风险监测报告结果 String
+		*/
+		public void setSriskresult(String  sriskresult) {
+			this.sriskresult =  sriskresult;//风险监测报告结果 String
+		}
+	   /**
+		风险监测报告内文 String
+		*/
+		@Column(name="srisktext",length=0)
+		public String getSrisktext() {
+			return  srisktext;//风险监测报告内文 String
+		}
+		/**
+		风险监测报告内文 String
+		*/
+		public void setSrisktext(String  srisktext) {
+			this.srisktext =  srisktext;//风险监测报告内文 String
 		}
 	
 //frogsingcode//
