@@ -54,38 +54,30 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">执行董事</th>
-                    <th class="sort-column">董事证件类型</th>
-                    <th class="sort-column">董事证件号</th>
-                    <th class="sort-column">公司经理</th>
-                    <th class="sort-column">经理证件类型</th>
-                    <th class="sort-column">经理证件号</th>
-                    <th class="sort-column">法定代表人</th>
+                    <th class="sort-column">会员编号</th>
+                    <th class="sort-column">注册地址</th>
                     <th class="sort-column">状态</th>
                     <th class="sort-column">申请时间</th>
+                    <th class="sort-column">审核结果</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
-                        <td>${obj.slegalperson}</td>
+                        <td>${obj.smemberno}</td>
                         <td>
-                            <member:MemberCardType op="label" val="${obj.ilegaltype}"/>
-                        </td>
-                        <td>${obj.slegalpersoncode}</td>
-                        <td>${obj.smanagername}</td>
-                        <td>
-                            <member:MemberCardType op="label" val="${obj.imanagertype}"/>
-                        </td>
-                        <td>${obj.smanagerno}</td>
-                        <td>
-                            <member:CorporateType op="label" val="${obj.icorporatetype}"/>
+                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1}">
+                                ${obj.sregaddress}
+                            </c:if>
                         </td>
                         <td>
                             <member:CheckStatus op="label" val="${obj.istatus}"/>
                         </td>
                         <td>${obj.dapplydate}</td>
+                        <td>
+                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
+                        </td>
                         <td>
                             <%--<shiro:hasPermission name="user:edit">--%>
                             <%--<a href="javascript:openlog('会员账号编辑','${ctx}/dt/user/add.shtml?id=${obj.id}&type=1','90%','70%')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>编辑</a>--%>

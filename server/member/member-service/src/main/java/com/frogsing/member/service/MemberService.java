@@ -443,7 +443,6 @@ public class MemberService  implements IMemberService {
 		apply.setScnname(member.getScnname());
 		apply.setSsocialcreditno(member.getSsocialcreditno());
 		apply.setSbusinessno(member.getSbusinessno());
-		apply.setIstatus(CheckStatus.WAIT.val());//moren状态为待审核
 		apply.setSlinkman(member.getSlinkman());
 		apply.setSmobile(member.getSmobile());
 		apply.setSphone(member.getSphone());
@@ -459,7 +458,12 @@ public class MemberService  implements IMemberService {
 		apply.setSopenaccount(member.getSopenaccount());//开户行账号
 		apply.setSunionaccount(member.getSunionaccount());//联行号
 		apply.setScompanydesc(member.getScompanydesc()); //公司简介
+
+		apply.setDadddate(new Date());
 		apply.setDapplydate(new Date());
+		apply.setIstatus(CheckStatus.WAIT.val());//状态为待审核
+		apply.setIapprovalstatus(ApprovalStatus.WAIT.val());//默认审核状态
+		apply.setSregaddress(ParaUtils.seqno("hy_zcdz"));//注册地址，系统自动生成唯一标识
 
 		apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
 
