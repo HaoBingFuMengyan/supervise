@@ -424,6 +424,7 @@ public class MemberService  implements IMemberService {
 		apply.setId(null);
 		apply.setSmemberid(member.getId());
 		apply.setSmemberno(member.getSmemberno());
+		apply.setSadduser(member.getSadduser());//会员添加人
 		apply.setSapplyuserid(member.getId());
 		apply.setIcompanytype(member.getIcompanytype());//默认
 		apply.setImembertype(member.getImembertype());

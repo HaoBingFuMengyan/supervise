@@ -3,22 +3,13 @@
 <%@include file="/include/taglib.jsp"%>
 <html>
 <head>
-    <title>基金账号</title>
-    <link href="${ctxStatic}/bootstrap/3.3.4/css_default/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <script src="${ctxStatic}/bootstrap/3.3.4/js/bootstrap.min.js"  type="text/javascript"></script>
-    <script src="${ctxStatic}/common/jeeplus.js"></script>
-    <link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
-    <style>
-        .table thead th,.table td{
-            text-align: left;
-        }
-    </style>
+    <title>基金基本信息</title>
 </head>
 <body>
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>申请列表</h5>
+            <h5>基金申请列表</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
@@ -44,7 +35,7 @@
                     <div class="pull-left">
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
-                    <div class="pull-right" style="margin: 0 10px 10px 0">
+                    <div class="pull-right">
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()" ><i class="fa fa-search"></i> 查询</button>
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="reset()" ><i class="fa fa-refresh"></i> 重置</button>
                     </div>
@@ -75,20 +66,13 @@
                             <member:CheckStatus op="label" val="${obj.istatus}"/>
                         </td>
                         <td>
-                                <mw:format label="datetime" value="${obj.dapplydate}"/>
+                            <mw:format label="datetime" value="${obj.dapplydate}"/>
                         </td>
                         <td>
                             <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
                         </td>
                         <td>
-
                             <a  class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
-                            <%--<shiro:hasPermission name="user:edit">--%>
-                            <%--<a href="javascript:openlog('密码重置','${ctx}/dt/user/reset.shtml?id=${obj.id}','90%','70%')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>密码重置</a>--%>
-                            <%--</shiro:hasPermission>--%>
-                            <%--<shiro:hasPermission name="user:edit">--%>
-                            <%--<a href="javascript:openlog('账号禁用','${ctx}/dt/user/add.shtml?id=${obj.id}&type=2','90%','70%')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>禁用</a>--%>
-                            <%--</shiro:hasPermission>--%>
                         </td>
                     </tr>
                 </c:forEach>
