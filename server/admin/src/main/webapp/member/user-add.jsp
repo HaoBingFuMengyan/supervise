@@ -93,7 +93,7 @@
                                 </tr>
                                 <c:if test="${param.type eq 2}">
                                     <tr>
-                                        <td class="active width-15"><label class="pull-right">是否有效:</label></td>
+                                        <td class="active width-15"><label class="pull-right">是否有效:<font color="red">*</font></label></td>
                                         <td>
                                             <select name="bisvalid" class="form-control required">
                                                 <option value="0">否</option>
