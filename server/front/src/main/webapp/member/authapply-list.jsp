@@ -33,7 +33,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>申请列表</h5>
+            <%--<h5>申请列表</h5>--%>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
@@ -43,10 +43,10 @@
                     <form:form id="searchForm" action="${ctx}/hy/authapply/list.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
-                            <span>真实姓名：</span>
-                            <input name=""  maxlength="50" value="" class=" form-control input-sm"/>
-                            <span>用户名：</span>
-                            <input name=""  maxlength="50" value="" class=" form-control input-sm"/>
+                            <span>状态：</span>
+                            <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>审核结果：</span>
+                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus" defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
                     <br/>
