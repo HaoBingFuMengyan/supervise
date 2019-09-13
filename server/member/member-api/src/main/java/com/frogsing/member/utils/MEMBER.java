@@ -977,4 +977,356 @@ public static enum SpotType implements  IConst{
 	} 
 	
 }
+public static enum CardType implements  IConst{
+	ID(10,"身份证"),
+	PASSPORT(20,"护照"),
+	HKPASS(30,"港澳通行证"),
+	YYZZ(40,"营业执照");
+	public  static CardType get(int i){
+    	 switch(i)
+    	 {
+    	 case 10:
+    		return CardType.ID;
+    	 case 20:
+    		return CardType.PASSPORT;
+    	 case 30:
+    		return CardType.HKPASS;
+    	 case 40:
+    		return CardType.YYZZ;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   CardType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return CardType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return CardType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(CardType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum LicenseType implements  IConst{
+	YYZZ(0,"营业执照");
+	public  static LicenseType get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return LicenseType.YYZZ;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   LicenseType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return LicenseType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return LicenseType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(LicenseType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum ComType implements  IConst{
+	ZRR(10,"自然人"),
+	SSGS(20,"上市公司"),
+	GQOJT(30,"国企或集体企业");
+	public  static ComType get(int i){
+    	 switch(i)
+    	 {
+    	 case 10:
+    		return ComType.ZRR;
+    	 case 20:
+    		return ComType.SSGS;
+    	 case 30:
+    		return ComType.GQOJT;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   ComType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return ComType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return ComType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(ComType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum MemberCardType implements  IConst{
+	ID(10,"身份证"),
+	PASSPORT(20,"护照"),
+	HKPASS(30,"港澳通行证");
+	public  static MemberCardType get(int i){
+    	 switch(i)
+    	 {
+    	 case 10:
+    		return MemberCardType.ID;
+    	 case 20:
+    		return MemberCardType.PASSPORT;
+    	 case 30:
+    		return MemberCardType.HKPASS;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   MemberCardType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return MemberCardType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return MemberCardType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(MemberCardType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum CorporateType implements  IConst{
+	ZXDS(10,"执行董事"),
+	JL(20,"经理"),
+	ZXDSJJL(30,"执行董事兼经理");
+	public  static CorporateType get(int i){
+    	 switch(i)
+    	 {
+    	 case 10:
+    		return CorporateType.ZXDS;
+    	 case 20:
+    		return CorporateType.JL;
+    	 case 30:
+    		return CorporateType.ZXDSJJL;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   CorporateType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return CorporateType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return CorporateType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(CorporateType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }

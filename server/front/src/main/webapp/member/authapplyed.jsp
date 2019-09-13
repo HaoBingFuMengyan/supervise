@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="sys" uri="http://www.frogsing.com/tags/frontsys" %>
 <%@ include file="/include/taglib.jsp" %>
 <!DOCTYPE>
 <html>
@@ -10,15 +11,44 @@
     <link href="${ctx}/member/css/open.css" rel="stylesheet" type="text/css">
     <link href="${ctx}/css/common.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="${ctxStatic}/common/jquery.searchableSelect.css"/>
+
+    <script type="text/javascript">
+        $.validator.setDefaults({
+            submitHandler: function() {
+                loading('正在提交，请稍等...');
+                form.submit();
+            }
+        });
+        $(document).ready(function () {
+            $("#orderForm").validate({
+                rules: {
+                    firstname: "required",
+                    gu:"required"
+//                    "topic[]": {
+//                        required: "#newsletter:checked",
+//                        minlength: 2
+//                    }
+                },
+                messages: {
+                    firstname: "请输入您的名字",
+                    gu: "不能我 i 啊接口给手机看风景"
+//                    topic: "请选择两个主题"
+                }
+            });
+        });
+
+
+    </script>
 </head>
 <body>
 <div class="fillIn">
     <div class="fill-box">
         <div class="fill-form">
-            <form id="orderForm" action="">
+            <sys:message content="${message}"/>
+            <form id="orderForm" action="${ctx}/hy/member/authapply.shtml"  method="post"  enctype="multipart/form-data">
                 <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写注册资本</div>
-                    <input name="" class="form_control" placeholder="请填写注册资本">万元
+                    <input id="firstname" name="firstname" class="form_control" placeholder="请填写注册资本">万元
                 </div>
                 <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写执行董事信息</div>
@@ -73,7 +103,7 @@
                     <div class="fill-label"><em class="red">*</em>填写自然人股东信息<button id="addbtn" type="button"><img src="${ctx}/images/add.png">添加</button></div>
                     <div class="mask-bg">
                         <div >
-                            <input name="" class="form_control" placeholder="股东姓名">
+                            <input name="gu" class="form_control" placeholder="股东姓名">
                             <select>
                                 <option value="">下拉选择证件类别</option>
                                 <option value="">身份证</option>
@@ -140,3 +170,37 @@
 </div>
 </body>
 </html>
+
+
+<%--function check(){--%>
+<%--//                var  rs=true;--%>
+<%--////                $('input[type=checkbox]:checked').each(function(){--%>
+<%--////                    if(!rs)--%>
+<%--////                        return;--%>
+<%--////                    var v= $(this).next('input').val();--%>
+<%--////                    if(v&&!isNumber(v)){--%>
+<%--////                        alert($(this).prev('label').html()+"序号必须是数字");--%>
+<%--////                        rs=false;--%>
+<%--////                        return ;--%>
+<%--////                    }--%>
+<%--////                    $(this).val(v);--%>
+<%--////                });--%>
+<%--//                return rs;--%>
+<%--//            };--%>
+<%--//            var validateForm = $("#orderForm").validate({--%>
+<%--//                submitHandler: function(form){--%>
+<%--////                    if(!check())--%>
+<%--////                        return false;--%>
+<%--//                    loading('正在提交，请稍等...');--%>
+<%--//                    form.submit();--%>
+<%--//                },--%>
+<%--//                errorContainer: "#messageBox",--%>
+<%--//                errorPlacement: function(error, element) {--%>
+<%--//                    $("#messageBox").text("输入有误，请先更正。");--%>
+<%--//                    if (element.is(":checkbox")||element.is(":radio")||element.parent().is(".input-append")){--%>
+<%--//                        error.appendTo(element.parent().parent());--%>
+<%--//                    } else {--%>
+<%--//                        error.insertAfter(element);--%>
+<%--//                    }--%>
+<%--//                }--%>
+<%--//            });--%>

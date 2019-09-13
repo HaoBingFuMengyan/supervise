@@ -29,9 +29,9 @@ public class MemberBase  extends  BaseEntity{
 	private   String smemberkind; //企业性质 String
 	private   String sbusinessno; //工商执照号 String
 	private   String sorgcode; //组织机构代码 String
-	private   String slegalpersoncode; //法定代表人身份证 String
+	private   String slegalpersoncode; //执行董事证件号 String
 	private   String staxno; //税务登记号 String
-	private   String slegalperson; //法人 String
+	private   String slegalperson; //执行董事 String
 	private   Integer iemployeeamount=0; //员工人数 int
 	private   String scountry; //国家 String
 	private   String sareaid; //地区区号 String
@@ -89,6 +89,14 @@ public class MemberBase  extends  BaseEntity{
 	private   Integer bismembercert=0; //是否通过企业认证 int
 	private   Integer bisbestsign=0; //是否上上签会员 int
 	private   String ssignaccount; //上上签账号 String
+	private   Integer ilegaltype=0; //执行董事证件类型 int
+	private   Integer bisjoblegal=0; //执行董事是否兼职 int
+	private   String smanagername; //公司经理姓名 String
+	private   String smanagerno; //公司经理证件号 String
+	private   Integer imanagertype=0; //公司经理证件类型 int
+	private   Integer bisjobmanager=0; //公司经理是否兼职 int
+	private   Integer icorporatetype=0; //法定代表人 int
+	private   Integer bisinit=0; //是否初始化 int
 	   /**
 		企业编号 String
 		*/
@@ -287,17 +295,17 @@ public class MemberBase  extends  BaseEntity{
 			this.sorgcode =  sorgcode;//组织机构代码 String
 		}
 	   /**
-		法定代表人身份证 String
+		执行董事证件号 String
 		*/
 		@Column(name="slegalpersoncode",length=50)
 		public String getSlegalpersoncode() {
-			return  slegalpersoncode;//法定代表人身份证 String
+			return  slegalpersoncode;//执行董事证件号 String
 		}
 		/**
-		法定代表人身份证 String
+		执行董事证件号 String
 		*/
 		public void setSlegalpersoncode(String  slegalpersoncode) {
-			this.slegalpersoncode =  slegalpersoncode;//法定代表人身份证 String
+			this.slegalpersoncode =  slegalpersoncode;//执行董事证件号 String
 		}
 	   /**
 		税务登记号 String
@@ -313,17 +321,17 @@ public class MemberBase  extends  BaseEntity{
 			this.staxno =  staxno;//税务登记号 String
 		}
 	   /**
-		法人 String
+		执行董事 String
 		*/
 		@Column(name="slegalperson",length=50)
 		public String getSlegalperson() {
-			return  slegalperson;//法人 String
+			return  slegalperson;//执行董事 String
 		}
 		/**
-		法人 String
+		执行董事 String
 		*/
 		public void setSlegalperson(String  slegalperson) {
-			this.slegalperson =  slegalperson;//法人 String
+			this.slegalperson =  slegalperson;//执行董事 String
 		}
 	   /**
 		员工人数 int
@@ -1139,6 +1147,158 @@ public class MemberBase  extends  BaseEntity{
 		*/
 		public void setSsignaccount(String  ssignaccount) {
 			this.ssignaccount =  ssignaccount;//上上签账号 String
+		}
+	   /**
+		执行董事证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		@Column(name="ilegaltype")
+		public Integer getIlegaltype() {
+			return  ilegaltype;//执行董事证件类型 int
+		}
+		/**
+		执行董事证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		public void setIlegaltype(Integer  ilegaltype) {
+			this.ilegaltype =  ilegaltype;//执行董事证件类型 int
+		}
+	   /**
+		执行董事是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		@Column(name="bisjoblegal")
+		public Integer getBisjoblegal() {
+			return  bisjoblegal;//执行董事是否兼职 int
+		}
+		/**
+		执行董事是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		public void setBisjoblegal(Integer  bisjoblegal) {
+			this.bisjoblegal =  bisjoblegal;//执行董事是否兼职 int
+		}
+	   /**
+		公司经理姓名 String
+		*/
+		@Column(name="smanagername",length=100)
+		public String getSmanagername() {
+			return  smanagername;//公司经理姓名 String
+		}
+		/**
+		公司经理姓名 String
+		*/
+		public void setSmanagername(String  smanagername) {
+			this.smanagername =  smanagername;//公司经理姓名 String
+		}
+	   /**
+		公司经理证件号 String
+		*/
+		@Column(name="smanagerno",length=100)
+		public String getSmanagerno() {
+			return  smanagerno;//公司经理证件号 String
+		}
+		/**
+		公司经理证件号 String
+		*/
+		public void setSmanagerno(String  smanagerno) {
+			this.smanagerno =  smanagerno;//公司经理证件号 String
+		}
+	   /**
+		公司经理证件类型 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		@Column(name="imanagertype")
+		public Integer getImanagertype() {
+			return  imanagertype;//公司经理证件类型 int
+		}
+		/**
+		公司经理证件类型 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		public void setImanagertype(Integer  imanagertype) {
+			this.imanagertype =  imanagertype;//公司经理证件类型 int
+		}
+	   /**
+		公司经理是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		@Column(name="bisjobmanager")
+		public Integer getBisjobmanager() {
+			return  bisjobmanager;//公司经理是否兼职 int
+		}
+		/**
+		公司经理是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		public void setBisjobmanager(Integer  bisjobmanager) {
+			this.bisjobmanager =  bisjobmanager;//公司经理是否兼职 int
+		}
+	   /**
+		法定代表人 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		@Column(name="icorporatetype")
+		public Integer getIcorporatetype() {
+			return  icorporatetype;//法定代表人 int
+		}
+		/**
+		法定代表人 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		public void setIcorporatetype(Integer  icorporatetype) {
+			this.icorporatetype =  icorporatetype;//法定代表人 int
+		}
+	   /**
+		是否初始化 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		@Column(name="bisinit")
+		public Integer getBisinit() {
+			return  bisinit;//是否初始化 int
+		}
+		/**
+		是否初始化 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		public void setBisinit(Integer  bisinit) {
+			this.bisinit =  bisinit;//是否初始化 int
 		}
 	
 //frogsingcode//

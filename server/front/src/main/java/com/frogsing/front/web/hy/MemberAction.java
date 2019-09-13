@@ -100,28 +100,16 @@ public class MemberAction extends BaseAction {
     public String authApply(Authapply apply, @RequestParam(defaultValue = "0") int type, Model model, ServletRequest request) {
     	LoginUser user = ShiroUtils.getCurrentUser();
         try {
-            Authapply authapply = authapplyService.findLastApply(user.getMemberId());
-            if(authapply!=null && type!=500){
-            	apply=authapply;
-            }
+            Member member = memberService.findByID(user.getMemberId());
+
+            model.addAttribute("member",member);
+
         } catch (Exception e) {
             Msg.error(model, "系统异常，请联系管理员");
             e.printStackTrace();
         }
-        model.addAttribute("data", apply);
-        model.addAttribute("user",user);
-        String  sbusinessno=null;
-        if(apply.getSbusinessno()==null){
-            sbusinessno="";
-        }else {
-            sbusinessno = apply.getSbusinessno().substring(apply.getSbusinessno().lastIndexOf("/") + 1);
-        }
-        model.addAttribute("businessno",sbusinessno);
 
-        if (AuthenticateType.No.isEq(user.getAuthtype()))
-		    return "member/authapply";
-        else
-            return "member/authapplyed";
+        return "member/authapplyed";
     }
 
 

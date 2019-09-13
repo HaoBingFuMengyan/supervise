@@ -38,6 +38,7 @@ public class UserBase  extends  BaseEntity{
 	private   Date dendlogintime; //最后登陆时间 Date
 	private   String sremark; //备注 String
 	private   Date dadddate; //添加日期 Date
+	private   String saddopertaorname; //添加人Name String
 	private   String saddoperator; //添加人 String
 	private   Date dmodifydate; //修改日期 Date
 	private   String smodifyoperator; //修改人 String
@@ -401,6 +402,19 @@ public class UserBase  extends  BaseEntity{
 		*/
 		public void setDadddate(Date  dadddate) {
 			this.dadddate =  dadddate;//添加日期 Date
+		}
+	   /**
+		添加人Name String
+		*/
+		@Column(name="saddopertaorname",length=50)
+		public String getSaddopertaorname() {
+			return  saddopertaorname;//添加人Name String
+		}
+		/**
+		添加人Name String
+		*/
+		public void setSaddopertaorname(String  saddopertaorname) {
+			this.saddopertaorname =  saddopertaorname;//添加人Name String
 		}
 	   /**
 		添加人 String

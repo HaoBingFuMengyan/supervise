@@ -313,4 +313,111 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.SpotType.values();
 		}
 	}
+	public static class TagCardType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.CardType.get(val);
+		}
+		public void setId(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CardType.ID,val);
+		}
+		public void setPassport(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CardType.PASSPORT,val);
+		}
+		public void setHkpass(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CardType.HKPASS,val);
+		}
+		public void setYyzz(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CardType.YYZZ,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.CardType.values();
+		}
+	}
+	public static class TagMoney extends BaseDoubleTag{
+		@Override
+		public int getPrecision() {
+			return 2;
+		}
+		@Override
+		public int getLength() {
+			return 18;
+		}
+	}
+	public static class TagLicenseType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.LicenseType.get(val);
+		}
+		public void setYyzz(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.LicenseType.YYZZ,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.LicenseType.values();
+		}
+	}
+	public static class TagComType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.ComType.get(val);
+		}
+		public void setZrr(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ComType.ZRR,val);
+		}
+		public void setSsgs(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ComType.SSGS,val);
+		}
+		public void setGqojt(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ComType.GQOJT,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.ComType.values();
+		}
+	}
+	public static class TagMemberCardType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.MemberCardType.get(val);
+		}
+		public void setId(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.MemberCardType.ID,val);
+		}
+		public void setPassport(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.MemberCardType.PASSPORT,val);
+		}
+		public void setHkpass(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.MemberCardType.HKPASS,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.MemberCardType.values();
+		}
+	}
+	public static class TagCorporateType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.CorporateType.get(val);
+		}
+		public void setZxds(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CorporateType.ZXDS,val);
+		}
+		public void setJl(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CorporateType.JL,val);
+		}
+		public void setZxdsjjl(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CorporateType.ZXDSJJL,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.CorporateType.values();
+		}
+	}
 }

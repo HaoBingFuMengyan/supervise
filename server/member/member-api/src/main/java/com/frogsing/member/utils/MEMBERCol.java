@@ -61,6 +61,8 @@ public static XSpec<com.frogsing.member.po.User> xspec() {
             public static final String sremark="sremark" ;
             /**添加日期**/
             public static final String dadddate="dadddate" ;
+            /**添加人Name**/
+            public static final String saddopertaorname="saddopertaorname" ;
             /**添加人**/
             public static final String saddoperator="saddoperator" ;
             /**修改日期**/
@@ -121,6 +123,8 @@ public static XSpec<com.frogsing.member.po.User> xspec() {
             public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
             /**添加日期**/
             public static  Path<Date> dadddate(Root<?> root){return root.get("dadddate");}
+            /**添加人Name**/
+            public static  Path<String> saddopertaorname(Root<?> root){return root.get("saddopertaorname");}
             /**添加人**/
             public static  Path<String> saddoperator(Root<?> root){return root.get("saddoperator");}
             /**修改日期**/
@@ -423,11 +427,11 @@ public static XSpec<com.frogsing.member.po.Member> xspec() {
             public static final String sbusinessno="sbusinessno" ;
             /**组织机构代码**/
             public static final String sorgcode="sorgcode" ;
-            /**法定代表人身份证**/
+            /**执行董事证件号**/
             public static final String slegalpersoncode="slegalpersoncode" ;
             /**税务登记号**/
             public static final String staxno="staxno" ;
-            /**法人**/
+            /**执行董事**/
             public static final String slegalperson="slegalperson" ;
             /**员工人数**/
             public static final String iemployeeamount="iemployeeamount" ;
@@ -543,6 +547,22 @@ public static XSpec<com.frogsing.member.po.Member> xspec() {
             public static final String bisbestsign="bisbestsign" ;
             /**上上签账号**/
             public static final String ssignaccount="ssignaccount" ;
+            /**执行董事证件类型**/
+            public static final String ilegaltype="ilegaltype" ;
+            /**执行董事是否兼职**/
+            public static final String bisjoblegal="bisjoblegal" ;
+            /**公司经理姓名**/
+            public static final String smanagername="smanagername" ;
+            /**公司经理证件号**/
+            public static final String smanagerno="smanagerno" ;
+            /**公司经理证件类型**/
+            public static final String imanagertype="imanagertype" ;
+            /**公司经理是否兼职**/
+            public static final String bisjobmanager="bisjobmanager" ;
+            /**法定代表人**/
+            public static final String icorporatetype="icorporatetype" ;
+            /**是否初始化**/
+            public static final String bisinit="bisinit" ;
             /**企业编号**/
             public static  Path<String> smemberno(Root<?> root){return root.get("smemberno");}
             /**企业名称**/
@@ -569,11 +589,11 @@ public static XSpec<com.frogsing.member.po.Member> xspec() {
             public static  Path<String> sbusinessno(Root<?> root){return root.get("sbusinessno");}
             /**组织机构代码**/
             public static  Path<String> sorgcode(Root<?> root){return root.get("sorgcode");}
-            /**法定代表人身份证**/
+            /**执行董事证件号**/
             public static  Path<String> slegalpersoncode(Root<?> root){return root.get("slegalpersoncode");}
             /**税务登记号**/
             public static  Path<String> staxno(Root<?> root){return root.get("staxno");}
-            /**法人**/
+            /**执行董事**/
             public static  Path<String> slegalperson(Root<?> root){return root.get("slegalperson");}
             /**员工人数**/
             public static  Path<Integer> iemployeeamount(Root<?> root){return root.get("iemployeeamount");}
@@ -689,6 +709,22 @@ public static XSpec<com.frogsing.member.po.Member> xspec() {
             public static  Path<Integer> bisbestsign(Root<?> root){return root.get("bisbestsign");}
             /**上上签账号**/
             public static  Path<String> ssignaccount(Root<?> root){return root.get("ssignaccount");}
+            /**执行董事证件类型**/
+            public static  Path<Integer> ilegaltype(Root<?> root){return root.get("ilegaltype");}
+            /**执行董事是否兼职**/
+            public static  Path<Integer> bisjoblegal(Root<?> root){return root.get("bisjoblegal");}
+            /**公司经理姓名**/
+            public static  Path<String> smanagername(Root<?> root){return root.get("smanagername");}
+            /**公司经理证件号**/
+            public static  Path<String> smanagerno(Root<?> root){return root.get("smanagerno");}
+            /**公司经理证件类型**/
+            public static  Path<Integer> imanagertype(Root<?> root){return root.get("imanagertype");}
+            /**公司经理是否兼职**/
+            public static  Path<Integer> bisjobmanager(Root<?> root){return root.get("bisjobmanager");}
+            /**法定代表人**/
+            public static  Path<Integer> icorporatetype(Root<?> root){return root.get("icorporatetype");}
+            /**是否初始化**/
+            public static  Path<Integer> bisinit(Root<?> root){return root.get("bisinit");}
 
     }
 /**会员认证申请表**/
@@ -1007,6 +1043,133 @@ public static XSpec<com.frogsing.member.po.Feedback> xspec() {
             public static  Path<String> sinfo(Root<?> root){return root.get("sinfo");}
             /**处理意见**/
             public static  Path<String> shandleinfo(Root<?> root){return root.get("shandleinfo");}
+
+    }
+/**自然人股东信息表**/
+//public static final String hy_naturalholder="hy_naturalholder" ;
+public static class hy_naturalholder {
+public static XSpec<com.frogsing.member.po.NaturalHolder> xspec() {
+    return new XSpec<com.frogsing.member.po.NaturalHolder>(com.frogsing.member.po.NaturalHolder.class);
+    }
+    public static final String tablename="hy_naturalholder";
+            /**股东姓名**/
+            public static final String sname="sname" ;
+            /**证件类型**/
+            public static final String icardtype="icardtype" ;
+            /**会员ID**/
+            public static final String smemberid="smemberid" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**排序号**/
+            public static final String isortno="isortno" ;
+            /**证件号码**/
+            public static final String scardno="scardno" ;
+            /**出资额**/
+            public static final String famount="famount" ;
+            /**是否兼职**/
+            public static final String bisjob="bisjob" ;
+            /**股东姓名**/
+            public static  Path<String> sname(Root<?> root){return root.get("sname");}
+            /**证件类型**/
+            public static  Path<Integer> icardtype(Root<?> root){return root.get("icardtype");}
+            /**会员ID**/
+            public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+            /**排序号**/
+            public static  Path<Integer> isortno(Root<?> root){return root.get("isortno");}
+            /**证件号码**/
+            public static  Path<String> scardno(Root<?> root){return root.get("scardno");}
+            /**出资额**/
+            public static  Path<Double> famount(Root<?> root){return root.get("famount");}
+            /**是否兼职**/
+            public static  Path<Integer> bisjob(Root<?> root){return root.get("bisjob");}
+
+    }
+/**机构股东信息**/
+//public static final String hy_companyholder="hy_companyholder" ;
+public static class hy_companyholder {
+public static XSpec<com.frogsing.member.po.CompanyHolder> xspec() {
+    return new XSpec<com.frogsing.member.po.CompanyHolder>(com.frogsing.member.po.CompanyHolder.class);
+    }
+    public static final String tablename="hy_companyholder";
+            /**股东姓名**/
+            public static final String sname="sname" ;
+            /**执照类型**/
+            public static final String ilicensetype="ilicensetype" ;
+            /**会员ID**/
+            public static final String smemberid="smemberid" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**排序号**/
+            public static final String isortno="isortno" ;
+            /**社会统一信用代码**/
+            public static final String ssocialcreditno="ssocialcreditno" ;
+            /**出资额**/
+            public static final String famount="famount" ;
+            /**是否兼职**/
+            public static final String bisjob="bisjob" ;
+            /**股东姓名**/
+            public static  Path<String> sname(Root<?> root){return root.get("sname");}
+            /**执照类型**/
+            public static  Path<Integer> ilicensetype(Root<?> root){return root.get("ilicensetype");}
+            /**会员ID**/
+            public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+            /**排序号**/
+            public static  Path<Integer> isortno(Root<?> root){return root.get("isortno");}
+            /**社会统一信用代码**/
+            public static  Path<String> ssocialcreditno(Root<?> root){return root.get("ssocialcreditno");}
+            /**出资额**/
+            public static  Path<Double> famount(Root<?> root){return root.get("famount");}
+            /**是否兼职**/
+            public static  Path<Integer> bisjob(Root<?> root){return root.get("bisjob");}
+
+    }
+/**实际控股人**/
+//public static final String hy_controholder="hy_controholder" ;
+public static class hy_controholder {
+public static XSpec<com.frogsing.member.po.ControHolder> xspec() {
+    return new XSpec<com.frogsing.member.po.ControHolder>(com.frogsing.member.po.ControHolder.class);
+    }
+    public static final String tablename="hy_controholder";
+            /**股东姓名**/
+            public static final String sname="sname" ;
+            /**证件类型**/
+            public static final String icardtype="icardtype" ;
+            /**会员ID**/
+            public static final String smemberid="smemberid" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**排序号**/
+            public static final String isortno="isortno" ;
+            /**社会统一信用代码**/
+            public static final String ssocialcreditno="ssocialcreditno" ;
+            /**出资额**/
+            public static final String famount="famount" ;
+            /**是否兼职**/
+            public static final String bisjob="bisjob" ;
+            /**公司类型**/
+            public static final String icomtype="icomtype" ;
+            /**股东姓名**/
+            public static  Path<String> sname(Root<?> root){return root.get("sname");}
+            /**证件类型**/
+            public static  Path<Integer> icardtype(Root<?> root){return root.get("icardtype");}
+            /**会员ID**/
+            public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+            /**排序号**/
+            public static  Path<Integer> isortno(Root<?> root){return root.get("isortno");}
+            /**社会统一信用代码**/
+            public static  Path<String> ssocialcreditno(Root<?> root){return root.get("ssocialcreditno");}
+            /**出资额**/
+            public static  Path<Double> famount(Root<?> root){return root.get("famount");}
+            /**是否兼职**/
+            public static  Path<Integer> bisjob(Root<?> root){return root.get("bisjob");}
+            /**公司类型**/
+            public static  Path<Integer> icomtype(Root<?> root){return root.get("icomtype");}
 
     }
 
