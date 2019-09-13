@@ -16,6 +16,7 @@ import com.frogsing.member.utils.MEMBER.AuthenticateType;
 import com.frogsing.member.utils.MEMBER.ImageType;
 import com.frogsing.member.utils.MEMBER.MemberType;
 import com.frogsing.member.vo.LoginUser;
+import com.frogsing.member.vo.MemVo;
 import com.frogsing.member.vo.SearchMember;
 import com.frogsing.parameter.service.QueryService;
 import com.google.common.collect.Lists;
@@ -97,10 +98,10 @@ public class MemberAction extends BaseAction {
      * @return
      */
     @RequestMapping(value = "authapply.shtml",method = RequestMethod.GET)
-    public String authApply(Authapply apply, @RequestParam(defaultValue = "0") int type, Model model, ServletRequest request) {
+    public String authApply(@RequestParam(defaultValue = "0") int type, Model model, ServletRequest request) {
     	LoginUser user = ShiroUtils.getCurrentUser();
         try {
-            Member member = memberService.findByID(user.getMemberId());
+            Member member = queryService.fetchOne(Member.class,user.getMemberId());
 
             model.addAttribute("member",member);
 
@@ -117,21 +118,16 @@ public class MemberAction extends BaseAction {
     /**
      * 会员认证申请
      * @author haobingfu
-     * @param auth
      * @param model
      * @param request
      * @return
      */
     @RequestMapping(value = "authapply.shtml", method = RequestMethod.POST)
     //@RequiresPermissions("member:auth")
-    public String doAuthApply(Authapply auth,
+    public String doAuthApply(MemVo memVo,
     		Model model, RedirectAttributes rmodel, ServletRequest request) {
         try {
             ILoginUser user = ShiroUtils.getCurrentUser();
-            auth.setIapplytype(AuthenticateType.Company.val());
-            auth.setSmemberid(user.getMemberId());
-            memberService.saveFtpImages(user.getId(), user.getMemberId(),"营业执照", auth.getSbusinessno(), ImageType.BUSINESSNO.getVal());
-            memberService.doAuthApply_b(auth, user);
             model.addAttribute("issuccess",true);
             return "member/authapply";
         } catch (ServiceException e) {
@@ -140,7 +136,7 @@ public class MemberAction extends BaseAction {
             Msg.error(model, "系统出错，请联系管理员");
             e.printStackTrace();
         }
-        return authApply(auth, 500,model, request);
+        return authApply(500,model, request);
     }
 
     @RequestMapping(value = "uploadimg.html")

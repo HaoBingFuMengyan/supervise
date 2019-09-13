@@ -870,6 +870,22 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String bisone="bisone" ;
             /**统一社会信息用代码**/
             public static final String ssocialcreditno="ssocialcreditno" ;
+            /**执行董事证件类型**/
+            public static final String ilegaltype="ilegaltype" ;
+            /**执行董事是否兼职**/
+            public static final String bisjoblegal="bisjoblegal" ;
+            /**公司经理姓名**/
+            public static final String smanagername="smanagername" ;
+            /**公司经理证件号**/
+            public static final String smanagerno="smanagerno" ;
+            /**公司经理证件类型**/
+            public static final String imanagertype="imanagertype" ;
+            /**公司经理是否兼职**/
+            public static final String bisjobmanager="bisjobmanager" ;
+            /**法定代表人**/
+            public static final String icorporatetype="icorporatetype" ;
+            /**企业业务类型**/
+            public static final String icorbiztype="icorbiztype" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1006,6 +1022,22 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Integer> bisone(Root<?> root){return root.get("bisone");}
             /**统一社会信息用代码**/
             public static  Path<String> ssocialcreditno(Root<?> root){return root.get("ssocialcreditno");}
+            /**执行董事证件类型**/
+            public static  Path<Integer> ilegaltype(Root<?> root){return root.get("ilegaltype");}
+            /**执行董事是否兼职**/
+            public static  Path<Integer> bisjoblegal(Root<?> root){return root.get("bisjoblegal");}
+            /**公司经理姓名**/
+            public static  Path<String> smanagername(Root<?> root){return root.get("smanagername");}
+            /**公司经理证件号**/
+            public static  Path<String> smanagerno(Root<?> root){return root.get("smanagerno");}
+            /**公司经理证件类型**/
+            public static  Path<Integer> imanagertype(Root<?> root){return root.get("imanagertype");}
+            /**公司经理是否兼职**/
+            public static  Path<Integer> bisjobmanager(Root<?> root){return root.get("bisjobmanager");}
+            /**法定代表人**/
+            public static  Path<Integer> icorporatetype(Root<?> root){return root.get("icorporatetype");}
+            /**企业业务类型**/
+            public static  Path<Integer> icorbiztype(Root<?> root){return root.get("icorbiztype");}
 
     }
 /**意见反馈表**/

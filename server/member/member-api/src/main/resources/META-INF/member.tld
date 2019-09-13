@@ -1608,6 +1608,89 @@
  		</attribute> 
  		
  	</tag> 
+	<function>
+		<description>CompanyBizType</description>
+		<name>CompanyBizType</name>
+		<function-class>com.frogsing.member.utils.MEMBER$CompanyBizType</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>CompanyBizTypeMap</description>
+		<name>CompanyBizTypeMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$CompanyBizType</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>CompanyBizType</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagCompanyBizType</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>zrjj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>hhjj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>hhft</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
 <!--frogsingcode-->
 	<tag-file>
 		<name>member_btn</name>

@@ -82,6 +82,14 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Integer biscardmerged=0; //是否三码合一 int
 	private   Integer bisone=0; //是否三证合一 int
 	private   String ssocialcreditno; //统一社会信息用代码 String
+	private   Integer ilegaltype=0; //执行董事证件类型 int
+	private   Integer bisjoblegal=0; //执行董事是否兼职 int
+	private   String smanagername; //公司经理姓名 String
+	private   String smanagerno; //公司经理证件号 String
+	private   Integer imanagertype=0; //公司经理证件类型 int
+	private   Integer bisjobmanager=0; //公司经理是否兼职 int
+	private   Integer icorporatetype=0; //法定代表人 int
+	private   Integer icorbiztype=0; //企业业务类型 int
 	   /**
 		会员ID String
 		*/
@@ -1043,6 +1051,158 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setSsocialcreditno(String  ssocialcreditno) {
 			this.ssocialcreditno =  ssocialcreditno;//统一社会信息用代码 String
+		}
+	   /**
+		执行董事证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		@Column(name="ilegaltype")
+		public Integer getIlegaltype() {
+			return  ilegaltype;//执行董事证件类型 int
+		}
+		/**
+		执行董事证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		public void setIlegaltype(Integer  ilegaltype) {
+			this.ilegaltype =  ilegaltype;//执行董事证件类型 int
+		}
+	   /**
+		执行董事是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		@Column(name="bisjoblegal")
+		public Integer getBisjoblegal() {
+			return  bisjoblegal;//执行董事是否兼职 int
+		}
+		/**
+		执行董事是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		public void setBisjoblegal(Integer  bisjoblegal) {
+			this.bisjoblegal =  bisjoblegal;//执行董事是否兼职 int
+		}
+	   /**
+		公司经理姓名 String
+		*/
+		@Column(name="smanagername",length=100)
+		public String getSmanagername() {
+			return  smanagername;//公司经理姓名 String
+		}
+		/**
+		公司经理姓名 String
+		*/
+		public void setSmanagername(String  smanagername) {
+			this.smanagername =  smanagername;//公司经理姓名 String
+		}
+	   /**
+		公司经理证件号 String
+		*/
+		@Column(name="smanagerno",length=100)
+		public String getSmanagerno() {
+			return  smanagerno;//公司经理证件号 String
+		}
+		/**
+		公司经理证件号 String
+		*/
+		public void setSmanagerno(String  smanagerno) {
+			this.smanagerno =  smanagerno;//公司经理证件号 String
+		}
+	   /**
+		公司经理证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		@Column(name="imanagertype")
+		public Integer getImanagertype() {
+			return  imanagertype;//公司经理证件类型 int
+		}
+		/**
+		公司经理证件类型 int
+	    MemberCardType:
+	    10:ID:身份证
+20:PASSPORT:护照
+30:HKPASS:港澳通行证 
+		*/
+		public void setImanagertype(Integer  imanagertype) {
+			this.imanagertype =  imanagertype;//公司经理证件类型 int
+		}
+	   /**
+		公司经理是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		@Column(name="bisjobmanager")
+		public Integer getBisjobmanager() {
+			return  bisjobmanager;//公司经理是否兼职 int
+		}
+		/**
+		公司经理是否兼职 int
+	    BoolType:
+	    0:NO:否
+1:YES:是
+ 
+		*/
+		public void setBisjobmanager(Integer  bisjobmanager) {
+			this.bisjobmanager =  bisjobmanager;//公司经理是否兼职 int
+		}
+	   /**
+		法定代表人 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		@Column(name="icorporatetype")
+		public Integer getIcorporatetype() {
+			return  icorporatetype;//法定代表人 int
+		}
+		/**
+		法定代表人 int
+	    CorporateType:
+	    10:ZXDS:执行董事
+20:JL:经理
+30:ZXDSJJL:执行董事兼经理 
+		*/
+		public void setIcorporatetype(Integer  icorporatetype) {
+			this.icorporatetype =  icorporatetype;//法定代表人 int
+		}
+	   /**
+		企业业务类型 int
+	    CompanyBizType:
+	    10:ZRJJ:责任公司基金管理
+20:HHJJ:合伙企业基金管理
+30:HHFT:合伙企业风投基金 
+		*/
+		@Column(name="icorbiztype")
+		public Integer getIcorbiztype() {
+			return  icorbiztype;//企业业务类型 int
+		}
+		/**
+		企业业务类型 int
+	    CompanyBizType:
+	    10:ZRJJ:责任公司基金管理
+20:HHJJ:合伙企业基金管理
+30:HHFT:合伙企业风投基金 
+		*/
+		public void setIcorbiztype(Integer  icorbiztype) {
+			this.icorbiztype =  icorbiztype;//企业业务类型 int
 		}
 	
 //frogsingcode//

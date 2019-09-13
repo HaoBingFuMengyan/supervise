@@ -420,4 +420,24 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.CorporateType.values();
 		}
 	}
+	public static class TagCompanyBizType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.CompanyBizType.get(val);
+		}
+		public void setZrjj(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CompanyBizType.ZRJJ,val);
+		}
+		public void setHhjj(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CompanyBizType.HHJJ,val);
+		}
+		public void setHhft(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.CompanyBizType.HHFT,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.CompanyBizType.values();
+		}
+	}
 }
