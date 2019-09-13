@@ -4,6 +4,23 @@
 <html>
 <head>
     <title>基金基本信息</title>
+
+    <script type="text/javascript">
+        //查看基本信息
+        function querydetail(id) {
+            top.layer.open({
+                type: 2,
+                title:" ",
+                area: ['90%', '90%'],
+                content: '${ctx}/hy/authapply/index.shtml?id='+id,
+                btn: ['关闭'],
+                cancel: function(index){ //或者使用btn2
+//                    layer.close(index);
+                }
+            });
+        }
+    </script>
+
 </head>
 <body>
 <div class="wrapper wrapper-content">
@@ -72,7 +89,7 @@
                             <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
                         </td>
                         <td>
-                            <a  class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
                         </td>
                     </tr>
                 </c:forEach>
