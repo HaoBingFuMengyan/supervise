@@ -7,6 +7,12 @@
     <link href="${ctxStatic}/bootstrap/3.3.4/css_default/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <script src="${ctxStatic}/bootstrap/3.3.4/js/bootstrap.min.js"  type="text/javascript"></script>
     <script src="${ctxStatic}/common/jeeplus.js"></script>
+    <link href="${ctxStatic}/common/jeeplus.css" type="text/css" rel="stylesheet" />
+    <style>
+        .table thead th,.table td{
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper wrapper-content">
@@ -38,7 +44,7 @@
                     <div class="pull-left">
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
-                    <div class="pull-right">
+                    <div class="pull-right" style="margin: 0 10px 10px 0">
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()" ><i class="fa fa-search"></i> 查询</button>
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="reset()" ><i class="fa fa-refresh"></i> 重置</button>
                     </div>
