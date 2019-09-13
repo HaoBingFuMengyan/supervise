@@ -13,6 +13,21 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+        //查看基本信息
+        function querydetail(id) {
+            layer.open({
+                type: 2,
+                title:"基本信息",
+                area: ['90%', '90%'],
+                content: '',
+                btn: ['关闭'],
+                cancel: function(index){ //或者使用btn2
+//                    layer.close(index);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <div class="wrapper wrapper-content">
@@ -29,9 +44,9 @@
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
                             <span>真实姓名：</span>
-                            <input name="search_like_sname"  maxlength="50" value="${search_like_sname}" class=" form-control input-sm"/>
+                            <input name=""  maxlength="50" value="" class=" form-control input-sm"/>
                             <span>用户名：</span>
-                            <input name="search_like_susername"  maxlength="50" value="${search_like_susername}" class=" form-control input-sm"/>
+                            <input name=""  maxlength="50" value="" class=" form-control input-sm"/>
                         </div>
                     </form:form>
                     <br/>
@@ -82,7 +97,7 @@
                         </td>
                         <td>
 
-                            <a  class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
                             <%--<shiro:hasPermission name="user:edit">--%>
                             <%--<a href="javascript:openlog('密码重置','${ctx}/dt/user/reset.shtml?id=${obj.id}','90%','70%')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>密码重置</a>--%>
                             <%--</shiro:hasPermission>--%>
