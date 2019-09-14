@@ -1,3 +1,4 @@
+<%@ taglib prefix="member" uri="http://www.frogsing.com/tags/member" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/include/taglib.jsp" %>
 <!DOCTYPE html>
@@ -102,6 +103,16 @@
                                 <input type="text" name="" value="" class="layui-input" lay-verify="required" placeholder="(必填项)" autocomplete="off" >
                             </div>
                         </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">企业名称<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:MemberCardType op="select" name="ilegaltype" defname="请选择证件类型" defval="999"
+                                                       option="class='form_control' lay-verify='required'"/>
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <legend>法定/委派代表人信息</legend>
