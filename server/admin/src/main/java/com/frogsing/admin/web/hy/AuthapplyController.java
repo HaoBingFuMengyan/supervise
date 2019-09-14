@@ -2,17 +2,20 @@ package com.frogsing.admin.web.hy;
 
 import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
-import com.frogsing.heart.exception.E;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.security.shiro.ShiroUtils;
-import com.frogsing.heart.utils.B;
 import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Msg;
+import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
-import com.frogsing.member.po.*;
+import com.frogsing.member.po.Authapply;
+import com.frogsing.member.po.CompanyHolder;
+import com.frogsing.member.po.ControHolder;
+import com.frogsing.member.po.NaturalHolder;
+import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -23,7 +26,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.frogsing.exception.ServiceException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -38,6 +43,9 @@ public class AuthapplyController {
 
     @Autowired
     private IQueryService queryService;
+
+    @Autowired
+    private AuthapplyService authapplyService;
 
     @RequestMapping(value = "list.shtml")
     public String list(@RequestParam(value = "start", defaultValue = "0") int start,
@@ -115,8 +123,8 @@ public class AuthapplyController {
             }else {
 
                 model.addAttribute("search_eq_sregaddress", sregaddress);
-                if (B.Y(sregaddress))
-                    E.S("注册地址不能为空");
+//                if (B.Y(sregaddress))
+//                    E.S("注册地址不能为空");
 
                 Authapply authapply = queryService.fetchOne(MEMBERCol.hy_authapply.xspec().and(
                         SearchFilter.eq(MEMBERCol.hy_authapply.sregaddress, sregaddress)).and(
@@ -133,5 +141,37 @@ public class AuthapplyController {
         }
 
         return "/member/authapply-register-address";
+    }
+
+
+    /**
+     * 审核
+     * @param id
+     * @param istatus
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "check.json")
+    @ResponseBody
+    @RequiresPermissions("authapply:check")
+    public Result check(@RequestParam(value = "id")String id,
+                        @RequestParam(value = "istatus") int istatus,Model model,HttpServletRequest request){
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            if (Consts.BoolType.YES.isEq(istatus))
+                this.authapplyService.checkOk(id,"",user);
+            else
+                this.authapplyService.reject(id,"",user);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
     }
 }
