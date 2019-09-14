@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>基金基本信息</title>
-    <script src="${ctx}/jj/jj.js"  type="text/javascript"></script>
     <script type="text/javascript">
         //查看基本信息
         function querydetail(id) {
