@@ -288,10 +288,19 @@ font.must{
 	text-align: left;
 	width:95px;
 }
+.for-error{
+	position: relative;
+	display: inline-block;
+}
 .input_group label.error{
-	width:auto;
-	text-align:left;
-	margin-right:10px;
+	width: auto;
+	text-align: left;
+	margin-right: 10px;
+	position: absolute;
+	left: 10px;
+	bottom: -28px;
+	font-size: 12px;
+	color: #ff0000;
 }
 .input_group label.label_lg{
 	width:130px;

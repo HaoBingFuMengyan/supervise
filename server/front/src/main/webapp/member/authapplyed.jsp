@@ -59,7 +59,7 @@
 
             //添加自然人股东信息
             $("#addbtn").click(function () {
-                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label"><em class="red">*</em>填写自然人股东信息<button type="button"><img src="${ctx}/images/add.png">删除</button></div>'
+                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label clearfix"><button type="button" class="delete"><img src="${ctx}/images/delete.png">删除</button></div>'
                     + '<div class="mask-bg"><div ><input name="sname" class="form_control" placeholder="股东姓名">'
                     + '<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" defval="999" option="class=\\'form_control\\'"/>'
                     + '<input name="scardno" class="form_control" placeholder="证件号码">'
@@ -72,7 +72,7 @@
 
             //添加机构股东信息
             $('#addbtn1').click(function () {
-                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label"><em class="red">*</em>填写机构股东信息<button type="button"><img src="${ctx}/images/add.png">删除</button></div>'
+                var innerHTML = '<div class="input_group bottom20 input_group_half"><div class="fill-label clearfix"><button type="button" class="delete"><img src="${ctx}/images/delete.png">删除</button></div>'
                     + '<div class="mask-bg"><div ><input name="scompanyname" class="form_control" placeholder="股东名称">'
                     + '<member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" defval="999" option="class=\\'form_control\\'"/>'
                     + '<input name="scompanycardno" class="form_control" placeholder="填写统一社会信用代码">'
@@ -96,15 +96,15 @@
                 <input type="hidden" name="icorbiztype" value="${param.icorbiztype}">
                 <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写注册资本</div>
-                    <input id="iregmoney" name="iregmoney" class="form_control" placeholder="请填写注册资本">万元
+                   <div class="for-error"><input id="iregmoney" name="iregmoney" class="form_control" placeholder="请填写注册资本">万元</div>
                 </div>
                 <div class="input_group bottom20 input_group_half">
                     <div class="fill-label"><em class="red">*</em>填写执行董事信息</div>
                     <div class="mask-bg">
                         <div >
-                            <input id="slegalperson" name="slegalperson" class="form_control" placeholder="姓名">
+                            <div class="for-error"><input id="slegalperson" name="slegalperson" class="form_control" placeholder="姓名"></div>
                             <member:MemberCardType op="select" name="ilegaltype" defname="请选择证件类型" defval="999" option="class='form_control'"/>
-                            <input id="slegalpersoncode" name="slegalpersoncode" class="form_control" placeholder="证件号码">
+                            <div class="for-error"><input id="slegalpersoncode" name="slegalpersoncode" class="form_control" placeholder="证件号码"></div>
                         </div>
                         <div class="checkbox">
                             <p>兼职情况</p>
@@ -117,9 +117,9 @@
                     <div class="fill-label"><em class="red">*</em>填写公司经理信息</div>
                     <div class="mask-bg">
                         <div >
-                            <input id="smanagername" name="smanagername" class="form_control" placeholder="姓名">
+                            <div class="for-error"><input id="smanagername" name="smanagername" class="form_control" placeholder="姓名"></div>
                             <member:MemberCardType op="select" name="imanagertype" defname="请选择证件类型" defval="999" option="class='form_control'"/>
-                            <input id="smanagerno" name="smanagerno" class="form_control" placeholder="证件号码">
+                            <div class="for-error"><input id="smanagerno" name="smanagerno" class="form_control" placeholder="证件号码"></div>
                         </div>
                         <div class="checkbox">
                             <p>兼职情况</p>
@@ -137,10 +137,10 @@
                     <div class="fill-label"><em class="red">*</em>填写自然人股东信息<button id="addbtn" type="button"><img src="${ctx}/images/add.png">添加</button></div>
                     <div class="mask-bg">
                         <div >
-                            <input name="sname" class="form_control" placeholder="股东姓名">
+                            <div class="for-error"><input name="sname" class="form_control" placeholder="股东姓名"></div>
                             <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" defval="999" option="class='form_control'"/>
-                            <input name="scardno" class="form_control" placeholder="证件号码">
-                            <input name="famount" class="form_control" placeholder="认缴出资额">万元
+                            <div class="for-error"><input name="scardno" class="form_control" placeholder="证件号码"></div>
+                            <div class="for-error"><input name="famount" class="form_control" placeholder="认缴出资额">万元</div>
                         </div>
                         <div class="checkbox">
                             <p>兼职情况</p>
@@ -154,10 +154,10 @@
                     <div class="fill-label"><em class="red">*</em>填写机构股东信息<button id="addbtn1" type="button"><img src="${ctx}/images/add.png">添加</button></div>
                     <div class="mask-bg">
                         <div >
-                            <input name="scompanyname" class="form_control" placeholder="股东名称">
+                            <div class="for-error"><input name="scompanyname" class="form_control" placeholder="股东名称"></div>
                             <member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" defval="999" option="class='form_control'"/>
-                            <input name="scompanycardno" class="form_control" placeholder="填写统一社会信用代码">
-                            <input name="fcompanyamount" class="form_control" placeholder="认缴出资额">万元
+                            <div class="for-error"><input name="scompanycardno" class="form_control" placeholder="填写统一社会信用代码"></div>
+                            <div class="for-error"><input name="fcompanyamount" class="form_control" placeholder="认缴出资额">万元</div>
                         </div>
                     </div>
                 </div>
@@ -165,9 +165,9 @@
                     <div class="fill-label"><em class="red">*</em>填写实际控制人信息</div>
                     <div class="mask-bg" style="width: 1119px;box-sizing: border-box">
                         <div >
-                            <input name="sconname" class="form_control" placeholder="名称">
+                            <div class="for-error"><input name="sconname" class="form_control" placeholder="名称"></div>
                             <member:CardType op="select" name="iconcardtype" defname="请选择证件类型" defval="999" option="class='form_control'"/>
-                            <input name="ssocialcreditno" class="form_control" placeholder="填写统一社会信用代码">
+                            <div class="for-error"><input name="ssocialcreditno" class="form_control" placeholder="填写统一社会信用代码"></div>
                             <member:ComType op="select" name="iconpanytype" defname="请选择类型" defval="999" option="class='form_control'"/>
                         </div>
                         <div class="checkbox">
