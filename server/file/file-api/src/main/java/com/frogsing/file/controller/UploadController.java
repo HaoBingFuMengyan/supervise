@@ -1,6 +1,5 @@
 package com.frogsing.file.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.frogsing.file.IFileStoreService;
 import com.frogsing.file.utils.FtpUtils;
 import com.frogsing.file.vo.UploadResult;
@@ -8,6 +7,7 @@ import com.frogsing.heart.utils.DateUtils;
 import com.frogsing.heart.utils.T;
 import com.frogsing.parameter.utils.PARAMETER;
 import com.frogsing.parameter.utils.ParaUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "/file")
 public class UploadController {
 
-	@Reference
+	@Autowired
 	private IFileStoreService fileStoreService;
 
 	@RequestMapping(value = "upload.json")

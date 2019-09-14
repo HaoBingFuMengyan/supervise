@@ -1,6 +1,5 @@
 package com.frogsing.file.action;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.frogsing.file.IFileStoreService;
 import com.frogsing.file.utils.FtpUtils;
 import com.frogsing.file.vo.UploadResult;
@@ -8,6 +7,7 @@ import com.frogsing.heart.utils.DateUtils;
 import com.frogsing.heart.utils.T;
 import com.frogsing.parameter.utils.PARAMETER;
 import com.frogsing.parameter.utils.ParaUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,9 +30,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "/file")
-public class UploadController {
+public class UploadAction {
 
-	@Reference
+	@Autowired
 	private IFileStoreService fileStoreService;
 
 	@RequestMapping(value = "upload.json")
@@ -51,6 +51,32 @@ public class UploadController {
 			}else
 				rs = FtpUtils.uploadToFtpServer(orginalFile,path);
 			UploadResult result = UploadResult.success(ParaUtils.sys(PARAMETER.SysParaType.ImgUrl.val())+rs,orginalFile.getName(),orginalFile.getOriginalFilename());
+			return result;
+		} catch (ServiceException e) {
+			return UploadResult.failure(e.getMessage());
+		} catch (Exception e) {
+			return UploadResult.failure("上传失败");
+		}
+	}
+
+	@RequestMapping(value = "uploadfile.json")
+	@ResponseBody
+	public UploadResult uploadFile(
+			@RequestParam(value="upfile",required = false) CommonsMultipartFile orginalFile,
+			@RequestParam(value="path",defaultValue = "/public") String action,
+			@RequestParam(value="ispublic",defaultValue = "false") boolean ispublic,
+			@RequestParam(value="isimg",defaultValue = "false") boolean isimg,
+			Model model, HttpServletResponse response) {
+		try {
+			//根据action类型判断上传的文件类型
+			String path=action.trim()+"/"+ DateUtils.dateToString(T.now(), "yyyyMMdd");
+			path=ispublic?FtpUtils.getPublicDir(path):FtpUtils.getPrivateDir(path);
+			String rs="";
+			if(isimg){
+				rs = FtpUtils.uploadToFtpServerImg(orginalFile,path,80);
+			}else
+				rs = FtpUtils.uploadToFtpServer(orginalFile,path);
+			UploadResult result = UploadResult.success(rs,orginalFile.getName(),orginalFile.getOriginalFilename());
 			return result;
 		} catch (ServiceException e) {
 			return UploadResult.failure(e.getMessage());

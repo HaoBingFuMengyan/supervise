@@ -3,17 +3,6 @@
  */
 package com.frogsing.file.controller;
 
-import javax.servlet.ServletRequest;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.frogsing.file.ISysFileService;
 import com.frogsing.file.po.SysFile;
 import com.frogsing.file.utils.FtpUtils;
@@ -22,9 +11,17 @@ import com.frogsing.heart.exception.E;
 import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.utils.B;
 import com.frogsing.heart.utils.F;
-import com.frogsing.heart.utils.ObjectUtils;
 import com.frogsing.heart.utils.T;
 import com.frogsing.heart.web.Layer;
+import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import javax.servlet.ServletRequest;
 
 /**
  * 标签Controller
@@ -35,7 +32,7 @@ import com.frogsing.heart.web.Layer;
 @RequestMapping(value = "/dt/sysfile")
 public class SysFileController {
 
-	@Reference
+	@Autowired
 	private IQueryService queryserice;
 	
 	@Autowired

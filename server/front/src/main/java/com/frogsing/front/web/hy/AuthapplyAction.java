@@ -18,9 +18,9 @@ import com.frogsing.parameter.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -105,4 +105,19 @@ public class AuthapplyAction extends BaseAction{
         model.addAttribute("list",controHolders);
         return "member/authapply-control-detail";
     }
+
+    /**
+     * 企业申请入住
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "applyregister_{id}.shtml")
+    public String applyRegister(@PathVariable String id,Model model,HttpServletRequest request){
+        model.addAttribute("id",id);
+        return "member/authapply-register";
+    }
+
+
 }

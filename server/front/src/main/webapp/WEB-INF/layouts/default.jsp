@@ -29,7 +29,7 @@
     <!-- 引入layer插件 -->
     <script src="${ctxStatic}/layer-v3.1.0/layer/layer.js"></script>
     <script src="${ctxStatic}/layDate-v5.0.8/laydate/laydate.js"></script>
-    <script src="${ctxStatic}/common/jeeplus.js"></script>
+
     <link href="${ctx}/css/page.css" type="text/css" rel="stylesheet">
     <script>
         var ctx="${ctx}";

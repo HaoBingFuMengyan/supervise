@@ -24,7 +24,7 @@ import java.io.InputStream;
  * @since version1.0
  */
 @Controller
-public class DownloadController {
+public class DownloadAction {
 	
 	@RequestMapping("/download.html")
 	public void download(
