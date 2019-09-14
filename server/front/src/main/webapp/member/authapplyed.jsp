@@ -38,6 +38,7 @@
             }
 
             var regamount = 0;//所有股东注册资金之和
+            var indexsum = 0;
             $('input[data-id="regamount"]').each(function (index, element) {
 
                 var amount = isNaN(new Number($(this).val())) ? 0 : new Number($(this).val());
@@ -49,10 +50,16 @@
 
                 regamount = parseInt(regamount) + parseInt(amount);
 
+                indexsum = parseInt(indexsum) + parseInt(index);
             });
 
             if (parseInt(iregmoney) != parseInt(regamount)) {
                 layer.msg("各股东股权相加之和不等于100%，请检查", {icon: 3});
+                return false;
+            }
+
+            if (parseInt(indexsum) > 49){
+                layer.msg("股东范围只能在1-50人之间", {icon: 3});
                 return false;
             }
 

@@ -1,22 +1,40 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: fanyijie
-  Date: 2017/9/25
-  Time: 下午4:26
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/include/taglib.jsp"%>
 <html>
 <head>
-	<title>基金协同监管系统沟通</title>
-	<link href="${ctx}/member/css/open.css" rel="stylesheet" type="text/css">
-	<link href="${ctx}/css/common.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="${ctxStatic}/common/jquery.searchableSelect.css" />
-	<link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet" />
-	<script src="${ctxStatic}/layui-v2.4.2/layui/layui.js" type="text/javascript"></script>
+	<meta name="decorator" content="default"/>
+	<title>基金协同监管系统</title>
+	<link rel="stylesheet" href="${ctx}/css/static.css">
+	<style>
+		.layui-layer{
+			top:40%!important;
+		}
+	</style>
+
+	<script type="text/javascript">
+        window.onload = function () {(
+            setInterval(function () {
+                var second = parseInt($("#second").text());
+                if (second == 0){
+					window.location.href="${ctx}/hy/authapply/list.shtml";
+                    return;
+                }
+                $("#second").text(parseInt(second - 1));
+            },1000)
+        )};
+
+	</script>
 </head>
 <body>
-aaaa
+<div class="mei-view">
+	<div class="mycon">
+		<div class="tips-con">
+			<img src="${ctx}/images/tips-ok.png" />
+			<p>申请成功，<i id="second">5</i>s后跳转申请列表...</p>
+			<a href="${ctx}/hy/authapply/list.shtml">立即跳转</a>
+		</div>
+	</div>
+</div>
 </body>
 </html>
