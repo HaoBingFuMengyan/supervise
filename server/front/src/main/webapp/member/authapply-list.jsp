@@ -40,7 +40,21 @@
                     var iframeWin = layero.find('iframe')[0];
                     var $ = iframeWin.contentWindow.$;
                     var doc = $(iframeWin.contentWindow.document);
-                    doc.find('form').first().submit();
+
+                    $.post("${ctx}/hy/authapply/applyregister.json",doc.find('#formx').serialize(),function(rs){
+//                            layer.closeAll('loading');
+                        if (rs.success) {
+
+                            layer.close(index);
+
+                            top.layer.msg("操作成功!",{icon:1},function () {
+                                parent.location.reload();
+                            });
+                        }
+                        else {
+                            top.layer.msg(rs.msg, 5, 3);
+                        }
+                    });
                 },
                 cancel: function (index) {
                 }

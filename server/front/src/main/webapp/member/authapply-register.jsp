@@ -107,7 +107,7 @@
 <body>
 <div class="mbody">
     <mw:msg/>
-    <form class="layui-form" action="${ctx }/projectstock/savestock.shtml" method="post" id="formx"
+    <form class="layui-form" action="${ctx }/hy/authapply/applyregister.json" method="post" id="formx"
           onkeydown="if(event.keyCode==13) return false;"
           enctype="multipart/form-data" autocomplete="on">
         <div class="layui-tab layui-tab-card">

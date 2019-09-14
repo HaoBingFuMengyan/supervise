@@ -1,5 +1,6 @@
 package com.frogsing.front.web.hy;
 
+import com.frogsing.heart.ext.ExtResult;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
@@ -7,6 +8,7 @@ import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.BaseAction;
 import com.frogsing.heart.web.Msg;
+import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
@@ -15,6 +17,7 @@ import com.frogsing.member.po.ControHolder;
 import com.frogsing.member.po.NaturalHolder;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.parameter.service.QueryService;
+import com.frogsing.project.utils.PROJECT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,6 +26,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.frogsing.exception.ServiceException;
 import javax.servlet.ServletRequest;
@@ -117,6 +121,23 @@ public class AuthapplyAction extends BaseAction{
     public String applyRegister(@PathVariable String id,Model model,HttpServletRequest request){
         model.addAttribute("id",id);
         return "member/authapply-register";
+    }
+
+    @RequestMapping(value = "applyregister.json")
+    @ResponseBody
+    public Result applyRegisterSuccess(Model model, HttpServletRequest request){
+        ILoginUser user = ShiroUtils.getCurrentUser();
+        try {
+
+            return Result.success();
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return Result.failure(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure("系统繁忙,请稍后再试");
+
+        }
     }
 
 
