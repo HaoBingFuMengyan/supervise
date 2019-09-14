@@ -32,7 +32,7 @@
     <script type="text/javascript">
         var device;
         var form;
-        layui.use(['form', 'layedit', 'laydate'], function () {
+        layui.use(['form', 'layedit', 'upload','laydate'], function () {
             device = layui.device();
             form = layui.form;
             form.verify({
@@ -41,6 +41,58 @@
 //                        return '这是必填项';
 //                    }
 //                }
+            });
+            var layupload = layui.upload;
+
+            //执行实例
+            var uploadListIns = layupload.render({
+                elem: '#addFile'
+                ,url: '${ctx}/file/uploadfile.json'
+                ,accept: 'file'
+                ,multiple: true
+                ,auto: false
+                ,field:"upfile"
+                ,data:{path:'/Project'}
+                ,choose: function(obj){
+                    var files = this.files = obj.pushFile(); //将每次选择的文件追加到文件队列
+                    obj.preview(function(index, file, result){
+                        obj.upload(index, file);
+                    });
+                }
+                ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                    layer.load(1); //上传loading
+                }
+                ,allDone:function (obj) {
+                    layer.closeAll('loading'); //关闭loadin
+                }
+                ,done: function(res, index, upload){
+                    if(res.state == "SUCCESS"){ //上传成功
+                        var tr = $(['<tr id="upload-'+ index +'">'
+                            ,'<td>' +
+                            '<input type="hidden" name="files['+index+'].sfileid" value=""/>' +
+                            '<input type="hidden" name="files['+index+'].sfilename" value="'+res.original+'"/>' +
+                            '<input type="hidden" name="files['+index+'].sfilepath" value="'+res.path+'"/> '+ res.original +'</td>'
+                            ,'<td><input type="text" name="files['+index+'].sfileremark" autocomplete="off" class="layui-input layui-input-sm"/></td>'
+                            ,'<td>'
+                            ,'<a class="layui-abtn demo-delete">删除</a>'
+                            ,'</td>'
+                            ,'</tr>'].join(''));
+                        //删除
+                        tr.find('.demo-delete').on('click', function(){
+                            tr.remove();
+                            uploadListIns.config.elem.next()[0].value = ''; //清空 input file 值，以免删除后出现同名文件不可选
+                        });
+                        demoListView.append(tr);
+                        return delete this.files[index]; //删除文件队列已经上传成功的文件
+                    }else{
+                        layer.msg(res.original+"上传失败，失败原因："+res.state);
+                        this.error(index, upload);
+                    }
+                }
+                ,error: function(index, upload){
+                    layer.closeAll('loading'); //关闭loadin
+                    return delete this.files[index]; //删除文件队列已经上传成功的文件
+                }
             });
         });
 
