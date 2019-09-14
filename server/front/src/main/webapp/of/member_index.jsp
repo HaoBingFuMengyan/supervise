@@ -23,6 +23,41 @@
         });
 
 
+        function formOpen(surl){
+            top.layer.open({
+                type: 2,
+                title: '企业申请入住',
+                area: ['95%', '95%'],
+                content: surl,
+                btn: ['提交信息', '关闭'],
+                yes: function (index, layero) {
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
+
+                    if(iframeWin.contentWindow.valiForm()){
+                        $.post("${ctx}/hy/member/authapply.json",doc.find('#formx').serialize(),function(rs){
+//                            layer.closeAll('loading');
+                            if (rs.success) {
+
+                                layer.close(index);
+
+                                top.layer.msg("操作成功!",{icon:1},function () {
+                                    parent.location.reload();
+                                });
+                            }
+                            else {
+                                top.layer.msg(rs.msg, 5, 3);
+                            }
+                        });
+                    }
+
+                },
+                cancel: function (index) {
+                }
+            });
+        }
+
     </script>
 </head>
 <body>
@@ -33,17 +68,17 @@
             <div class="apply-card apply-card1">
                 <h2>有限责任公司</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=10">立即申请</a>
+                <a onclick="formOpen('${ctx}/hy/member/authapply.shtml?icorbiztype=10')" href="#">立即申请</a>
             </div>
             <div class="apply-card apply-card2">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为私募基金管理人</p>
-                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=20">立即申请</a>
+                <a onclick="formOpen('${ctx}/hy/member/authapply.shtml?icorbiztype=20')" href="#">立即申请</a>
             </div>
             <div class="apply-card apply-card3">
                 <h2>有限合伙企业</h2>
                 <p>拟备案为创投风投基金</p>
-                <a href="${ctx}/hy/member/authapply.shtml?icorbiztype=30">立即申请</a>
+                <a onclick="formOpen('${ctx}/hy/member/authapply.shtml?icorbiztype=30')" href="#">立即申请</a>
             </div>
         </div>
     </div>

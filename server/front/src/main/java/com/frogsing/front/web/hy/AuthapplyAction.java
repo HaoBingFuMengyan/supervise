@@ -1,5 +1,6 @@
 package com.frogsing.front.web.hy;
 
+import com.frogsing.heart.exception.E;
 import com.frogsing.heart.ext.ExtResult;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
@@ -128,6 +129,8 @@ public class AuthapplyAction extends BaseAction{
     public Result applyRegisterSuccess(Model model, HttpServletRequest request){
         ILoginUser user = ShiroUtils.getCurrentUser();
         try {
+
+            E.S("出错哦哦");
 
             return Result.success();
         } catch (ServiceException e) {
