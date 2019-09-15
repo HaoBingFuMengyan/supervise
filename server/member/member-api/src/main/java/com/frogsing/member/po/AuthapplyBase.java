@@ -101,6 +101,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   String skzrlinkman; //控制人联系人 String
 	private   String skzrsmobile; //控制人手机 String
 	private   String skzremail; //控制人邮箱 String
+	private   Integer iprocess=0; //审批流 int
 	   /**
 		会员ID String
 		*/
@@ -1367,6 +1368,27 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setSkzremail(String  skzremail) {
 			this.skzremail =  skzremail;//控制人邮箱 String
+		}
+	   /**
+		审批流 int
+	    Process:
+	    10:ZSJG:招商机构
+20:JDBSC:街道办事处
+ 
+		*/
+		@Column(name="iprocess")
+		public Integer getIprocess() {
+			return  iprocess;//审批流 int
+		}
+		/**
+		审批流 int
+	    Process:
+	    10:ZSJG:招商机构
+20:JDBSC:街道办事处
+ 
+		*/
+		public void setIprocess(Integer  iprocess) {
+			this.iprocess =  iprocess;//审批流 int
 		}
 	
 //frogsingcode//

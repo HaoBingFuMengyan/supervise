@@ -1774,6 +1774,83 @@
  		</attribute> 
  		
  	</tag> 
+	<function>
+		<description>Process</description>
+		<name>Process</name>
+		<function-class>com.frogsing.member.utils.MEMBER$Process</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>ProcessMap</description>
+		<name>ProcessMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$Process</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>Process</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagProcess</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>zsjg</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jdbsc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
 <!--frogsingcode-->
 	<tag-file>
 		<name>member_btn</name>

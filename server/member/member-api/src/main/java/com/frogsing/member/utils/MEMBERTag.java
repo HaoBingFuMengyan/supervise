@@ -460,4 +460,21 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.ApprovalStatus.values();
 		}
 	}
+	public static class TagProcess extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.Process.get(val);
+		}
+		public void setZsjg(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.Process.ZSJG,val);
+		}
+		public void setJdbsc(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.Process.JDBSC,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.Process.values();
+		}
+	}
 }
