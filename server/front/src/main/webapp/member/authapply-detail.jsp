@@ -1,4 +1,5 @@
 <%@ taglib prefix="member" uri="http://www.frogsing.com/tags/member" %>
+<%@ taglib prefix="cs" uri="http://www.frogsing.com/tags/parameter" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/include/taglib.jsp" %>
 <html>
@@ -119,6 +120,14 @@
                             <member:CorporateType op="label" val="${data.icorporatetype}"/>
                         </div>
                     </div>
+                    <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1}">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">注册地址：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sregaddress}
+                            </div>
+                        </div>
+                    </c:if>
                 </div>
 
                 <div class="layui-form-item">
@@ -130,9 +139,136 @@
                     </div>
                 </div>
 
+                <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1}">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">风险报告结果：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sriskresult}
+                            </div>
+                        </div>
+                    </div>
+                </c:if>
+
             </div>
         </div>
     </div>
 </div>
+
+<c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20)}">
+    <div class="layui-collapse" style="border-top: none;margin-top: 10px;">
+        <div class="layui-colla-item">
+            <div class="layui-colla-content layui-show">
+                <div class="layui-info">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">企业名称：</label>
+                            <div class="layui-input-inline">
+                                    ${data.scnname}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">通讯地址：</label>
+                            <div class="layui-input-inline">
+                                ${data.sbusaddress}
+                            </div>
+                        </div>
+                    </div>
+
+                    <legend>法定/委派代表人信息</legend>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sfdlinkman}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">手机号：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sfdsmobile}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">Email：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sfdemail}
+                            </div>
+                        </div>
+                    </div>
+
+                    <legend>企业联系人信息</legend>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名：</label>
+                            <div class="layui-input-inline">
+                                    ${data.slinkman}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">手机号：</label>
+                            <div class="layui-input-inline">
+                                    ${data.smobile}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">Email：</label>
+                            <div class="layui-input-inline">
+                                    ${data.semail}
+                            </div>
+                        </div>
+                    </div>
+
+                    <legend>实际控制人信息</legend>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名：</label>
+                            <div class="layui-input-inline">
+                                    ${data.skzrlinkman}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">手机号：</label>
+                            <div class="layui-input-inline">
+                                    ${data.skzrsmobile}
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">Email：</label>
+                            <div class="layui-input-inline">
+                                    ${data.skzremail}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">营业执照：</label>
+                            <div class="layui-input-inline">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sbusinessno}" width="200" height="" alt="">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">承诺函：</label>
+                            <div class="layui-input-inline">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.scnuno}" width="200" height="" alt="">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">控制人关系图：</label>
+                            <div class="layui-input-inline">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sgxrtno}" width="200" height="" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</c:if>
 </body>
 </html>
