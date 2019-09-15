@@ -93,6 +93,14 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Integer iapprovalstatus=0; //审核状态 int
 	private   String sriskresult; //风险监测报告结果 String
 	private   String srisktext; //风险监测报告内文 String
+	private   String scnuno; //承诺函 String
+	private   String sgxrtno; //关系人控制图 String
+	private   String sfdlinkman; //法定/委派联系人 String
+	private   String sfdsmobile; //法定/委派手机号 String
+	private   String sfdemail; //法定/委派邮箱 String
+	private   String skzrlinkman; //控制人联系人 String
+	private   String skzrsmobile; //控制人手机 String
+	private   String skzremail; //控制人邮箱 String
 	   /**
 		会员ID String
 		*/
@@ -1255,6 +1263,110 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setSrisktext(String  srisktext) {
 			this.srisktext =  srisktext;//风险监测报告内文 String
+		}
+	   /**
+		承诺函 String
+		*/
+		@Column(name="scnuno",length=300)
+		public String getScnuno() {
+			return  scnuno;//承诺函 String
+		}
+		/**
+		承诺函 String
+		*/
+		public void setScnuno(String  scnuno) {
+			this.scnuno =  scnuno;//承诺函 String
+		}
+	   /**
+		关系人控制图 String
+		*/
+		@Column(name="sgxrtno",length=300)
+		public String getSgxrtno() {
+			return  sgxrtno;//关系人控制图 String
+		}
+		/**
+		关系人控制图 String
+		*/
+		public void setSgxrtno(String  sgxrtno) {
+			this.sgxrtno =  sgxrtno;//关系人控制图 String
+		}
+	   /**
+		法定/委派联系人 String
+		*/
+		@Column(name="sfdlinkman",length=50)
+		public String getSfdlinkman() {
+			return  sfdlinkman;//法定/委派联系人 String
+		}
+		/**
+		法定/委派联系人 String
+		*/
+		public void setSfdlinkman(String  sfdlinkman) {
+			this.sfdlinkman =  sfdlinkman;//法定/委派联系人 String
+		}
+	   /**
+		法定/委派手机号 String
+		*/
+		@Column(name="sfdsmobile",length=20)
+		public String getSfdsmobile() {
+			return  sfdsmobile;//法定/委派手机号 String
+		}
+		/**
+		法定/委派手机号 String
+		*/
+		public void setSfdsmobile(String  sfdsmobile) {
+			this.sfdsmobile =  sfdsmobile;//法定/委派手机号 String
+		}
+	   /**
+		法定/委派邮箱 String
+		*/
+		@Column(name="sfdemail",length=100)
+		public String getSfdemail() {
+			return  sfdemail;//法定/委派邮箱 String
+		}
+		/**
+		法定/委派邮箱 String
+		*/
+		public void setSfdemail(String  sfdemail) {
+			this.sfdemail =  sfdemail;//法定/委派邮箱 String
+		}
+	   /**
+		控制人联系人 String
+		*/
+		@Column(name="skzrlinkman",length=50)
+		public String getSkzrlinkman() {
+			return  skzrlinkman;//控制人联系人 String
+		}
+		/**
+		控制人联系人 String
+		*/
+		public void setSkzrlinkman(String  skzrlinkman) {
+			this.skzrlinkman =  skzrlinkman;//控制人联系人 String
+		}
+	   /**
+		控制人手机 String
+		*/
+		@Column(name="skzrsmobile",length=20)
+		public String getSkzrsmobile() {
+			return  skzrsmobile;//控制人手机 String
+		}
+		/**
+		控制人手机 String
+		*/
+		public void setSkzrsmobile(String  skzrsmobile) {
+			this.skzrsmobile =  skzrsmobile;//控制人手机 String
+		}
+	   /**
+		控制人邮箱 String
+		*/
+		@Column(name="skzremail",length=100)
+		public String getSkzremail() {
+			return  skzremail;//控制人邮箱 String
+		}
+		/**
+		控制人邮箱 String
+		*/
+		public void setSkzremail(String  skzremail) {
+			this.skzremail =  skzremail;//控制人邮箱 String
 		}
 	
 //frogsingcode//

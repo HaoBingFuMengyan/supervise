@@ -2,6 +2,7 @@ package com.frogsing.member.service;
 
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
+import com.frogsing.heart.utils.B;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyService;
 import com.frogsing.member.dao.AuthapplyDao;
@@ -69,6 +70,66 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setScheckuser(currentUser.getLoginName());
 
 		authapplyDao.saveAndFlush(apply);
+	}
+
+	/**
+	 * 申请入住
+	 *
+	 * @param obj
+	 * @param user
+	 * @return
+	 */
+	@Override
+	public Authapply applyregister(Authapply obj, ILoginUser user) {
+		if (obj == null)
+			E.S("错误的操作，请联系管理员");
+
+		if (B.Y(obj.getId()))
+			E.S("错误的操作，请联系管理员");
+
+		if (B.Y(obj.getScnname()))
+			E.S("企业名称不能为空");
+
+		if (B.Y(obj.getSlinkman()) || B.Y(obj.getSfdlinkman()) || B.Y(obj.getSkzrlinkman()))
+			E.S("联系人不能为空");
+		if (B.Y(obj.getSmobile()) || B.Y(obj.getSfdsmobile()) || B.Y(obj.getSkzrsmobile()))
+			E.S("联系人手机号不能为空");
+		if (B.Y(obj.getSemail()) || B.Y(obj.getSfdemail()) || B.Y(obj.getSkzremail()))
+			E.S("联系人Email不能为空");
+
+		if (B.Y(obj.getSbusaddress()))
+			E.S("通讯地址不能为空");
+
+		if (B.Y(obj.getSbusinessno()))
+			E.S("请先上传营业执照");
+
+		if (B.Y(obj.getScnuno()))
+			E.S("请先上传承诺函");
+
+		if (B.Y(obj.getSgxrtno()))
+			E.S("请先上传关系人控制图");
+
+		Authapply authapply = this.authapplyDao.findOne(obj.getId());
+
+		authapply.setScnname(obj.getScnname());
+		authapply.setSlinkman(obj.getSlinkman());
+		authapply.setSmobile(obj.getSmobile());
+		authapply.setSemail(obj.getSemail());
+		authapply.setSfdlinkman(obj.getSfdlinkman());
+		authapply.setSfdsmobile(obj.getSfdsmobile());
+		authapply.setSfdemail(obj.getSfdemail());
+		authapply.setSkzrlinkman(obj.getSkzrlinkman());
+		authapply.setSkzrsmobile(obj.getSkzrsmobile());
+		authapply.setSkzremail(obj.getSkzremail());
+
+		authapply.setSbusinessno(obj.getSbusinessno());
+		authapply.setScnuno(obj.getScnuno());
+		authapply.setSgxrtno(obj.getSgxrtno());
+
+		authapply.setSbusaddress(obj.getSbusaddress());
+
+
+		return this.authapplyDao.saveAndFlush(authapply);
 	}
 
 	/**

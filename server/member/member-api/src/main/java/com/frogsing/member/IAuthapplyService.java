@@ -11,7 +11,7 @@ public interface IAuthapplyService  {
 	
 	/**
 	 * 审核通过认证信息
-	 * @author XiaoYao
+	 * @author haobingfu
 	 * @param id
 	 * @param scheckinfo
 	 * @param currentUser
@@ -21,14 +21,21 @@ public interface IAuthapplyService  {
 	
 	/**
 	 * 审核拒绝
-	 * @author XiaoYao
+	 * @author haobingfu
 	 * @param id
 	 * @param scheckinfo
 	 * @param currentUser
 	 */
 	void reject(String id,String scheckinfo, ILoginUser currentUser);
-	
 
+
+	/**
+	 * 申请入住
+	 * @param obj
+	 * @param user
+	 * @return
+	 */
+	Authapply applyregister(Authapply obj,ILoginUser user);
 
 
 	/**

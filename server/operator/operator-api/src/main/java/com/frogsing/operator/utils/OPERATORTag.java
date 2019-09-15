@@ -117,4 +117,27 @@ public  class OPERATORTag{
 			return com.frogsing.operator.utils.OPERATOR.AppTerminalType.values();
 		}
 	}
+	public static class TagOperatorType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.operator.utils.OPERATOR.OperatorType.get(val);
+		}
+		public void setZdbsc(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.ZDBSC,val);
+		}
+		public void setGsspk(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.GSSPK,val);
+		}
+		public void setJrglj(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.JRGLJ,val);
+		}
+		public void setZsjf(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.ZSJF,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.operator.utils.OPERATOR.OperatorType.values();
+		}
+	}
 }

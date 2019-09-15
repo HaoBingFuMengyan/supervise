@@ -373,4 +373,78 @@ public static enum AppTerminalType implements  IConst{
 	} 
 	
 }
+public static enum OperatorType implements  IConst{
+	ZDBSC(10,"街道办事处"),
+	GSSPK(20,"工商审批科"),
+	JRGLJ(30,"金融管理局"),
+	ZSJF(40,"招商机构");
+	public  static OperatorType get(int i){
+    	 switch(i)
+    	 {
+    	 case 10:
+    		return OperatorType.ZDBSC;
+    	 case 20:
+    		return OperatorType.GSSPK;
+    	 case 30:
+    		return OperatorType.JRGLJ;
+    	 case 40:
+    		return OperatorType.ZSJF;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   OperatorType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return OperatorType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return OperatorType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(OperatorType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }

@@ -447,6 +447,95 @@
  		</attribute> 
  		
  	</tag> 
+	<function>
+		<description>OperatorType</description>
+		<name>OperatorType</name>
+		<function-class>com.frogsing.operator.utils.OPERATOR$OperatorType</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>OperatorTypeMap</description>
+		<name>OperatorTypeMap</name>
+		<function-class>com.frogsing.operator.utils.OPERATOR$OperatorType</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>OperatorType</name>
+            <tag-class>com.frogsing.operator.utils.OPERATORTag$TagOperatorType</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>zdbsc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>gsspk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jrglj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>zsjf</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
 <!--frogsingcode-->
 
 	<!--frogsingcode-->

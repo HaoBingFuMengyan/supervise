@@ -33,7 +33,7 @@
             top.layer.open({
                 type: 2,
                 title: '企业申请入住',
-                area: ['90%', '90%'],
+                area: ['95%', '95%'],
                 content: '${ctx}/hy/authapply/applyregister_' + id + '.shtml',
                 btn: ['确认申请', '关闭'],
                 yes: function (index, layero) {

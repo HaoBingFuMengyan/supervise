@@ -892,6 +892,22 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String sriskresult="sriskresult" ;
             /**风险监测报告内文**/
             public static final String srisktext="srisktext" ;
+            /**承诺函**/
+            public static final String scnuno="scnuno" ;
+            /**关系人控制图**/
+            public static final String sgxrtno="sgxrtno" ;
+            /**法定/委派联系人**/
+            public static final String sfdlinkman="sfdlinkman" ;
+            /**法定/委派手机号**/
+            public static final String sfdsmobile="sfdsmobile" ;
+            /**法定/委派邮箱**/
+            public static final String sfdemail="sfdemail" ;
+            /**控制人联系人**/
+            public static final String skzrlinkman="skzrlinkman" ;
+            /**控制人手机**/
+            public static final String skzrsmobile="skzrsmobile" ;
+            /**控制人邮箱**/
+            public static final String skzremail="skzremail" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1050,6 +1066,22 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<String> sriskresult(Root<?> root){return root.get("sriskresult");}
             /**风险监测报告内文**/
             public static  Path<String> srisktext(Root<?> root){return root.get("srisktext");}
+            /**承诺函**/
+            public static  Path<String> scnuno(Root<?> root){return root.get("scnuno");}
+            /**关系人控制图**/
+            public static  Path<String> sgxrtno(Root<?> root){return root.get("sgxrtno");}
+            /**法定/委派联系人**/
+            public static  Path<String> sfdlinkman(Root<?> root){return root.get("sfdlinkman");}
+            /**法定/委派手机号**/
+            public static  Path<String> sfdsmobile(Root<?> root){return root.get("sfdsmobile");}
+            /**法定/委派邮箱**/
+            public static  Path<String> sfdemail(Root<?> root){return root.get("sfdemail");}
+            /**控制人联系人**/
+            public static  Path<String> skzrlinkman(Root<?> root){return root.get("skzrlinkman");}
+            /**控制人手机**/
+            public static  Path<String> skzrsmobile(Root<?> root){return root.get("skzrsmobile");}
+            /**控制人邮箱**/
+            public static  Path<String> skzremail(Root<?> root){return root.get("skzremail");}
 
     }
 /**意见反馈表**/

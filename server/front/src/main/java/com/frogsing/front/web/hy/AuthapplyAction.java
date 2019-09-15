@@ -16,6 +16,7 @@ import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.CompanyHolder;
 import com.frogsing.member.po.ControHolder;
 import com.frogsing.member.po.NaturalHolder;
+import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.parameter.service.QueryService;
 import com.frogsing.project.utils.PROJECT;
@@ -44,6 +45,9 @@ public class AuthapplyAction extends BaseAction{
 
     @Autowired
     private QueryService queryService;
+
+    @Autowired
+    private AuthapplyService authapplyService;
 
     @RequestMapping(value = "list.shtml")
     public String authappliList(@RequestParam(value = "start", defaultValue = "0") int start,
@@ -126,11 +130,11 @@ public class AuthapplyAction extends BaseAction{
 
     @RequestMapping(value = "applyregister.json")
     @ResponseBody
-    public Result applyRegisterSuccess(Model model, HttpServletRequest request){
+    public Result applyRegisterSuccess(Authapply authapply, Model model, HttpServletRequest request){
         ILoginUser user = ShiroUtils.getCurrentUser();
         try {
 
-            E.S("出错哦哦");
+            this.authapplyService.applyregister(authapply,user);
 
             return Result.success();
         } catch (ServiceException e) {
