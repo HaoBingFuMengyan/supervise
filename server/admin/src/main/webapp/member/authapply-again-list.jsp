@@ -19,65 +19,8 @@
             });
         }
 
-        //审核
-        function authapplycheck(id){
-            top.layer.open({
-                type: 2,
-                title: "信息",
-                area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/index.shtml?id='+id,
-                btn: ['通过', '拒绝', '关闭'],
-                btn1: function (indexp, layero) {
-                    top.layer.confirm('确定要审核通过吗？', {
-                        btn: ['确定', '取消'] //按钮
-                    }, function () {
-                        $.post("${ctx}/hy/authapply/check.json",{id: id,istatus:1},function(rs){
-//                            layer.closeAll('loading');
-                            if (rs.success) {
-
-                                layer.close(indexp);
-
-                                top.layer.msg(isnull(rs.msg) ? "操作成功!" : rs.msg,{icon:1},function () {
-                                    parent.location.reload();
-                                });
-                            }
-                            else {
-                                top.layer.msg(rs.msg, 5, 3);
-                            }
-                        });
-                    }, function () {
-                        layer.close(indexp);
-                    });
-                },
-                btn2: function (indexp, layero) {
-                    top.layer.confirm('确定要拒绝审核吗？', {
-                        btn: ['确定', '取消'] //按钮
-                    }, function () {
-                        $.post("${ctx}/hy/authapply/check.json",{id: id,istatus:0},function(rs){
-//                            layer.closeAll('loading');
-                            if (rs.success) {
-                                layer.close(indexp);
-
-                                top.layer.msg(isnull(rs.msg) ? "操作成功!" : rs.msg,{icon:1},function () {
-                                    parent.location.reload();
-                                })
-                            }
-                            else {
-                                top.layer.msg(rs.msg, 5, 3);
-                            }
-                        });
-                    }, function () {
-                        top.layer.close(indexp);
-                    });
-                    return false;//避免关闭顶层窗口
-                },
-                btn3: function (index) {
-                }
-            });
-        }
-
-        //招商机构对入住企业初审
-        function firstcheck(id){
+        //街道办事处对入住企业初审
+        function againcheck(id){
             top.layer.open({
                 type: 2,
                 title: "信息",
@@ -139,14 +82,14 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>基金申请列表</h5>
+            <h5>待审核列表</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
             <!-- 查询条件 -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form:form id="searchForm" action="${ctx}/hy/authapply/list.shtml" method="post" class="form-inline">
+                    <form:form id="searchForm" action="${ctx}/hy/authapply/jdbsccheck.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
                             <span>状态：</span>
@@ -204,15 +147,9 @@
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
-                            <shiro:hasAnyPermission name="authapply:check">
-                                <c:if test="${obj.istatus eq 0 && obj.iapprovalstatus eq 0}">
-                                    <a onclick="authapplycheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>管理员审核</a>
-                                </c:if>
-                            </shiro:hasAnyPermission>
-
-                            <shiro:hasAnyPermission name="authapply:firstcheck">
-                                <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && obj.iprocess eq 10}">
-                                    <a onclick="firstcheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>审核</a>
+                            <shiro:hasAnyPermission name="authapply:againcheck">
+                                <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && obj.iprocess eq 20}">
+                                    <a onclick="againcheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>审核</a>
                                 </c:if>
                             </shiro:hasAnyPermission>
                         </td>

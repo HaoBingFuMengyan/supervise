@@ -73,6 +73,32 @@ public class AuthapplyService implements IAuthapplyService {
 	}
 
 	/**
+	 * 招商机构初审
+	 *
+	 * @param id
+	 * @param iprocess
+	 * @param user
+	 */
+	@Override
+	public void firstcheck(String id, int iprocess, ILoginUser user) {
+		Authapply apply = authapplyDao.findOne(id);
+		if (apply == null){
+			E.S("当前账户异常，请联系管理员");
+		}
+
+		if (apply.getSadduser().equals(user.getId()))
+			E.S("系统警告，改企业不归您审核，谢谢");
+
+		if (MEMBER.Process.ZSJG.isNot(apply.getIprocess()))
+			E.S("已审核，请勿重复操作");
+
+		apply.setIprocess(iprocess);
+
+		this.authapplyDao.saveAndFlush(apply);
+
+	}
+
+	/**
 	 * 申请入住
 	 *
 	 * @param obj

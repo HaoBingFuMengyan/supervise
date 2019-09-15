@@ -119,6 +119,14 @@
                             <member:CorporateType op="label" val="${data.icorporatetype}"/>
                         </div>
                     </div>
+                    <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1}">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">注册地址：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sregaddress}
+                            </div>
+                        </div>
+                    </c:if>
                 </div>
 
                 <div class="layui-form-item">
@@ -141,7 +149,7 @@
                     </div>
                 </c:if>
 
-                <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1 && operator.ioperatortype eq 10}">
+                <c:if test="${(data.istatus eq 1 && data.iapprovalstatus eq 1 && operator.ioperatortype eq 10) || isAdmin eq 1}">
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">检测报告内文：</label>
@@ -156,8 +164,8 @@
     </div>
 </div>
 
-<%--企业信息和检测报告内文只有街道办事处才能查看--%>
-<c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1 && operator.ioperatortype eq 10 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40)}">
+<%--企业信息和检测报告内文只有街道办事处才能查看 所属招商机构也可以查看--%>
+<c:if test="${isAdmin eq 1 || (data.istatus eq 1 && data.iapprovalstatus eq 1 && (operator.ioperatortype eq 10 || operator.ioperatortype eq 40) && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
     <div class="layui-collapse" style="border-top: none;margin-top: 10px;">
         <div class="layui-colla-item">
             <div class="layui-colla-content layui-show">

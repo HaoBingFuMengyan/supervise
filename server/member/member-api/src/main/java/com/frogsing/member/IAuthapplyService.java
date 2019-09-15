@@ -28,6 +28,13 @@ public interface IAuthapplyService  {
 	 */
 	void reject(String id,String scheckinfo, ILoginUser currentUser);
 
+	/**
+	 * 招商机构初审
+	 * @param id
+	 * @param iprocess
+	 * @param user
+	 */
+	void firstcheck(String id,int iprocess,ILoginUser user);
 
 	/**
 	 * 申请入住

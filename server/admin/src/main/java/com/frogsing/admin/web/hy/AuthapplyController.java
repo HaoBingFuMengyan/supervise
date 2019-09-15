@@ -68,6 +68,34 @@ public class AuthapplyController {
         return "/member/authapply-list";
     }
 
+    /**
+     * 街道办事处待审核
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "jdbsccheck.shtml")
+    @RequiresPermissions("authapply:againquery")
+    public String againCheck(@RequestParam(value = "start", defaultValue = "0") int start,
+                             @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
+                             @RequestParam(value = "sort", defaultValue = "") String[] sort,Model model,
+                             ServletRequest request){
+        ILoginUser user = ShiroUtils.getCurrentUser();
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
+
+        if (!user.IsAdmin())
+            searchParams.put("search_eq_iprocess", MEMBER.Process.JDBSC.val());
+
+        Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
+
+        Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
+        model.addAttribute("list",list);
+
+        return "/member/authapply-again-list";
+    }
+
+//    @RequiresPermissions("authapply:againcheck")
+
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
         model.addAttribute("id",id);
@@ -84,6 +112,7 @@ public class AuthapplyController {
 
         Operator operator = queryService.findOne(Operator.class,user.getId());
         model.addAttribute("operator",operator);
+        model.addAttribute("isAdmin",user.IsAdmin() == true ? 1 : 0);
         return "/member/authapply-detail";
     }
 
@@ -182,6 +211,34 @@ public class AuthapplyController {
                 this.authapplyService.checkOk(id,"",user);
             else
                 this.authapplyService.reject(id,"",user);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
+
+    /**
+     * 招商机构初审
+     * @param id
+     * @param iprocess
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "zscheck.json")
+    @ResponseBody
+    @RequiresPermissions("authapply:firstcheck")
+    public Result zscheck(@RequestParam(value = "id")String id,
+                        @RequestParam(value = "iprocess") int iprocess,Model model,HttpServletRequest request){
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyService.firstcheck(id,iprocess,user);
 
             return Result.success();
         }catch (ServiceException ex){
