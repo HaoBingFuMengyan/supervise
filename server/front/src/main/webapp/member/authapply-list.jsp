@@ -66,7 +66,38 @@
 
         //企业信息变更
         function changeInfo(id) {
+            top.layer.open({
+                type: 2,
+                title: '信息变更申请',
+                area: ['95%', '95%'],
+                content: '${ctx}/hy/authapply/changeinfo_' + id + '.shtml',
+                btn: ['确认', '关闭'],
+                yes: function (index, layero) {
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
+//                    doc.find("form").first().submit();
+                    if(iframeWin.contentWindow.valiForm()){
+                        $.post("${ctx}/hy/authapply/changeinfo.json",doc.find('#formx').serialize(),function(rs){
+//                            layer.closeAll('loading');
+                            if (rs.success) {
 
+                                layer.close(index);
+
+                                top.layer.msg("操作成功!",{icon:1},function () {
+                                    parent.location.reload();
+                                });
+                            }
+                            else {
+                                top.layer.msg(rs.msg,{icon:5});
+                            }
+                        });
+                    }
+
+                },
+                cancel: function (index) {
+                }
+            });
         }
     </script>
 </head>

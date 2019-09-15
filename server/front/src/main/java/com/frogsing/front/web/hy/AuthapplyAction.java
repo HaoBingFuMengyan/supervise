@@ -1,7 +1,5 @@
 package com.frogsing.front.web.hy;
 
-import com.frogsing.heart.exception.E;
-import com.frogsing.heart.ext.ExtResult;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
@@ -19,7 +17,6 @@ import com.frogsing.member.po.NaturalHolder;
 import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.parameter.service.QueryService;
-import com.frogsing.project.utils.PROJECT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -150,5 +147,40 @@ public class AuthapplyAction extends BaseAction{
         }
     }
 
+    /**
+     * 企业信息变更申请
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "changeinfo_{id}.shtml")
+    public String changeInfo(@PathVariable String id,Model model,HttpServletRequest request){
+        try {
+            Authapply authapply = queryService.fetchOne(Authapply.class,id);
+
+            List<NaturalHolder> naturalHolders = queryService.fetchList(NaturalHolder.class,null, PageSort.Asc(MEMBERCol.hy_naturalholder.isortno),
+                    SearchFilter.eq(MEMBERCol.hy_naturalholder.smemberid,id));
+
+            List<CompanyHolder> companyHolders = queryService.fetchList(CompanyHolder.class,null, PageSort.Asc(MEMBERCol.hy_companyholder.isortno),
+                    SearchFilter.eq(MEMBERCol.hy_companyholder.smemberid,id));
+
+            List<ControHolder> controHolders = queryService.fetchList(ControHolder.class,null, PageSort.Asc(MEMBERCol.hy_controholder.isortno),
+                    SearchFilter.eq(MEMBERCol.hy_controholder.smemberid,id));
+
+            authapply.setNaturalHolders(naturalHolders);
+            authapply.setCompanyHolders(companyHolders);
+            authapply.setControHolders(controHolders);
+
+            model.addAttribute("data",authapply);
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            Msg.error(model,ex.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            Msg.error(model,"系统错误，请联系管理员");
+        }
+        return "member/authapply-changeInfo";
+    }
 
 }

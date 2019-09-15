@@ -115,7 +115,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:MemberCardType op="select" name="ilegaltype" defname="请选择证件类型" defval="999" option="class='layui-input'"/>--%>
+                                <member:MemberCardType op="select" name="ilegaltype" defname="请选择证件类型"
+                                                       option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
@@ -131,7 +132,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <select name="bisjoblegal">
+                                <select name="bisjoblegal" lay-verify='required'>
+                                    <option>请先择</option>
                                     <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
@@ -152,8 +154,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:MemberCardType op="select" name="imanagertype" defname="请选择证件类型" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:MemberCardType op="select" name="imanagertype" defname="请选择证件类型"
+                                                       option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
@@ -170,6 +172,7 @@
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <select name="bisjobmanager">
+                                    <option>请先择</option>
                                     <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
@@ -182,8 +185,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">选择法定代表人<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:CorporateType op="select" name="icorporatetype" defname="请选择法人代表" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:CorporateType op="select" name="icorporatetype" defname="请选择法人代表"
+                                                      option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
 
@@ -202,8 +205,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型"
+                                                       option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
@@ -230,6 +233,7 @@
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <select name="bisjob">
+                                    <option>请选择</option>
                                     <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
@@ -251,8 +255,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型"
+                                                    option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
@@ -287,8 +291,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:CardType op="select" name="iconcardtype" defname="请选择证件类型" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:CardType op="select" name="iconcardtype" defname="请选择证件类型"
+                                                 option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
@@ -304,8 +308,8 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">公司类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <%--<member:ComType op="select" name="iconpanytype" defname="请选择类型" defval="999"--%>
-                                <%--option="class='form_control'"/>--%>
+                                <member:ComType op="select" name="iconpanytype" defname="请选择类型"
+                                                option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
