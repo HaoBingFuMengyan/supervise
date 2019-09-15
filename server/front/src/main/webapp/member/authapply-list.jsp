@@ -63,6 +63,11 @@
                 }
             });
         }
+
+        //企业信息变更
+        function changeInfo(id) {
+
+        }
     </script>
 </head>
 <body>
@@ -150,6 +155,11 @@
                             <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && obj.iprocess eq 10}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
                                         class="fa fa-edit"></i>申请入住</a>
+                            </c:if>
+
+                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && obj.iprocess eq 30}">
+                                <a onclick="changeInfo('${obj.id}')" class="btn btn-danger btn-xs"><i
+                                        class="fa fa-edit"></i>信息变更</a>
                             </c:if>
                         </td>
                     </tr>
