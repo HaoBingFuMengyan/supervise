@@ -16,7 +16,7 @@
     <link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="${ctx}/css/layui-extend.css">
     <link rel="stylesheet" href="${ctxStatic}/css/common.css">
-    <title>订单发起-煤亮子</title>
+    <title></title>
     <style>
         .layui-form-item .layui-input-inline {
             width: 270px;
