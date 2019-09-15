@@ -206,7 +206,7 @@
 <div class="mbody">
     <form id="formx" class="layui-form" action="${ctx}/hy/authapply/applyregister.json" method="post"
           enctype="multipart/form-data" autocomplete="on">
-        <input type="hidden" name="id" value="${id}"/>
+        <input type="hidden" name="id" value="${data.id}"/>
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content height-100-perce">
                 <div class="layui-tab-item layui-show">
@@ -215,7 +215,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">企业名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="scnname" id="scnname" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="scnname" id="scnname" value="${data.scnname}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -227,14 +227,14 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="sfdlinkman" id="sfdlinkman" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="sfdlinkman" id="sfdlinkman" value="${data.sfdlinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">手机号<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="sfdsmobile" id="sfdsmobile" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="sfdsmobile" id="sfdsmobile" value="${data.sfdsmobile}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="sfdemail" id="sfdemail" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="sfdemail" id="sfdemail" value="${data.sfdemail}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -256,14 +256,14 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="slinkman" id="slinkman" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="slinkman" id="slinkman" value="${data.slinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">手机号<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="smobile" id="smobile" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="smobile" id="smobile" value="${data.smobile}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -273,7 +273,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="semail" id="semail" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="semail" id="semail" value="${data.semail}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -285,14 +285,14 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="skzrlinkman" id="skzrlinkman" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="skzrlinkman" id="skzrlinkman" value="${data.skzrlinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">手机号<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="skzrsmobile" id="skzrsmobile" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="skzrsmobile" id="skzrsmobile" value="${data.skzrsmobile}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -302,7 +302,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="skzremail" id="skzremail" value="" class="layui-input" lay-verify="required"
+                                <input type="text" name="skzremail" id="skzremail" value="${data.skzremail}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
@@ -311,7 +311,7 @@
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">通讯地址<em class="red">*</em></label>
                         <div class="layui-input-block">
-                            <input type="text" name="sbusaddress" id="sbusaddress" value="" class="layui-input" lay-verify="required"
+                            <input type="text" name="sbusaddress" id="sbusaddress" value="${data.sbusaddress}" class="layui-input" lay-verify="required"
                                    placeholder="(必填项)" autocomplete="off">
                         </div>
                     </div>
@@ -320,17 +320,17 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">营业执照<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="hidden" name="sbusinessno" id="sbusinessno" value="" class="layui-input" lay-verify="required"
+                                <input type="hidden" name="sbusinessno" id="sbusinessno" value="${data.sbusinessno}" class="layui-input" lay-verify="required"
                                            placeholder="(必填项)" autocomplete="off">
-                                <img src="" width="200" height="200" alt="" id="yyzz">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sbusinessno}" width="200" height="200" alt="" id="yyzz">
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">承诺函<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="hidden" name="scnuno" id="scnuno" value="" class="layui-input" lay-verify="required"
+                                <input type="hidden" name="scnuno" id="scnuno" value="${data.scnuno}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
-                                <img src="" width="200" height="200" alt="" id="cnh">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.scnuno}" width="200" height="200" alt="" id="cnh">
                             </div>
                         </div>
                     </div>
@@ -339,20 +339,12 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">控制人关系图<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="hidden" name="sgxrtno" id="sgxrtno" value="" class="layui-input" lay-verify="required"
+                                <input type="hidden" name="sgxrtno" id="sgxrtno" value="${data.sgxrtno}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
-                                <img src="" width="200" height="200" alt="" id="gxt">
+                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sgxrtno}" width="200" height="200" alt="" id="gxt">
                             </div>
                         </div>
                     </div>
-                    <%--<div class="layui-form-item">--%>
-                    <%--<div class="layui-inline layui-form-text">--%>
-                    <%--<label class="layui-form-label">说明</label>--%>
-                    <%--<div class="layui-input-inline layui-input-text">--%>
-                    <%--<textarea class="layui-textarea" name="sdescription" id="sdescription">${data.sdescription}</textarea>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
                 </div>
             </div>
         </div>

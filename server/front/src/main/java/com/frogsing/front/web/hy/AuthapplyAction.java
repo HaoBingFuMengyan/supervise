@@ -124,7 +124,10 @@ public class AuthapplyAction extends BaseAction{
      */
     @RequestMapping(value = "applyregister_{id}.shtml")
     public String applyRegister(@PathVariable String id,Model model,HttpServletRequest request){
-        model.addAttribute("id",id);
+
+        Authapply authapply = queryService.fetchOne(Authapply.class,id);
+
+        model.addAttribute("data",authapply);
         return "member/authapply-register";
     }
 
