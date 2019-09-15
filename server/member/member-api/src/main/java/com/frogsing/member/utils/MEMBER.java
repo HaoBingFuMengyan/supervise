@@ -1473,7 +1473,9 @@ public static enum ApprovalStatus implements  IConst{
 }
 public static enum Process implements  IConst{
 	ZSJG(10,"招商机构"),
-	JDBSC(20,"街道办事处");
+	JDBSC(20,"街道办事处"),
+	OK(30,"通过"),
+	REJECT(40,"拒绝");
 	public  static Process get(int i){
     	 switch(i)
     	 {
@@ -1481,6 +1483,10 @@ public static enum Process implements  IConst{
     		return Process.ZSJG;
     	 case 20:
     		return Process.JDBSC;
+    	 case 30:
+    		return Process.OK;
+    	 case 40:
+    		return Process.REJECT;
     	 }
     	 return null;
      }

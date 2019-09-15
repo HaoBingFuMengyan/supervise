@@ -1374,6 +1374,8 @@ public class AuthapplyBase  extends  BaseEntity{
 	    Process:
 	    10:ZSJG:招商机构
 20:JDBSC:街道办事处
+30:OK:通过
+40:REJECT:拒绝
  
 		*/
 		@Column(name="iprocess")
@@ -1385,6 +1387,8 @@ public class AuthapplyBase  extends  BaseEntity{
 	    Process:
 	    10:ZSJG:招商机构
 20:JDBSC:街道办事处
+30:OK:通过
+40:REJECT:拒绝
  
 		*/
 		public void setIprocess(Integer  iprocess) {

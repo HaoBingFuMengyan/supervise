@@ -472,6 +472,12 @@ public  class MEMBERTag{
 		public void setJdbsc(int val) {
 			setCurrentconst(com.frogsing.member.utils.MEMBER.Process.JDBSC,val);
 		}
+		public void setOk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.Process.OK,val);
+		}
+		public void setReject(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.Process.REJECT,val);
+		}
 		@Override
 		public IConst[] GetVals() {
 			return com.frogsing.member.utils.MEMBER.Process.values();

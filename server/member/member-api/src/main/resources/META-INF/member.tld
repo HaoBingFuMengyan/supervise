@@ -1850,6 +1850,18 @@
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
+ 		<attribute> 
+ 			<name>ok</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>reject</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
  	</tag> 
 <!--frogsingcode-->
 	<tag-file>
