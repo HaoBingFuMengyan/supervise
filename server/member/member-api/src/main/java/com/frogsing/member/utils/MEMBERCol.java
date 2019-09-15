@@ -910,6 +910,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String skzremail="skzremail" ;
             /**审批流**/
             public static final String iprocess="iprocess" ;
+            /**是否入住企业**/
+            public static final String bisincompany="bisincompany" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1086,6 +1088,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<String> skzremail(Root<?> root){return root.get("skzremail");}
             /**审批流**/
             public static  Path<Integer> iprocess(Root<?> root){return root.get("iprocess");}
+            /**是否入住企业**/
+            public static  Path<Integer> bisincompany(Root<?> root){return root.get("bisincompany");}
 
     }
 /**意见反馈表**/
