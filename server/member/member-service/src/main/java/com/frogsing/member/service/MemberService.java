@@ -465,6 +465,7 @@ public class MemberService  implements IMemberService {
 		apply.setIstatus(CheckStatus.WAIT.val());//状态为待审核
 		apply.setIapprovalstatus(ApprovalStatus.WAIT.val());//默认审核状态
 		apply.setSregaddress(ParaUtils.seqno("hy_zcdz"));//注册地址，系统自动生成唯一标识
+		apply.setBisincompany(Consts.BoolType.NO.val());
 
 		apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
 

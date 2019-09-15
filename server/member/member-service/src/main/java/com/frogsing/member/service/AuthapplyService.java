@@ -1,5 +1,6 @@
 package com.frogsing.member.service;
 
+import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
 import com.frogsing.heart.utils.B;
@@ -120,6 +121,9 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setIprocess(iprocess);
 		apply.setScheckuser(user.getId());
 		apply.setDcheckdate(new Date());
+
+		if (MEMBER.Process.OK.isEq(iprocess))
+			apply.setBisincompany(Consts.BoolType.YES.val());
 
 		this.authapplyDao.saveAndFlush(apply);
 	}
