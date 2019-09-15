@@ -425,7 +425,7 @@ public class OperatorBase  extends  BaseEntity{
 30:JRGLJ:金融管理局
 40:ZSJF:招商机构 
 		*/
-		@Column(name="w")
+		@Column(name="ioperatortype")
 		public Integer getIoperatortype() {
 			return  ioperatortype;//类型 int
 		}

@@ -10,8 +10,8 @@
         function querydetail(id) {
             top.layer.open({
                 type: 2,
-                title: " ",
-                area: ['90%', '90%'],
+                title: "信息",
+                area: ['95%', '95%'],
                 content: '${ctx}/hy/authapply/index.shtml?id=' + id,
                 btn: ['关闭'],
                 cancel: function (index) { //或者使用btn2

@@ -5,6 +5,7 @@ import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
+import com.frogsing.heart.persistence.XSpec;
 import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Msg;
@@ -18,6 +19,8 @@ import com.frogsing.member.po.NaturalHolder;
 import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
+import com.frogsing.operator.po.Operator;
+import com.frogsing.operator.utils.OPERATOR;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -76,6 +79,11 @@ public class AuthapplyController {
         Authapply authapply = queryService.fetchOne(Authapply.class,id);
 
         model.addAttribute("data",authapply);
+
+        ILoginUser user = ShiroUtils.getCurrentUser();
+
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+        model.addAttribute("operator",operator);
         return "/member/authapply-detail";
     }
 
@@ -123,13 +131,23 @@ public class AuthapplyController {
             }else {
 
                 model.addAttribute("search_eq_sregaddress", sregaddress);
-//                if (B.Y(sregaddress))
-//                    E.S("注册地址不能为空");
+                ILoginUser user = ShiroUtils.getCurrentUser();
 
-                Authapply authapply = queryService.fetchOne(MEMBERCol.hy_authapply.xspec().and(
+                Operator operator = queryService.findOne(Operator.class,user.getId());
+
+                XSpec<Authapply> spec = MEMBERCol.hy_authapply.xspec().and(
                         SearchFilter.eq(MEMBERCol.hy_authapply.sregaddress, sregaddress)).and(
                         SearchFilter.eq(MEMBERCol.hy_authapply.istatus, MEMBER.CheckStatus.CHECKED.val())).and(
-                        SearchFilter.eq(MEMBERCol.hy_authapply.iapprovalstatus, MEMBER.ApprovalStatus.CHECKED.val())));
+                        SearchFilter.eq(MEMBERCol.hy_authapply.iapprovalstatus, MEMBER.ApprovalStatus.CHECKED.val()));
+
+
+                if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype())){
+                    spec.or(SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.ZSJG.val()),
+                            SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.JDBSC.val()));
+                }
+
+                Authapply authapply = queryService.fetchOne(spec);
+
                 if (authapply == null)
                     model.addAttribute("obj",null);
                 else
