@@ -83,8 +83,7 @@ public class AuthapplyController {
         ILoginUser user = ShiroUtils.getCurrentUser();
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
 
-        if (!user.IsAdmin())
-            searchParams.put("search_eq_iprocess", MEMBER.Process.JDBSC.val());
+        searchParams.put("search_eq_iprocess", MEMBER.Process.JDBSC.val());
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 
@@ -94,7 +93,6 @@ public class AuthapplyController {
         return "/member/authapply-again-list";
     }
 
-//    @RequiresPermissions("authapply:againcheck")
 
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
@@ -239,6 +237,34 @@ public class AuthapplyController {
             ILoginUser user = ShiroUtils.getCurrentUser();
 
             this.authapplyService.firstcheck(id,iprocess,user);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
+
+    /**
+     * 街道办事处审核
+     * @param id
+     * @param iprocess
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "againcheck.json")
+    @ResponseBody
+    @RequiresPermissions("authapply:againcheck")
+    public Result againCheck(@RequestParam(value = "id")String id,
+                        @RequestParam(value = "iprocess") int iprocess,Model model,HttpServletRequest request){
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyService.againcheck(id,iprocess,user);
 
             return Result.success();
         }catch (ServiceException ex){

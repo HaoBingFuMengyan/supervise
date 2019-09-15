@@ -37,6 +37,14 @@ public interface IAuthapplyService  {
 	void firstcheck(String id,int iprocess,ILoginUser user);
 
 	/**
+	 * 街道办事处审核
+	 * @param id
+	 * @param iprocess
+	 * @param user
+	 */
+	void againcheck(String id,int iprocess,ILoginUser user);
+
+	/**
 	 * 申请入住
 	 * @param obj
 	 * @param user

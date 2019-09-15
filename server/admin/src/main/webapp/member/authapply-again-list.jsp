@@ -31,7 +31,7 @@
                     top.layer.confirm('确定要审核通过吗？', {
                         btn: ['确定', '取消'] //按钮
                     }, function () {
-                        $.post("${ctx}/hy/authapply/zscheck.json",{id: id,iprocess:20},function(rs){
+                        $.post("${ctx}/hy/authapply/againcheck.json",{id: id,iprocess:30},function(rs){
 //                            layer.closeAll('loading');
                             if (rs.success) {
 
@@ -42,7 +42,7 @@
                                 });
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {
@@ -53,7 +53,7 @@
                     top.layer.confirm('确定要拒绝审核吗？', {
                         btn: ['确定', '取消'] //按钮
                     }, function () {
-                        $.post("${ctx}/hy/authapply/zscheck.json",{id: id,iprocess:40},function(rs){
+                        $.post("${ctx}/hy/authapply/againcheck.json",{id: id,iprocess:40},function(rs){
 //                            layer.closeAll('loading');
                             if (rs.success) {
                                 layer.close(indexp);
@@ -63,7 +63,7 @@
                                 })
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {
@@ -119,6 +119,7 @@
                 <thead>
                 <tr>
                     <th class="sort-column">会员编号</th>
+                    <th class="sort-column">所属机构</th>
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">状态</th>
                     <th class="sort-column">申请时间</th>
@@ -130,6 +131,7 @@
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
                         <td>${obj.smemberno}</td>
+                        <td>${obj.operator.srealname}</td>
                         <td>
                             <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1}">
                                 ${obj.sregaddress}

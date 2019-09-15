@@ -42,7 +42,7 @@
                                 });
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {
@@ -63,7 +63,7 @@
                                 })
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {
@@ -99,7 +99,7 @@
                                 });
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {
@@ -120,7 +120,7 @@
                                 })
                             }
                             else {
-                                top.layer.msg(rs.msg, 5, 3);
+                                top.layer.msg(rs.msg,{icon:5});
                             }
                         });
                     }, function () {

@@ -83,19 +83,45 @@ public class AuthapplyService implements IAuthapplyService {
 	public void firstcheck(String id, int iprocess, ILoginUser user) {
 		Authapply apply = authapplyDao.findOne(id);
 		if (apply == null){
-			E.S("当前账户异常，请联系管理员");
+			E.S("当前企业异常，请联系管理员");
 		}
 
-		if (apply.getSadduser().equals(user.getId()))
-			E.S("系统警告，改企业不归您审核，谢谢");
+		if (!apply.getSadduser().equals(user.getId()))
+			E.S("系统警告，该企业不归您审核，谢谢");
 
 		if (MEMBER.Process.ZSJG.isNot(apply.getIprocess()))
 			E.S("已审核，请勿重复操作");
 
 		apply.setIprocess(iprocess);
+		apply.setScheckuser(user.getId());
+		apply.setDcheckdate(new Date());
 
 		this.authapplyDao.saveAndFlush(apply);
 
+	}
+
+	/**
+	 * 街道办事处审核
+	 *
+	 * @param id
+	 * @param iprocess
+	 * @param user
+	 */
+	@Override
+	public void againcheck(String id, int iprocess, ILoginUser user) {
+		Authapply apply = authapplyDao.findOne(id);
+		if (apply == null){
+			E.S("当前企业异常，请联系管理员");
+		}
+
+		if (MEMBER.Process.JDBSC.isNot(apply.getIprocess()))
+			E.S("已审核，请勿重复操作");
+
+		apply.setIprocess(iprocess);
+		apply.setScheckuser(user.getId());
+		apply.setDcheckdate(new Date());
+
+		this.authapplyDao.saveAndFlush(apply);
 	}
 
 	/**

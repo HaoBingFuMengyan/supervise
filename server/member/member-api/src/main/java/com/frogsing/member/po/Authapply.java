@@ -5,6 +5,7 @@ package com.frogsing.member.po;
 import javax.persistence.*;
 
 import com.frogsing.member.utils.MEMBERCol;
+import com.frogsing.operator.po.Operator;
 import com.google.common.collect.Lists;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -52,6 +53,19 @@ public class Authapply extends AuthapplyBase {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    private Operator operator;
+
+    @ManyToOne
+    @JoinColumn(name = hy_authapply.sadduser, insertable = false, updatable = false)
+    @JsonIgnore
+    public Operator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(Operator operator) {
+        this.operator = operator;
     }
 
 
