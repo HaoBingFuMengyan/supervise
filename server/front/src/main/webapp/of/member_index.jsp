@@ -26,7 +26,7 @@
         function formOpen(surl){
             top.layer.open({
                 type: 2,
-                title: '企业申请入住',
+                title: '企业基本信息',
                 area: ['95%', '95%'],
                 content: surl,
                 btn: ['提交信息', '关闭'],
