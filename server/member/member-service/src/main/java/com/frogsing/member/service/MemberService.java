@@ -425,16 +425,16 @@ public class MemberService implements IMemberService {
             apply.setId(null);
             apply.setSregaddress(ParaUtils.seqno("hy_zcdz"));//注册地址，系统自动生成唯一标识
             apply.setBisincompany(Consts.BoolType.NO.val());
+            apply.setSmemberid(member.getId());
+            apply.setSmemberno(member.getSmemberno());
+            apply.setSadduser(member.getSadduser());//会员添加人
+            apply.setSapplyuserid(member.getId());
+            apply.setIcompanytype(member.getIcompanytype());//默认
+            apply.setImembertype(member.getImembertype());
         } else
             apply = queryService.findOne(Authapply.class, obj.getId());
 
 
-        apply.setSmemberid(member.getId());
-        apply.setSmemberno(member.getSmemberno());
-        apply.setSadduser(member.getSadduser());//会员添加人
-        apply.setSapplyuserid(member.getId());
-        apply.setIcompanytype(member.getIcompanytype());//默认
-        apply.setImembertype(member.getImembertype());
         apply.setIregmoney(obj.getIregmoney().longValue());
         apply.setSlegalperson(obj.getSlegalperson());
         apply.setIlegaltype(obj.getIlegaltype());

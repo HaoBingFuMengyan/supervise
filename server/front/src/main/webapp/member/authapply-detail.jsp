@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40)}">
+<c:if test="${data.bisincompany eq 1 || (data.istatus eq 1 && data.iapprovalstatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
     <div class="layui-collapse" style="border-top: none;margin-top: 10px;">
         <div class="layui-colla-item">
             <div class="layui-colla-content layui-show">

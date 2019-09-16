@@ -78,20 +78,22 @@
                     var doc = $(iframeWin.contentWindow.document);
 //                    doc.find("form").first().submit();
                     if(iframeWin.contentWindow.valiForm()){
-                        $.post("${ctx}/hy/authapply/changeinfo.json",doc.find('#formx').serialize(),function(rs){
-//                            layer.closeAll('loading');
-                            if (rs.success) {
+                        if (iframeWin.contentWindow.check()) {
+                            $.post("${ctx}/hy/authapply/changeinfo.json",doc.find('#formx').serialize(),function(rs){
+    //                            layer.closeAll('loading');
+                                if (rs.success) {
 
-                                layer.close(index);
+                                    layer.close(index);
 
-                                top.layer.msg("操作成功!",{icon:1},function () {
-                                    parent.location.reload();
-                                });
-                            }
-                            else {
-                                top.layer.msg(rs.msg,{icon:5});
-                            }
-                        });
+                                    top.layer.msg("操作成功!",{icon:1},function () {
+                                        parent.location.reload();
+                                    });
+                                }
+                                else {
+                                    top.layer.msg(rs.msg,{icon:5});
+                                }
+                            });
+                        }
                     }
 
                 },

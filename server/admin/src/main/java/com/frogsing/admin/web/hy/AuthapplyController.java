@@ -275,4 +275,40 @@ public class AuthapplyController {
             return Result.failure("系统错误，请联系管理员");
         }
     }
+
+    /**
+     * 企业信息变更   街道办事处、工商审批科、金融监管局可查看企业信息
+     * @param start
+     * @param limit
+     * @param sort
+     * @param model
+     * @param request
+     * @param type
+     *              0：企业信息变更列表，1：监管询问
+     * @return
+     */
+    @RequestMapping(value = "changeinfo.shtml")
+    @RequiresPermissions({"changeinfo:query","daily:query"})
+    public String changeInfo(@RequestParam(value = "start", defaultValue = "0") int start,
+                       @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
+                       @RequestParam(value = "sort", defaultValue = "") String[] sort,Model model,
+                       @RequestParam(value = "type", defaultValue = "0") int type,
+                       ServletRequest request){
+        model.addAttribute("type",type);
+        ILoginUser user = ShiroUtils.getCurrentUser();
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
+
+        searchParams.put("search_eq_bisincompany", Consts.BoolType.YES.val());
+        if (type == 0) {
+            searchParams.put("search_eq_iapprovalstatus", MEMBER.ApprovalStatus.WAIT.val());
+            searchParams.put("search_eq_istatus", MEMBER.CheckStatus.WAIT.val());
+        }
+
+        Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
+
+        Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
+        model.addAttribute("list",list);
+
+        return "/member/authapply-changeinfo-list";
+    }
 }
