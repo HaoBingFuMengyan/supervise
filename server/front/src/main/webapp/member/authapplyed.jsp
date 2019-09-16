@@ -162,6 +162,7 @@
     <form class="layui-form" action="${ctx }/hy/member/authapply.json" method="post" id="formx"
           onkeydown="if(event.keyCode==13) return false;"
           enctype="multipart/form-data" autocomplete="on">
+        <input type="hidden" name="icorbiztype" value="${param.icorbiztype}">
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">

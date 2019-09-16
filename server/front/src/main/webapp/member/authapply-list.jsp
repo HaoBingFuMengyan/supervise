@@ -152,7 +152,7 @@
                    class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">会员编号</th>
+                    <th class="sort-column">类型</th>
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">状态</th>
                     <th class="sort-column">申请时间</th>
@@ -163,7 +163,9 @@
                 <tbody>
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
-                        <td>${obj.smemberno}</td>
+                        <td>
+                            <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
+                        </td>
                         <td>
                             <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1}">
                                 ${obj.sregaddress}
