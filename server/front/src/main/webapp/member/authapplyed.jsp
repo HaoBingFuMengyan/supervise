@@ -249,6 +249,9 @@
                                                     option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">统一社会信用代码<em class="red">*</em></label>
                             <div class="layui-input-inline">
