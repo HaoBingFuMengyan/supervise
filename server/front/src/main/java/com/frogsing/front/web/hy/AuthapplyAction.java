@@ -16,6 +16,7 @@ import com.frogsing.member.po.ControHolder;
 import com.frogsing.member.po.NaturalHolder;
 import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBERCol;
+import com.frogsing.member.vo.MemVo;
 import com.frogsing.parameter.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.frogsing.exception.ServiceException;
 import javax.servlet.ServletRequest;
@@ -181,6 +183,35 @@ public class AuthapplyAction extends BaseAction{
             Msg.error(model,"系统错误，请联系管理员");
         }
         return "member/authapply-changeInfo";
+    }
+
+
+    /**
+     * 企业信息变更申请
+     * @param memVo
+     * @param authapply
+     * @param model
+     * @param rmodel
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "changeinfo.json")
+    @ResponseBody
+    public Result Authapply(MemVo memVo,Authapply authapply,
+                            Model model, RedirectAttributes rmodel, ServletRequest request) {
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyService.changeInfo(memVo,authapply,user);
+
+            return Result.success();
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return Result.failure(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
     }
 
 }

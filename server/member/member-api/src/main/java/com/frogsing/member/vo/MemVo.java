@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class MemVo implements Serializable {
 
+    private String id;//authapply的id
     private Integer iregmoney;//注册资本
     private String slegalperson;//执行董事姓名
     private Integer ilegaltype;//执行董事证件类型
@@ -40,6 +41,14 @@ public class MemVo implements Serializable {
 
     private Integer icorbiztype;//企业业务类型
 
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Integer getIregmoney() {
         return iregmoney;

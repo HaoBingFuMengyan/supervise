@@ -291,9 +291,10 @@
 <body>
 <div class="mbody">
     <mw:msg/>
-    <form class="layui-form" action="" method="post" id="formx"
+    <form class="layui-form" action="${ctx}/hy/authapply/changeinfo.json" method="post" id="formx"
           onkeydown="if(event.keyCode==13) return false;"
           enctype="multipart/form-data" autocomplete="on">
+        <input type="hidden" name="id" value="${data.id}">
         <input type="hidden" name="icorbiztype" value="${data.icorbiztype}">
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">

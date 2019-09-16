@@ -6,14 +6,14 @@ import com.frogsing.heart.exception.E;
 import com.frogsing.heart.utils.B;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyService;
-import com.frogsing.member.dao.AuthapplyDao;
-import com.frogsing.member.dao.MemberDao;
-import com.frogsing.member.po.Authapply;
-import com.frogsing.member.po.Member;
+import com.frogsing.member.dao.*;
+import com.frogsing.member.po.*;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBER.CheckStatus;
 import com.frogsing.member.utils.MEMBER.MemberType;
+import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.member.utils.MEMBERCol.hy_authapply;
+import com.frogsing.member.vo.MemVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -43,6 +43,15 @@ public class AuthapplyService implements IAuthapplyService {
 	private MemberService memberService;
 	@Autowired
 	private IQueryService queryService;
+
+	@Autowired
+	private NaturalHolderDao naturalHolderDao;
+
+	@Autowired
+	private CompanyHolderDao companyHolderDao;
+
+	@Autowired
+	private ControHolderDao controHolderDao;
 
 
 
@@ -186,6 +195,40 @@ public class AuthapplyService implements IAuthapplyService {
 
 
 		return this.authapplyDao.saveAndFlush(authapply);
+	}
+
+	/**
+	 * 企业信息变更申请
+	 *
+	 * @param memVo
+	 * @param authapply
+	 * @param user
+	 * @return
+	 */
+	@Override
+	public Authapply changeInfo(MemVo memVo, Authapply authapply, ILoginUser user) {
+
+		if (B.Y(authapply.getId()))
+			E.S("系统警告，异常，请联系管理员");
+
+		List<NaturalHolder> naturalHolders = naturalHolderDao.findByPropertyName(MEMBERCol.hy_naturalholder.smemberid,authapply.getId());
+		List<CompanyHolder> companyHolders = companyHolderDao.findByPropertyName(MEMBERCol.hy_companyholder.smemberid,authapply.getId());
+		List<ControHolder> controHolders = controHolderDao.findByPropertyName(MEMBERCol.hy_controholder.smemberid,authapply.getId());
+
+		naturalHolderDao.delete(naturalHolders);
+		companyHolderDao.delete(companyHolders);
+		controHolderDao.delete(controHolders);
+
+		memVo.setId(authapply.getId());
+
+		//申请认证信息
+		memberService.doAuthApply_b(memVo,user);
+
+		//企业申请入住信息
+		Authapply auth = applyregister(authapply,user);
+
+
+		return auth;
 	}
 
 	/**

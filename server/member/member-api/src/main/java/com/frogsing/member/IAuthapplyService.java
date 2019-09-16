@@ -2,6 +2,7 @@ package com.frogsing.member;
 
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
+import com.frogsing.member.vo.MemVo;
 
 import javax.frogsing.exception.ServiceException;
 import java.util.List;
@@ -51,6 +52,16 @@ public interface IAuthapplyService  {
 	 * @return
 	 */
 	Authapply applyregister(Authapply obj,ILoginUser user);
+
+
+	/**
+	 * 企业信息变更申请
+	 * @param memVo
+	 * @param authapply
+	 * @param user
+	 * @return
+	 */
+	Authapply changeInfo(MemVo memVo,Authapply authapply,ILoginUser user);
 
 
 	/**
