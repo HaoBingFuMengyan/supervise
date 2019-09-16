@@ -22,7 +22,7 @@
         .layui-form-item{
             position: relative;
         }
-        .layui-form-item button.delete{
+        .layui-form-item input.delete{
             position: absolute;
             left: 0;
             top:10px;
@@ -135,7 +135,7 @@
         $(document).ready(function () {
             //添加自然人股东信息
             $("#addbtn").click(function () {
-                var innerHTML = '<div class="layui-form-item"><button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
+                var innerHTML = '<div class="layui-form-item"><input type="button" onclick="hidden()" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><input type="text" name="sname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">证件类型<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" option="class=\\'layui-input\\' lay-verify=\\'required\\'"/>'
@@ -154,7 +154,7 @@
 
             //添加机构股东信息
             $('#addbtn1').click(function () {
-                var innerHTML = '<div class="layui-form-item"><button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
+                var innerHTML = '<div class="layui-form-item"><input type="button" onclick="hidden()" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><input type="text" name="scompanyname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">证件类型<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" option="class=\\'layui-input\\' lay-verify=\\'required\\'"/>'
@@ -170,8 +170,9 @@
         });
 
         //删除
-        function hidden(is) {
-            $(is).parent().remove();
+        function hidden() {
+            console.log("in");
+            $(this).parent().remove();
         }
 
     </script>
