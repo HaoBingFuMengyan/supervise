@@ -208,9 +208,8 @@
           enctype="multipart/form-data" autocomplete="on">
         <input type="hidden" name="id" value="${data.id}"/>
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content height-100-perce">
+            <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">企业名称<em class="red">*</em></label>
@@ -220,8 +219,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>法定/委派代表人信息</legend>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>法定/委派代表人信息</legend>
+                    </fieldset>
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -238,9 +238,6 @@
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -249,8 +246,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>企业联系人信息</legend>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>企业联系人信息</legend>
+                    </fieldset>
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -267,9 +265,6 @@
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -278,8 +273,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>实际控制人联系信息</legend>
+                    <fieldset class="layui-elem-field layui-field-title">
+                         <legend>实际控制人联系信息</legend>
+                    </fieldset>
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -296,9 +292,6 @@
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">邮箱<em class="red">*</em></label>
                             <div class="layui-input-inline">
