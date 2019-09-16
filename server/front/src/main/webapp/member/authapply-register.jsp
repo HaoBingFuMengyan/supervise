@@ -304,7 +304,7 @@
                     <div class="layui-form-item layui-form-text">
                         <label class="layui-form-label">通讯地址<em class="red">*</em></label>
                         <div class="layui-input-block">
-                            <input type="text" name="sbusaddress" id="sbusaddress" value="${data.sbusaddress}" class="layui-input" lay-verify="required"
+                            <input type="text" name="sbusaddress" id="sbusaddress" value="${data.sbusaddress}" class="layui-input" lay-verify="required" style="width: 98.6%;"
                                    placeholder="(必填项)" autocomplete="off">
                         </div>
                     </div>
@@ -315,7 +315,12 @@
                             <div class="layui-input-inline">
                                 <input type="hidden" name="sbusinessno" id="sbusinessno" value="${data.sbusinessno}" class="layui-input" lay-verify="required"
                                            placeholder="(必填项)" autocomplete="off">
-                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sbusinessno}" width="200" height="200" alt="" id="yyzz">
+                                <c:if test="${data.sbusinessno == null}">
+                                    <img src="${ctx}/images/upload-file.jpg" width="200" height="200" alt="" id="yyzz">
+                                </c:if>
+                                <c:if test="${data.sbusinessno != null}">
+                                    <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sbusinessno}" width="200" height="200" alt="" id="yyzz">
+                                </c:if>
                             </div>
                         </div>
                         <div class="layui-inline">
@@ -323,21 +328,29 @@
                             <div class="layui-input-inline">
                                 <input type="hidden" name="scnuno" id="scnuno" value="${data.scnuno}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
-                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.scnuno}" width="200" height="200" alt="" id="cnh">
+                                <c:if test="${data.scnuno == null}">
+                                    <img src="${ctx}/images/upload-file.jpg" width="200" height="200" alt="" id="cnh">
+                                </c:if>
+                                <c:if test="${data.scnuno != null}">
+                                    <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.scnuno}" width="200" height="200" alt="" id="cnh">
+                                </c:if>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">控制人关系图<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="hidden" name="sgxrtno" id="sgxrtno" value="${data.sgxrtno}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
-                                <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sgxrtno}" width="200" height="200" alt="" id="gxt">
+                                <c:if test="${data.sgxrtno == null}">
+                                    <img src="${ctx}/images/upload-file.jpg" width="200" height="200" alt="" id="gxt">
+                                </c:if>
+                                <c:if test="${data.sgxrtno != null}">
+                                    <img src="<cs:SysParaType imgurl="1" op="syspara"/>${data.sgxrtno}" width="200" height="200" alt="" id="gxt">
+                                </c:if>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
