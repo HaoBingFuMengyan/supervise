@@ -23,7 +23,7 @@
         });
 
 
-        function formOpen(surl){
+        function formOpen(surl) {
             top.layer.open({
                 type: 2,
                 title: '企业基本信息',
@@ -35,21 +35,21 @@
                     var $ = iframeWin.contentWindow.$;
                     var doc = $(iframeWin.contentWindow.document);
 
-                    if(iframeWin.contentWindow.valiForm()){
-                        $.post("${ctx}/hy/member/authapply.json",doc.find('#formx').serialize(),function(rs){
+                    if (iframeWin.contentWindow.valiForm()) {
+                        if (iframeWin.contentWindow.check()) {
+                            $.post("${ctx}/hy/member/authapply.json", doc.find('#formx').serialize(), function (rs) {
 //                            layer.closeAll('loading');
-                            if (rs.success) {
+                                if (rs.success) {
 
-                                layer.close(index);
+                                    layer.close(index);
 
-                                top.layer.msg("操作成功!",{icon:1},function () {
-                                    parent.location.reload();
-                                });
-                            }
-                            else {
-                                top.layer.msg(rs.msg, 5, 3);
-                            }
-                        });
+                                    top.layer.msg("操作成功!", {icon: 1});
+                                }
+                                else {
+                                    top.layer.msg(rs.msg,{icon: 5});
+                                }
+                            });
+                        }
                     }
 
                 },
