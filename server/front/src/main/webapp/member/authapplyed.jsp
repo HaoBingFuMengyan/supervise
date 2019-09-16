@@ -26,6 +26,7 @@
             position: absolute;
             left: 0;
             top:10px;
+            z-index: 1000;
         }
     </style>
     <script type="text/javascript">
