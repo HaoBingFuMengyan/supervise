@@ -24,7 +24,10 @@
         var form;
         layui.use(['form', 'layedit', 'upload', 'laydate'], function () {
             device = layui.device();
-            form = layui.form;
+            var form = layui.form
+                ,layer = layui.layer
+                ,layedit = layui.layedit
+                ,laydate = layui.laydate;
             form.verify({
 //                required: function (value) {
 //                    if (pub.isnull(value)) {
@@ -87,7 +90,7 @@
           onkeydown="if(event.keyCode==13) return false;"
           enctype="multipart/form-data" autocomplete="on">
         <div class="layui-tab layui-tab-card">
-            <div class="layui-tab-content" style="height: 100%;">
+            <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">
                     <%--<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">--%>
                     <%--<legend>企业参数</legend>--%>
@@ -101,9 +104,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>填写执行董事信息</legend>
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>填写执行董事信息</legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -119,9 +122,6 @@
                                                        option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -140,9 +140,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>填写公司经理信息</legend>
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>填写公司经理信息</legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -158,9 +158,6 @@
                                                        option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -179,8 +176,9 @@
                             </div>
                         </div>
                     </div>
-
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>选择法定代表人</legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">选择法定代表人<em class="red">*</em></label>
@@ -189,11 +187,10 @@
                                                       option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-
                     </div>
-
-                    <legend>填写自然人股东信息</legend>
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                         <legend>填写自然人股东信息<button type="button" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -209,9 +206,6 @@
                                                        option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">证件号<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -226,9 +220,6 @@
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -240,10 +231,9 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <legend>填写机构股东信息</legend>
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>填写机构股东信息<button type="button" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -259,9 +249,6 @@
                                                     option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">统一社会信用代码<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -277,9 +264,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <legend>填写实际控制人信息</legend>
-
+                    <fieldset class="layui-elem-field layui-field-title">
+                         <legend>填写实际控制人信息</legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -295,9 +282,6 @@
                                                  option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">统一社会信用代码<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -316,20 +300,16 @@
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">备注</label>
-                            <div class="layui-input-inline">
-                                <h3>
+                            <div class="layui-input-inline" style="width: 100%">
+                                <h3 style="font-size: 13px;padding: 0 86px;color: #666;line-height: 1.8;">
                                     实际控制人是指控股股东（或派出董事最多的股东、互相之间签有一致行动协议的股东）或能够实际支配企业行为的自然人、法人或其他组织。认定实际控制人应一直追溯到最后的自然人、国资控股企业或集体企业、上市公司、受国外金融监管部门监管的境外机构。可以为共同实际控制。
                                     在符合上述要求的前提下，实际控制人可按照下列情形进行认定：</br>1）持股50%以上的；</br>2）通过行使表决权能够决定董事会半数以上成员当选的；</br>
                                     3）通过投资关系、协议或者其他安排能够实际支配公司行为且表决权持股超过50%的；</br>4）合伙企业的执行事务合伙人；</br>
                                     5）在无法满足前述认定标准时，可以填报“第一大股东”</h3>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
-
             </div>
 
         </div>

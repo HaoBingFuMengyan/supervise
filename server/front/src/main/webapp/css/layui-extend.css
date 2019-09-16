@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+.layui-form-label{
+    width: 100px;
+}
 /* layui详情展示扩展样式 */
 .layui-info {
     /* margin: 10px;*/
@@ -66,9 +68,9 @@
 .layui-form-item .layui-input-text{
     width: 842px ;
 }
-.layui-inline{
-    width:48%;
-}
+/*.layui-inline{*/
+    /*width:48%;*/
+/*}*/
 .layui-form-text{
     width:99%;
 }
@@ -95,12 +97,15 @@
 .layui-elem-field legend{
     font-size: 16px;
 }
+.layui-elem-field legend button{
+    margin-left: 10px;
+}
 .layui-input-sm{
     height: 30px;
     line-height: 30px;
 }
 .layui-field-title {
-    margin: 10px 0 10px;
+    margin: 20px 0;
 }
 
 .layui-table-tool-temp .layui-table-tool-right{

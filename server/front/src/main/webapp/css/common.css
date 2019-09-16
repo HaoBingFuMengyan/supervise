@@ -681,11 +681,11 @@ input.no{
 	padding-left: 0!important;
 }
 input[type="text"],input[type="password"],select {
-	height: 30px;
-	line-height: 30px;
+	height: 36px;
+	line-height: 36px;
 	border: 1px solid #d4d4d4; /* padding:0 3px; */
 	color: #616161;
-	width: 150px;
+	/*width: 150px;*/
 	vertical-align: middle;
 	color: #666666;
 	font-family:"Microsoft yahei", "微软雅黑";
