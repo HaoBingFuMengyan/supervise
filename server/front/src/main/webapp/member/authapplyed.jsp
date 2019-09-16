@@ -24,8 +24,8 @@
         var form;
         layui.use(['form', 'layedit', 'upload', 'laydate'], function () {
             device = layui.device();
-            var form = layui.form
-                ,layer = layui.layer
+            form = layui.form;
+            var layer = layui.layer
                 ,layedit = layui.layedit
                 ,laydate = layui.laydate;
             form.verify({
