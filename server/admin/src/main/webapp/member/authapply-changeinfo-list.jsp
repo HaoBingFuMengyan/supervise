@@ -91,7 +91,7 @@
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
                             <c:if test="${type eq 1}">
-
+                                <a onclick="querydetail('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管询问</a>
                             </c:if>
                         </td>
                     </tr>
