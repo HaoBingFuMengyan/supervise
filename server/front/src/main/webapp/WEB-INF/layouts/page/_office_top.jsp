@@ -79,22 +79,22 @@
                     class="icon icon-xinxi1"></i><label id="countUnRead">(0)</label></a>
         </div>
 
-        <div class="admin-nav-btn">
-            <a class="btn membertype" tabindex="1">提交/参与<i class="icon icon-xia2"></i></a>
-            <ul class="clearfix">
-                <li>
-                    <a href="${ctx}/projectinformation/add.shtml">提交情报</a>
-                </li>
-                <li>
-                    <a href="${ctx}/projectloophole/add.shtml">提交漏洞</a>
-                </li>
-                <li>
-                    <a href="${ctx}/memberarticle/list.shtml?add=1">提交资讯</a>
-                </li>
-                <li>
-                    <a href="${ctx}/reward.html">参与悬赏</a>
-                </li>
-            </ul>
-        </div>
+        <%--<div class="admin-nav-btn">--%>
+            <%--<a class="btn membertype" tabindex="1">提交/参与<i class="icon icon-xia2"></i></a>--%>
+            <%--<ul class="clearfix">--%>
+                <%--<li>--%>
+                    <%--<a href="${ctx}/projectinformation/add.shtml">提交情报</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                    <%--<a href="${ctx}/projectloophole/add.shtml">提交漏洞</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                    <%--<a href="${ctx}/memberarticle/list.shtml?add=1">提交资讯</a>--%>
+                <%--</li>--%>
+                <%--<li>--%>
+                    <%--<a href="${ctx}/reward.html">参与悬赏</a>--%>
+                <%--</li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
     </div>
 </div>

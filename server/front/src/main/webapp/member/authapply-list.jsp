@@ -187,7 +187,7 @@
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
                                     class="fa fa-edit"></i>基本信息</a>
 
-                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null)}">
+                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
                                         class="fa fa-edit"></i>申请入住</a>
                             </c:if>
