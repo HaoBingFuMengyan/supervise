@@ -114,7 +114,17 @@ public class MemberAction extends BaseAction {
         return "member/authapplyed";
     }
 
-
+    /**
+     * 监管问询
+     * @author haobingfu
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "supervise.shtml",method = RequestMethod.GET)
+    public String supervise(Model model) {
+        return "member/supervise";
+    }
     
     /**
      * 会员认证申请
