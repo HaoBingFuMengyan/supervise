@@ -151,7 +151,7 @@
                 $("#company").before(innerHTML);
                 form.render();
                 $(".layui-form-item .delete").click(function () {
-                    $(this).parent().hide();
+                    $(this).parent().remove();
                 })
             });
 
@@ -170,7 +170,7 @@
                 $("#control").before(innerHTML);
                 form.render();
                 $(".layui-form-item .delete").click(function () {
-                    $(this).parent().hide();
+                    $(this).parent().remove();
                 })
             });
 

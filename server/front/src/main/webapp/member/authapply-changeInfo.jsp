@@ -23,10 +23,11 @@
         .layui-form-item{
             position: relative;
         }
-        .layui-form-item button.delete{
+        .layui-form-item input.delete{
             position: absolute;
             left: 0;
             top:10px;
+            z-index: 1000;
         }
     </style>
     <script type="text/javascript">
@@ -247,7 +248,7 @@
         $(document).ready(function () {
             //添加自然人股东信息
             $("#addbtn").click(function () {
-                var innerHTML = '<div class="layui-form-item"><button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
+                var innerHTML = '<div class="layui-form-item"><input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><input type="text" name="sname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">证件类型<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" option="class=\\'layui-input\\' lay-verify=\\'required\\'"/>'
@@ -262,11 +263,14 @@
 
                 $("#company").before(innerHTML);
                 form.render();
+                $(".layui-form-item .delete").click(function () {
+                    $(this).parent().remove();
+                })
             });
 
             //添加机构股东信息
             $('#addbtn1').click(function () {
-                var innerHTML = '<div class="layui-form-item"><button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
+                var innerHTML = '<div class="layui-form-item"><input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><input type="text" name="scompanyname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">证件类型<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<member:LicenseType op="select" name="icompanycardtype" defname="请选择证件类型" option="class=\\'layui-input\\' lay-verify=\\'required\\'"/>'
@@ -278,6 +282,9 @@
 
                 $("#control").before(innerHTML);
                 form.render();
+                $(".layui-form-item .delete").click(function () {
+                    $(this).parent().remove();
+                })
             });
         });
 
@@ -398,7 +405,7 @@
                     <c:forEach items="${data.naturalHolders}" var="na" varStatus="naIn">
                         <div class="layui-form-item">
                             <c:if test="${naIn.index ne 0}">
-                                <button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                                <input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" />
                             </c:if>
                             <div class="layui-inline">
                                 <label class="layui-form-label">姓名<em class="red">*</em></label>
@@ -446,7 +453,7 @@
                     <c:forEach items="${data.companyHolders}" var="com" varStatus="comIn">
                         <div class="layui-form-item">
                             <c:if test="${comIn.index ne 0}">
-                                <button onclick="hidden(this)" class="delete layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                                <input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" />
                             </c:if>
                             <div class="layui-inline">
                                 <label class="layui-form-label">姓名<em class="red">*</em></label>
