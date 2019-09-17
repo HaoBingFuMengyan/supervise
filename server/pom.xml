@@ -25,6 +25,8 @@
 		<module>parameter/parameter-service</module>
 		<module>project/project-api</module>
 		<module>project/project-service</module>
+		<module>message/message-api</module>
+		<module>message/message-service</module>
 		<module>admin</module>
 		<module>front</module>
 	</modules>
