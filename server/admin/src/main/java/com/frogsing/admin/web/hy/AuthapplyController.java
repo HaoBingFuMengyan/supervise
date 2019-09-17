@@ -311,4 +311,23 @@ public class AuthapplyController {
 
         return "/member/authapply-changeinfo-list";
     }
+
+    /**
+     *
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "dail-index.shtml")
+    public String dailIndex(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
+        model.addAttribute("id",id);
+
+        ILoginUser user = ShiroUtils.getCurrentUser();
+
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+        model.addAttribute("operator",operator);
+
+        return "/member/authapply-dail-index";
+    }
 }

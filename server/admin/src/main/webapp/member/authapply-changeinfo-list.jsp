@@ -18,6 +18,20 @@
                 }
             });
         }
+
+        //监管问询
+        function dailQuery(id){
+            top.layer.open({
+                type: 2,
+                title:"监管问询",
+                area: ['95%', '95%'],
+                content: '${ctx}/hy/authapply/dail-index.shtml?id='+id,
+                btn: ['关闭'],
+                cancel: function(index){ //或者使用btn2
+//                    layer.close(index);
+                }
+            });
+        }
     </script>
 
 </head>
@@ -91,7 +105,7 @@
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
                             <c:if test="${type eq 1}">
-                                <a onclick="querydetail('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管询问</a>
+                                <a onclick="dailQuery('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管问询</a>
                             </c:if>
                         </td>
                     </tr>
