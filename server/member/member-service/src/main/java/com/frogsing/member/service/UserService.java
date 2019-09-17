@@ -97,11 +97,13 @@ public class UserService implements IUserService {
         memberBean.setScnname("");
         memberBean.setSpyname("");// 设置拼音全称
         memberBean.setSjpname("");// 设置拼音简称
-
-        memberDao.save(memberBean);
+        memberBean.setBisinit(BoolType.NO.val());
+        memberBean.setSadduser(user.getId());
 
         // 地理位置信息
         memberBean.setSlocation("");
+
+        memberDao.save(memberBean);
 
         User operatorBean = new User();
         operatorBean.setSoperatorno(ParaUtils.seqno(hy_user.tablename));// 设置交易员编号

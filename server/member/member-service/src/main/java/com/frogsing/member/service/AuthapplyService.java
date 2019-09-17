@@ -60,7 +60,7 @@ public class AuthapplyService implements IAuthapplyService {
 	 */
 	@Override
 	public void reject(String id, String scheckinfo, ILoginUser currentUser) {
-		Authapply apply = authapplyDao.findOne(id);
+		Authapply apply = authapplyDao.lock(id);
 		if (apply == null){
 			E.S("当前账户异常，请联系管理员");
 		}
@@ -91,7 +91,7 @@ public class AuthapplyService implements IAuthapplyService {
 	 */
 	@Override
 	public void firstcheck(String id, int iprocess, ILoginUser user) {
-		Authapply apply = authapplyDao.findOne(id);
+		Authapply apply = authapplyDao.lock(id);
 		if (apply == null){
 			E.S("当前企业异常，请联系管理员");
 		}
@@ -119,7 +119,7 @@ public class AuthapplyService implements IAuthapplyService {
 	 */
 	@Override
 	public void againcheck(String id, int iprocess, ILoginUser user) {
-		Authapply apply = authapplyDao.findOne(id);
+		Authapply apply = authapplyDao.lock(id);
 		if (apply == null){
 			E.S("当前企业异常，请联系管理员");
 		}
@@ -192,6 +192,7 @@ public class AuthapplyService implements IAuthapplyService {
 		authapply.setSgxrtno(obj.getSgxrtno());
 
 		authapply.setSbusaddress(obj.getSbusaddress());
+		authapply.setIprocess(MEMBER.Process.ZSJG.val());
 
 
 		return this.authapplyDao.saveAndFlush(authapply);
@@ -211,6 +212,8 @@ public class AuthapplyService implements IAuthapplyService {
 		if (B.Y(authapply.getId()))
 			E.S("系统警告，异常，请联系管理员");
 
+		int iprocess = authapply.getIprocess();
+
 		List<NaturalHolder> naturalHolders = naturalHolderDao.findByPropertyName(MEMBERCol.hy_naturalholder.smemberid,authapply.getId());
 		List<CompanyHolder> companyHolders = companyHolderDao.findByPropertyName(MEMBERCol.hy_companyholder.smemberid,authapply.getId());
 		List<ControHolder> controHolders = controHolderDao.findByPropertyName(MEMBERCol.hy_controholder.smemberid,authapply.getId());
@@ -227,6 +230,9 @@ public class AuthapplyService implements IAuthapplyService {
 		//企业申请入住信息
 		Authapply auth = applyregister(authapply,user);
 
+		auth.setIprocess(iprocess);
+
+		this.authapplyDao.saveAndFlush(auth);
 
 		return auth;
 	}
@@ -242,7 +248,7 @@ public class AuthapplyService implements IAuthapplyService {
 		Objects.requireNonNull(user);
 		Objects.requireNonNull(id);
 
-		Authapply apply =Objects.requireNonNull(authapplyDao.findOne(id)) ;
+		Authapply apply =authapplyDao.lock(id);
 		if (apply == null){
 			E.S("当前账户异常，请联系管理员");
 		}
