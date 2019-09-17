@@ -21,6 +21,7 @@ public class MakeEntity {
 		list.add("project.pdm");
 		list.add("file.pdm");
 		list.add("member.pdm");
+		list.add("message.pdm");
 
 		for(int i=0;i<list.size();i++){
 			System.out.println(String.format("%d:%s",i,list.get(i)));

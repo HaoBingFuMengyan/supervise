@@ -43,8 +43,10 @@ public class MessageBase  extends  BaseEntity{
 	   /**
 		发送人类型 int
 	    OperatorOrAdmin:
-	    0:OPERATOR:交易员
-1:ADMIN:管理员 
+	    0:JDBSC:街道办事处
+1:GSSPK:工商审批科
+2:JRJGJ:金融监管局
+3:MEMBER:会员 
 		*/
 		@Column(name="isendertype")
 		public Integer getIsendertype() {
@@ -53,8 +55,10 @@ public class MessageBase  extends  BaseEntity{
 		/**
 		发送人类型 int
 	    OperatorOrAdmin:
-	    0:OPERATOR:交易员
-1:ADMIN:管理员 
+	    0:JDBSC:街道办事处
+1:GSSPK:工商审批科
+2:JRJGJ:金融监管局
+3:MEMBER:会员 
 		*/
 		public void setIsendertype(Integer  isendertype) {
 			this.isendertype =  isendertype;//发送人类型 int
@@ -75,9 +79,10 @@ public class MessageBase  extends  BaseEntity{
 	   /**
 		接收人类型 int
 	    ReceiveType:
-	    0:MEMBER:会员
-1:TRADER:交易员
-2:ADMIN:管理员 
+	    0:JDBSC:街道办事处
+1:GSSPK:工商审批科
+2:JRJGJ:金融监管局
+3:MEMBER:会员 
 		*/
 		@Column(name="ireceivetype")
 		public Integer getIreceivetype() {
@@ -86,9 +91,10 @@ public class MessageBase  extends  BaseEntity{
 		/**
 		接收人类型 int
 	    ReceiveType:
-	    0:MEMBER:会员
-1:TRADER:交易员
-2:ADMIN:管理员 
+	    0:JDBSC:街道办事处
+1:GSSPK:工商审批科
+2:JRJGJ:金融监管局
+3:MEMBER:会员 
 		*/
 		public void setIreceivetype(Integer  ireceivetype) {
 			this.ireceivetype =  ireceivetype;//接收人类型 int

@@ -73,19 +73,25 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
+ 			<name>jdbsc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>gsspk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jrjgj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
  			<name>member</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>trader</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>admin</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
@@ -156,13 +162,25 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
- 			<name>operator</name>
+ 			<name>jdbsc</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
  		<attribute> 
- 			<name>admin</name>
+ 			<name>gsspk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jrjgj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>member</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
