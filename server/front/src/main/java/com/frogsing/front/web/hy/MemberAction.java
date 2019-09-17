@@ -118,12 +118,11 @@ public class MemberAction extends BaseAction {
      * 监管问询
      * @author haobingfu
      * @param model
-     * @param request
      * @return
      */
-    @RequestMapping(value = "supervise.shtml",method = RequestMethod.GET)
+    @RequestMapping(value = "dail-index.shtml",method = RequestMethod.GET)
     public String supervise(Model model) {
-        return "member/supervise";
+        return "member/member-dail-index";
     }
     
     /**
