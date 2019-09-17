@@ -1,0 +1,6 @@
+2019-09-15 09:53:03,483 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:member(member)  DBMS为:MYSQL50(MySQL 5.0)
+2019-09-15 11:04:31,327 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:operator(operator)  DBMS为:MYSQL50(MySQL 5.0)
+2019-09-15 11:19:51,885 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:member(member)  DBMS为:MYSQL50(MySQL 5.0)
+2019-09-15 12:06:32,660 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:member(member)  DBMS为:MYSQL50(MySQL 5.0)
+2019-09-15 13:06:35,081 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:operator(operator)  DBMS为:MYSQL50(MySQL 5.0)
+2019-09-15 15:58:38,454 [main] INFO  [com.frogsing.pdm.Parser] - 解析PDM为:member(member)  DBMS为:MYSQL50(MySQL 5.0)
