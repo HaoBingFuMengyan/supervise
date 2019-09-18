@@ -118,13 +118,9 @@
                                class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0"/>
                         <div class="form-group">
-                            <span>状态：</span>
+                            <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus"
                                                 defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>审核结果：</span>
-                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}"
-                                                   name="search_eq_iapprovalstatus" defval="" defname="全部"
-                                                   option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
                     <br/>
@@ -156,9 +152,8 @@
                 <tr>
                     <th class="sort-column">类型</th>
                     <th class="sort-column">注册地址</th>
-                    <th class="sort-column">状态</th>
+                    <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
-                    <th class="sort-column">审核结果</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -169,7 +164,7 @@
                             <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
-                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1}">
+                            <c:if test="${obj.istatus eq 1}">
                                 ${obj.sregaddress}
                             </c:if>
                         </td>
@@ -180,14 +175,11 @@
                             <mw:format label="datetime" value="${obj.dapplydate}"/>
                         </td>
                         <td>
-                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
-                        </td>
-                        <td>
 
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
                                     class="fa fa-edit"></i>基本信息</a>
 
-                            <c:if test="${obj.istatus eq 1 && obj.iapprovalstatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
+                            <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
                                         class="fa fa-edit"></i>申请入住</a>
                             </c:if>

@@ -69,12 +69,7 @@ public class AuthapplyService implements IAuthapplyService {
 			E.S("申请已处理");
 		}
 
-		if (apply.getIapprovalstatus() == MEMBER.ApprovalStatus.CHECKED.val() || apply.getIapprovalstatus() == MEMBER.ApprovalStatus.REJECT.val()){
-			E.S("申请已处理");
-		}
-
 		apply.setIstatus(CheckStatus.REJECT.val());
-		apply.setIapprovalstatus(MEMBER.ApprovalStatus.REJECT.val());
 		apply.setDcheckdate(new Date());
 		apply.setScheckinfo(scheckinfo);
 		apply.setScheckuser(currentUser.getLoginName());
@@ -257,13 +252,7 @@ public class AuthapplyService implements IAuthapplyService {
 			E.S("申请已处理");
 		}
 
-		if (apply.getIapprovalstatus() == MEMBER.ApprovalStatus.CHECKED.val() || apply.getIapprovalstatus() == MEMBER.ApprovalStatus.REJECT.val()){
-			E.S("申请已处理");
-		}
-
-
 		apply.setIstatus(CheckStatus.CHECKED.val());
-		apply.setIapprovalstatus(MEMBER.ApprovalStatus.CHECKED.val());
 		apply.setDcheckdate(new Date());
 		apply.setScheckinfo(scheckinfo);
 		apply.setScheckuser(user.getLoginName());
