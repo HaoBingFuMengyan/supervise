@@ -7,9 +7,9 @@ public class MEMBER {
 
 
 public static enum CheckStatus implements  IConst{
-	WAIT(0 ,"待审核"),
+	WAIT(0 ,"审核中"),
 	 CHECKED(1,"审核通过"),
-	REJECT(2 ,"被拒绝");
+	REJECT(2 ,"审核驳回");
 	public  static CheckStatus get(int i){
     	 switch(i)
     	 {
