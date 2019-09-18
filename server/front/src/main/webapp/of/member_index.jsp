@@ -8,7 +8,7 @@
     <meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
     <meta name="description" content="基金协同监管系统沟通"/>
     <title>普通会员中心-基金协同监管系统沟通</title>
-
+    <link href="${ctx}/css/common.css" rel="stylesheet" type="text/css">
     <script type="text/javascript">
 
         layui.use(['table', 'layer', 'element'], function () {
@@ -81,6 +81,30 @@
                 <a onclick="formOpen('${ctx}/hy/member/authapply.shtml?icorbiztype=30')" href="#">立即申请</a>
             </div>
         </div>
+    </div>
+</div>
+<div class="hy-mask">
+    <div class="mask-box">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>请修改并完善您的信息</legend>
+        </fieldset>
+        <form id= action="" method="post">
+            <div class="sqcon top30 clearfix">
+                <div class="input_group input_group_lg bottom20 left100">
+                    <label>手机号：</label><input type="password" name="oldpassword" id="" class="form_control" required placeholder="请输入您的手机号码" />
+                </div>
+                <div class="input_group input_group_lg bottom20 left100">
+                    <label>原密码：</label><input type="password" name="oldpassword" id="oldpassword" class="form_control" required placeholder="请输入您的原密码" />
+                </div>
+                <div class="input_group input_group_lg bottom20 left100">
+                    <label>新密码：</label><input type="password" name="newpassword" id="newpassword1" minlength="6" maxlength="20" class="form_control" required placeholder="密码由6-20字母、字符或数字组成" />
+                </div>
+                <div class="input_group input_group_lg bottom20 left100">
+                    <label>确认新密码：</label><input type="password" name="newpassword2" minlength="6" maxlength="20" class="form_control" required equalTo="#newpassword1" placeholder="请再次输入您的新密码" /><!-- equalTo="newpassword" -->
+                </div>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" style="float: right">确定</button>
+            </div>
+        </form>
     </div>
 </div>
 </body>

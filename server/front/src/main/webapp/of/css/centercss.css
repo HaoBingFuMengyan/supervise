@@ -3510,3 +3510,20 @@ ul.cgLink li:last-child a{
 	margin-top: 10px;
 	float: right;
 }
+.hy-mask{
+	position: fixed;
+	left:0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.hy-mask .mask-box{
+	background: #fff;
+	border-radius: 5px;
+	padding: 20px;
+	box-sizing: border-box;
+}
