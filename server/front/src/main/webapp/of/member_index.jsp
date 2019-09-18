@@ -102,7 +102,7 @@
                 <div class="input_group input_group_lg bottom20 left100">
                     <label>确认新密码：</label><input type="password" name="newpassword2" minlength="6" maxlength="20" class="form_control" required equalTo="#newpassword1" placeholder="请再次输入您的新密码" /><!-- equalTo="newpassword" -->
                 </div>
-                <button class="layui-btn layui-btn-sm layui-btn-normal" style="float: right">确定</button>
+                <button class="layui-btn layui-btn-sm layui-btn-normal" style="float: right;margin-right: 10px">确定</button>
             </div>
         </form>
     </div>
