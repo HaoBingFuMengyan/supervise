@@ -28,34 +28,36 @@
             });
         }
 
-        //企业申请入住
-        function applyRegister(id) {
+        //企业信息变更
+        function changeInfo(id) {
             top.layer.open({
                 type: 2,
-                title: '企业申请入住',
+                title: '信息变更申请',
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/applyregister_' + id + '.shtml',
-                btn: ['确认申请', '关闭'],
+                content: '${ctx}/hy/authapply/changeinfo_' + id + '.shtml',
+                btn: ['确认', '关闭'],
                 yes: function (index, layero) {
                     var iframeWin = layero.find('iframe')[0];
                     var $ = iframeWin.contentWindow.$;
                     var doc = $(iframeWin.contentWindow.document);
 //                    doc.find("form").first().submit();
                     if(iframeWin.contentWindow.valiForm()){
-                        $.post("${ctx}/hy/authapply/applyregister.json",doc.find('#formx').serialize(),function(rs){
-//                            layer.closeAll('loading');
-                            if (rs.success) {
+                        if (iframeWin.contentWindow.check()) {
+                            $.post("${ctx}/hy/authapply/changeinfo.json",doc.find('#formx').serialize(),function(rs){
+    //                            layer.closeAll('loading');
+                                if (rs.success) {
 
-                                layer.close(index);
+                                    layer.close(index);
 
-                                top.layer.msg("操作成功!",{icon:1},function () {
-                                    parent.location.reload();
-                                });
-                            }
-                            else {
-                                top.layer.msg(rs.msg,{icon:5});
-                            }
-                        });
+                                    top.layer.msg("操作成功!",{icon:1},function () {
+                                        parent.location.reload();
+                                    });
+                                }
+                                else {
+                                    top.layer.msg(rs.msg,{icon:5});
+                                }
+                            });
+                        }
                     }
 
                 },
@@ -82,6 +84,10 @@
                         <div class="form-group">
                             <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus"
+                                                defval="" defname="全部" option="class='form-control input-sm'"/>
+
+                            <span>变更状态：</span>
+                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus"
                                                 defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
@@ -116,6 +122,7 @@
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
+                    <th class="sort-column">变更状态</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -137,13 +144,15 @@
                             <mw:format label="datetime" value="${obj.dapplydate}"/>
                         </td>
                         <td>
-
+                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
+                        </td>
+                        <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
                                     class="fa fa-edit"></i>基本信息</a>
 
-                            <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
-                                <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
-                                        class="fa fa-edit"></i>申请入住</a>
+                            <c:if test="${obj.istatus eq 1 && obj.iprocess eq 30}">
+                                <a onclick="changeInfo('${obj.id}')" class="btn btn-danger btn-xs"><i
+                                        class="fa fa-edit"></i>信息变更</a>
                             </c:if>
                         </td>
                     </tr>

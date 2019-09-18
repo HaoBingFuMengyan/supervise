@@ -1,5 +1,6 @@
 package com.frogsing.front.web.hy;
 
+import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
@@ -48,15 +49,30 @@ public class AuthapplyAction extends BaseAction{
     @Autowired
     private AuthapplyService authapplyService;
 
+    /**
+     * 企业列表
+     * @param start
+     * @param limit
+     * @param sort
+     * @param model
+     * @param type 0：申请列表，1：入驻企业列表
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "list.shtml")
     public String authappliList(@RequestParam(value = "start", defaultValue = "0") int start,
                                 @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
                                 @RequestParam(value = "sort", defaultValue = "") String[] sort,Model model,
+                                @RequestParam(value = "type", defaultValue = "0") int type,
                                 ServletRequest request){
         try {
             ILoginUser user = ShiroUtils.getCurrentUser();
             Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
             searchParams.put("search_eq_smemberid",user.getMemberId());
+            if (type == 0)
+                searchParams.put("search_eq_bisincompany", Consts.BoolType.NO.val());
+            else
+                searchParams.put("search_eq_bisincompany", Consts.BoolType.YES.val());
 
             Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 
@@ -70,7 +86,10 @@ public class AuthapplyAction extends BaseAction{
             e.printStackTrace();
             Msg.error(model,"系统错误，请联系管理员");
         }
-        return "member/authapply-list";
+        if (type == 0)
+            return "member/authapply-list";
+        else
+            return "member/authapply-isincompany-list";
     }
 
     @RequestMapping(value = "index.shtml")
