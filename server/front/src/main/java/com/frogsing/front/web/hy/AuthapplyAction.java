@@ -130,6 +130,13 @@ public class AuthapplyAction extends BaseAction{
         return "member/authapply-register";
     }
 
+    /**
+     * 企业申请入住
+     * @param authapply
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "applyregister.json")
     @ResponseBody
     public Result applyRegisterSuccess(Authapply authapply, Model model, HttpServletRequest request){

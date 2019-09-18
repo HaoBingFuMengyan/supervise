@@ -470,7 +470,7 @@ public class MemberService implements IMemberService {
         apply.setDadddate(new Date());
         apply.setDapplydate(new Date());
         apply.setIstatus(CheckStatus.WAIT.val());//状态为待审核
-        apply.setIapprovalstatus(ApprovalStatus.WAIT.val());//默认审核状态
+        apply.setIapprovalstatus(ApprovalStatus.NOUPDATE.val());//企业信息变更状态
 
 
         apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型

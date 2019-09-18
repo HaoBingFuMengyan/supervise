@@ -120,7 +120,7 @@
                             <member:CorporateType op="label" val="${data.icorporatetype}"/>
                         </div>
                     </div>
-                    <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1}">
+                    <c:if test="${data.istatus eq 1}">
                         <div class="layui-inline">
                             <label class="layui-form-label">注册地址：</label>
                             <div class="layui-input-inline">
@@ -139,7 +139,7 @@
                     </div>
                 </div>
 
-                <c:if test="${data.istatus eq 1 && data.iapprovalstatus eq 1}">
+                <c:if test="${data.istatus eq 1}">
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">风险报告结果：</label>
@@ -155,7 +155,7 @@
     </div>
 </div>
 
-<c:if test="${data.bisincompany eq 1 || (data.istatus eq 1 && data.iapprovalstatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
+<c:if test="${data.bisincompany eq 1 || (data.istatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
     <div class="layui-collapse" style="border-top: none;margin-top: 10px;">
         <div class="layui-colla-item">
             <div class="layui-colla-content layui-show">
