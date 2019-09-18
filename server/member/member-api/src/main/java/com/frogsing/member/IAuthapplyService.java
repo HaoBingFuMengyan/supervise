@@ -30,6 +30,14 @@ public interface IAuthapplyService  {
 	void reject(String id,String scheckinfo, ILoginUser currentUser);
 
 	/**
+	 * 复审
+	 * @param id
+	 * @param scheckinfo
+	 * @param currentUser
+	 */
+	void changeInfoCheck(String id,int iapprovalstatus,String scheckinfo, ILoginUser currentUser);
+
+	/**
 	 * 招商机构初审
 	 * @param id
 	 * @param iprocess

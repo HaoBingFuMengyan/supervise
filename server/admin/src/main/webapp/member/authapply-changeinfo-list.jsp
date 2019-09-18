@@ -49,9 +49,11 @@
                     <form:form id="searchForm" action="${ctx}/hy/authapply/changeinfo.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
-                            <span>状态：</span>
+                            <span>公司名称：</span>
+                            <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
+                            <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>审核结果：</span>
+                            <span>变更状态：</span>
                             <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus" defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
@@ -75,17 +77,19 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
+                    <th class="sort-column">公司名称</th>
                     <th class="sort-column">类型</th>
                     <th class="sort-column">注册地址</th>
-                    <th class="sort-column">状态</th>
+                    <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
-                    <th class="sort-column">审核结果</th>
+                    <th class="sort-column">变更状态</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
+                        <td>${obj.scnname}</td>
                         <td>
                             <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
                         </td>

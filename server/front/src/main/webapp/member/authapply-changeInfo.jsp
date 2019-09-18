@@ -288,11 +288,6 @@
             });
         });
 
-        //删除
-        function hidden(is) {
-            $(is).parent().remove();
-        }
-
     </script>
 </head>
 <body>

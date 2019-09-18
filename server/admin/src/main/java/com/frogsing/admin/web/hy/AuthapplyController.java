@@ -221,6 +221,34 @@ public class AuthapplyController {
     }
 
     /**
+     * 复审
+     * @param id
+     * @param iapprovalstatus
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "changeinfocheck.json")
+    @ResponseBody
+    @RequiresPermissions("authapply:check")
+    public Result changeInfoCheck(@RequestParam(value = "id")String id,
+                        @RequestParam(value = "iapprovalstatus") int iapprovalstatus,Model model,HttpServletRequest request){
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyService.changeInfoCheck(id,iapprovalstatus,"",user);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
+
+    /**
      * 招商机构初审
      * @param id
      * @param iprocess
@@ -301,7 +329,7 @@ public class AuthapplyController {
         searchParams.put("search_eq_bisincompany", Consts.BoolType.YES.val());
         if (type == 0) {
             searchParams.put("search_eq_iapprovalstatus", MEMBER.ApprovalStatus.WAIT.val());
-            searchParams.put("search_eq_istatus", MEMBER.CheckStatus.WAIT.val());
+            searchParams.put("search_eq_istatus", MEMBER.CheckStatus.CHECKED.val());
         }
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));

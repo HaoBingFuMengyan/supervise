@@ -78,6 +78,32 @@ public class AuthapplyService implements IAuthapplyService {
 	}
 
 	/**
+	 * 复审
+	 *
+	 * @param id
+	 * @param scheckinfo
+	 * @param currentUser
+	 */
+	@Override
+	public void changeInfoCheck(String id,int iapprovalstatus, String scheckinfo, ILoginUser currentUser) {
+		Authapply apply = authapplyDao.lock(id);
+		if (apply == null){
+			E.S("当前账户异常，请联系管理员");
+		}
+
+		if (apply.getIapprovalstatus() == MEMBER.ApprovalStatus.CHECKED.val() || apply.getIapprovalstatus() == MEMBER.ApprovalStatus.REJECT.val()){
+			E.S("变更申请已处理，请勿重复操作");
+		}
+
+		apply.setIapprovalstatus(iapprovalstatus);
+		apply.setDcheckdate(new Date());
+		apply.setScheckinfo(scheckinfo);
+		apply.setScheckuser(currentUser.getLoginName());
+
+		authapplyDao.saveAndFlush(apply);
+	}
+
+	/**
 	 * 招商机构初审
 	 *
 	 * @param id
@@ -207,7 +233,11 @@ public class AuthapplyService implements IAuthapplyService {
 		if (B.Y(authapply.getId()))
 			E.S("系统警告，异常，请联系管理员");
 
-		int iprocess = authapply.getIprocess();
+		Authapply apply = this.authapplyDao.lock(authapply.getId());
+
+		int iprocess = apply.getIprocess();
+
+		int istatus = apply.getIstatus();
 
 		List<NaturalHolder> naturalHolders = naturalHolderDao.findByPropertyName(MEMBERCol.hy_naturalholder.smemberid,authapply.getId());
 		List<CompanyHolder> companyHolders = companyHolderDao.findByPropertyName(MEMBERCol.hy_companyholder.smemberid,authapply.getId());
@@ -217,7 +247,7 @@ public class AuthapplyService implements IAuthapplyService {
 		companyHolderDao.delete(companyHolders);
 		controHolderDao.delete(controHolders);
 
-		memVo.setId(authapply.getId());
+		memVo.setId(apply.getId());
 
 		//申请认证信息
 		memberService.doAuthApply_b(memVo,user);
@@ -225,11 +255,13 @@ public class AuthapplyService implements IAuthapplyService {
 		//企业申请入住信息
 		Authapply auth = applyregister(authapply,user);
 
-		auth.setIprocess(iprocess);
+		apply.setIprocess(iprocess);
+		apply.setIstatus(istatus);
+		apply.setIapprovalstatus(MEMBER.ApprovalStatus.WAIT.val());
 
 		this.authapplyDao.saveAndFlush(auth);
 
-		return auth;
+		return apply;
 	}
 
 	/**

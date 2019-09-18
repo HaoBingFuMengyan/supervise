@@ -82,6 +82,8 @@
                                class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0"/>
                         <div class="form-group">
+                            <span>公司名称：</span>
+                            <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
                             <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus"
                                                 defval="" defname="全部" option="class='form-control input-sm'"/>
@@ -118,6 +120,7 @@
                    class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
+                    <th class="sort-column">公司名称</th>
                     <th class="sort-column">类型</th>
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">预审状态</th>
@@ -129,13 +132,12 @@
                 <tbody>
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
+                        <td>${obj.scnname}</td>
                         <td>
                             <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
-                            <c:if test="${obj.istatus eq 1}">
                                 ${obj.sregaddress}
-                            </c:if>
                         </td>
                         <td>
                             <member:CheckStatus op="label" val="${obj.istatus}"/>
