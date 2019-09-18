@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="layui-inline">
-                        <label class="layui-form-label">审批状态：</label>
+                        <label class="layui-form-label">变更状态：</label>
                         <div class="layui-input-inline">
                             <member:ApprovalStatus op="label" val="${data.iapprovalstatus}"/>
                         </div>
