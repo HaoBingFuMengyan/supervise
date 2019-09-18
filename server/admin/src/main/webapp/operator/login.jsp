@@ -164,9 +164,9 @@
 			 <dd>
 			      <input type="button" value="立即登陆" class="tijiao_btn" onclick="return doSubmit();"/>
 			 </dd>
-			 <dd>
-			      <p> © 技术支持：上海精悍网络科技有限公司</p>
-			 </dd>
+			 <%--<dd>--%>
+			      <%--<p> © 技术支持：上海精悍网络科技有限公司</p>--%>
+			 <%--</dd>--%>
 		</dl>
 		</form>
 
