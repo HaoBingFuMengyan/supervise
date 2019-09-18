@@ -94,7 +94,7 @@ public class AuthapplyAction extends BaseAction{
 
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
-        model.addAttribute("id",id);
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
         return "member/authapply-index";
     }
 
@@ -131,6 +131,11 @@ public class AuthapplyAction extends BaseAction{
 
         model.addAttribute("list",controHolders);
         return "member/authapply-control-detail";
+    }
+
+    @RequestMapping(value = "report_detail.shtml")
+    public String reportDetail(@RequestParam(value = "id") String id, Model model, HttpServletRequest request) {
+        return "/member/authapply-report-detail";
     }
 
     /**
