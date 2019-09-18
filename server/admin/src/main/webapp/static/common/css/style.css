@@ -7972,3 +7972,61 @@ div.scott span.disabled {
 	padding: 3px 6px;
 }
 /*********page end**********/
+.jg-list-con{
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.jg-list{
+    margin-bottom: 15px;
+}
+.jg-list-head{
+    background: #dbe4ee;
+    padding: 20px;
+    font-size: 14px;
+    color:#333;
+    position: relative;
+}
+.jg-list-head i{
+    font-size: 18px;
+    margin-right: 3px;
+}
+.jg-list-head label{
+    color:#1E9FFF;
+    margin: 0 3px;
+}
+.jg-list-head span{
+    color:#FF5722;
+    margin: 0 3px;
+}
+.jg-list-head p{
+    color:#FF5722;
+    position: absolute;
+    right: 20px;
+    top:20px
+}
+.jg-list-body{
+    padding: 20px;
+    border:1px solid #dbe4ee
+}
+.jg-list-body .word{
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.jg-list-body .reword{
+    color:#666;
+    font-size: 14px;
+}
+.jg-list-body .reword textarea{
+    width:100%;
+    min-height: 60px;
+    border-radius: 3px;
+    padding: 10px;
+    border:1px dashed #dcdcdc;
+    box-sizing: border-box;
+}
+.jg-list-body .reword button{
+    margin-top: 10px;
+    float: right;
+}
