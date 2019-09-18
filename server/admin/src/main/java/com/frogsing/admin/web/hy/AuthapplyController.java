@@ -96,7 +96,7 @@ public class AuthapplyController {
 
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
-        model.addAttribute("id",id);
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
         return "/member/authapply-index";
     }
 
@@ -139,6 +139,11 @@ public class AuthapplyController {
 
         model.addAttribute("list",controHolders);
         return "/member/authapply-control-detail";
+    }
+
+    @RequestMapping(value = "report_detail.shtml")
+    public String reportDetail(@RequestParam(value = "id") String id, Model model, HttpServletRequest request) {
+        return "/member/authapply-report-detail";
     }
 
     /**
@@ -341,7 +346,7 @@ public class AuthapplyController {
     }
 
     /**
-     *
+     *  监管问询
      * @param id
      * @param model
      * @param request
@@ -351,11 +356,30 @@ public class AuthapplyController {
     public String dailIndex(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
         model.addAttribute("id",id);
 
+        return "/member/authapply-dail-index";
+    }
+
+    /**
+     *  监管问询聊天记录
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "dail-list.shtml")
+    public String dailList(@RequestParam(value = "id") String id,
+                           @RequestParam(value = "type",defaultValue = "0") int type, Model model, HttpServletRequest request){
+        model.addAttribute("id",id);
+
         ILoginUser user = ShiroUtils.getCurrentUser();
 
         Operator operator = queryService.findOne(Operator.class,user.getId());
         model.addAttribute("operator",operator);
 
-        return "/member/authapply-dail-index";
+        if (type == 0)
+            return "/member/authapply-dail-list";
+        else
+            return "/member/authapply-dail-message";
     }
+
 }

@@ -1,43 +1,99 @@
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="member" uri="http://www.frogsing.com/tags/member" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="jj" uri="http://www.frogsing.com/tags/jj" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="../include/taglib.jsp" %>
-
-<!DOCTYPE html>
 <html>
 <head>
-
-    <title>监管问询</title>
     <meta name="decorator" charset="" content="jj">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="${ctx}/static/common/css/style.css" type="text/css" />
+
+    <style>
+        *{
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        body, .layui-tab{
+            overflow: hidden;
+            margin-left: 0!important;
+            margin-right: 0!important;
+            margin-bottom: 0!important;
+        }
+        .layui-tab-content{
+            padding-left: 0!important;
+            padding-right: 0!important;
+            padding-bottom: 0!important;
+        }
+
+    </style>
+
+    <title></title>
 </head>
 <body>
-<fieldset class="layui-elem-field layui-field-title">
-    <legend>监管互动</legend>
-</fieldset>
-<div class="jg-list-con">
-    <div class="jg-list">
-        <div class="jg-list-head"><i class="icon icon-xinxi1"></i>来自<label>金融办</label>对<span>测试有限公司</span>的问询
-            <p>未回复</p>
-        </div>
-        <div class="jg-list-body">
-            <div class="word">贵司连续2年未提交工商年报，请注意！</div>
-        </div>
-    </div>
-    <div class="jg-list">
-        <div class="jg-list-head"><i class="icon icon-xinxi1"></i>来自<label>金融办</label>对<span>测试有限公司</span>的问询
-            <p>已回复</p>
-        </div>
-        <div class="jg-list-body">
-            <div class="word">贵司连续2年未提交工商年报，请注意！</div>
-            <div class="reword">
-                回复:好的，谢谢提醒，我们尽快提交。
-            </div>
+<div class="layui-tab" lay-filter="demo">
+    <ul class="layui-tab-title">
+    </ul>
+    <div class="layui-tab-content">
 
-        </div>
     </div>
 </div>
+
+<script>
+
+    $(document).ready(function(){
+
+
+
+    });
+    var urls=[
+        ["聊天记录", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=0"],
+        ["回复", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=1"]
+    ];
+
+    function setSrc(i){
+        var f1=$('#iframe'+i);
+        // if(f1.prop('src')&&i>1)
+        // 	 return;
+
+        f1.height($(window).height()-65)
+        f1.prop('src', f1.data('url'));
+
+
+    }
+    layui.use(['form','element', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,element=layui.element
+            ,laydate = layui.laydate;
+
+        element.on('tab(demo)', function(data){
+            setSrc(data.index);
+        });
+        function addPage(id,title,url) {
+            element.tabAdd('demo', {
+                title: title
+                ,content:'<iframe data-url="' +url+
+                '" id="' +id+'" style="border: 0;width:100%;height:100%;" ></iframe>'
+                ,id: id
+            });
+        }
+        for(var i=0;i<urls.length;i++ ){
+            var row=urls[i];
+            addPage("iframe"+i,row[0],row[1]);
+
+        }
+        element.tabChange("demo","iframe0");
+    });
+    jj.validate();
+
+</script>
+
+
+</div>
+</div>
+
+</body>
 </body>
 </html>
