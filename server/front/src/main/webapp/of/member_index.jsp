@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="基金协同监管系统沟通,基金协同监管系统沟通"/>
-    <meta name="description" content="基金协同监管系统沟通(www.mall.meiliangzi.cn)。服务电话：400-086-0101 "/>
+    <meta name="description" content="基金协同监管系统沟通"/>
     <title>普通会员中心-基金协同监管系统沟通</title>
 
     <script type="text/javascript">

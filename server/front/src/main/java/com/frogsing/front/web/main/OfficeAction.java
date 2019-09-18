@@ -44,6 +44,7 @@ public class OfficeAction {
         model.addAttribute("user", user);
         Member member = queryService.fetchOne(Member.class, u.getMemberId());
 
+        model.addAttribute("member",member);
         return "of/member_index";
 
     }
