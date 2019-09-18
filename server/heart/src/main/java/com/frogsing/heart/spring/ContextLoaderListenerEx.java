@@ -1,7 +1,5 @@
 package com.frogsing.heart.spring;
 
-import com.frogsing.heart.utils.B;
-import org.slf4j.MDC;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.XmlWebApplicationContext;
@@ -13,7 +11,7 @@ public class ContextLoaderListenerEx extends ContextLoaderListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-        System.setProperty("dubbo.application.logger","slf4j");
+//        System.setProperty("dubbo.application.logger","slf4j");
 		System.setProperty("druid.logType","slf4j");
 		System.setProperty("org.jboss.logging.provider","slf4j");
 

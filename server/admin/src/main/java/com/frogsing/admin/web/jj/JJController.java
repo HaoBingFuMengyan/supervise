@@ -1,6 +1,5 @@
 package com.frogsing.admin.web.jj;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.frogsing.heart.data.BaseJJController;
 import com.frogsing.heart.data.IDataService;
 import com.frogsing.parameter.service.DataService;

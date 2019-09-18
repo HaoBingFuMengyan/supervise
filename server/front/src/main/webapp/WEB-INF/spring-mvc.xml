@@ -49,11 +49,6 @@
 		</property>
 	</bean>
 
-	<dubbo:annotation package="com.frogsing.front.web"/>
-
-	<import resource="classpath*:modules-annotation.xml"/>
-
-
 	<!-- 自动扫描且只扫描@Controller -->
 	<context:component-scan base-package="com.frogsing.*.action,com.frogsing.front.web" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

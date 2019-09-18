@@ -1,6 +1,5 @@
 package com.frogsing.admin.web.dt;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.frogsing.heart.data.BaseDataController;
 import com.frogsing.heart.data.IDataService;
 import com.frogsing.parameter.service.DataService;
