@@ -1223,6 +1223,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    0 :WAIT:审核中
 1: CHECKED:审核通过
 2 :REJECT:审核驳回
+3:NOUPDATE:未变更
  
 		*/
 		@Column(name="iapprovalstatus")
@@ -1235,6 +1236,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    0 :WAIT:审核中
 1: CHECKED:审核通过
 2 :REJECT:审核驳回
+3:NOUPDATE:未变更
  
 		*/
 		public void setIapprovalstatus(Integer  iapprovalstatus) {

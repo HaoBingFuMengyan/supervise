@@ -1773,6 +1773,12 @@
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
+ 		<attribute> 
+ 			<name>noupdate</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
  	</tag> 
 	<function>
 		<description>Process</description>

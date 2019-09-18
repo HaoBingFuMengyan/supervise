@@ -1403,7 +1403,8 @@ public static enum CompanyBizType implements  IConst{
 public static enum ApprovalStatus implements  IConst{
 	WAIT(0 ,"审核中"),
 	 CHECKED(1,"审核通过"),
-	REJECT(2 ,"审核驳回");
+	REJECT(2 ,"审核驳回"),
+	NOUPDATE(3,"未变更");
 	public  static ApprovalStatus get(int i){
     	 switch(i)
     	 {
@@ -1413,6 +1414,8 @@ public static enum ApprovalStatus implements  IConst{
     		return ApprovalStatus. CHECKED;
     	 case 2 :
     		return ApprovalStatus.REJECT;
+    	 case 3:
+    		return ApprovalStatus.NOUPDATE;
     	 }
     	 return null;
      }
