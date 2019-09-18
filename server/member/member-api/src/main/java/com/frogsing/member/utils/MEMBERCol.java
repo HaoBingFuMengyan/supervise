@@ -886,7 +886,7 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String icorporatetype="icorporatetype" ;
             /**企业业务类型**/
             public static final String icorbiztype="icorbiztype" ;
-            /**审核状态**/
+            /**变更状态**/
             public static final String iapprovalstatus="iapprovalstatus" ;
             /**风险监测报告结果**/
             public static final String sriskresult="sriskresult" ;
@@ -1064,7 +1064,7 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Integer> icorporatetype(Root<?> root){return root.get("icorporatetype");}
             /**企业业务类型**/
             public static  Path<Integer> icorbiztype(Root<?> root){return root.get("icorbiztype");}
-            /**审核状态**/
+            /**变更状态**/
             public static  Path<Integer> iapprovalstatus(Root<?> root){return root.get("iapprovalstatus");}
             /**风险监测报告结果**/
             public static  Path<String> sriskresult(Root<?> root){return root.get("sriskresult");}

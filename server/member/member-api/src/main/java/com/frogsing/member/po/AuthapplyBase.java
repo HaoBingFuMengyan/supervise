@@ -90,7 +90,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Integer bisjobmanager=0; //公司经理是否兼职 int
 	private   Integer icorporatetype=0; //法定代表人 int
 	private   Integer icorbiztype=0; //企业业务类型 int
-	private   Integer iapprovalstatus=0; //审核状态 int
+	private   Integer iapprovalstatus=0; //变更状态 int
 	private   String sriskresult; //风险监测报告结果 String
 	private   String srisktext; //风险监测报告内文 String
 	private   String scnuno; //承诺函 String
@@ -646,9 +646,9 @@ public class AuthapplyBase  extends  BaseEntity{
 	   /**
 		状态 int
 	    CheckStatus:
-	    0 :WAIT:待审核
+	    0 :WAIT:审核中
 1: CHECKED:审核通过
-2 :REJECT:被拒绝
+2 :REJECT:审核驳回
  
 		*/
 		@Column(name="istatus")
@@ -658,9 +658,9 @@ public class AuthapplyBase  extends  BaseEntity{
 		/**
 		状态 int
 	    CheckStatus:
-	    0 :WAIT:待审核
+	    0 :WAIT:审核中
 1: CHECKED:审核通过
-2 :REJECT:被拒绝
+2 :REJECT:审核驳回
  
 		*/
 		public void setIstatus(Integer  istatus) {
@@ -1218,27 +1218,29 @@ public class AuthapplyBase  extends  BaseEntity{
 			this.icorbiztype =  icorbiztype;//企业业务类型 int
 		}
 	   /**
-		审核状态 int
+		变更状态 int
 	    ApprovalStatus:
 	    0 :WAIT:审核中
 1: CHECKED:审核通过
 2 :REJECT:审核驳回
+3:NOUPDATE:未变更
  
 		*/
 		@Column(name="iapprovalstatus")
 		public Integer getIapprovalstatus() {
-			return  iapprovalstatus;//审核状态 int
+			return  iapprovalstatus;//变更状态 int
 		}
 		/**
-		审核状态 int
+		变更状态 int
 	    ApprovalStatus:
 	    0 :WAIT:审核中
 1: CHECKED:审核通过
 2 :REJECT:审核驳回
+3:NOUPDATE:未变更
  
 		*/
 		public void setIapprovalstatus(Integer  iapprovalstatus) {
-			this.iapprovalstatus =  iapprovalstatus;//审核状态 int
+			this.iapprovalstatus =  iapprovalstatus;//变更状态 int
 		}
 	   /**
 		风险监测报告结果 String

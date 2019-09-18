@@ -455,6 +455,9 @@ public  class MEMBERTag{
 		public void setReject(int val) {
 			setCurrentconst(com.frogsing.member.utils.MEMBER.ApprovalStatus.REJECT,val);
 		}
+		public void setNoupdate(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ApprovalStatus.NOUPDATE,val);
+		}
 		@Override
 		public IConst[] GetVals() {
 			return com.frogsing.member.utils.MEMBER.ApprovalStatus.values();
