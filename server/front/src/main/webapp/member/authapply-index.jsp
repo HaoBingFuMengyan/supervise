@@ -47,10 +47,10 @@
 
     });
     var urls=[
-        ["基本信息", "${ctx}/hy/authapply/detail.shtml?id=${id}"],
-        ["自然人股东信息", "${ctx}/hy/authapply/natural_detail.shtml?id=${id}"],
-        ["机构股东信息", "${ctx}/hy/authapply/company_detail.shtml?id=${id}"],
-        ["实际控制人信息", "${ctx}/hy/authapply/control_detail.shtml?id=${id}"]
+        ["基本信息", "${ctx}/hy/authapply/detail.shtml?id=${data.id}"],
+        ["自然人股东信息", "${ctx}/hy/authapply/natural_detail.shtml?id=${data.id}"],
+        ["机构股东信息", "${ctx}/hy/authapply/company_detail.shtml?id=${data.id}"],
+        ["实际控制人信息", "${ctx}/hy/authapply/control_detail.shtml?id=${data.id}"]
         <c:if test="${data.istatus eq 1}">
         ,["风险检测报告结果", "${ctx}/hy/authapply/report_detail.shtml?id=${data.id}"]
         </c:if>
