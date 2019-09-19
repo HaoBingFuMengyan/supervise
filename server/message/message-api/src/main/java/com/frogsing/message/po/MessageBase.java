@@ -18,15 +18,7 @@ public class MessageBase  extends  BaseEntity{
 	private   Integer isendertype=0; //发送人类型 int
 	private   String sreceiveid; //接收人ID String
 	private   Integer ireceivetype=0; //接收人类型 int
-	private   Integer bisread=0; //是否已读 int
 	private   Date dsenddatetime; //发送时间 Date
-	private   String stitle; //标题 String
-	private   String scontext; //内容 String
-	private   Integer icount=0; //阅读次数 int
-	private   Integer bisdelete=0; //是否删除 int
-	private   Integer bissendok=0; //是否已发送 int
-	private   String sresourceid; //资源ID String
-	private   String sreplyid; //回复ID String
 	   /**
 		发送人ID String
 		*/
@@ -100,27 +92,6 @@ public class MessageBase  extends  BaseEntity{
 			this.ireceivetype =  ireceivetype;//接收人类型 int
 		}
 	   /**
-		是否已读 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		@Column(name="bisread")
-		public Integer getBisread() {
-			return  bisread;//是否已读 int
-		}
-		/**
-		是否已读 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		public void setBisread(Integer  bisread) {
-			this.bisread =  bisread;//是否已读 int
-		}
-	   /**
 		发送时间 Date
 		*/
 		@Column(name="dsenddatetime")
@@ -132,113 +103,6 @@ public class MessageBase  extends  BaseEntity{
 		*/
 		public void setDsenddatetime(Date  dsenddatetime) {
 			this.dsenddatetime =  dsenddatetime;//发送时间 Date
-		}
-	   /**
-		标题 String
-		*/
-		@Column(name="stitle",length=300)
-		public String getStitle() {
-			return  stitle;//标题 String
-		}
-		/**
-		标题 String
-		*/
-		public void setStitle(String  stitle) {
-			this.stitle =  stitle;//标题 String
-		}
-	   /**
-		内容 String
-		*/
-		@Column(name="scontext",length=4000)
-		public String getScontext() {
-			return  scontext;//内容 String
-		}
-		/**
-		内容 String
-		*/
-		public void setScontext(String  scontext) {
-			this.scontext =  scontext;//内容 String
-		}
-	   /**
-		阅读次数 int
-		*/
-		@Column(name="icount")
-		public Integer getIcount() {
-			return  icount;//阅读次数 int
-		}
-		/**
-		阅读次数 int
-		*/
-		public void setIcount(Integer  icount) {
-			this.icount =  icount;//阅读次数 int
-		}
-	   /**
-		是否删除 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		@Column(name="bisdelete")
-		public Integer getBisdelete() {
-			return  bisdelete;//是否删除 int
-		}
-		/**
-		是否删除 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		public void setBisdelete(Integer  bisdelete) {
-			this.bisdelete =  bisdelete;//是否删除 int
-		}
-	   /**
-		是否已发送 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		@Column(name="bissendok")
-		public Integer getBissendok() {
-			return  bissendok;//是否已发送 int
-		}
-		/**
-		是否已发送 int
-	    BoolType:
-	    0:NO:否
-1:YES:是
- 
-		*/
-		public void setBissendok(Integer  bissendok) {
-			this.bissendok =  bissendok;//是否已发送 int
-		}
-	   /**
-		资源ID String
-		*/
-		@Column(name="sresourceid",length=32)
-		public String getSresourceid() {
-			return  sresourceid;//资源ID String
-		}
-		/**
-		资源ID String
-		*/
-		public void setSresourceid(String  sresourceid) {
-			this.sresourceid =  sresourceid;//资源ID String
-		}
-	   /**
-		回复ID String
-		*/
-		@Column(name="sreplyid",length=32)
-		public String getSreplyid() {
-			return  sreplyid;//回复ID String
-		}
-		/**
-		回复ID String
-		*/
-		public void setSreplyid(String  sreplyid) {
-			this.sreplyid =  sreplyid;//回复ID String
 		}
 	
 //frogsingcode//
