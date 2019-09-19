@@ -47,8 +47,8 @@
 
     });
     var urls=[
-        ["监管互动", "${ctx}/cx/message/dail-list.shtml?id=${id}&type=0"],
-        ["发起问询", "${ctx}/cx/message/dail-list.shtml?id=${id}&type=1"]
+        ["监管互动", "${ctx}/cx/message/dail-list.shtml?id=${data.id}&type=0"],
+        ["发起问询", "${ctx}/cx/message/dail-list.shtml?id=${data.id}&type=1&scnname=${data.scnname}"]
     ];
 
     function setSrc(i){

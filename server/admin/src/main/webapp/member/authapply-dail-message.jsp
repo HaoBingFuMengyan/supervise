@@ -16,7 +16,7 @@
 <body>
 <div class="jg-list-con">
     <div class="jg-list">
-        <div class="jg-list-head"><i class="icon icon-xinxi1"></i>对<span>测试有限公司</span>发起问询
+        <div class="jg-list-head"><i class="icon icon-xinxi1"></i>对<span>${param.scnname}</span>发起问询
         </div>
         <div class="jg-list-body" style="padding-bottom: 60px">
             <div class="reword clearfix">

@@ -50,9 +50,11 @@ public class MessageAction extends BaseAction{
 
             XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
 
+            xSpec.fetch("messageDetails");
             xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,user.getMemberId()));
 
-            List<Message> messages = queryService.fetchList(Message.class,null, PageSort.Desc(MESSAGECol.cx_message.dsenddatetime));
+
+            List<Message> messages = queryService.list(PageSort.Desc(MESSAGECol.cx_message.dsenddatetime),xSpec);
 
             model.addAttribute("data",messages);
 
