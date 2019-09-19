@@ -1,17 +1,29 @@
 package com.frogsing.message.service;
 
 
+import com.frogsing.heart.consts.Consts;
+import com.frogsing.heart.data.IQueryService;
+import com.frogsing.heart.persistence.SearchFilter;
+import com.frogsing.heart.persistence.XSpec;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.User;
 import com.frogsing.message.IMessageService;
 import com.frogsing.message.dao.MessageDao;
+import com.frogsing.message.dao.MessageDetailDao;
 import com.frogsing.message.po.Message;
+import com.frogsing.message.po.MessageDetail;
+import com.frogsing.message.utils.MESSAGE;
+import com.frogsing.message.utils.MESSAGECol;
+import com.frogsing.operator.po.Operator;
+import com.frogsing.operator.utils.OPERATOR;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.frogsing.exception.ServiceException;
 import java.util.Arrays;
+import java.util.Date;
 
 @Component
 @Transactional
@@ -19,6 +31,12 @@ public class MessageService implements IMessageService {
 
 	@Autowired
 	private MessageDao messageDao;
+
+	@Autowired
+	private MessageDetailDao messageDetailDao;
+
+	@Autowired
+	private IQueryService queryService;
 
 
 	@Override
@@ -77,21 +95,75 @@ public class MessageService implements IMessageService {
 		return 1;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.frogsing.service.hy.IMessageService#buildMessage(java.lang.String, java.lang.String)
-	 */
+
 	@Override
-	public Message buildMessage(String title, String msg) {
-		Message obj = new Message();
-//		obj.setBisdelete(0);
-//		obj.setBisread(0);
-//		obj.setBissendok(1);
-//		obj.setIcount(0);
-//		obj.setDsenddatetime(T.now());
-//		obj.setScontext(msg);
-//		obj.setStitle(title);
-//		messageDao.save(obj);
-		return obj;
+	public Message buildMessage(Authapply authapply, Operator operator, String scontent) {
+
+		XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
+
+		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,authapply.getSmemberid()));
+
+		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
+			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()));
+		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
+			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()));
+		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
+			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
+
+		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.ssenderid,operator.getId()));
+
+		Message message = queryService.fetchOne(xSpec);
+
+		if (message == null){
+			message = new Message();
+
+			message.setId(null);
+			if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
+				message.setIsendertype(MESSAGE.OperatorOrAdmin.JDBSC.val());
+			else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
+				message.setIsendertype(MESSAGE.OperatorOrAdmin.GSSPK.val());
+			else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
+				message.setIsendertype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+			message.setSsenderid(operator.getId());
+			message.setSsendername(operator.getSrealname());
+			message.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
+			message.setSreceiveid(authapply.getSmemberid());
+			message.setSreceivename(null);
+			message.setDsenddatetime(new Date());
+
+			Message obj = this.messageDao.saveAndFlush(message);
+
+			buildMessageDetail(obj,authapply,operator,scontent);
+		}else {
+			buildMessageDetail(message,authapply,operator,scontent);
+		}
+		return message;
+	}
+
+	private void buildMessageDetail(Message message, Authapply authapply, Operator operator, String scontent){
+		MessageDetail detail = new MessageDetail();
+
+		detail.setId(null);
+		detail.setSsenderid(operator.getId());
+		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
+			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JDBSC.val());
+		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
+			detail.setIsendertype(MESSAGE.OperatorOrAdmin.GSSPK.val());
+		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
+			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+		detail.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
+		detail.setSreceiveid(authapply.getSmemberid());
+		detail.setBisread(Consts.BoolType.NO.val());
+		detail.setIcount(0);
+		detail.setBisdelete(Consts.BoolType.NO.val());
+		detail.setBissendok(Consts.BoolType.YES.val());
+		detail.setStitle("");
+		detail.setScontext(scontent);
+		detail.setDsenddatetime(new Date());
+		detail.setSmessageid(message.getId());
+
+		this.messageDetailDao.save(detail);
+
 	}
 
 }

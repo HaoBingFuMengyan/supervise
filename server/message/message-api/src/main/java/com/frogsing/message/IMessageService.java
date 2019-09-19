@@ -1,8 +1,10 @@
 package com.frogsing.message;
 
+import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.User;
 import com.frogsing.message.po.Message;
+import com.frogsing.operator.po.Operator;
 
 import javax.frogsing.exception.ServiceException;
 
@@ -36,6 +38,6 @@ public interface IMessageService {
 	 */
 	int sendTradeSiteMsg(String title, String msg, User o);
 
-	Message buildMessage(String title, String msg);
+	Message buildMessage(Authapply authapply, Operator operator,String scontent);
 
 }

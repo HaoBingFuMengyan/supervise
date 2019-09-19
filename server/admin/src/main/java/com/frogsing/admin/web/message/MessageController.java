@@ -4,7 +4,10 @@ import com.frogsing.heart.jpa.PageSort;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.persistence.XSpec;
 import com.frogsing.heart.security.shiro.ShiroUtils;
+import com.frogsing.heart.utils.B;
+import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.login.ILoginUser;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.message.po.Message;
 import com.frogsing.message.service.MessageService;
 import com.frogsing.message.utils.MESSAGE;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.frogsing.exception.ServiceException;
 import javax.servlet.http.HttpServletRequest;
@@ -74,5 +78,43 @@ public class MessageController {
             return "/member/authapply-dail-list";
         else
             return "/member/authapply-dail-message";
+    }
+
+    /**
+     * 街道办事处、工商审批科、金融监管局对企业发起监管问询
+     * @param scontent
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "send.json")
+    @ResponseBody
+    public Result send(@RequestParam(value = "scontent") String scontent,
+                       @RequestParam(value = "id") String id,Model model,HttpServletRequest request){
+
+        try {
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            Operator operator = queryService.findOne(Operator.class,user.getId());
+
+            if (operator == null)
+                return Result.failure("请重新登录");
+
+            if (B.Y(id))
+                return Result.failure("系统警告，企业存在风险，请勿操作");
+
+            Authapply authapply = queryService.findOne(Authapply.class,id);
+
+            this.messageService.buildMessage(authapply,operator,scontent);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
     }
 }
