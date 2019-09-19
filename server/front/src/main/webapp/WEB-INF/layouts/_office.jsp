@@ -105,88 +105,53 @@
 </head>
 
 <body style="height: 100%;">
-<shiro:hasRole name="user">
-    <div id="header">
-        <jsp:include page="page/_office_top.jsp"/>
-    </div>
-    <div class="mycontainer <%if(membertype==1){%>jy-container<%}%>">
+<div id="header">
+    <jsp:include page="page/_office_top.jsp"/>
+</div>
+<div class="mycontainer <%if(membertype==1){%>jy-container<%}%>">
 
-        <!-- 左边菜单分类导航开始 -->
-        <div id="leftbar">
-            <div class="menu" style="border-bottom:none;">
-                <div class="trade" data-flag="open">
-                    <span class="icon icon-ren"></span><strong>会员信息</strong><i class="icon fr">&#xe636;</i>
-                </div>
-
-                <div class="left_middle">
-                    <ul>
-                        <li>
-                            <i></i>
-                            <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
-
-                        <li>
-                        <li>
-                            <i></i>
-                            <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请列表</a>
-                        </li>
-                        <li>
-                            <i></i>
-                            <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a>
-                        </li>
-                        <li>
-                            <i></i>
-                            <a href="${ctx}/cx/message/dail-index.shtml"><i class="icon icon-mima"></i>监管问询</a></li>
-                        <li>
-                            <i></i>
-                            <a href="${ctx}/hy/user/list.shtml"><i class="icon icon-xinxi1"></i>站内信</a></li>
-
-                    </ul>
-
-                </div>
+    <!-- 左边菜单分类导航开始 -->
+    <div id="leftbar">
+        <div class="menu" style="border-bottom:none;">
+            <div class="trade" data-flag="open">
+                <span class="icon icon-ren"></span><strong>会员信息</strong><i class="icon fr">&#xe636;</i>
             </div>
 
-        </div>
-        <div class="leftfill"></div>
-        <!-- 左边菜单分类导航结束 -->
+            <div class="left_middle">
+                <ul>
+                    <li>
+                        <i></i>
+                        <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
 
-        <div id="right">
-            <sitemesh:body></sitemesh:body>
+                    <li>
+                    <li>
+                        <i></i>
+                        <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请列表</a>
+                    </li>
+                    <li>
+                        <i></i>
+                        <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a>
+                    </li>
+                    <li>
+                        <i></i>
+                        <a href="${ctx}/cx/message/dail-index.shtml"><i class="icon icon-mima"></i>监管问询</a></li>
+                    <li>
+                        <i></i>
+                        <a href="${ctx}/hy/user/list.shtml"><i class="icon icon-xinxi1"></i>站内信</a></li>
 
-        </div>
-    </div>
-    <%if (membertype == 1 && authtype == 20) {%>
-    <div class="w">
-        <div class="reg-ban">
-            <img src="${ctx}/images/page/duo.png" class="top10">
-        </div>
-    </div>
-    <div class="w">
-        <div id="footer-2014">
-            <div class="copyright">
-                <img src="${ctx}/images/page/56a0a994Nf1b662dc.png">&nbsp;&nbsp;© 2018 meiliangzi.cn 陕ICP备10000586号-2&nbsp;&nbsp;
-            </div>
+                </ul>
 
-            <div class="authentication">
-                <img width="103" height="32" alt="经营性网站备案中心" src="${ctx}/images/page/54b8871eNa9a7067e.png"
-                     class="err-product">
-                <img border="true" width="103" height="32" onclick="CNNIC_change('urlknet')"
-                     oncontextmenu="return false;" name="CNNIC_seal" alt="可信网站"
-                     src="${ctx}/images/page/54b8872dNe37a9860.png" class="err-product">
-                <img width="103" height="32" alt="网络警察" src="${ctx}/images/page/56a89b8fNfbaade9a.jpg"
-                     class="err-product">
-                <img width="103" height="32" src="${ctx}/images/page/54b8875fNad1e0c4c.png" class="err-product">
-                <img width="103" height="32" src="${ctx}/images/page/5698dc03N23f2e3b8.jpg">
-                <img width="103" height="32" src="${ctx}/images/page/5698dc16Nb2ab99df.jpg">
             </div>
         </div>
-    </div>
-    <%}%>
 
-</shiro:hasRole>
-<shiro:lacksRole name="user">
-    <script type="text/javascript">
-        window.location.href = '${ctx}/login.html';
-    </script>
-</shiro:lacksRole>
+    </div>
+    <div class="leftfill"></div>
+    <!-- 左边菜单分类导航结束 -->
+
+    <div id="right">
+        <sitemesh:body></sitemesh:body>
+    </div>
+</div>
+
 </body>
 </html>
