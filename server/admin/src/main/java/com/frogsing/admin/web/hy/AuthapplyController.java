@@ -359,27 +359,4 @@ public class AuthapplyController {
         return "/member/authapply-dail-index";
     }
 
-    /**
-     *  监管问询聊天记录
-     * @param id
-     * @param model
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "dail-list.shtml")
-    public String dailList(@RequestParam(value = "id") String id,
-                           @RequestParam(value = "type",defaultValue = "0") int type, Model model, HttpServletRequest request){
-        model.addAttribute("id",id);
-
-        ILoginUser user = ShiroUtils.getCurrentUser();
-
-        Operator operator = queryService.findOne(Operator.class,user.getId());
-        model.addAttribute("operator",operator);
-
-        if (type == 0)
-            return "/member/authapply-dail-list";
-        else
-            return "/member/authapply-dail-message";
-    }
-
 }
