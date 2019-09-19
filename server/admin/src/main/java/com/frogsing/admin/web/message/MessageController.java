@@ -51,7 +51,8 @@ public class MessageController {
     public String dailList(@RequestParam(value = "id") String id,
                            @RequestParam(value = "type", defaultValue = "0") int type, Model model, HttpServletRequest request) {
         try {
-            model.addAttribute("id", id);
+            Authapply auth = queryService.findOne(Authapply.class,id);
+            model.addAttribute("auth", auth);
 
             ILoginUser user = ShiroUtils.getCurrentUser();
 
@@ -65,6 +66,8 @@ public class MessageController {
                 xSpec.or(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()),
                         SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()),
                         SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
+
+                xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getSmemberid()));
 
                 List<Message> messages = queryService.list(PageSort.Desc(MESSAGECol.cx_message.dsenddatetime),xSpec);
                 model.addAttribute("data",messages);
@@ -97,6 +100,9 @@ public class MessageController {
             ILoginUser user = ShiroUtils.getCurrentUser();
 
             Operator operator = queryService.findOne(Operator.class,user.getId());
+
+            if (B.Y(scontent))
+                return Result.failure("发送内容不能为空");
 
             if (operator == null)
                 return Result.failure("请重新登录");

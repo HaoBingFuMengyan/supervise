@@ -42,7 +42,7 @@
 <div class="jg-list-con">
     <div class="jg-list">
         <div class="jg-list-head"><i class="icon icon-xinxi1"></i>对<span>${param.scnname}</span>发起问询</div>
-        <input type="hidden" id="authapplyid" value="${id}">
+        <input type="hidden" id="authapplyid" value="${auth.id}">
         <div class="jg-list-body" style="padding-bottom: 60px">
             <div class="reword clearfix">
                 <textarea id="content" placeholder="请输入..."></textarea>
