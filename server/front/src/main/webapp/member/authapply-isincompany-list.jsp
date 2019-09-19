@@ -65,6 +65,20 @@
                 }
             });
         }
+
+        //监管问询
+        function dailQuery(id){
+            layer.open({
+                type: 2,
+                title: "信息",
+                area: ['95%', '95%'],
+                content: '${ctx}/cx/message/dail-index.shtml?id=' + id,
+                btn: ['关闭'],
+                cancel: function (index) { //或者使用btn2
+//                    layer.close(index);
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -156,6 +170,9 @@
                                 <a onclick="changeInfo('${obj.id}')" class="btn btn-danger btn-xs"><i
                                         class="fa fa-edit"></i>信息变更</a>
                             </c:if>
+
+                            <a onclick="dailQuery('${obj.id}')" class="btn btn-default btn-xs"><i
+                                    class="fa fa-edit"></i>监管问询</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -7,8 +7,10 @@ import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.web.BaseAction;
 import com.frogsing.heart.web.Msg;
 import com.frogsing.heart.web.login.ILoginUser;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.message.po.Message;
 import com.frogsing.message.service.MessageService;
+import com.frogsing.message.utils.MESSAGE;
 import com.frogsing.message.utils.MESSAGECol;
 import com.frogsing.parameter.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.frogsing.exception.ServiceException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,16 +46,19 @@ public class MessageAction extends BaseAction{
      * @return
      */
     @RequestMapping(value = "dail-index.shtml",method = RequestMethod.GET)
-    public String dailIndex(Model model, HttpServletRequest request) {
+    public String dailIndex(@RequestParam(value = "id") String id, Model model, HttpServletRequest request) {
         try {
-
-            ILoginUser user = ShiroUtils.getCurrentUser();
+            Authapply auth = queryService.findOne(Authapply.class,id);
+            model.addAttribute("auth", auth);
 
             XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
 
             xSpec.fetch("messageDetails");
-            xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,user.getMemberId()));
+            xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getId()));
 
+            xSpec.or(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()),
+                    SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()),
+                    SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
 
             List<Message> messages = queryService.list(PageSort.Desc(MESSAGECol.cx_message.dsenddatetime),xSpec);
 
