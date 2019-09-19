@@ -16,6 +16,28 @@
             width: 100%;
         }
     </style>
+    <script type="text/javascript">
+
+        function receiveMessage(ssenderid,sreceiveid){
+            var scontent = $("#"+ssenderid+"_textarea").val();
+
+            if (scontent == undefined || scontent == "" || scontent == null){
+                top.layer.msg('输入有误，请重新输入',{icon:5});
+                return;
+            }
+
+            $.post("${ctx}/cx/message/send.json",{ssenderid: ssenderid,sreceiveid:sreceiveid,scontent:scontent},function(rs){
+                if (rs.success) {
+                    $("#"+ssenderid+"_textarea").parent().before('<div class="word">'+scontent+'</div>');
+                    $("#"+ssenderid+"_textarea").val("");
+                    top.layer.msg("发送成功!",{icon:1});
+                }
+                else {
+                    top.layer.msg(rs.msg,{icon:5});
+                }
+            });
+        }
+    </script>
 </head>
 <body class="mbody">
 <mw:msg/>
@@ -33,8 +55,8 @@
                     <div class="word">${detail.scontext}</div>
                 </c:forEach>
                 <div class="reword clearfix">
-                    <textarea placeholder="请回复信息..."></textarea>
-                    <button class="layui-btn layui-btn-sm layui-btn-normal">确认回复</button>
+                    <textarea id="${ms.ssenderid}_textarea" placeholder="请回复信息..."></textarea>
+                    <button onclick="receiveMessage('${ms.ssenderid}','${ms.sreceiveid}')" class="layui-btn layui-btn-sm layui-btn-normal">确认回复</button>
                 </div>
             </div>
         </div>

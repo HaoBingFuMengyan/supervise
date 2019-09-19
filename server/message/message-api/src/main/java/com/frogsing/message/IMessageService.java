@@ -1,5 +1,6 @@
 package com.frogsing.message;
 
+import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.User;
@@ -28,15 +29,8 @@ public interface IMessageService {
 	 */
 	int sendMemberSiteMsg(String title, String msg, Member o);
 
-	/**
-	 * 向交易员发送站内信
-	 *
-	 * @param title
-	 * @param msg
-	 * @param o
-	 * @return
-	 */
-	int sendTradeSiteMsg(String title, String msg, User o);
+
+	void sendTradeSiteMsg(String ssenderid, String sreceiveid, String scontent, ILoginUser user);
 
 	Message buildMessage(Authapply authapply, Operator operator,String scontent);
 

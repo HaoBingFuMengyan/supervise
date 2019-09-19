@@ -5,6 +5,7 @@ import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.persistence.XSpec;
+import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.User;
@@ -87,12 +88,12 @@ public class MessageService implements IMessageService {
 		return 1;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.frogsing.service.hy.IMessageService#sendTradeSiteMsg(java.lang.String, java.lang.String, com.frogsing.po.entity.hy.User)
-	 */
 	@Override
-	public int sendTradeSiteMsg(String title, String msg, User o) {
-		return 1;
+	public void sendTradeSiteMsg(String ssenderid, String sreceiveid, String scontent, ILoginUser user) {
+		XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
+
+		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.ssenderid,ssenderid),
+				SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,sreceiveid));
 	}
 
 
