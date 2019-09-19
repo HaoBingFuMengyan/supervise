@@ -67,7 +67,7 @@ public class MessageController {
                         SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()),
                         SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
 
-                xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getSmemberid()));
+                xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getId()));
 
                 List<Message> messages = queryService.list(PageSort.Desc(MESSAGECol.cx_message.dsenddatetime),xSpec);
                 model.addAttribute("data",messages);

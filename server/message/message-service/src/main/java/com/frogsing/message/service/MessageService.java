@@ -127,8 +127,8 @@ public class MessageService implements IMessageService {
 			message.setSsenderid(operator.getId());
 			message.setSsendername(operator.getSrealname());
 			message.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
-			message.setSreceiveid(authapply.getSmemberid());
-			message.setSreceivename(null);
+			message.setSreceiveid(authapply.getId());
+			message.setSreceivename(authapply.getScnname());
 			message.setDsenddatetime(new Date());
 
 			Message obj = this.messageDao.saveAndFlush(message);
@@ -152,7 +152,7 @@ public class MessageService implements IMessageService {
 		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
 			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
 		detail.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
-		detail.setSreceiveid(authapply.getSmemberid());
+		detail.setSreceiveid(authapply.getId());
 		detail.setBisread(Consts.BoolType.NO.val());
 		detail.setIcount(0);
 		detail.setBisdelete(Consts.BoolType.NO.val());
