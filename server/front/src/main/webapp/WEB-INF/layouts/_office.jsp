@@ -127,10 +127,12 @@
                         <li>
                         <li>
                             <i></i>
-                            <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请列表</a></li>
+                            <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请列表</a>
+                        </li>
                         <li>
                             <i></i>
-                            <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a></li>
+                            <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a>
+                        </li>
                         <li>
                             <i></i>
                             <a href="${ctx}/cx/message/dail-index.shtml"><i class="icon icon-mima"></i>监管问询</a></li>

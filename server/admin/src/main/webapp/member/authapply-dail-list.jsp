@@ -17,7 +17,7 @@
 <div class="jg-list-con">
     <c:forEach items="${data}" var="ms">
         <div class="jg-list">
-            <div class="jg-list-head"><i class="icon icon-xinxi1"></i>来自<label>金融办</label>对<span>测试有限公司</span>的问询
+            <div class="jg-list-head"><i class="icon icon-xinxi1"></i><label>${ms.ssendername}</label>对<span>${ms.sreceivename}</span>的问询
             </div>
             <div class="jg-list-body">
                 <c:forEach items="${ms.messageDetails}" var="detail">

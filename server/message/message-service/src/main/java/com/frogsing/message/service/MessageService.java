@@ -101,7 +101,7 @@ public class MessageService implements IMessageService {
 
 		XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
 
-		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,authapply.getSmemberid()));
+		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,authapply.getId()));
 
 		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
 			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()));
