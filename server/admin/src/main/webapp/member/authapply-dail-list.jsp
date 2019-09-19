@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="${ctx}/static/common/css/style.css" type="text/css" />
 </head>
 <body>
-<fieldset class="layui-elem-field layui-field-title">
-    <legend>监管互动</legend>
-</fieldset>
 <div class="jg-list-con">
     <div class="jg-list">
         <div class="jg-list-head"><i class="icon icon-xinxi1"></i>来自<label>金融办</label>对<span>测试有限公司</span>的问询

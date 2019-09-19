@@ -47,8 +47,8 @@
 
     });
     var urls=[
-        ["聊天记录", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=0"],
-        ["回复", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=1"]
+        ["监管互动", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=0"],
+        ["发起问询", "${ctx}/hy/authapply/dail-list.shtml?id=${id}&type=1"]
     ];
 
     function setSrc(i){
