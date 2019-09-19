@@ -1,7 +1,6 @@
 package com.frogsing.message.service;
 
 
-import com.frogsing.heart.utils.T;
 import com.frogsing.member.po.Member;
 import com.frogsing.member.po.User;
 import com.frogsing.message.IMessageService;
@@ -34,10 +33,10 @@ public class MessageService implements IMessageService {
 	@Override
 	public Message lookOne(String id) {
 		Message m=messageDao.findOne(id);
-		if(m!=null&&m.getBisread()==0){
-			m.setBisread(1);
-			messageDao.save(m);
-		}
+//		if(m!=null&&m.getBisread()==0){
+//			m.setBisread(1);
+//			messageDao.save(m);
+//		}
 		return m;
 	}
 
@@ -84,14 +83,14 @@ public class MessageService implements IMessageService {
 	@Override
 	public Message buildMessage(String title, String msg) {
 		Message obj = new Message();
-		obj.setBisdelete(0);
-		obj.setBisread(0);
-		obj.setBissendok(1);
-		obj.setIcount(0);
-		obj.setDsenddatetime(T.now());
-		obj.setScontext(msg);
-		obj.setStitle(title);
-		messageDao.save(obj);
+//		obj.setBisdelete(0);
+//		obj.setBisread(0);
+//		obj.setBissendok(1);
+//		obj.setIcount(0);
+//		obj.setDsenddatetime(T.now());
+//		obj.setScontext(msg);
+//		obj.setStitle(title);
+//		messageDao.save(obj);
 		return obj;
 	}
 

@@ -64,6 +64,11 @@
             <artifactId>project-service</artifactId>
             <version>${version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.frogsing</groupId>
+            <artifactId>message-service</artifactId>
+            <version>${version}</version>
+        </dependency>
         <!-- FROG -->
         <dependency>
             <groupId>com.101tec</groupId>
