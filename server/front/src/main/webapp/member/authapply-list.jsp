@@ -32,7 +32,7 @@
         function applyRegister(id) {
             top.layer.open({
                 type: 2,
-                title: '企业申请入住',
+                title: '企业申请入驻',
                 area: ['95%', '95%'],
                 content: '${ctx}/hy/authapply/applyregister_' + id + '.shtml',
                 btn: ['确认申请', '关闭'],
@@ -143,7 +143,7 @@
 
                             <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
-                                        class="fa fa-edit"></i>申请入住</a>
+                                        class="fa fa-edit"></i>申请入驻</a>
                             </c:if>
                         </td>
                     </tr>
