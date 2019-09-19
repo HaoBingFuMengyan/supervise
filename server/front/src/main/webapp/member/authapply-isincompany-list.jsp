@@ -70,8 +70,8 @@
         function dailQuery(id){
             layer.open({
                 type: 2,
-                title: "信息",
-                area: ['95%', '95%'],
+                title: "监管问询",
+                area: ['65%', '75%'],
                 content: '${ctx}/cx/message/dail-index.shtml?id=' + id,
                 btn: ['关闭'],
                 cancel: function (index) { //或者使用btn2
