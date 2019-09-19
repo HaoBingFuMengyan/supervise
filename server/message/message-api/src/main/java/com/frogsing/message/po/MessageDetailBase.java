@@ -1,5 +1,4 @@
 package com.frogsing.message.po;
-
 //frogsingcode//
 
 
@@ -242,7 +241,7 @@ public class MessageDetailBase  extends  BaseEntity{
 			this.sreplyid =  sreplyid;//回复ID String
 		}
 	
-	//frogsingcode//
+//frogsingcode//
 	
 	
 	

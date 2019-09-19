@@ -16,8 +16,10 @@ public class MessageBase  extends  BaseEntity{
 	
 	private   String ssenderid; //发送人ID String
 	private   Integer isendertype=0; //发送人类型 int
+	private   String ssendername; //发送人名称 String
 	private   String sreceiveid; //接收人ID String
 	private   Integer ireceivetype=0; //接收人类型 int
+	private   String sreceivename; //接收人名称 String
 	private   Date dsenddatetime; //发送时间 Date
 	   /**
 		发送人ID String
@@ -56,6 +58,19 @@ public class MessageBase  extends  BaseEntity{
 			this.isendertype =  isendertype;//发送人类型 int
 		}
 	   /**
+		发送人名称 String
+		*/
+		@Column(name="ssendername",length=50)
+		public String getSsendername() {
+			return  ssendername;//发送人名称 String
+		}
+		/**
+		发送人名称 String
+		*/
+		public void setSsendername(String  ssendername) {
+			this.ssendername =  ssendername;//发送人名称 String
+		}
+	   /**
 		接收人ID String
 		*/
 		@Column(name="sreceiveid",length=32)
@@ -90,6 +105,19 @@ public class MessageBase  extends  BaseEntity{
 		*/
 		public void setIreceivetype(Integer  ireceivetype) {
 			this.ireceivetype =  ireceivetype;//接收人类型 int
+		}
+	   /**
+		接收人名称 String
+		*/
+		@Column(name="sreceivename",length=50)
+		public String getSreceivename() {
+			return  sreceivename;//接收人名称 String
+		}
+		/**
+		接收人名称 String
+		*/
+		public void setSreceivename(String  sreceivename) {
+			this.sreceivename =  sreceivename;//接收人名称 String
 		}
 	   /**
 		发送时间 Date

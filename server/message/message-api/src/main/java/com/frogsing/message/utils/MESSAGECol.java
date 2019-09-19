@@ -78,20 +78,28 @@ public static XSpec<com.frogsing.message.po.Message> xspec() {
             public static final String ssenderid="ssenderid" ;
             /**发送人类型**/
             public static final String isendertype="isendertype" ;
+            /**发送人名称**/
+            public static final String ssendername="ssendername" ;
             /**接收人ID**/
             public static final String sreceiveid="sreceiveid" ;
             /**接收人类型**/
             public static final String ireceivetype="ireceivetype" ;
+            /**接收人名称**/
+            public static final String sreceivename="sreceivename" ;
             /**发送时间**/
             public static final String dsenddatetime="dsenddatetime" ;
             /**发送人ID**/
             public static  Path<String> ssenderid(Root<?> root){return root.get("ssenderid");}
             /**发送人类型**/
             public static  Path<Integer> isendertype(Root<?> root){return root.get("isendertype");}
+            /**发送人名称**/
+            public static  Path<String> ssendername(Root<?> root){return root.get("ssendername");}
             /**接收人ID**/
             public static  Path<String> sreceiveid(Root<?> root){return root.get("sreceiveid");}
             /**接收人类型**/
             public static  Path<Integer> ireceivetype(Root<?> root){return root.get("ireceivetype");}
+            /**接收人名称**/
+            public static  Path<String> sreceivename(Root<?> root){return root.get("sreceivename");}
             /**发送时间**/
             public static  Path<Date> dsenddatetime(Root<?> root){return root.get("dsenddatetime");}
 
