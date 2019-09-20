@@ -71,12 +71,12 @@
                 <img class="icon" src="${ctx}/images/menber-open-black.png">
                 <ul>
                     <li><a href="${ctx}/index.shtml">管理中心</a></li>
-                    <li><a href="${ctx}/user/modify.shtml">账户设置</a></li>
+                    <%--<li><a href="${ctx}/user/modify.shtml">账户设置</a></li>--%>
                     <li><a href="${ctx}/logout.html">退出登入</a></li>
                 </ul>
             </div>
-            <a class="imformations" href="${ctx}/message/list.shtml?search_eq_bisread=0"><i
-                    class="icon icon-xinxi1"></i><label id="countUnRead">(0)</label></a>
+            <%--<a class="imformations" href="${ctx}/message/list.shtml?search_eq_bisread=0"><i--%>
+                    <%--class="icon icon-xinxi1"></i><label id="countUnRead">(0)</label></a>--%>
         </div>
 
         <%--<div class="admin-nav-btn">--%>

@@ -132,9 +132,9 @@
                         <i></i>
                         <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a>
                     </li>
-                    <li>
-                        <i></i>
-                        <a href="${ctx}/hy/user/list.shtml"><i class="icon icon-xinxi1"></i>站内信</a></li>
+                    <%--<li>--%>
+                        <%--<i></i>--%>
+                        <%--<a href="${ctx}/hy/user/list.shtml"><i class="icon icon-xinxi1"></i>站内信</a></li>--%>
 
                 </ul>
 
