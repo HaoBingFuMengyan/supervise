@@ -172,6 +172,21 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User updateSpassword(String id, String spassword, ILoginUser user) {
+        if (B.Y(id))
+            E.S("请先添加用户");
+
+        if (B.Y(spassword))
+            E.S("修改密码不能为空");
+
+        User u = this.userDao.findOne(id);
+
+        u.setSpassword(MD5.encode(spassword));
+
+        return this.userDao.save(u);
+    }
+
+    @Override
     public Member findBySmemberid(String smemberid) {
         return memberService.findByID(smemberid);
     }

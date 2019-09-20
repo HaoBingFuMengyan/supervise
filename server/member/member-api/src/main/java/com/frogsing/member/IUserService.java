@@ -34,6 +34,9 @@ public interface IUserService {
 	User updateSpasswordAndSmobile(String id,String smobile,String spassword);
 
 
+	User updateSpassword(String id, String spassword, ILoginUser user);
+
+
 	Member findBySmemberid(String smemberid);
 
 	List<Member> findUserByMemberName(String sMemberid, String MemberName) throws ServiceException;
