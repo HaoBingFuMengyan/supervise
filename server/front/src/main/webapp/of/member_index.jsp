@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/include/taglib.jsp" %>
-<%@ taglib prefix="project" uri="http://www.frogsing.com/tags/project" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -20,6 +19,37 @@
                 //totalRow:true,
                 limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });
+
+            var bisinit = '${member.bisinit}';
+            if (bisinit == 0) {
+                layer.open({
+                    type: 2,
+                    title: "账号设置",
+                    area: ['70%', '70%'],
+                    content: '${ctx}/user/set.shtml',
+                    btn: ['确定'],
+                    yes: function (index, layero) {
+                        var iframeWin = layero.find('iframe')[0];
+                        var $ = iframeWin.contentWindow.$;
+                        var doc = $(iframeWin.contentWindow.document);
+
+                        if (iframeWin.contentWindow.valiForm()) {
+                            $.post("${ctx}/user/set.json", doc.find('#formx').serialize(), function (rs) {
+                                if (rs.success) {
+
+                                    top.layer.msg("操作成功，请重新登录!", {icon: 1});
+                                }
+                                else {
+                                    top.layer.msg(rs.msg, {icon: 5});
+                                }
+                            });
+                        }
+                    }
+                    , cancel: function () {
+                        return false;
+                    }
+                });
+            }
         });
 
 
@@ -46,7 +76,7 @@
                                     top.layer.msg("操作成功!", {icon: 1});
                                 }
                                 else {
-                                    top.layer.msg(rs.msg,{icon: 5});
+                                    top.layer.msg(rs.msg, {icon: 5});
                                 }
                             });
                         }
@@ -81,30 +111,6 @@
                 <a onclick="formOpen('${ctx}/hy/member/authapply.shtml?icorbiztype=30')" href="#">立即申请</a>
             </div>
         </div>
-    </div>
-</div>
-<div class="hy-mask">
-    <div class="mask-box">
-        <fieldset class="layui-elem-field layui-field-title">
-            <legend>请修改并完善您的信息</legend>
-        </fieldset>
-        <form id= action="" method="post">
-            <div class="sqcon top30 clearfix">
-                <div class="input_group input_group_lg bottom20 left100">
-                    <label>手机号：</label><input type="password" name="oldpassword" id="" class="form_control" required placeholder="请输入您的手机号码" />
-                </div>
-                <div class="input_group input_group_lg bottom20 left100">
-                    <label>原密码：</label><input type="password" name="oldpassword" id="oldpassword" class="form_control" required placeholder="请输入您的原密码" />
-                </div>
-                <div class="input_group input_group_lg bottom20 left100">
-                    <label>新密码：</label><input type="password" name="newpassword" id="newpassword1" minlength="6" maxlength="20" class="form_control" required placeholder="密码由6-20字母、字符或数字组成" />
-                </div>
-                <div class="input_group input_group_lg bottom20 left100">
-                    <label>确认新密码：</label><input type="password" name="newpassword2" minlength="6" maxlength="20" class="form_control" required equalTo="#newpassword1" placeholder="请再次输入您的新密码" /><!-- equalTo="newpassword" -->
-                </div>
-                <button class="layui-btn layui-btn-sm layui-btn-normal" style="float: right;margin-right: 10px">确定</button>
-            </div>
-        </form>
     </div>
 </div>
 </body>

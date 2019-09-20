@@ -66,6 +66,14 @@ public class UserAction extends BaseAction {
     @Autowired
     private QueryService queryService;
 
+
+    @RequestMapping(value = "/user/set.shtml")
+    public String userSet(Model model,HttpServletRequest request){
+        model.addAttribute("data",ShiroUtils.getCurrentUser());
+
+        return "member/user-set";
+    }
+
     @RequestMapping(value = "register.html", method = RequestMethod.GET)
     public String pageRegister(Model model, HttpServletRequest request) {
 
