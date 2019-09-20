@@ -89,7 +89,7 @@
 						<div class="errorBox" ><i class="icon icon_error"></i><span class="errorMsg" style="color:red;position:absolute;margin-top:-20px;">${errormsg}</span></div>
 						<div class="errorBox" style="display: none;"><i class="icon icon_error"></i><span class="errorMsg" style="color:red;position:absolute;margin-top:-20px;"></span></div>
 						<div class="input_box">
-							<input type="text" id="username" name="username" maxlength="11" value="" class="inputs username" placeholder="请输入11位手机号">
+							<input type="text" id="username" name="username" value="" class="inputs username" placeholder="请输入用户名">
 							<i class="icon icon-yuangongxinxi"></i>
 						</div>
 						<div class="input_box">
