@@ -37,11 +37,13 @@
             device = layui.device();
             form = layui.form;
             form.verify({
-//                required: function (value) {
-//                    if (pub.isnull(value)) {
-//                        return '这是必填项';
-//                    }
-//                }
+                equalto: function (value) {
+                    //获取密码
+                    var pwd = $("#spassword").val();
+                    if(!new RegExp(pwd).test(value)) {
+                        return '两次输入的密码不一致';
+                    }
+                }
             });
             var layupload = layui.upload;
         });
@@ -111,7 +113,7 @@
                     <div class="layui-form-item layui-form-text top15">
                         <label class="layui-form-label">原始密码<em class="red">*</em></label>
                         <div class="layui-input-block">
-                            <input type="text" name="oldpassword" id="oldpassword" value="" class="layui-input"
+                            <input type="password" name="oldpassword" id="oldpassword" value="" class="layui-input"
                                    lay-verify="required" style="width: 98.6%;"
                                    placeholder="(必填项)" autocomplete="off">
                         </div>
@@ -120,7 +122,7 @@
                     <div class="layui-form-item layui-form-text top15">
                         <label class="layui-form-label">新密码<em class="red">*</em></label>
                         <div class="layui-input-block">
-                            <input type="text" name="spassword" id="spassword" value="" class="layui-input"
+                            <input type="password" name="spassword" id="spassword" value="" class="layui-input"
                                    lay-verify="required" style="width: 98.6%;"
                                    placeholder="(必填项)" autocomplete="off">
                         </div>
@@ -129,7 +131,7 @@
                     <div class="layui-form-item layui-form-text top15">
                         <label class="layui-form-label">确认密码<em class="red">*</em></label>
                         <div class="layui-input-block">
-                            <input type="text" id="spassword1" value="" class="layui-input" lay-verify="required"
+                            <input type="password" id="spassword1" value="" class="layui-input" lay-verify="required|equalto"
                                    style="width: 98.6%;"
                                    placeholder="(必填项)" autocomplete="off">
                         </div>
