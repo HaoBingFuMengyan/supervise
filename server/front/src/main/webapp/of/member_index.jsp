@@ -24,8 +24,8 @@
             if (bisinit == 0) {
                 layer.open({
                     type: 2,
-                    title: "账号设置",
-                    area: ['70%', '70%'],
+                    title: "请先修改并完善信息",
+                    area: ['50%', '60%'],
                     content: '${ctx}/user/set.shtml',
                     btn: ['确定'],
                     yes: function (index, layero) {
