@@ -88,12 +88,12 @@ public class UserAction extends BaseAction {
                              @RequestParam(value = "spassword") String spassword, Model model,HttpServletRequest request){
         try {
             if (B.Y(id))
-                return Result.failure("用户异常，请联系管理员");
+                return Result.failure("请先添加用户");
 
             User user = this.userService.findOne(id);
 
             if (user == null)
-                return Result.failure("用户异常，请联系管理员");
+                return Result.failure("请先添加用户");
 
             if (B.Y(smobile))
                 return Result.failure("手机号不能为空");
