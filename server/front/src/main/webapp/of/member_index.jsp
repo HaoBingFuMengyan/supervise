@@ -37,7 +37,9 @@
                             $.post("${ctx}/user/set.json", doc.find('#formx').serialize(), function (rs) {
                                 if (rs.success) {
 
+                                    layer.close(index);
                                     top.layer.msg("操作成功，请重新登录!", {icon: 1});
+
                                 }
                                 else {
                                     top.layer.msg(rs.msg, {icon: 5});

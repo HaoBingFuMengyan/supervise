@@ -31,7 +31,7 @@ public interface IUserService {
 	User modifyUser(User obj,ILoginUser user);
 
 
-	User updateSpassword(String id,String spassword,ILoginUser user);
+	User updateSpasswordAndSmobile(String id,String smobile,String spassword);
 
 
 	Member findBySmemberid(String smemberid);

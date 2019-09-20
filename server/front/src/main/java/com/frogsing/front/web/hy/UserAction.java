@@ -2,7 +2,6 @@ package com.frogsing.front.web.hy;
 
 import com.frogsing.common.utils.MobileCodeUtils;
 import com.frogsing.heart.consts.Consts;
-import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
 import com.frogsing.heart.ext.ExtResult;
 import com.frogsing.heart.jpa.JJResult;
@@ -15,8 +14,6 @@ import com.frogsing.heart.web.BaseAction;
 import com.frogsing.heart.web.Msg;
 import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.login.ILoginUser;
-import com.frogsing.member.IMemberService;
-import com.frogsing.member.IUserService;
 import com.frogsing.member.po.Actor;
 import com.frogsing.member.po.User;
 import com.frogsing.member.service.MemberService;
@@ -72,6 +69,52 @@ public class UserAction extends BaseAction {
         model.addAttribute("data",ShiroUtils.getCurrentUser());
 
         return "member/user-set";
+    }
+
+    /**
+     * 初始账号密码修改
+     * @param id
+     * @param smobile
+     * @param oldpassword   原始密码
+     * @param spassword 新密码
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/user/set.shtml")
+    public Result modifyUser(@RequestParam(value = "id") String id,
+                             @RequestParam(value = "smobile") String smobile,
+                             @RequestParam(value = "oldpassword") String oldpassword,
+                             @RequestParam(value = "spassword") String spassword, Model model,HttpServletRequest request){
+        try {
+            if (B.Y(id))
+                return Result.failure("用户异常，请联系管理员");
+
+            User user = this.userService.findOne(id);
+
+            if (user == null)
+                return Result.failure("用户异常，请联系管理员");
+
+            if (B.Y(smobile))
+                return Result.failure("手机号不能为空");
+            if (B.Y(oldpassword))
+                return Result.failure("原始密码不能为空");
+            if (B.Y(spassword))
+                return Result.failure("新密码不能为空");
+
+            if (!user.getSpassword().equals(MD5.encode(oldpassword)))
+                return Result.failure("原始密码不正确，请修改");
+
+            this.userService.updateSpasswordAndSmobile(id,smobile,spassword);
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
     }
 
     @RequestMapping(value = "register.html", method = RequestMethod.GET)
