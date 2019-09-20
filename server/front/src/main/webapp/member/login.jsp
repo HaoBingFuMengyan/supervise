@@ -107,7 +107,7 @@
 						<input type="button" class="btns" onclick="return doSubmit();" id="btn_login" value="登  录">
 					</form>
 					<div class="link">
-						<a href="${ctx}/hy/user/forgetpwdindex.html" class="le">忘记密码？</a>
+						<%--<a href="${ctx}/hy/user/forgetpwdindex.html" class="le">忘记密码？</a>--%>
 						<%--<a href="${ctx}/register.html" class="rg">免费注册</a>--%>
 					</div>
 					<div class="center"></div>
