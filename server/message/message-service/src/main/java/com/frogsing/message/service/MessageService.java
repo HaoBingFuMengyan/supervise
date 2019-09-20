@@ -3,6 +3,7 @@ package com.frogsing.message.service;
 
 import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
+import com.frogsing.heart.exception.E;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.persistence.XSpec;
 import com.frogsing.heart.web.login.ILoginUser;
@@ -94,6 +95,36 @@ public class MessageService implements IMessageService {
 
 		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.ssenderid,ssenderid),
 				SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,sreceiveid));
+
+		Message message = queryService.fetchOne(xSpec);
+
+		if (message == null)
+			E.S("暂无需要回复的记录");
+
+		MessageDetail detail = new MessageDetail();
+
+		Operator operator = queryService.findOne(Operator.class,ssenderid);
+
+		detail.setSsenderid(sreceiveid);
+		detail.setIsendertype(MESSAGE.OperatorOrAdmin.MEMBER.val());
+
+		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
+			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.JDBSC.val());
+		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
+			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.GSSPK.val());
+		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
+			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+		detail.setSreceiveid(operator.getId());
+		detail.setBisread(Consts.BoolType.NO.val());
+		detail.setIcount(0);
+		detail.setBisdelete(Consts.BoolType.NO.val());
+		detail.setBissendok(Consts.BoolType.YES.val());
+		detail.setStitle("");
+		detail.setScontext(scontent);
+		detail.setDsenddatetime(new Date());
+		detail.setSmessageid(message.getId());
+
+		this.messageDetailDao.save(detail);
 	}
 
 
