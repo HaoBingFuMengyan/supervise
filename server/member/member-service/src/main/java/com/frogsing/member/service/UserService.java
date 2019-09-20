@@ -161,8 +161,14 @@ public class UserService implements IUserService {
 
         u.setSpassword(MD5.encode(spassword));
         u.setSmobile(smobile);
+        this.userDao.save(u);
 
-        return this.userDao.save(u);
+        Member member = memberDao.findOne(u.getSmemberid());
+
+        member.setBisinit(BoolType.YES.val());
+
+        memberDao.save(member);
+        return u;
     }
 
     @Override
