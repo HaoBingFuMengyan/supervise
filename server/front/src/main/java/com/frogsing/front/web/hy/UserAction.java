@@ -81,7 +81,8 @@ public class UserAction extends BaseAction {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/user/set.shtml")
+    @RequestMapping(value = "/user/set.json")
+    @ResponseBody
     public Result modifyUser(@RequestParam(value = "id") String id,
                              @RequestParam(value = "smobile") String smobile,
                              @RequestParam(value = "oldpassword") String oldpassword,
