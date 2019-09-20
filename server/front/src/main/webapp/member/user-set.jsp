@@ -94,22 +94,29 @@
 </head>
 <body>
 <div class="mbody">
+    <c:if test="${param.type ne 1}">
     <form id="formx" class="layui-form" action="${ctx}/user/set.json" method="post"
           enctype="multipart/form-data" autocomplete="on">
-        <input type="hidden" name="id" value="${data.id}"/>
+    </c:if>
+    <c:if test="${param.type eq 1}">
+    <form id="formx" class="layui-form" action="${ctx}/user/modifyspassword.json" method="post"
+          enctype="multipart/form-data" autocomplete="on">
+    </c:if>
+            <input type="hidden" name="id" value="${data.id}"/>
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
 
-                    <div class="layui-form-item layui-form-text top15">
-                        <label class="layui-form-label">手机号<em class="red">*</em></label>
-                        <div class="layui-input-block">
-                            <input type="text" name="smobile" id="smobile" class="layui-input" lay-verify="required"
-                                   style="width: 98.6%;"
-                                   placeholder="(必填项)" autocomplete="off">
+                    <c:if test="${param.type ne 1}">
+                        <div class="layui-form-item layui-form-text top15">
+                            <label class="layui-form-label">手机号<em class="red">*</em></label>
+                            <div class="layui-input-block">
+                                <input type="text" name="smobile" id="smobile" class="layui-input" lay-verify="required"
+                                       style="width: 98.6%;"
+                                       placeholder="(必填项)" autocomplete="off">
+                            </div>
                         </div>
-                    </div>
-
+                    </c:if>
                     <div class="layui-form-item layui-form-text top15">
                         <label class="layui-form-label">原始密码<em class="red">*</em></label>
                         <div class="layui-input-block">

@@ -51,6 +51,38 @@
             }
         })
     })
+
+    function modifySpassword(){
+        layer.open({
+            type: 2,
+            title: "账号密码修改",
+            area: ['50%', '60%'],
+            content: '${ctx}/user/set.shtml?type=1',
+            btn: ['确定','关闭'],
+            yes: function (index, layero) {
+                var iframeWin = layero.find('iframe')[0];
+                var $ = iframeWin.contentWindow.$;
+                var doc = $(iframeWin.contentWindow.document);
+
+                if (iframeWin.contentWindow.valiForm()) {
+                    $.post("${ctx}/user/modifyspassword.json", doc.find('#formx').serialize(), function (rs) {
+                        if (rs.success) {
+
+                            layer.close(index);
+                            top.layer.msg("操作成功，请重新登录!", {icon: 1});
+
+                        }
+                        else {
+                            top.layer.msg(rs.msg, {icon: 5});
+                        }
+                    });
+                }
+            }
+            , cancel: function () {
+
+            }
+        });
+    }
 </script>
 <div class="header">
     <div class="topbar">
@@ -72,6 +104,7 @@
                 <ul>
                     <li><a href="${ctx}/index.shtml">管理中心</a></li>
                     <%--<li><a href="${ctx}/user/modify.shtml">账户设置</a></li>--%>
+                    <li><a onclick="modifySpassword()">修改密码</a></li>
                     <li><a href="${ctx}/logout.html">退出登入</a></li>
                 </ul>
             </div>

@@ -26,7 +26,7 @@
                     type: 2,
                     title: "请先修改并完善信息",
                     area: ['50%', '60%'],
-                    content: '${ctx}/user/set.shtml',
+                    content: '${ctx}/user/set.shtml?type=0',
                     btn: ['确定'],
                     yes: function (index, layero) {
                         var iframeWin = layero.find('iframe')[0];

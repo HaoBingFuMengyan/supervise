@@ -118,6 +118,50 @@ public class UserAction extends BaseAction {
         }
     }
 
+
+    /**
+     * 修改登录密码
+     * @param id
+     * @param oldpassword
+     * @param spassword
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/user/modifyspassword.json")
+    @ResponseBody
+    public Result modifySpassword(@RequestParam(value = "id") String id,
+                             @RequestParam(value = "oldpassword") String oldpassword,
+                             @RequestParam(value = "spassword") String spassword, Model model,HttpServletRequest request){
+        try {
+            if (B.Y(id))
+                return Result.failure("请先添加用户");
+
+            User user = this.userService.findOne(id);
+
+            if (user == null)
+                return Result.failure("请先添加用户");
+
+            if (B.Y(oldpassword))
+                return Result.failure("原始密码不能为空");
+            if (B.Y(spassword))
+                return Result.failure("新密码不能为空");
+
+            if (!user.getSpassword().equals(MD5.encode(oldpassword)))
+                return Result.failure("原始密码不正确，请修改");
+
+            this.userService.updateSpassword(id,spassword,ShiroUtils.getCurrentUser());
+
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
+
     @RequestMapping(value = "register.html", method = RequestMethod.GET)
     public String pageRegister(Model model, HttpServletRequest request) {
 
