@@ -256,7 +256,7 @@
                     <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
                     <th class="sort-column">变更状态</th>
-                    <th class="sort-column">是否入驻企业</th>
+                    <th class="sort-column">入驻审核</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -282,7 +282,20 @@
                             <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
                         </td>
                         <td>
-                            <consts:BoolType op="label" val="${obj.bisincompany}"/>
+                            <c:choose>
+                                <c:when test="${obj.iprocess == null || obj.iprocess eq 0}">
+                                    未申请
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 10}">
+                                    审核中
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 30}">
+                                    审核通过
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 40}">
+                                    审核拒绝
+                                </c:when>
+                            </c:choose>
                         </td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
