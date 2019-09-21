@@ -95,10 +95,85 @@
 <body>
 <div class="mbody">
     <mw:msg/>
-    <form class="layui-form" action="" method="post" id="formx"
-          onkeydown="if(event.keyCode==13) return false;"
-          enctype="multipart/form-data" autocomplete="on">
-
+    <form class="layui-form" action="" method="post" id="formx" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data" autocomplete="on">
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">业务类型<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <select name="bisjob" class="layui-input" lay-verify="required">
+                        <option value>请选择</option>
+                        <option value="1">基金管理人</option>
+                        <option value="0">创投基金</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">企业名称<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sname" placeholder="(必填项)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">社会信用代码<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" data-id="regamount" name="famount" placeholder="(必填项统一社会信用代码)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+        </div>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>法定代表人/执行事务合伙人</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">姓名<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sname" placeholder="(必填项)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">证件类型<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型"
+                                           option="class='layui-input' lay-verify='required'"/>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">证件号<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" name="scardno" placeholder="(必填项最大只能18位)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+        </div>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>实际控制人</legend>
+        </fieldset>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">姓名<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" name="sname" placeholder="(必填项)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">证件类型<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型"
+                                           option="class='layui-input' lay-verify='required'"/>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <label class="layui-form-label">证件号<em class="red">*</em></label>
+                <div class="layui-input-inline">
+                    <input type="text" name="scardno" placeholder="(必填项最大只能18位)"
+                           class="layui-input" lay-verify="required" autocomplete="off"/>
+                </div>
+            </div>
+        </div>
     </form>
 
 </div>
