@@ -100,7 +100,7 @@ public class MemberAction extends BaseAction {
      * @return
      */
     @RequestMapping(value = "authapply.shtml",method = RequestMethod.GET)
-    public String authApply(@RequestParam(defaultValue = "10") int icorbiztype, Model model, ServletRequest request) {
+    public String authApply(@RequestParam(value = "icorbiztype",defaultValue = "10") int icorbiztype, Model model, ServletRequest request) {
     	LoginUser user = ShiroUtils.getCurrentUser();
         try {
             Member member = queryService.fetchOne(Member.class,user.getMemberId());
