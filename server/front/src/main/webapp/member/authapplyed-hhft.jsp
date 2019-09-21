@@ -17,7 +17,7 @@
     <link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="${ctx}/css/layui-extend.css">
     <link rel="stylesheet" href="${ctxStatic}/css/common.css">
-    <title>有限责任公司拟备案为私募基金管理人</title>
+    <title>有限合伙企业拟备案为创投风投基金</title>
     <style>
         .layui-form-item{
             position: relative;
@@ -175,7 +175,7 @@
             });
 
         });
-        
+
 
     </script>
 </head>
@@ -283,7 +283,7 @@
                         </div>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
-                         <legend>填写自然人股东信息<button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
+                        <legend>填写自然人股东信息<button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
@@ -360,7 +360,7 @@
                     </div>
 
                     <fieldset id="control" class="layui-elem-field layui-field-title">
-                         <legend>填写实际控制人信息</legend>
+                        <legend>填写实际控制人信息</legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">

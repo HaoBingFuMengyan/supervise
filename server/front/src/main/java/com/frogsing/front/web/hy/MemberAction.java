@@ -12,6 +12,7 @@ import com.frogsing.member.po.Member;
 import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.service.MemberService;
 import com.frogsing.member.service.UserService;
+import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBER.MemberType;
 import com.frogsing.member.vo.LoginUser;
 import com.frogsing.member.vo.MemVo;
@@ -99,19 +100,26 @@ public class MemberAction extends BaseAction {
      * @return
      */
     @RequestMapping(value = "authapply.shtml",method = RequestMethod.GET)
-    public String authApply(@RequestParam(defaultValue = "0") int type, Model model, ServletRequest request) {
+    public String authApply(@RequestParam(defaultValue = "10") int icorbiztype, Model model, ServletRequest request) {
     	LoginUser user = ShiroUtils.getCurrentUser();
         try {
             Member member = queryService.fetchOne(Member.class,user.getMemberId());
 
             model.addAttribute("member",member);
 
+            model.addAttribute("icorbiztype",icorbiztype);
+
         } catch (Exception e) {
             Msg.error(model, "系统异常，请联系管理员");
             e.printStackTrace();
         }
 
-        return "member/authapplyed";
+        if (MEMBER.CompanyBizType.ZRJJ.isEq(icorbiztype))
+            return "member/authapplyed";
+        else if (MEMBER.CompanyBizType.HHJJ.isEq(icorbiztype))
+            return "member/authapplyed-hhjj";
+        else
+            return "member/authapplyed-hhft";
     }
 
     /**
