@@ -57,13 +57,16 @@ public class AuthapplyController {
                        ServletRequest request){
         ILoginUser user = ShiroUtils.getCurrentUser();
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
-        if (!user.IsAdmin())
+
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+        if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
             searchParams.put("search_eq_sadduser",user.getId());
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 
         Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
         model.addAttribute("list",list);
+        model.addAttribute("operator",operator);
 
         return "/member/authapply-list";
     }
@@ -358,6 +361,21 @@ public class AuthapplyController {
         model.addAttribute("data",queryService.findOne(Authapply.class,id));
 
         return "/member/authapply-dail-index";
+    }
+
+    /**
+     * 风险检测报告
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "risk.shtml")
+    public String authapplyRisk(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
+
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
+
+        return "/member/authapply-risk";
     }
 
 
