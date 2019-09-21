@@ -197,97 +197,27 @@
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
-                    </div>
-                    <fieldset class="layui-elem-field layui-field-title">
-                        <legend>填写执行董事信息</legend>
-                    </fieldset>
-                    <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" id="slegalperson" name="slegalperson" placeholder="(必填项)"
-                                       class="layui-input" lay-verify="required" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">证件类型<em class="red">*</em></label>
+                            <label class="layui-form-label">入驻方式<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <member:MemberCardType op="select" name="ilegaltype" defname="请选择证件类型"
                                                        option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
+                            <label class="layui-form-label">迁入企业名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="slegalpersoncode" id="slegalpersoncode" placeholder="(必填项最大只能18位)"
+                                <input type="text" id="" name="" placeholder="(必填项)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">兼职情况<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <select name="bisjoblegal" class="layui-input" lay-verify="required">
-                                    <option value>请先择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                </select>
                             </div>
                         </div>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
-                        <legend>填写公司经理信息</legend>
+                        <legend>填写一般合伙人信息<button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" id="smanagername" name="smanagername" placeholder="(必填项)"
-                                       class="layui-input" lay-verify="required" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">证件类型<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <member:MemberCardType op="select" name="imanagertype" defname="请选择证件类型"
-                                                       option="class='layui-input' lay-verify='required'"/>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="smanagerno" id="smanagerno" placeholder="(必填项最大只能18位)"
-                                       class="layui-input" lay-verify="required" autocomplete="off"/>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">兼职情况<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <select name="bisjobmanager">
-                                    <option value>请先择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <fieldset class="layui-elem-field layui-field-title">
-                        <legend>选择法定代表人</legend>
-                    </fieldset>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">法定代表人<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <member:CorporateType op="select" name="icorporatetype" defname="请选择法人代表"
-                                                      option="class='layui-input' lay-verify='required'"/>
-                            </div>
-                        </div>
-                    </div>
-                    <fieldset class="layui-elem-field layui-field-title">
-                        <legend>填写自然人股东信息<button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
-                    </fieldset>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="sname" placeholder="(必填项)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
@@ -314,23 +244,13 @@
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">兼职情况<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <select name="bisjob" class="layui-input" lay-verify="required">
-                                    <option value>请选择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
                     <fieldset id="company" class="layui-elem-field layui-field-title">
-                        <legend>填写机构股东信息<button type="button" id="addbtn1" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
+                        <legend>填写机构普通合伙人信息<button type="button" id="addbtn1" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">合伙人名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="scompanyname" placeholder="(必填项)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
@@ -358,49 +278,71 @@
                             </div>
                         </div>
                     </div>
-
                     <fieldset id="control" class="layui-elem-field layui-field-title">
-                        <legend>填写实际控制人信息</legend>
+                        <legend>填写自然人普通合伙人信息</legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">合伙人姓名<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="sconname" placeholder="(必填项)"
+                                <input type="text" name="sname" placeholder="(必填项)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">证件类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <member:CardType op="select" name="iconcardtype" defname="请选择证件类型"
-                                                 option="class='layui-input' lay-verify='required'"/>
+                                <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型"
+                                                       option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">社会信用代码<em class="red">*</em></label>
+                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="ssocialcreditno" placeholder="(必填项统一社会信用代码)"
+                                <input type="text" name="scardno" placeholder="(必填项最大只能18位)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">公司类型<em class="red">*</em></label>
+                            <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <member:ComType op="select" name="iconpanytype" defname="请选择类型"
-                                                option="class='layui-input' lay-verify='required'"/>
+                                <select name="bisjob" class="layui-input" lay-verify="required">
+                                    <option value>请选择</option>
+                                    <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">出资额<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <input type="text" data-id="regamount" name="famount" placeholder="(必填项只能正整数)"
+                                       class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                     </div>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>选择执行事务合伙人</legend>
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">备注</label>
-                            <div class="layui-input-inline" style="width: 100%">
-                                <h3 style="font-size: 13px;padding: 0 86px;color: #666;line-height: 1.8;">
-                                    实际控制人是指控股股东（或派出董事最多的股东、互相之间签有一致行动协议的股东）或能够实际支配企业行为的自然人、法人或其他组织。认定实际控制人应一直追溯到最后的自然人、国资控股企业或集体企业、上市公司、受国外金融监管部门监管的境外机构。可以为共同实际控制。
-                                    在符合上述要求的前提下，实际控制人可按照下列情形进行认定：</br>1）持股50%以上的；</br>2）通过行使表决权能够决定董事会半数以上成员当选的；</br>
-                                    3）通过投资关系、协议或者其他安排能够实际支配公司行为且表决权持股超过50%的；</br>4）合伙企业的执行事务合伙人；</br>
-                                    5）在无法满足前述认定标准时，可以填报“第一大股东”</h3>
+
+                            <label class="layui-form-label">执行事务合伙人<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:CorporateType op="select" name="icorporatetype" defname="请选择执行事务合伙人"
+                                                      option="class='layui-input' lay-verify='required'"/>
+                            </div>
+                        </div>
+                    </div>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend>选择基金管理jdj人</legend>
+                    </fieldset>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">基金管理人<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:CorporateType op="select" name="icorporatetype" defname="请选择基金管理人"
+                                                      option="class='layui-input' lay-verify='required'"/>
                             </div>
                         </div>
                     </div>
