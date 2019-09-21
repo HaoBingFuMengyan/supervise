@@ -1934,6 +1934,12 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
+ 			<name>new</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
  			<name>qian</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 

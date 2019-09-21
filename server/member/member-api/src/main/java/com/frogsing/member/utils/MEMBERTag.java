@@ -492,6 +492,9 @@ public  class MEMBERTag{
 		public IConst GetConst(int val) {
 			return com.frogsing.member.utils.MEMBER.AuthapplySource.get(val);
 		}
+		public void setNew(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.AuthapplySource.NEW,val);
+		}
 		public void setQian(int val) {
 			setCurrentconst(com.frogsing.member.utils.MEMBER.AuthapplySource.QIAN,val);
 		}

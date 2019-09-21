@@ -146,7 +146,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	   /**
 		来源 int
 	    AuthapplySource:
-	    10:NEW新设
+	    10:NEW:新设
 20:QIAN:迁入
  
 		*/
@@ -157,7 +157,7 @@ public class AuthapplyBase  extends  BaseEntity{
 		/**
 		来源 int
 	    AuthapplySource:
-	    10:NEW新设
+	    10:NEW:新设
 20:QIAN:迁入
  
 		*/

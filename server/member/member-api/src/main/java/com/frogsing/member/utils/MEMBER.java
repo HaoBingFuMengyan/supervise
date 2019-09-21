@@ -1549,10 +1549,13 @@ public static enum Process implements  IConst{
 	
 }
 public static enum AuthapplySource implements  IConst{
+	NEW(10,"新设"),
 	QIAN(20,"迁入");
 	public  static AuthapplySource get(int i){
     	 switch(i)
     	 {
+    	 case 10:
+    		return AuthapplySource.NEW;
     	 case 20:
     		return AuthapplySource.QIAN;
     	 }
