@@ -360,4 +360,28 @@ public class AuthapplyController {
         return "/member/authapply-dail-index";
     }
 
+
+    /**
+     * 风险排查
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "riskcheck.shtml")
+    @RequiresPermissions("riskcheck:query")
+    public String riskCheck(Model model,HttpServletRequest request){
+        return "/member/authapply-riskcheck";
+    }
+
+    /**
+     * 风险排查新增
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "riskcheck-add.shtml")
+    @RequiresPermissions("riskcheck:add")
+    public String riskAdd(Model model,HttpServletRequest request){
+        return "/member/authapply-riskcheck-add";
+    }
 }

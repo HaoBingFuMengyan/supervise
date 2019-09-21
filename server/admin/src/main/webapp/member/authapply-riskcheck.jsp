@@ -19,15 +19,17 @@
             });
         }
 
-        //监管问询
-        function dailQuery(id){
+        function riskcheckAdd(){
             top.layer.open({
                 type: 2,
-                title:"监管问询",
+                title:"新增",
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/dail-index.shtml?id='+id,
-                btn: ['关闭'],
-                cancel: function(index){ //或者使用btn2
+                content: '${ctx}/hy/authapply/riskcheck-add.shtml',
+                btn: ['确定','关闭'],
+                yes:function(index,layero){
+
+                }
+                ,cancel: function(index){ //或者使用btn2
 //                    layer.close(index);
                 }
             });
@@ -39,14 +41,14 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>企业信息变更列表</h5>
+            <h5>风险排查</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
             <!-- 查询条件 -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form:form id="searchForm" action="${ctx}/hy/authapply/changeinfo.shtml?type=${type}" method="post" class="form-inline">
+                    <form:form id="searchForm" action="${ctx}/hy/authapply/riskcheck.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
                             <span>公司名称：</span>
@@ -65,6 +67,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
+                        <shiro:hasPermission name="riskcheck:add">
+                            <a onclick="riskcheckAdd()" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
+                        </shiro:hasPermission>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
@@ -87,33 +92,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list.content}" var="obj">
-                    <tr>
-                        <td>${obj.scnname}</td>
-                        <td>
-                            <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
-                        </td>
-                        <td>
-                            ${obj.sregaddress}
-                        </td>
-                        <td>
-                            <member:CheckStatus op="label" val="${obj.istatus}"/>
-                        </td>
-                        <td>
-                            <mw:format label="datetime" value="${obj.dapplydate}"/>
-                        </td>
-                        <td>
-                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
-                        </td>
-                        <td>
-                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
-                            <c:if test="${type eq 1}">
-                                <a onclick="dailQuery('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管问询</a>
-                            </c:if>
-                        </td>
-                    </tr>
-                </c:forEach>
                 </tbody>
             </table>
             <br/>
