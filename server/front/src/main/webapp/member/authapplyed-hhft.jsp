@@ -335,7 +335,7 @@
                         </div>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
-                        <legend>选择基金管理jdj人</legend>
+                        <legend>选择基金管理人</legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
