@@ -26,17 +26,19 @@
                         </div>
                     </div>
                     <div class="layui-inline">
-                        <label class="layui-form-label">状态：</label>
+                        <label class="layui-form-label">入驻方式：</label>
                         <div class="layui-input-inline">
-                            <member:CheckStatus op="label" val="${data.istatus}"/>
+                            <member:AuthapplySource op="label" val="${data.iauthapplysource}"/>
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">变更状态：</label>
-                        <div class="layui-input-inline">
-                            <member:ApprovalStatus op="label" val="${data.iapprovalstatus}"/>
+                    <c:if test="${data.iauthapplysource eq 20}">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">企业名称：</label>
+                            <div class="layui-input-inline">
+                                ${data.scnname}
+                            </div>
                         </div>
-                    </div>
+                    </c:if>
                 </div>
 
                 <div class="layui-form-item">
@@ -120,14 +122,18 @@
                             <member:CorporateType op="label" val="${data.icorporatetype}"/>
                         </div>
                     </div>
-                    <c:if test="${data.istatus eq 1}">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">注册地址：</label>
-                            <div class="layui-input-inline">
-                                    ${data.sregaddress}
-                            </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">状态：</label>
+                        <div class="layui-input-inline">
+                            <member:CheckStatus op="label" val="${data.istatus}"/>
                         </div>
-                    </c:if>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">变更状态：</label>
+                        <div class="layui-input-inline">
+                            <member:ApprovalStatus op="label" val="${data.iapprovalstatus}"/>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="layui-form-item">
@@ -137,6 +143,14 @@
                             <mw:format label="datetime" value="${data.dapplydate}"/>
                         </div>
                     </div>
+                    <c:if test="${data.istatus eq 1}">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">注册地址：</label>
+                            <div class="layui-input-inline">
+                                    ${data.sregaddress}
+                            </div>
+                        </div>
+                    </c:if>
                 </div>
 
                 <c:if test="${data.istatus eq 1}">

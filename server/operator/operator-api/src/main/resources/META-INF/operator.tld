@@ -512,19 +512,19 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
- 			<name>zdbsc</name>
+ 			<name>jgb</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
  		<attribute> 
- 			<name>gsspk</name>
+ 			<name>spk</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
  		<attribute> 
- 			<name>jrglj</name>
+ 			<name>system</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 

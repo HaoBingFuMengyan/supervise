@@ -57,13 +57,20 @@ public class AuthapplyController {
                        ServletRequest request){
         ILoginUser user = ShiroUtils.getCurrentUser();
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
-        if (!user.IsAdmin())
+
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+
+        //审批科内部审核申请入驻的企业
+        if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype()))
+            searchParams.put("search_eq_iprocess", MEMBER.Process.ZSJG.val());
+        else if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
             searchParams.put("search_eq_sadduser",user.getId());
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 
         Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
         model.addAttribute("list",list);
+        model.addAttribute("operator",operator);
 
         return "/member/authapply-list";
     }
@@ -96,7 +103,9 @@ public class AuthapplyController {
 
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
+        ILoginUser user = ShiroUtils.getCurrentUser();
         model.addAttribute("data",queryService.findOne(Authapply.class,id));
+        model.addAttribute("operator",queryService.findOne(Operator.class,user.getId()));
         return "/member/authapply-index";
     }
 
@@ -173,7 +182,7 @@ public class AuthapplyController {
                         SearchFilter.eq(MEMBERCol.hy_authapply.iapprovalstatus, MEMBER.ApprovalStatus.CHECKED.val()));
 
 
-                if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype())){
+                if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype())){
                     spec.or(SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.ZSJG.val()),
                             SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.JDBSC.val()));
                 }
@@ -254,7 +263,7 @@ public class AuthapplyController {
     }
 
     /**
-     * 招商机构初审
+     * 招商机构初审 (内部审核专员直接审核，不需要两部操作)
      * @param id
      * @param iprocess
      * @param model
@@ -342,6 +351,9 @@ public class AuthapplyController {
         Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
         model.addAttribute("list",list);
 
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+        model.addAttribute("operator",operator);
+
         return "/member/authapply-changeinfo-list";
     }
 
@@ -360,4 +372,43 @@ public class AuthapplyController {
         return "/member/authapply-dail-index";
     }
 
+    /**
+     * 风险检测报告
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "risk.shtml")
+    public String authapplyRisk(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
+
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
+
+        return "/member/authapply-risk";
+    }
+
+
+    /**
+     * 风险排查
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "riskcheck.shtml")
+    @RequiresPermissions("riskcheck:query")
+    public String riskCheck(Model model,HttpServletRequest request){
+        return "/member/authapply-riskcheck";
+    }
+
+    /**
+     * 风险排查新增
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "riskcheck-add.shtml")
+    @RequiresPermissions("riskcheck:add")
+    public String riskAdd(Model model,HttpServletRequest request){
+        return "/member/authapply-riskcheck-add";
+    }
 }

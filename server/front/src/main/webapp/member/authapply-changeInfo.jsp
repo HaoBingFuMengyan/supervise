@@ -37,17 +37,17 @@
         layui.use(['form', 'layedit', 'upload', 'laydate'], function () {
             device = layui.device();
             form = layui.form;
+            form.verify({
+                money500: function (value) {
+                    if (value < 500) {
+                        return '注册资金必须大于等于500万';
+                    }
+                }
+            });
+
             var layer = layui.layer
                 ,layedit = layui.layedit
                 ,laydate = layui.laydate;
-            form.verify({
-//                required: function (value) {
-//                    if (pub.isnull(value)) {
-//                        return '这是必填项';
-//                    }
-//                }
-            });
-
             var layupload = layui.upload;
 
             //执行实例
@@ -306,7 +306,14 @@
                             <label class="layui-form-label">注册资本(万元)<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" id="iregmoney" name="iregmoney" placeholder="(必填项只能正整数)"
-                                       class="layui-input" value="${data.iregmoney}" lay-verify="required" autocomplete="off"/>
+                                       class="layui-input" value="${data.iregmoney}" lay-verify="required|money500" autocomplete="off"/>
+                            </div>
+                        </div>
+                        <div class="layui-inline" id="iauthapplysource">
+                            <label class="layui-form-label">入驻方式<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:AuthapplySource op="select" name="iauthapplysource" defname="请选择方式" val="${data.iauthapplysource}"
+                                                        option="class='layui-input' lay-verify='required' lay-filter='iauthapplysource'"/>
                             </div>
                         </div>
                     </div>

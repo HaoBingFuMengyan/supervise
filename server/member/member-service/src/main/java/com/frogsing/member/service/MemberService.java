@@ -472,6 +472,8 @@ public class MemberService implements IMemberService {
         apply.setIstatus(CheckStatus.WAIT.val());//状态为待审核
         apply.setIapprovalstatus(ApprovalStatus.NOUPDATE.val());//企业信息变更状态
 
+        apply.setScnname(obj.getScnname());//企业名称
+        apply.setIauthapplysource(obj.getIauthapplysource());
 
         apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
 

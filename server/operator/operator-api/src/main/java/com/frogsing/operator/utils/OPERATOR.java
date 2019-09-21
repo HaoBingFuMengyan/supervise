@@ -374,19 +374,19 @@ public static enum AppTerminalType implements  IConst{
 	
 }
 public static enum OperatorType implements  IConst{
-	ZDBSC(10,"街道办事处"),
-	GSSPK(20,"工商审批科"),
-	JRGLJ(30,"金融管理局"),
+	JGB(10,"监管部"),
+	SPK(20,"审批科"),
+	SYSTEM(30,"系统"),
 	ZSJF(40,"招商机构");
 	public  static OperatorType get(int i){
     	 switch(i)
     	 {
     	 case 10:
-    		return OperatorType.ZDBSC;
+    		return OperatorType.JGB;
     	 case 20:
-    		return OperatorType.GSSPK;
+    		return OperatorType.SPK;
     	 case 30:
-    		return OperatorType.JRGLJ;
+    		return OperatorType.SYSTEM;
     	 case 40:
     		return OperatorType.ZSJF;
     	 }

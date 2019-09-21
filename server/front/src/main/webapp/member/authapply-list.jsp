@@ -113,6 +113,7 @@
                 <thead>
                 <tr>
                     <th class="sort-column">类型</th>
+                    <th class="sort-column">入驻方式</th>
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
@@ -124,6 +125,9 @@
                     <tr>
                         <td>
                             <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
+                        </td>
+                        <td>
+                            <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
                         </td>
                         <td>
                             <c:if test="${obj.istatus eq 1}">

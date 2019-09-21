@@ -420,9 +420,9 @@ public class OperatorBase  extends  BaseEntity{
 	   /**
 		类型 int
 	    OperatorType:
-	    10:ZDBSC:街道办事处
-20:GSSPK:工商审批科
-30:JRGLJ:金融管理局
+	    10:JGB:监管部
+20:SPK:审批科
+30:SYSTEM:系统
 40:ZSJF:招商机构 
 		*/
 		@Column(name="ioperatortype")
@@ -432,9 +432,9 @@ public class OperatorBase  extends  BaseEntity{
 		/**
 		类型 int
 	    OperatorType:
-	    10:ZDBSC:街道办事处
-20:GSSPK:工商审批科
-30:JRGLJ:金融管理局
+	    10:JGB:监管部
+20:SPK:审批科
+30:SYSTEM:系统
 40:ZSJF:招商机构 
 		*/
 		public void setIoperatortype(Integer  ioperatortype) {

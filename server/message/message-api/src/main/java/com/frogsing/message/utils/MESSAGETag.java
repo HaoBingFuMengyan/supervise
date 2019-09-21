@@ -11,14 +11,8 @@ public  class MESSAGETag{
 		public IConst GetConst(int val) {
 			return com.frogsing.message.utils.MESSAGE.ReceiveType.get(val);
 		}
-		public void setJdbsc(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.ReceiveType.JDBSC,val);
-		}
-		public void setGsspk(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.ReceiveType.GSSPK,val);
-		}
-		public void setJrjgj(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.ReceiveType.JRJGJ,val);
+		public void setJgb(int val) {
+			setCurrentconst(com.frogsing.message.utils.MESSAGE.ReceiveType.JGB,val);
 		}
 		public void setMember(int val) {
 			setCurrentconst(com.frogsing.message.utils.MESSAGE.ReceiveType.MEMBER,val);
@@ -34,14 +28,8 @@ public  class MESSAGETag{
 		public IConst GetConst(int val) {
 			return com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.get(val);
 		}
-		public void setJdbsc(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.JDBSC,val);
-		}
-		public void setGsspk(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.GSSPK,val);
-		}
-		public void setJrjgj(int val) {
-			setCurrentconst(com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.JRJGJ,val);
+		public void setJgb(int val) {
+			setCurrentconst(com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.JGB,val);
 		}
 		public void setMember(int val) {
 			setCurrentconst(com.frogsing.message.utils.MESSAGE.OperatorOrAdmin.MEMBER,val);

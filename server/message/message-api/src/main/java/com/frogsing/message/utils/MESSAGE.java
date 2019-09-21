@@ -7,19 +7,13 @@ public class MESSAGE {
 
 
 public static enum ReceiveType implements  IConst{
-	JDBSC(0,"街道办事处"),
-	GSSPK(1,"工商审批科"),
-	JRJGJ(2,"金融监管局"),
+	JGB(0,"监管部"),
 	MEMBER(3,"会员");
 	public  static ReceiveType get(int i){
     	 switch(i)
     	 {
     	 case 0:
-    		return ReceiveType.JDBSC;
-    	 case 1:
-    		return ReceiveType.GSSPK;
-    	 case 2:
-    		return ReceiveType.JRJGJ;
+    		return ReceiveType.JGB;
     	 case 3:
     		return ReceiveType.MEMBER;
     	 }
@@ -81,19 +75,13 @@ public static enum ReceiveType implements  IConst{
 	
 }
 public static enum OperatorOrAdmin implements  IConst{
-	JDBSC(0,"街道办事处"),
-	GSSPK(1,"工商审批科"),
-	JRJGJ(2,"金融监管局"),
+	JGB(0,"监管部"),
 	MEMBER(3,"会员");
 	public  static OperatorOrAdmin get(int i){
     	 switch(i)
     	 {
     	 case 0:
-    		return OperatorOrAdmin.JDBSC;
-    	 case 1:
-    		return OperatorOrAdmin.GSSPK;
-    	 case 2:
-    		return OperatorOrAdmin.JRJGJ;
+    		return OperatorOrAdmin.JGB;
     	 case 3:
     		return OperatorOrAdmin.MEMBER;
     	 }

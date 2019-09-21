@@ -117,8 +117,8 @@ public class AuthapplyService implements IAuthapplyService {
 			E.S("当前企业异常，请联系管理员");
 		}
 
-		if (!apply.getSadduser().equals(user.getId()))
-			E.S("系统警告，该企业不归您审核，谢谢");
+//		if (!apply.getSadduser().equals(user.getId()))
+//			E.S("系统警告，该企业不归您审核，谢谢");
 
 		if (MEMBER.Process.ZSJG.isNot(apply.getIprocess()))
 			E.S("已审核，请勿重复操作");
@@ -126,6 +126,9 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setIprocess(iprocess);
 		apply.setScheckuser(user.getId());
 		apply.setDcheckdate(new Date());
+
+		if (MEMBER.Process.OK.isEq(iprocess))
+			apply.setBisincompany(Consts.BoolType.YES.val());
 
 		this.authapplyDao.saveAndFlush(apply);
 

@@ -73,19 +73,7 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
- 			<name>jdbsc</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>gsspk</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>jrjgj</name>
+ 			<name>jgb</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
@@ -162,19 +150,7 @@
  			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		<attribute> 
- 			<name>jdbsc</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>gsspk</name>
-			<required>false</required> 
-			<rtexprvalue>true</rtexprvalue> 
- 		</attribute> 
- 		
- 		<attribute> 
- 			<name>jrjgj</name>
+ 			<name>jgb</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 

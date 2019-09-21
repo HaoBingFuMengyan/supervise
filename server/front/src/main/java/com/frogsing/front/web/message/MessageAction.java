@@ -60,9 +60,7 @@ public class MessageAction extends BaseAction{
             xSpec.fetch("messageDetails");
             xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getId()));
 
-            xSpec.or(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()),
-                    SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()),
-                    SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
+            xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JGB.val()));
 
             List<Message> messages = queryService.list(PageSort.Desc(MESSAGECol.cx_message.dsenddatetime),xSpec);
 

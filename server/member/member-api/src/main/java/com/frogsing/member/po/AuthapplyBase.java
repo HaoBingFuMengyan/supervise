@@ -17,6 +17,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   String smemberid; //会员ID String
 	private   String smemberno; //会员编号 String
 	private   String sapplyuserid; //申请人 String
+	private   Integer iauthapplysource=0; //来源 int
 	private   String scnname; //企业名称 String
 	private   String senname; //英文名称 String
 	private   String sshortname; //中文简称 String
@@ -141,6 +142,27 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setSapplyuserid(String  sapplyuserid) {
 			this.sapplyuserid =  sapplyuserid;//申请人 String
+		}
+	   /**
+		来源 int
+	    AuthapplySource:
+	    10:NEW:新设
+20:QIAN:迁入
+ 
+		*/
+		@Column(name="iauthapplysource")
+		public Integer getIauthapplysource() {
+			return  iauthapplysource;//来源 int
+		}
+		/**
+		来源 int
+	    AuthapplySource:
+	    10:NEW:新设
+20:QIAN:迁入
+ 
+		*/
+		public void setIauthapplysource(Integer  iauthapplysource) {
+			this.iauthapplysource =  iauthapplysource;//来源 int
 		}
 	   /**
 		企业名称 String

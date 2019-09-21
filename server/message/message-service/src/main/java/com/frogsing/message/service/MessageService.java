@@ -108,12 +108,8 @@ public class MessageService implements IMessageService {
 		detail.setSsenderid(sreceiveid);
 		detail.setIsendertype(MESSAGE.OperatorOrAdmin.MEMBER.val());
 
-		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
-			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.JDBSC.val());
-		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
-			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.GSSPK.val());
-		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
-			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+		if (OPERATOR.OperatorType.JGB.isEq(operator.getIoperatortype()))
+			detail.setIreceivetype(MESSAGE.OperatorOrAdmin.JGB.val());
 		detail.setSreceiveid(operator.getId());
 		detail.setBisread(Consts.BoolType.NO.val());
 		detail.setIcount(0);
@@ -135,12 +131,8 @@ public class MessageService implements IMessageService {
 
 		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,authapply.getId()));
 
-		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
-			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()));
-		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
-			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()));
-		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
-			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
+		if (OPERATOR.OperatorType.JGB.isEq(operator.getIoperatortype()))
+			xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JGB.val()));
 
 		xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.ssenderid,operator.getId()));
 
@@ -150,12 +142,8 @@ public class MessageService implements IMessageService {
 			message = new Message();
 
 			message.setId(null);
-			if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
-				message.setIsendertype(MESSAGE.OperatorOrAdmin.JDBSC.val());
-			else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
-				message.setIsendertype(MESSAGE.OperatorOrAdmin.GSSPK.val());
-			else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
-				message.setIsendertype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+			if (OPERATOR.OperatorType.JGB.isEq(operator.getIoperatortype()))
+				message.setIsendertype(MESSAGE.OperatorOrAdmin.JGB.val());
 			message.setSsenderid(operator.getId());
 			message.setSsendername(operator.getSrealname());
 			message.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
@@ -177,12 +165,8 @@ public class MessageService implements IMessageService {
 
 		detail.setId(null);
 		detail.setSsenderid(operator.getId());
-		if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype()))
-			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JDBSC.val());
-		else if (OPERATOR.OperatorType.GSSPK.isEq(operator.getIoperatortype()))
-			detail.setIsendertype(MESSAGE.OperatorOrAdmin.GSSPK.val());
-		else if (OPERATOR.OperatorType.JRGLJ.isEq(operator.getIoperatortype()))
-			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JRJGJ.val());
+		if (OPERATOR.OperatorType.JGB.isEq(operator.getIoperatortype()))
+			detail.setIsendertype(MESSAGE.OperatorOrAdmin.JGB.val());
 		detail.setIreceivetype(MESSAGE.OperatorOrAdmin.MEMBER.val());
 		detail.setSreceiveid(authapply.getId());
 		detail.setBisread(Consts.BoolType.NO.val());
