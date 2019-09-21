@@ -53,7 +53,9 @@
         ["实际控制人信息", "${ctx}/hy/authapply/control_detail.shtml?id=${data.id}"]
 
         <c:if test="${data.istatus eq 1}">
-            ,["风险检测报告结果", "${ctx}/hy/authapply/report_detail.shtml?id=${data.id}"]
+            <c:if test="${operator.ioperatortype eq 10}">
+                ,["风险检测报告结果", "${ctx}/hy/authapply/report_detail.shtml?id=${data.id}"]
+            </c:if>
         </c:if>
     ];
 

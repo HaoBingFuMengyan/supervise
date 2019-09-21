@@ -59,7 +59,11 @@ public class AuthapplyController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
 
         Operator operator = queryService.findOne(Operator.class,user.getId());
-        if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
+
+        //审批科内部审核申请入驻的企业
+        if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype()))
+            searchParams.put("search_eq_iprocess", MEMBER.Process.ZSJG.val());
+        else if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
             searchParams.put("search_eq_sadduser",user.getId());
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
@@ -99,7 +103,9 @@ public class AuthapplyController {
 
     @RequestMapping(value = "index.shtml")
     public String index(@RequestParam(value = "id") String id, Model model, HttpServletRequest request){
+        ILoginUser user = ShiroUtils.getCurrentUser();
         model.addAttribute("data",queryService.findOne(Authapply.class,id));
+        model.addAttribute("operator",queryService.findOne(Operator.class,user.getId()));
         return "/member/authapply-index";
     }
 
@@ -257,7 +263,7 @@ public class AuthapplyController {
     }
 
     /**
-     * 招商机构初审
+     * 招商机构初审 (内部审核专员直接审核，不需要两部操作)
      * @param id
      * @param iprocess
      * @param model

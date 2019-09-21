@@ -145,7 +145,7 @@
                     top.layer.confirm('确定要审核通过吗？', {
                         btn: ['确定', '取消'] //按钮
                     }, function () {
-                        $.post("${ctx}/hy/authapply/zscheck.json",{id: id,iprocess:20},function(rs){
+                        $.post("${ctx}/hy/authapply/zscheck.json",{id: id,iprocess:30},function(rs){
 //                            layer.closeAll('loading');
                             if (rs.success) {
 
