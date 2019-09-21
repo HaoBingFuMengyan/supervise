@@ -149,7 +149,8 @@
 <body>
 <div class="mbody">
     <mw:msg/>
-    <form class="layui-form" action="" method="post" id="formx" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data" autocomplete="on">
+    <form class="layui-form" action="${ctx}/hy/authapplyrisk/save.json" method="post" id="formx" onkeydown="if(event.keyCode==13) return false;" enctype="multipart/form-data" autocomplete="on">
+        <input type="hidden" name="sauthapplyid" value="${id}">
         <div class="layui-tab">
             <ul class="layui-tab-title">
                 <li class="layui-this">风险总评</li>
@@ -165,7 +166,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">风险评级</label>
                             <div class="layui-input-inline">
-                                <select name="bisjoblegal" class="layui-input" lay-verify="required">
+                                <select name="irisklevel" class="layui-input" lay-verify="required">
                                     <option value="0">优秀</option>
                                     <option value="1">良好</option>
                                     <option value="2">瑕疵</option>
@@ -176,80 +177,84 @@
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">风险预警</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="风险预警数" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="idangernum" placeholder="风险预警数" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">整体评分</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">机构自身</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fjgscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">核心人员</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fhxscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">关联企业</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fglqyscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">在管企业</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fzgscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label layui-form-label-else">未备案的合伙企业</label>
                             <div class="layui-input-inline">
-                                <input type="text" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                <input type="text" name="fwbaqyscore" placeholder="(评分)" class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="layui-tab-item">
                     <div class="mytit">
-                        <input placeholder="机构自身评分" /><button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button>
+                        <input name="" placeholder="机构自身评分" /><button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button>
                     </div>
                     <div class="my-block">
                         <div class="layui-form-item">
                             <div class="layui-inline">
                                 <label class="layui-form-label">机构名称</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" placeholder="(请输入)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    <input name="jgMap[0].scnname" type="text" placeholder="(请输入)" class="layui-input" lay-verify="required" autocomplete="off"/>
                                 </div>
                             </div>
                             <div class="layui-inline">
                                 <label class="layui-form-label">管理人资格</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" placeholder="(请输入)" class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    <input name="jgMap[0].smanager" type="text" placeholder="(请输入)" class="layui-input" lay-verify="required" autocomplete="off"/>
                                 </div>
                             </div>
                             <div class="layui-block">
                                 <button class="layui-btn layui-btn-sm">添加</button>
-                                <textarea>请输入司法异常描述...</textarea>
+                                <input type="hidden" name="jgMap[0].sfList[0].iexceptiontype" value="0">
+                                <textarea name="jgMap[0].sfList[0].scontent" placeholder="请输入司法异常描述"></textarea>
                             </div>
                             <div class="layui-block">
                                 <button class="layui-btn layui-btn-sm">添加</button>
-                                <textarea>请输入行政处罚描述...</textarea>
+                                <input type="hidden" name="jgMap[0].sfList[1].iexceptiontype" value="1">
+                                <textarea name="jgMap[0].sfList[1].scontent" placeholder="请输入行政处罚描述"></textarea>
                             </div>
                             <div class="layui-block">
                                 <button class="layui-btn layui-btn-sm">添加</button>
-                                <textarea>请输入异常经营描述...</textarea>
+                                <input type="hidden" name="jgMap[0].sfList[2].iexceptiontype" value="2">
+                                <textarea name="jgMap[0].sfList[2].scontent" placeholder="请输入异常经营描述"></textarea>
                             </div>
                             <div class="layui-block">
                                 <button class="layui-btn layui-btn-sm">添加</button>
-                                <textarea>请输入涉诉情况...</textarea>
+                                <input type="hidden" name="jgMap[0].sfList[2].iexceptiontype" value="3">
+                                <textarea name="jgMap[0].sfList[3].scontent" placeholder="请输入涉诉情况"></textarea>
                             </div>
                         </div>
                     </div>
