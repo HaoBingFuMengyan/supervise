@@ -193,8 +193,8 @@
         function riskcheck(id){
             top.layer.open({
                 type: 2,
-                title: "风险检测报告",
-                area: ['95%', '95%'],
+                title: "风险评估报告",
+                area: ['70%', '85%'],
                 content: '${ctx}/hy/authapply/risk.shtml?id='+id,
                 btn: ['确定', '关闭'],
                 yes: function (index, layero) {
@@ -297,7 +297,7 @@
                                     </c:if>
 
                                     <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>检测报告</a>
+                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>
                                     </c:if>
                                 </c:if>
                             </shiro:hasAnyPermission>
