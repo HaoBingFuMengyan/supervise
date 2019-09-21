@@ -157,7 +157,7 @@
                     + '<input type="text" data-id="regamount" name="famount" placeholder="(必填项只能正整数)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">兼职情况<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><select name="bisjob" class="layui-input" lay-verify="required">'
-                    + '<option value>请选择</option><option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option><option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>'
+                    + '<option value>请选择</option><option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option><option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>'
                     + '</select></div></div></div>';
 
                 $("#company").before(innerHTML);
@@ -247,7 +247,7 @@
                             <div class="layui-input-inline">
                                 <select name="bisjoblegal" class="layui-input" lay-verify="required">
                                     <option value>请先择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
                             </div>
@@ -283,7 +283,7 @@
                             <div class="layui-input-inline">
                                 <select name="bisjobmanager">
                                     <option value>请先择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
                             </div>
@@ -338,7 +338,7 @@
                             <div class="layui-input-inline">
                                 <select name="bisjob" class="layui-input" lay-verify="required">
                                     <option value>请选择</option>
-                                    <option value="1">在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                 </select>
                             </div>
