@@ -63,9 +63,7 @@ public class MessageController {
                 XSpec<Message> xSpec = MESSAGECol.cx_message.xspec();
 
                 xSpec.fetch("messageDetails");
-                xSpec.or(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.GSSPK.val()),
-                        SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JDBSC.val()),
-                        SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JRJGJ.val()));
+                xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.isendertype, MESSAGE.OperatorOrAdmin.JGB.val()));
 
                 xSpec.and(SearchFilter.eq(MESSAGECol.cx_message.sreceiveid,auth.getId()));
 
