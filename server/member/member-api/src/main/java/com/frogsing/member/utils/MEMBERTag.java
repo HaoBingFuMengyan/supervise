@@ -486,4 +486,18 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.Process.values();
 		}
 	}
+	public static class TagAuthapplySource extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.AuthapplySource.get(val);
+		}
+		public void setQian(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.AuthapplySource.QIAN,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.AuthapplySource.values();
+		}
+	}
 }

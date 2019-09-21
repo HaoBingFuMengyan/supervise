@@ -740,6 +740,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String smemberno="smemberno" ;
             /**申请人**/
             public static final String sapplyuserid="sapplyuserid" ;
+            /**来源**/
+            public static final String iauthapplysource="iauthapplysource" ;
             /**企业名称**/
             public static final String scnname="scnname" ;
             /**英文名称**/
@@ -918,6 +920,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<String> smemberno(Root<?> root){return root.get("smemberno");}
             /**申请人**/
             public static  Path<String> sapplyuserid(Root<?> root){return root.get("sapplyuserid");}
+            /**来源**/
+            public static  Path<Integer> iauthapplysource(Root<?> root){return root.get("iauthapplysource");}
             /**企业名称**/
             public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
             /**英文名称**/

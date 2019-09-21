@@ -1548,4 +1548,69 @@ public static enum Process implements  IConst{
 	} 
 	
 }
+public static enum AuthapplySource implements  IConst{
+	QIAN(20,"迁入");
+	public  static AuthapplySource get(int i){
+    	 switch(i)
+    	 {
+    	 case 20:
+    		return AuthapplySource.QIAN;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   AuthapplySource ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return AuthapplySource.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return AuthapplySource.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(AuthapplySource.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }
