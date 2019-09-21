@@ -290,14 +290,14 @@
                             <shiro:hasAnyPermission name="authapply:check">
                                 <c:if test="${operator.ioperatortype eq 30}">
                                     <c:if test="${obj.istatus eq 0}">
-                                        <a onclick="authapplycheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>初审</a>
+                                        <a onclick="authapplycheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>审核</a>
                                     </c:if>
                                     <c:if test="${obj.iapprovalstatus eq 0}">
-                                        <a onclick="changeInfoCheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>复审</a>
+                                        <a onclick="changeInfoCheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>变更审核</a>
                                     </c:if>
 
-                                    <c:if test="${obj.iapprovalstatus ne 3 || obj.istatus ne 0}">
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险报告</a>
+                                    <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
+                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>检测报告</a>
                                     </c:if>
                                 </c:if>
                             </shiro:hasAnyPermission>

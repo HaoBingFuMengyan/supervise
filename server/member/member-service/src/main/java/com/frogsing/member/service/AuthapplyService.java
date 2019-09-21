@@ -127,6 +127,9 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setScheckuser(user.getId());
 		apply.setDcheckdate(new Date());
 
+		if (MEMBER.Process.OK.isEq(iprocess))
+			apply.setBisincompany(Consts.BoolType.YES.val());
+
 		this.authapplyDao.saveAndFlush(apply);
 
 	}
