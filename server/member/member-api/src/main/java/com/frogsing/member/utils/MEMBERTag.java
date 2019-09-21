@@ -503,4 +503,85 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.AuthapplySource.values();
 		}
 	}
+	public static class TagRiskLevel extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.RiskLevel.get(val);
+		}
+		public void setYx(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskLevel.YX,val);
+		}
+		public void setLh(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskLevel.LH,val);
+		}
+		public void setXc(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskLevel.XC,val);
+		}
+		public void setFx(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskLevel.FX,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.RiskLevel.values();
+		}
+	}
+	public static class TagRiskType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.RiskType.get(val);
+		}
+		public void setJgself(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.JGSELF,val);
+		}
+		public void setHxry(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.HXRY,val);
+		}
+		public void setGlqy(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.GLQY,val);
+		}
+		public void setZgqy(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.ZGQY,val);
+		}
+		public void setWbahhqy(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.WBAHHQY,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.RiskType.values();
+		}
+	}
+	public static class TagExceptionType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.ExceptionType.get(val);
+		}
+		public void setSfyc(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.SFYC,val);
+		}
+		public void setXzcf(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.XZCF,val);
+		}
+		public void setJyqk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.JYQK,val);
+		}
+		public void setSsqk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.SSQK,val);
+		}
+		public void setPlyc(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.PLYC,val);
+		}
+		public void setQsyc(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.QSYC,val);
+		}
+		public void setKyjy(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.KYJY,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.ExceptionType.values();
+		}
+	}
 }

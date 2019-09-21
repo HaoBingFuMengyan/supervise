@@ -40,3 +40,12 @@ mtl.xml , po/entity_dao.java.ftl,../server/member/member-service/src/main/java/c
 mtl.xml , po/entity.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/ControHolder.java, null.xml, object:hy_ControHolder;pack:com.frogsing.member.po;replace:no
 mtl.xml , po/entitybase.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/ControHolderBase.java, null.xml, object:hy_ControHolder;pack:com.frogsing.member.po
 mtl.xml , po/entity_dao.java.ftl,../server/member/member-service/src/main/java/com/frogsing/member/dao/ControHolderDao.java, null.xml, object:hy_ControHolder;pack:com.frogsing.member.dao;replace:no
+mtl.xml , po/entity.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRisk.java, null.xml, object:hy_AuthapplyRisk;pack:com.frogsing.member.po;replace:no
+mtl.xml , po/entitybase.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRiskBase.java, null.xml, object:hy_AuthapplyRisk;pack:com.frogsing.member.po
+mtl.xml , po/entity_dao.java.ftl,../server/member/member-service/src/main/java/com/frogsing/member/dao/AuthapplyRiskDao.java, null.xml, object:hy_AuthapplyRisk;pack:com.frogsing.member.dao;replace:no
+mtl.xml , po/entity.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRiskDetail.java, null.xml, object:hy_AuthapplyRiskDetail;pack:com.frogsing.member.po;replace:no
+mtl.xml , po/entitybase.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRiskDetailBase.java, null.xml, object:hy_AuthapplyRiskDetail;pack:com.frogsing.member.po
+mtl.xml , po/entity_dao.java.ftl,../server/member/member-service/src/main/java/com/frogsing/member/dao/AuthapplyRiskDetailDao.java, null.xml, object:hy_AuthapplyRiskDetail;pack:com.frogsing.member.dao;replace:no
+mtl.xml , po/entity.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRiskExce.java, null.xml, object:hy_AuthapplyRiskExce;pack:com.frogsing.member.po;replace:no
+mtl.xml , po/entitybase.java.ftl,../server/member/member-api/src/main/java/com/frogsing/member/po/AuthapplyRiskExceBase.java, null.xml, object:hy_AuthapplyRiskExce;pack:com.frogsing.member.po
+mtl.xml , po/entity_dao.java.ftl,../server/member/member-service/src/main/java/com/frogsing/member/dao/AuthapplyRiskExceDao.java, null.xml, object:hy_AuthapplyRiskExce;pack:com.frogsing.member.dao;replace:no

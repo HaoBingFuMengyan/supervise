@@ -1260,5 +1260,200 @@ public static XSpec<com.frogsing.member.po.ControHolder> xspec() {
             public static  Path<Integer> icomtype(Root<?> root){return root.get("icomtype");}
 
     }
+/**企业风险监测报告**/
+//public static final String hy_authapplyrisk="hy_authapplyrisk" ;
+public static class hy_authapplyrisk {
+public static XSpec<com.frogsing.member.po.AuthapplyRisk> xspec() {
+    return new XSpec<com.frogsing.member.po.AuthapplyRisk>(com.frogsing.member.po.AuthapplyRisk.class);
+    }
+    public static final String tablename="hy_authapplyrisk";
+            /**会员ID**/
+            public static final String smemberid="smemberid" ;
+            /**认证id**/
+            public static final String sauthapplyid="sauthapplyid" ;
+            /**等级**/
+            public static final String irisklevel="irisklevel" ;
+            /**整体评分**/
+            public static final String fscore="fscore" ;
+            /**添加时间**/
+            public static final String ddate="ddate" ;
+            /**添加人**/
+            public static final String sadduserid="sadduserid" ;
+            /**添加人名称**/
+            public static final String saddusername="saddusername" ;
+            /**修改人**/
+            public static final String smodifyid="smodifyid" ;
+            /**修改人名称**/
+            public static final String smodifyname="smodifyname" ;
+            /**修改时间**/
+            public static final String dmodifydate="dmodifydate" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**会员ID**/
+            public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
+            /**认证id**/
+            public static  Path<String> sauthapplyid(Root<?> root){return root.get("sauthapplyid");}
+            /**等级**/
+            public static  Path<Integer> irisklevel(Root<?> root){return root.get("irisklevel");}
+            /**整体评分**/
+            public static  Path<Double> fscore(Root<?> root){return root.get("fscore");}
+            /**添加时间**/
+            public static  Path<Date> ddate(Root<?> root){return root.get("ddate");}
+            /**添加人**/
+            public static  Path<String> sadduserid(Root<?> root){return root.get("sadduserid");}
+            /**添加人名称**/
+            public static  Path<String> saddusername(Root<?> root){return root.get("saddusername");}
+            /**修改人**/
+            public static  Path<String> smodifyid(Root<?> root){return root.get("smodifyid");}
+            /**修改人名称**/
+            public static  Path<String> smodifyname(Root<?> root){return root.get("smodifyname");}
+            /**修改时间**/
+            public static  Path<Date> dmodifydate(Root<?> root){return root.get("dmodifydate");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+
+    }
+/**企业风险监测报告明细**/
+//public static final String hy_authapplyriskdetail="hy_authapplyriskdetail" ;
+public static class hy_authapplyriskdetail {
+public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
+    return new XSpec<com.frogsing.member.po.AuthapplyRiskDetail>(com.frogsing.member.po.AuthapplyRiskDetail.class);
+    }
+    public static final String tablename="hy_authapplyriskdetail";
+            /**风险id**/
+            public static final String sriskid="sriskid" ;
+            /**类型**/
+            public static final String irisktype="irisktype" ;
+            /**企业名称**/
+            public static final String scnname="scnname" ;
+            /**管理人资格**/
+            public static final String smanager="smanager" ;
+            /**姓名**/
+            public static final String sname="sname" ;
+            /**身份**/
+            public static final String scard="scard" ;
+            /**证件号**/
+            public static final String scardno="scardno" ;
+            /**在管类型**/
+            public static final String stype="stype" ;
+            /**托管方**/
+            public static final String strustname="strustname" ;
+            /**成立日期**/
+            public static final String dsetdate="dsetdate" ;
+            /**合伙人数量**/
+            public static final String fnum="fnum" ;
+            /**自然合伙人数量**/
+            public static final String fnaturalnum="fnaturalnum" ;
+            /**投资情况**/
+            public static final String sinvest="sinvest" ;
+            /**司法异常**/
+            public static final String ssfexce="ssfexce" ;
+            /**行政处罚**/
+            public static final String sxzcfexce="sxzcfexce" ;
+            /**经营情况**/
+            public static final String sjjinvice="sjjinvice" ;
+            /**涉诉情况**/
+            public static final String sshensuexce="sshensuexce" ;
+            /**披露异常**/
+            public static final String splexce="splexce" ;
+            /**清算异常**/
+            public static final String sqsexce="sqsexce" ;
+            /**可疑交易**/
+            public static final String skyjiaoyi="skyjiaoyi" ;
+            /**添加时间**/
+            public static final String ddate="ddate" ;
+            /**添加人**/
+            public static final String sadduserid="sadduserid" ;
+            /**添加人名称**/
+            public static final String saddusername="saddusername" ;
+            /**修改人**/
+            public static final String smodifyid="smodifyid" ;
+            /**修改人名称**/
+            public static final String smodifyname="smodifyname" ;
+            /**修改时间**/
+            public static final String dmodifydate="dmodifydate" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**风险id**/
+            public static  Path<String> sriskid(Root<?> root){return root.get("sriskid");}
+            /**类型**/
+            public static  Path<Integer> irisktype(Root<?> root){return root.get("irisktype");}
+            /**企业名称**/
+            public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
+            /**管理人资格**/
+            public static  Path<String> smanager(Root<?> root){return root.get("smanager");}
+            /**姓名**/
+            public static  Path<String> sname(Root<?> root){return root.get("sname");}
+            /**身份**/
+            public static  Path<String> scard(Root<?> root){return root.get("scard");}
+            /**证件号**/
+            public static  Path<String> scardno(Root<?> root){return root.get("scardno");}
+            /**在管类型**/
+            public static  Path<String> stype(Root<?> root){return root.get("stype");}
+            /**托管方**/
+            public static  Path<String> strustname(Root<?> root){return root.get("strustname");}
+            /**成立日期**/
+            public static  Path<Date> dsetdate(Root<?> root){return root.get("dsetdate");}
+            /**合伙人数量**/
+            public static  Path<Double> fnum(Root<?> root){return root.get("fnum");}
+            /**自然合伙人数量**/
+            public static  Path<Double> fnaturalnum(Root<?> root){return root.get("fnaturalnum");}
+            /**投资情况**/
+            public static  Path<String> sinvest(Root<?> root){return root.get("sinvest");}
+            /**司法异常**/
+            public static  Path<String> ssfexce(Root<?> root){return root.get("ssfexce");}
+            /**行政处罚**/
+            public static  Path<String> sxzcfexce(Root<?> root){return root.get("sxzcfexce");}
+            /**经营情况**/
+            public static  Path<String> sjjinvice(Root<?> root){return root.get("sjjinvice");}
+            /**涉诉情况**/
+            public static  Path<String> sshensuexce(Root<?> root){return root.get("sshensuexce");}
+            /**披露异常**/
+            public static  Path<String> splexce(Root<?> root){return root.get("splexce");}
+            /**清算异常**/
+            public static  Path<String> sqsexce(Root<?> root){return root.get("sqsexce");}
+            /**可疑交易**/
+            public static  Path<String> skyjiaoyi(Root<?> root){return root.get("skyjiaoyi");}
+            /**添加时间**/
+            public static  Path<Date> ddate(Root<?> root){return root.get("ddate");}
+            /**添加人**/
+            public static  Path<String> sadduserid(Root<?> root){return root.get("sadduserid");}
+            /**添加人名称**/
+            public static  Path<String> saddusername(Root<?> root){return root.get("saddusername");}
+            /**修改人**/
+            public static  Path<String> smodifyid(Root<?> root){return root.get("smodifyid");}
+            /**修改人名称**/
+            public static  Path<String> smodifyname(Root<?> root){return root.get("smodifyname");}
+            /**修改时间**/
+            public static  Path<Date> dmodifydate(Root<?> root){return root.get("dmodifydate");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+
+    }
+/**企业风险监测报告异常表**/
+//public static final String hy_authapplyriskexce="hy_authapplyriskexce" ;
+public static class hy_authapplyriskexce {
+public static XSpec<com.frogsing.member.po.AuthapplyRiskExce> xspec() {
+    return new XSpec<com.frogsing.member.po.AuthapplyRiskExce>(com.frogsing.member.po.AuthapplyRiskExce.class);
+    }
+    public static final String tablename="hy_authapplyriskexce";
+            /**ID**/
+            public static final String sriskdetailid="sriskdetailid" ;
+            /**类型**/
+            public static final String iexceptiontype="iexceptiontype" ;
+            /**内容**/
+            public static final String scontent="scontent" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**ID**/
+            public static  Path<String> sriskdetailid(Root<?> root){return root.get("sriskdetailid");}
+            /**类型**/
+            public static  Path<Integer> iexceptiontype(Root<?> root){return root.get("iexceptiontype");}
+            /**内容**/
+            public static  Path<String> scontent(Root<?> root){return root.get("scontent");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+
+    }
 
     }
