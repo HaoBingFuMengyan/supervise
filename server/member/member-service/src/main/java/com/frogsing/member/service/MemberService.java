@@ -473,7 +473,7 @@ public class MemberService implements IMemberService {
         apply.setIapprovalstatus(ApprovalStatus.NOUPDATE.val());//企业信息变更状态
 
         apply.setScnname(obj.getScnname());//企业名称
-
+        apply.setIauthapplysource(obj.getIauthapplysource());
 
         apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
 

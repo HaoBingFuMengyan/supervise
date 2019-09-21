@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class MemVo implements Serializable {
 
     private String scnname;//企业名称
+    private int iauthapplysource;//入驻方式
 
     private String id;//authapply的id
     private Integer iregmoney;//注册资本
@@ -50,6 +51,14 @@ public class MemVo implements Serializable {
 
     public void setScnname(String scnname) {
         this.scnname = scnname;
+    }
+
+    public int getIauthapplysource() {
+        return iauthapplysource;
+    }
+
+    public void setIauthapplysource(int iauthapplysource) {
+        this.iauthapplysource = iauthapplysource;
     }
 
     public String getId() {
