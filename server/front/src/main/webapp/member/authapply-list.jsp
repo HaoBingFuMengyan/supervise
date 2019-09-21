@@ -1,4 +1,5 @@
 <%@ taglib prefix="member" uri="http://www.frogsing.com/tags/member" %>
+<%@ taglib prefix="consts" uri="http://www.frogsing.com/tags/consts" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="/include/taglib.jsp" %>
 <html>
@@ -117,6 +118,7 @@
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">预审状态</th>
                     <th class="sort-column">申请时间</th>
+                    <th class="sort-column">入驻审核</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -141,11 +143,27 @@
                             <mw:format label="datetime" value="${obj.dapplydate}"/>
                         </td>
                         <td>
+                            <c:choose>
+                                <c:when test="${obj.iprocess == null || obj.iprocess eq 0}">
+                                    未申请
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 10}">
+                                    审核中
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 30}">
+                                    审核通过
+                                </c:when>
+                                <c:when test="${obj.iprocess eq 40}">
+                                    审核拒绝
+                                </c:when>
+                            </c:choose>
+                        </td>
+                        <td>
 
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
                                     class="fa fa-edit"></i>基本信息</a>
 
-                            <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0)}">
+                            <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0 || obj.iprocess eq 40)}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i
                                         class="fa fa-edit"></i>申请入驻</a>
                             </c:if>

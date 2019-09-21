@@ -21,6 +21,7 @@ import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.operator.po.Operator;
 import com.frogsing.operator.utils.OPERATOR;
+import org.apache.http.auth.AUTH;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,15 +61,20 @@ public class AuthapplyController {
 
         Operator operator = queryService.findOne(Operator.class,user.getId());
 
+        XSpec<Authapply> xSpec = MEMBERCol.hy_authapply.xspec();
+        xSpec.and(searchParams);
+
         //审批科内部审核申请入驻的企业
-        if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype()))
-            searchParams.put("search_eq_iprocess", MEMBER.Process.ZSJG.val());
-        else if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
-            searchParams.put("search_eq_sadduser",user.getId());
+        if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype())) {
+//            xSpec.or(SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.ZSJG.val()),
+//                    SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.REJECT.val()),
+//                    SearchFilter.eq(MEMBERCol.hy_authapply.iprocess, MEMBER.Process.OK.val()));
+        }else if (!user.IsAdmin() && OPERATOR.OperatorType.SYSTEM.isNot(operator.getIoperatortype()))
+            xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapply.sadduser,user.getId()));
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 
-        Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
+        Page<Authapply> list = queryService.listPage(pageable,xSpec);
         model.addAttribute("list",list);
         model.addAttribute("operator",operator);
 

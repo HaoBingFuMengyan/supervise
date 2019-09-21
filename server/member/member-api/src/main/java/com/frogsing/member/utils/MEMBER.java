@@ -1616,4 +1616,238 @@ public static enum AuthapplySource implements  IConst{
 	} 
 	
 }
+public static enum RiskLevel implements  IConst{
+	YX(0,"优秀"),
+	LH(1,"良好"),
+	XC(2,"瑕疵"),
+	FX(3,"风险");
+	public  static RiskLevel get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return RiskLevel.YX;
+    	 case 1:
+    		return RiskLevel.LH;
+    	 case 2:
+    		return RiskLevel.XC;
+    	 case 3:
+    		return RiskLevel.FX;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   RiskLevel ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return RiskLevel.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return RiskLevel.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(RiskLevel.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum RiskType implements  IConst{
+	JGSELF(0,"机构自身"),
+	HXRY(1,"核心人员"),
+	GLQY(2,"关联企业"),
+	ZGQY(3,"在管企业"),
+	WBAHHQY(4,"未备案的合伙企业");
+	public  static RiskType get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return RiskType.JGSELF;
+    	 case 1:
+    		return RiskType.HXRY;
+    	 case 2:
+    		return RiskType.GLQY;
+    	 case 3:
+    		return RiskType.ZGQY;
+    	 case 4:
+    		return RiskType.WBAHHQY;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   RiskType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return RiskType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return RiskType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(RiskType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
+public static enum ExceptionType implements  IConst{
+	SFYC(0,"司法异常"),
+	XZCF(1,"行政处罚"),
+	JYQK(2,"经营情况"),
+	SSQK(3,"涉诉情况"),
+	PLYC(4,"披露异常"),
+	QSYC(5,"清算异常"),
+	KYJY(6,"可疑交易");
+	public  static ExceptionType get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return ExceptionType.SFYC;
+    	 case 1:
+    		return ExceptionType.XZCF;
+    	 case 2:
+    		return ExceptionType.JYQK;
+    	 case 3:
+    		return ExceptionType.SSQK;
+    	 case 4:
+    		return ExceptionType.PLYC;
+    	 case 5:
+    		return ExceptionType.QSYC;
+    	 case 6:
+    		return ExceptionType.KYJY;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   ExceptionType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return ExceptionType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return ExceptionType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(ExceptionType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }

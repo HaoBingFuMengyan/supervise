@@ -1946,6 +1946,297 @@
  		</attribute> 
  		
  	</tag> 
+	<function>
+		<description>RiskLevel</description>
+		<name>RiskLevel</name>
+		<function-class>com.frogsing.member.utils.MEMBER$RiskLevel</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>RiskLevelMap</description>
+		<name>RiskLevelMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$RiskLevel</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>RiskLevel</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagRiskLevel</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>yx</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>lh</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>xc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>fx</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
+	<function>
+		<description>RiskType</description>
+		<name>RiskType</name>
+		<function-class>com.frogsing.member.utils.MEMBER$RiskType</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>RiskTypeMap</description>
+		<name>RiskTypeMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$RiskType</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>RiskType</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagRiskType</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>jgself</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>hxry</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>glqy</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>zgqy</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>wbahhqy</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
+	<function>
+		<description>ExceptionType</description>
+		<name>ExceptionType</name>
+		<function-class>com.frogsing.member.utils.MEMBER$ExceptionType</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>ExceptionTypeMap</description>
+		<name>ExceptionTypeMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$ExceptionType</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>ExceptionType</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagExceptionType</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>sfyc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>xzcf</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jyqk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>ssqk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>plyc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>qsyc</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>kyjy</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
 <!--frogsingcode-->
 	<tag-file>
 		<name>member_btn</name>
