@@ -351,6 +351,9 @@ public class AuthapplyController {
         Page<Authapply> list = queryService.fetchPage(Authapply.class,pageable,searchParams);
         model.addAttribute("list",list);
 
+        Operator operator = queryService.findOne(Operator.class,user.getId());
+        model.addAttribute("operator",operator);
+
         return "/member/authapply-changeinfo-list";
     }
 

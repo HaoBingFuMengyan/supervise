@@ -51,6 +51,8 @@
                         <div class="form-group">
                             <span>公司名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
+                            <span>注册地址：</span>
+                            <input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>
                             <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>变更状态：</span>
@@ -109,7 +111,9 @@
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
                             <c:if test="${type eq 1}">
-                                <a onclick="dailQuery('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管问询</a>
+                                <c:if test="${operator.ioperatortype eq 10}">
+                                    <a onclick="dailQuery('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>监管问询</a>
+                                </c:if>
                             </c:if>
                         </td>
                     </tr>
