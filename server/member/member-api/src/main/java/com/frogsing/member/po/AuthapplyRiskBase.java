@@ -1,5 +1,4 @@
 package com.frogsing.member.po;
-
 //frogsingcode//
 
 
@@ -182,7 +181,7 @@ public class AuthapplyRiskBase  extends  BaseEntity{
 			this.sremark =  sremark;//备注 String
 		}
 	
-	//frogsingcode//
+//frogsingcode//
 	
 	
 	

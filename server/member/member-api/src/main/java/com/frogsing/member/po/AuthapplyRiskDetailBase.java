@@ -1,5 +1,4 @@
 package com.frogsing.member.po;
-
 //frogsingcode//
 
 
@@ -17,6 +16,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 	
 	private   String sriskid; //风险id String
 	private   Integer irisktype=0; //类型 int
+	private   Double fscore; //整体评分 double
 	private   String scnname; //企业名称 String
 	private   String smanager; //管理人资格 String
 	private   String sname; //姓名 String
@@ -81,6 +81,19 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 		*/
 		public void setIrisktype(Integer  irisktype) {
 			this.irisktype =  irisktype;//类型 int
+		}
+	   /**
+		整体评分 double
+		*/
+		@Column(name="fscore")
+		public Double getFscore() {
+			return  fscore;//整体评分 double
+		}
+		/**
+		整体评分 double
+		*/
+		public void setFscore(Double  fscore) {
+			this.fscore =  fscore;//整体评分 double
 		}
 	   /**
 		企业名称 String
@@ -408,7 +421,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 			this.sremark =  sremark;//备注 String
 		}
 	
-	//frogsingcode//
+//frogsingcode//
 	
 	
 	

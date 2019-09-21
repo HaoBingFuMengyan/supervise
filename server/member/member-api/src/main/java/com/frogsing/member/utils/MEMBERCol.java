@@ -1324,6 +1324,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static final String sriskid="sriskid" ;
             /**类型**/
             public static final String irisktype="irisktype" ;
+            /**整体评分**/
+            public static final String fscore="fscore" ;
             /**企业名称**/
             public static final String scnname="scnname" ;
             /**管理人资格**/
@@ -1378,6 +1380,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static  Path<String> sriskid(Root<?> root){return root.get("sriskid");}
             /**类型**/
             public static  Path<Integer> irisktype(Root<?> root){return root.get("irisktype");}
+            /**整体评分**/
+            public static  Path<Double> fscore(Root<?> root){return root.get("fscore");}
             /**企业名称**/
             public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
             /**管理人资格**/
