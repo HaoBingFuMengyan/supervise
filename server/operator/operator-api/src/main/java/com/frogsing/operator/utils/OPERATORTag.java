@@ -123,14 +123,14 @@ public  class OPERATORTag{
 		public IConst GetConst(int val) {
 			return com.frogsing.operator.utils.OPERATOR.OperatorType.get(val);
 		}
-		public void setZdbsc(int val) {
-			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.ZDBSC,val);
+		public void setJgb(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.JGB,val);
 		}
-		public void setGsspk(int val) {
-			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.GSSPK,val);
+		public void setSpk(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.SPK,val);
 		}
-		public void setJrglj(int val) {
-			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.JRGLJ,val);
+		public void setSystem(int val) {
+			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.SYSTEM,val);
 		}
 		public void setZsjf(int val) {
 			setCurrentconst(com.frogsing.operator.utils.OPERATOR.OperatorType.ZSJF,val);

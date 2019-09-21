@@ -173,7 +173,7 @@ public class AuthapplyController {
                         SearchFilter.eq(MEMBERCol.hy_authapply.iapprovalstatus, MEMBER.ApprovalStatus.CHECKED.val()));
 
 
-                if (OPERATOR.OperatorType.ZDBSC.isEq(operator.getIoperatortype())){
+                if (OPERATOR.OperatorType.SPK.isEq(operator.getIoperatortype())){
                     spec.or(SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.ZSJG.val()),
                             SearchFilter.eq(MEMBERCol.hy_authapply.iprocess,MEMBER.Process.JDBSC.val()));
                 }
