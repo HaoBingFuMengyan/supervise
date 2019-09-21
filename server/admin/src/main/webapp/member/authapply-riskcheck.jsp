@@ -22,10 +22,10 @@
         function riskcheckAdd(){
             top.layer.open({
                 type: 2,
-                title:"新增",
+                title:"迁入基金风险排查",
                 area: ['95%', '95%'],
                 content: '${ctx}/hy/authapply/riskcheck-add.shtml',
-                btn: ['确定','关闭'],
+                btn: ['提交','关闭'],
                 yes:function(index,layero){
 
                 }
@@ -53,10 +53,6 @@
                         <div class="form-group">
                             <span>公司名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
-                            <span>预审状态：</span>
-                            <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>变更状态：</span>
-                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus" defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
                     <br/>
@@ -82,12 +78,11 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">公司名称</th>
-                    <th class="sort-column">类型</th>
-                    <th class="sort-column">注册地址</th>
-                    <th class="sort-column">预审状态</th>
+                    <th class="sort-column">企业名称</th>
+                    <th class="sort-column">业务类型</th>
+                    <th class="sort-column">审核状态</th>
+                    <th class="sort-column">风险评级</th>
                     <th class="sort-column">申请时间</th>
-                    <th class="sort-column">变更状态</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
