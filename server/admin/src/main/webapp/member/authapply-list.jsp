@@ -110,7 +110,7 @@
                     top.layer.confirm('确定要拒绝审核吗？', {
                         btn: ['确定', '取消'] //按钮
                     }, function () {
-                        $.post("${ctx}/hy/authapply/changeinfocheck.json",{id: id,iapprovalstatus:0},function(rs){
+                        $.post("${ctx}/hy/authapply/changeinfocheck.json",{id: id,iapprovalstatus:2},function(rs){
 //                            layer.closeAll('loading');
                             if (rs.success) {
                                 layer.close(indexp);

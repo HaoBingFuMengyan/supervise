@@ -190,7 +190,7 @@
 </div>
 
 <%--企业信息和检测报告内文只有街道办事处才能查看 所属招商机构也可以查看--%>
-<c:if test="${isAdmin eq 1 || (data.istatus eq 1 && (operator.ioperatortype eq 20 || operator.ioperatortype eq 40) && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
+<c:if test="${isAdmin eq 1 || (data.istatus eq 1 && (data.iprocess eq 10 || data.iprocess eq 20 || data.iprocess eq 30 || data.iprocess eq 40))}">
     <div class="layui-collapse" style="border-top: none;margin-top: 10px;">
         <div class="layui-colla-item">
             <div class="layui-colla-content layui-show">
