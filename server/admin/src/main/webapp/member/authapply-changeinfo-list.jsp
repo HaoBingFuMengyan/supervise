@@ -51,12 +51,13 @@
                         <div class="form-group">
                             <span>公司名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
-                            <span>注册地址：</span>
-                            <input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>
-                            <span>预审状态：</span>
-                            <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>变更状态：</span>
-                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>业务类型：</span>
+                            <member:CompanyBizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>入驻方式：</span>
+                            <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>风险评级：</span>
+                            <member:RiskLevel op="select" val="${search_eq_irisklevel}" name="search_eq_irisklevel" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <%--<span>入驻日期：</span>--%>
                         </div>
                     </form:form>
                     <br/>
@@ -80,12 +81,13 @@
                 <thead>
                 <tr>
                     <th class="sort-column">公司名称</th>
-                    <th class="sort-column">类型</th>
-                    <th class="sort-column">注册地址</th>
-                    <th class="sort-column">预审状态</th>
-                    <th class="sort-column">申请时间</th>
-                    <th class="sort-column">变更状态</th>
-                    <th class="sort-column">入驻审核</th>
+                    <th class="sort-column">业务类型</th>
+                    <th class="sort-column">入驻方式</th>
+                    <th class="sort-column">入驻日期</th>
+                    <th class="sort-column">认缴规模(万元)</th>
+                    <th class="sort-column">备案日期</th>
+                    <th class="sort-column">风险评级</th>
+                    <th class="sort-column">风险预警</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -97,33 +99,17 @@
                             <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
-                            ${obj.sregaddress}
+                            <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
                         </td>
                         <td>
-                            <member:CheckStatus op="label" val="${obj.istatus}"/>
+                            <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
+                        <td>${obj.iregmoney}</td>
+                        <td></td>
                         <td>
-                            <mw:format label="datetime" value="${obj.dapplydate}"/>
+                            <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                         </td>
-                        <td>
-                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
-                        </td>
-                        <td>
-                            <c:choose>
-                                <c:when test="${obj.iprocess == null || obj.iprocess eq 0}">
-                                    未申请
-                                </c:when>
-                                <c:when test="${obj.iprocess eq 10}">
-                                    审核中
-                                </c:when>
-                                <c:when test="${obj.iprocess eq 30}">
-                                    审核通过
-                                </c:when>
-                                <c:when test="${obj.iprocess eq 40}">
-                                    审核拒绝
-                                </c:when>
-                            </c:choose>
-                        </td>
+                        <td></td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
