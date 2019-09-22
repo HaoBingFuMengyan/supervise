@@ -49,43 +49,43 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
             case SFYC:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.SFYC.val());
 
-                authapplyRiskDetail.setSsfexce(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSsfexce() + 1)));
+                authapplyRiskDetail.setSsfexce(String.valueOf(authapplyRiskDetail.getSsfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSsfexce()) + 1));
                 break;
             //行政处罚
             case XZCF:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.XZCF.val());
 
-                authapplyRiskDetail.setSxzcfexce(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSxzcfexce() + 1)));
+                authapplyRiskDetail.setSxzcfexce(String.valueOf(authapplyRiskDetail.getSxzcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSxzcfexce()) + 1));
                 break;
             //经营情况
             case JYQK:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.JYQK.val());
 
-                authapplyRiskDetail.setSjjinvice(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSjjinvice() + 1)));
+                authapplyRiskDetail.setSjjinvice(String.valueOf(authapplyRiskDetail.getSjjinvice() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSjjinvice()) + 1));
                 break;
             //涉诉情况
             case SSQK:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.SSQK.val());
 
-                authapplyRiskDetail.setSshensuexce(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSshensuexce() + 1)));
+                authapplyRiskDetail.setSshensuexce(String.valueOf(authapplyRiskDetail.getSshensuexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSshensuexce()) + 1));
                 break;
             //披露异常
             case PLYC:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.PLYC.val());
 
-                authapplyRiskDetail.setSplexce(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSplexce() + 1)));
+                authapplyRiskDetail.setSplexce(String.valueOf(authapplyRiskDetail.getSplexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSplexce()) + 1));
                 break;
             //清算异常
             case QSYC:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.QSYC.val());
 
-                authapplyRiskDetail.setSqsexce(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSqsexce() + 1)));
+                authapplyRiskDetail.setSqsexce(String.valueOf(authapplyRiskDetail.getSqsexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSqsexce()) + 1));
                 break;
             //可疑交易
             case KYJY:
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.KYJY.val());
 
-                authapplyRiskDetail.setSkyjiaoyi(String.valueOf(Integer.valueOf(authapplyRiskDetail.getSkyjiaoyi() + 1)));
+                authapplyRiskDetail.setSkyjiaoyi(String.valueOf(authapplyRiskDetail.getSkyjiaoyi() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSkyjiaoyi()) + 1));
                 break;
             default:
                 E.S("未知类型");

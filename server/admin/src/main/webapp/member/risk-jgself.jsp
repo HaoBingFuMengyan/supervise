@@ -108,10 +108,10 @@
                     <tr>
                         <td>${obj.scnname}</td>
                         <td>${obj.smanager}</td>
-                        <td>${obj.ssfexce == null ? 0 : obj.ssfexce}条</td>
-                        <td>${obj.sxzcfexce == null ? 0 : obj.sxzcfexce}条</td>
-                        <td>${obj.sjjinvice == null ? 0 : obj.sjjinvice}条</td>
-                        <td>${obj.sshensuexce == null ? 0 : obj.sshensuexce}条</td>
+                        <td>${obj.ssfexce == null ? 0 : obj.ssfexce +1}条</td>
+                        <td>${obj.sxzcfexce == null ? 0 : obj.sxzcfexce +1}条</td>
+                        <td>${obj.sjjinvice == null ? 0 : obj.sjjinvice +1}条</td>
+                        <td>${obj.sshensuexce == null ? 0 : obj.sshensuexce +1}条</td>
                         <td>
                             <a onclick="exceptionAdd('司法异常','${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>司法异常</a>
                             <a onclick="exceptionAdd('行政处罚','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>行政处罚</a>

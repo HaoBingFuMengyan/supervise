@@ -6,12 +6,12 @@
     <title>风险评估报告</title>
     <script type="text/javascript">
         //添加
-        function addRisk(id,irisktype){
+        function addRisk(id,iexceptiontype){
             top.layer.open({
                 type: 2,
                 title:"添加",
                 area: ['45%', '40%'],
-                content: '${ctx}/hy/authapplyriskdetail/add.shtml?id='+id+'&irisktype='+irisktype,
+                content: '${ctx}/hy/authapplyriskexce/add.shtml?id='+id+'&iexceptiontype='+iexceptiontype,
                 btn: ['确定','关闭'],
                 yes:function(index,layero){
                     var iframeWin = layero.find('iframe')[0];
@@ -19,7 +19,7 @@
                     var doc = $(iframeWin.contentWindow.document);
 
                     if (iframeWin.contentWindow.valiForm()) {
-                        $.post("${ctx}/hy/authapplyriskdetail/add.json", doc.find('#formx').serialize(), function (rs) {
+                        $.post("${ctx}/hy/authapplyriskexce/add.json", doc.find('#formx').serialize(), function (rs) {
                             if (rs.success) {
 
                                 top.layer.close(index);
@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
-                        <a onclick="addRisk('${id}','${irisktype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
+                        <a onclick="addRisk('${id}','${iexceptiontype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
