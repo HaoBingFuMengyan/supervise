@@ -914,6 +914,10 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String iprocess="iprocess" ;
             /**是否入住企业**/
             public static final String bisincompany="bisincompany" ;
+            /**等级**/
+            public static final String irisklevel="irisklevel" ;
+            /**整体评分**/
+            public static final String fscore="fscore" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1094,6 +1098,10 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Integer> iprocess(Root<?> root){return root.get("iprocess");}
             /**是否入住企业**/
             public static  Path<Integer> bisincompany(Root<?> root){return root.get("bisincompany");}
+            /**等级**/
+            public static  Path<Integer> irisklevel(Root<?> root){return root.get("irisklevel");}
+            /**整体评分**/
+            public static  Path<Double> fscore(Root<?> root){return root.get("fscore");}
 
     }
 /**意见反馈表**/
@@ -1376,6 +1384,10 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static final String dmodifydate="dmodifydate" ;
             /**备注**/
             public static final String sremark="sremark" ;
+            /**会员ID**/
+            public static final String smemberid="smemberid" ;
+            /**认证id**/
+            public static final String sauthapplyid="sauthapplyid" ;
             /**风险id**/
             public static  Path<String> sriskid(Root<?> root){return root.get("sriskid");}
             /**类型**/
@@ -1432,6 +1444,10 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static  Path<Date> dmodifydate(Root<?> root){return root.get("dmodifydate");}
             /**备注**/
             public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+            /**会员ID**/
+            public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
+            /**认证id**/
+            public static  Path<String> sauthapplyid(Root<?> root){return root.get("sauthapplyid");}
 
     }
 /**企业风险监测报告异常表**/

@@ -42,6 +42,8 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 	private   String smodifyname; //修改人名称 String
 	private   Date dmodifydate; //修改时间 Date
 	private   String sremark; //备注 String
+	private   String smemberid; //会员ID String
+	private   String sauthapplyid; //认证id String
 	   /**
 		风险id String
 		*/
@@ -419,6 +421,32 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 		*/
 		public void setSremark(String  sremark) {
 			this.sremark =  sremark;//备注 String
+		}
+	   /**
+		会员ID String
+		*/
+		@Column(name="smemberid",length=32)
+		public String getSmemberid() {
+			return  smemberid;//会员ID String
+		}
+		/**
+		会员ID String
+		*/
+		public void setSmemberid(String  smemberid) {
+			this.smemberid =  smemberid;//会员ID String
+		}
+	   /**
+		认证id String
+		*/
+		@Column(name="sauthapplyid",length=32)
+		public String getSauthapplyid() {
+			return  sauthapplyid;//认证id String
+		}
+		/**
+		认证id String
+		*/
+		public void setSauthapplyid(String  sauthapplyid) {
+			this.sauthapplyid =  sauthapplyid;//认证id String
 		}
 	
 //frogsingcode//

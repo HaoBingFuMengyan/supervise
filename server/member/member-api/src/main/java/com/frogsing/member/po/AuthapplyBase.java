@@ -104,6 +104,8 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   String skzremail; //控制人邮箱 String
 	private   Integer iprocess=0; //审批流 int
 	private   Integer bisincompany=0; //是否入住企业 int
+	private   Integer irisklevel=0; //等级 int
+	private   Double fscore; //整体评分 double
 	   /**
 		会员ID String
 		*/
@@ -1439,6 +1441,44 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setBisincompany(Integer  bisincompany) {
 			this.bisincompany =  bisincompany;//是否入住企业 int
+		}
+	   /**
+		等级 int
+	    RiskLevel:
+	    0:YX:优秀
+1:LH:良好
+2:XC:瑕疵
+3:FX:风险
+ 
+		*/
+		@Column(name="irisklevel")
+		public Integer getIrisklevel() {
+			return  irisklevel;//等级 int
+		}
+		/**
+		等级 int
+	    RiskLevel:
+	    0:YX:优秀
+1:LH:良好
+2:XC:瑕疵
+3:FX:风险
+ 
+		*/
+		public void setIrisklevel(Integer  irisklevel) {
+			this.irisklevel =  irisklevel;//等级 int
+		}
+	   /**
+		整体评分 double
+		*/
+		@Column(name="fscore")
+		public Double getFscore() {
+			return  fscore;//整体评分 double
+		}
+		/**
+		整体评分 double
+		*/
+		public void setFscore(Double  fscore) {
+			this.fscore =  fscore;//整体评分 double
 		}
 	
 //frogsingcode//
