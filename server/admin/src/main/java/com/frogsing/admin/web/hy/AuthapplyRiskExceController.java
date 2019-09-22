@@ -61,56 +61,37 @@ public class AuthapplyRiskExceController {
             //司法异常
             case SFYC:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.SFYC.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/sfyc-list";
+                break;
             //行政处罚
             case XZCF:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.XZCF.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/xzcf-list";
+                break;
             //经营情况
             case JYQK:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.JYQK.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/jyqk-list";
+                break;
             //涉诉情况
             case SSQK:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.SSQK.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/ssqk-list";
+                break;
             //披露异常
             case PLYC:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.PLYC.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/plyc-list";
+                break;
             //清算异常
             case QSYC:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.QSYC.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/qsyc-list";
+                break;
             //可疑交易
             case KYJY:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.KYJY.val()));
-
-                list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
-                return "/member/kyjy-list";
+                break;
             default:
                 return "";
         }
-
+        list = queryService.listPage(pageable,xSpec);
+        model.addAttribute("list",list);
+        return "/member/sfyc-list";
     }
 
     @RequestMapping(value = "add.shtml")
@@ -123,25 +104,19 @@ public class AuthapplyRiskExceController {
         switch (exceptionType){
             //司法异常
             case SFYC:
-                return "/member/sfyc-list-add";
             //行政处罚
             case XZCF:
-                return "/member/xzcf-list-add";
             //经营情况
             case JYQK:
-                return "/member/jyqk-list-add";
             //涉诉情况
             case SSQK:
-                return "/member/ssqk-list-add";
             //披露异常
             case PLYC:
-                return "/member/plyc-list-add";
             //清算异常
             case QSYC:
-                return "/member/qsyc-list-add";
             //可疑交易
             case KYJY:
-                return "/member/kyjy-list-add";
+                return "/member/sfyc-list-add";
             default:
                 return "";
         }
