@@ -227,6 +227,39 @@
                 }
             });
         }
+
+        //风险总评
+        function authapplyScore(id){
+            top.layer.open({
+                type: 2,
+                title: '风险总评',
+                area: ['60%', '45%'],
+                content: '${ctx}/hy/authapply/score.shtml?id='+id,
+                btn: ['确定', '关闭'],
+                yes: function (index, layero) {
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
+                    if (iframeWin.contentWindow.valiForm()) {
+                        $.post("${ctx}/hy/authapply/score.json", doc.find('#formx').serialize(), function (rs) {
+                            if (rs.success) {
+
+                                top.layer.close(index);
+
+                                top.layer.msg("操作成功!", {icon: 1});
+                            }
+                            else {
+                                top.layer.msg(rs.msg, {icon: 5});
+                            }
+                        });
+
+                    }
+
+                },
+                cancel: function (index) {
+                }
+            });
+        }
     </script>
 
 </head>
@@ -337,7 +370,7 @@
                                         <ul class="hard-list">
                                             <li>风险评估
                                                 <ul>
-                                                    <li><a class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险总评</a> </li>
+                                                    <li><a onclick="authapplyScore('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险总评</a> </li>
                                                     <li><a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a> </li>
                                                     <li><a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a></li>
                                                     <li><a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a></li>

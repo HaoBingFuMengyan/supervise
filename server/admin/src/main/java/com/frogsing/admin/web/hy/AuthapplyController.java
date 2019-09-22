@@ -432,7 +432,7 @@ public class AuthapplyController {
     public String risk(@RequestParam(value = "id") String id,
             Model model,HttpServletRequest request){
 
-        model.addAttribute("id",id);
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
         return "/member/authapply-score";
     }
 

@@ -4,6 +4,7 @@ import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
 import com.frogsing.heart.utils.B;
+import com.frogsing.heart.utils.F;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyService;
 import com.frogsing.member.dao.*;
@@ -281,7 +282,37 @@ public class AuthapplyService implements IAuthapplyService {
 		if (authapply == null)
 			E.S("系统错误，请联系管理员");
 
-//		authapply.set
+		double fscore = 0D;
+
+		if (MEMBER.CompanyBizType.ZRJJ.isEq(authapply.getIcorbiztype()) || MEMBER.CompanyBizType.HHJJ.isEq(authapply.getIcorbiztype())){
+			fscore = F.divide(F.add(F.add(F.add(F.add(authVo.getFjgscore(),authVo.getFhxscore()),authVo.getFglqyscore()),authVo.getFzgjjscore()),authVo.getFwbascore()),5,2);
+			authapply.setFzgjjscore(authVo.getFzgjjscore());
+			authapply.setFwbascore(authVo.getFwbascore());
+		}
+
+		if (MEMBER.CompanyBizType.HHFT.isEq(authapply.getIcorbiztype())){
+			fscore = F.divide(F.add(F.add(F.add(F.add(authVo.getFjgscore(),authVo.getFhxscore()),authVo.getFglqyscore()),authVo.getFglrscore()),authVo.getFjjyzscore()),5,2);
+			authapply.setFglrscore(authVo.getFglrscore());
+			authapply.setFjjyzscore(authVo.getFjjyzscore());
+		}
+
+		authapply.setFscore(fscore);
+		authapply.setFjgscore(authVo.getFjgscore());
+		authapply.setFhxscore(authVo.getFhxscore());
+		authapply.setFglqyscore(authVo.getFglqyscore());
+
+		if (fscore >= 90)
+			authapply.setIrisklevel(MEMBER.RiskLevel.YX.val());
+		else if (fscore < 90 && fscore >= 75)
+			authapply.setIrisklevel(MEMBER.RiskLevel.LH.val());
+		else if (fscore < 75 && fscore >= 60)
+			authapply.setIrisklevel(MEMBER.RiskLevel.XC.val());
+		else
+			authapply.setIrisklevel(MEMBER.RiskLevel.FX.val());
+
+
+		this.authapplyDao.saveAndFlush(authapply);
+
 	}
 
 	/**
