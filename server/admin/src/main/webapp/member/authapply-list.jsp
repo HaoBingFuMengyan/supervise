@@ -190,35 +190,13 @@
             });
         }
         //风险检测报告
-        function riskcheck(id){
+        function riskcheck(id,irisktype){
             top.layer.open({
                 type: 2,
                 title: "风险评估报告",
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/risk.shtml?id='+id,
-                btn: ['确定', '关闭'],
-                yes: function (index, layero) {
-                    var iframeWin = layero.find('iframe')[0];
-                    var $ = iframeWin.contentWindow.$;
-                    var doc = $(iframeWin.contentWindow.document);
-//                    doc.find("form").first().submit();
-                    <%--if(iframeWin.contentWindow.valiForm()){--%>
-                        <%--$.post("${ctx}/hy/authapplyrisk/save.json",doc.find('#formx').serialize(),function(rs){--%>
-<%--//                            layer.closeAll('loading');--%>
-                            <%--if (rs.success) {--%>
-
-                                <%--layer.close(index);--%>
-
-                                <%--top.layer.msg("操作成功!",{icon:1},function () {--%>
-                                    <%--parent.location.reload();--%>
-                                <%--});--%>
-                            <%--}--%>
-                            <%--else {--%>
-                                <%--top.layer.msg(rs.msg,{icon:5});--%>
-                            <%--}--%>
-                        <%--});--%>
-                    <%--}--%>
-                },
+                content: '${ctx}/hy/authapplyriskdetail/risk.shtml?id='+id+'&irisktype='+irisktype,
+                btn: ['关闭'],
                 cancel: function (index) {
                 }
             });
@@ -330,12 +308,12 @@
 
                                     <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
                                         <%--<a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>--%>
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a>
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a>
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a>
+                                        <a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a>
+                                        <a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a>
+                                        <a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a>
                                         <c:if test="${obj.icorporatetype ne 30}">
-                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a>
-                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a>
+                                            <a onclick="riskcheck('${obj.id}',3)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a>
+                                            <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a>
                                         </c:if>
                                         <c:if test="${obj.icorporatetype eq 30}">
                                             <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a>
