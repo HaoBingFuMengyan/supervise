@@ -57,21 +57,21 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <%--<div class="ibox-title">--%>
-            <%--<h5>风险评估报告</h5>--%>
+        <%--<h5>风险评估报告</h5>--%>
         <%--</div>--%>
         <div class="ibox-content">
             <sys:message content="${message}"/>
             <!-- 查询条件 -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form:form id="searchForm" action="${ctx}/hy/authapplyriskdetail/risk.shtml" method="post" class="form-inline">
+                    <form:form id="searchForm" action="${ctx}/hy/authapplyriskexce/list.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
-                        <input type="hidden" id="irisktype" name="irisktype" value="${irisktype}" />
+                        <input type="hidden" id="iexceptiontype" name="iexceptiontype" value="${iexceptiontype}" />
                         <input type="hidden" id="id" name="id" value="${id}" />
-                        <div class="form-group">
-                            <span>机构名称：</span>
-                            <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
-                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<span>机构名称：</span>--%>
+                            <%--<input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>--%>
+                        <%--</div>--%>
                     </form:form>
                     <br/>
                 </div>
@@ -94,30 +94,17 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">机构名称</th>
-                    <th class="sort-column">管理人资格</th>
-                    <th class="sort-column">司法异常</th>
-                    <th class="sort-column">行政处罚</th>
-                    <th class="sort-column">经营异常</th>
-                    <th class="sort-column">涉诉情况</th>
+                    <th class="sort-column">序号</th>
+                    <th class="sort-column">内容</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list.content}" var="obj">
+                <c:forEach items="${list.content}" var="obj" varStatus="in">
                     <tr>
-                        <td>${obj.scnname}</td>
-                        <td>${obj.smanager}</td>
-                        <td>${obj.ssfexce == null ? 0 : obj.ssfexce}条</td>
-                        <td>${obj.sxzcfexce == null ? 0 : obj.sxzcfexce}条</td>
-                        <td>${obj.sjjinvice == null ? 0 : obj.sjjinvice}条</td>
-                        <td>${obj.sshensuexce == null ? 0 : obj.sshensuexce}条</td>
-                        <td>
-                            <a onclick="exceptionAdd('司法异常','${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>司法异常</a>
-                            <a onclick="exceptionAdd('行政处罚','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>行政处罚</a>
-                            <a onclick="exceptionAdd('经营情况','${obj.id}',2)" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>经营情况</a>
-                            <a onclick="exceptionAdd('涉诉情况','${obj.id}',3)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>涉诉情况</a>
-                        </td>
+                        <td>${in.index + 1}</td>
+                        <td>${obj.scontent}</td>
+                        <td></td>
                     </tr>
                 </c:forEach>
                 </tbody>
