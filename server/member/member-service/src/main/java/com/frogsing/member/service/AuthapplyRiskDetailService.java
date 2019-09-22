@@ -71,6 +71,11 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
                 break;
             //未备案的合伙企业
             case WBAHHQY:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setDsetdate(authapplyRiskDetail.getDsetdate());
+                riskDetail.setFnum(authapplyRiskDetail.getFnum());
+                riskDetail.setFnaturalnum(authapplyRiskDetail.getFnaturalnum());
+                riskDetail.setSinvest(authapplyRiskDetail.getSinvest());
                 riskDetail.setIrisktype(MEMBER.RiskType.WBAHHQY.val());
                 break;
             default:

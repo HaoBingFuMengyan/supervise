@@ -918,6 +918,20 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String irisklevel="irisklevel" ;
             /**整体评分**/
             public static final String fscore="fscore" ;
+            /**机构自身评分**/
+            public static final String fjgscore="fjgscore" ;
+            /**核心人员评分**/
+            public static final String fhxscore="fhxscore" ;
+            /**关联企业评分**/
+            public static final String fglqyscore="fglqyscore" ;
+            /**在管基金评分**/
+            public static final String fzgjjscore="fzgjjscore" ;
+            /**未备案企业**/
+            public static final String fwbascore="fwbascore" ;
+            /**管理人合规性**/
+            public static final String fglrscore="fglrscore" ;
+            /**基金运作情况**/
+            public static final String fjjyzscore="fjjyzscore" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1102,6 +1116,20 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Integer> irisklevel(Root<?> root){return root.get("irisklevel");}
             /**整体评分**/
             public static  Path<Double> fscore(Root<?> root){return root.get("fscore");}
+            /**机构自身评分**/
+            public static  Path<Double> fjgscore(Root<?> root){return root.get("fjgscore");}
+            /**核心人员评分**/
+            public static  Path<Double> fhxscore(Root<?> root){return root.get("fhxscore");}
+            /**关联企业评分**/
+            public static  Path<Double> fglqyscore(Root<?> root){return root.get("fglqyscore");}
+            /**在管基金评分**/
+            public static  Path<Double> fzgjjscore(Root<?> root){return root.get("fzgjjscore");}
+            /**未备案企业**/
+            public static  Path<Double> fwbascore(Root<?> root){return root.get("fwbascore");}
+            /**管理人合规性**/
+            public static  Path<Double> fglrscore(Root<?> root){return root.get("fglrscore");}
+            /**基金运作情况**/
+            public static  Path<Double> fjjyzscore(Root<?> root){return root.get("fjjyzscore");}
 
     }
 /**意见反馈表**/
