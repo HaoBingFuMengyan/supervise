@@ -76,7 +76,7 @@
                   <div class="col-sm-6 col-xs-12 col-md-3">
                        <div class="centerbk_2">
                             <div class="col-sm-9 col-xs-9">
-                            	<h2>125</h2>
+                            	<h2>65</h2>
                             	<p>备案基金数量</p>
                             </div>
                             <div class="col-sm-3 col-xs-3">
@@ -98,7 +98,7 @@
                   <div class="col-sm-6 col-xs-12 col-md-3">
                        <div class="centerbk_4">
                             <div class="col-sm-9 col-xs-9">
-                            	<h2>50,348,348</h2>
+                            	<h2>16,348,348</h2>
                             	<p>备案基金认缴规模</p>
                             </div>
                             <div class="col-sm-3 col-xs-3">
@@ -176,13 +176,13 @@
             },
             xAxis: {
                 type: 'category',
-                data: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12']
+                data: ['1', '2', '3', '4', '5', '6', '7','8','9']
             },
             yAxis: {
                 type: 'value'
             },
             series: [{
-                data: [0, 0, 0, 0, 0, 0, 20,50,180,220,300,300],
+                data: [10, 20, 40, 32, 60, 80, 90,100,180],
                 type: 'line',
                 smooth: true
             }]
@@ -211,13 +211,13 @@
             },
             xAxis: {
                 type: 'category',
-                data: ['1', '2', '3', '4', '5', '6', '7','8','9','10','11','12']
+                data: ['1', '2', '3', '4', '5', '6', '7','8','9']
             },
             yAxis: {
                 type: 'value'
             },
             series: [{
-                data: [0, 0, 0, 0,5, 8, 20,50,180,120,340,400],
+                data: [0, 0, 5, 10,20, 23, 40,90,150],
                 type: 'line',
                 smooth: true
             }]
@@ -307,7 +307,7 @@
             legend: {
                 orient: 'vertical',
                 x: 'left',
-                data:['有限公司','合伙企业']
+                data:['基金管理人','创投基金']
             },
             series: [
                 {
@@ -334,8 +334,8 @@
                         }
                     },
                     data:[
-                        {value:300, name:'有限公司'},
-                        {value:200, name:'合伙企业'}
+                        {value:300, name:'基金管理人'},
+                        {value:200, name:'创投基金'}
                     ]
                 }
             ]
