@@ -4,6 +4,32 @@
 <html>
 <head>
     <title>基金基本信息</title>
+    <style>
+        .hard-list{
+            display: inline-block;
+            padding-left: 10px;
+        }
+        .hard-list li{
+            position: relative;
+            list-style: none;
+        }
+        .hard-list li ul{
+            display: none;
+            position: absolute;
+            left: 0;
+            background: #fff;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 3px;
+            box-shadow: 0 0 16px 0 hsla(0,0%,77%,.5);
+        }
+        .hard-list li:hover ul{
+            display: block;
+        }
+        .hard-list li:hover ul li{
+            margin-bottom: 5px;
+        }
+    </style>
     <script type="text/javascript">
         //查看基本信息
         function querydetail(id) {
@@ -308,17 +334,24 @@
 
                                     <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
                                         <%--<a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>--%>
-                                        <a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a>
-                                        <a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a>
-                                        <a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a>
-                                        <c:if test="${obj.icorporatetype ne 30}">
-                                            <a onclick="riskcheck('${obj.id}',3)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a>
-                                            <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a>
-                                        </c:if>
-                                        <c:if test="${obj.icorporatetype eq 30}">
-                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a>
-                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a>
-                                        </c:if>
+                                        <ul class="hard-list">
+                                            <li>风险评估
+                                                <ul>
+                                                    <li><a class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险总评</a> </li>
+                                                    <li><a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a> </li>
+                                                    <li><a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a></li>
+                                                    <li><a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a></li>
+                                                    <c:if test="${obj.icorporatetype ne 30}">
+                                                        <li> <a onclick="riskcheck('${obj.id}',3)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a></li>
+                                                        <li> <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a></li>
+                                                    </c:if>
+                                                    <c:if test="${obj.icorporatetype eq 30}">
+                                                        <li><a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a></li>
+                                                        <li><a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a></li>
+                                                    </c:if>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </c:if>
                                 </c:if>
                             </shiro:hasAnyPermission>
