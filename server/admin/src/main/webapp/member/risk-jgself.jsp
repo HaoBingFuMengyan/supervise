@@ -5,29 +5,48 @@
 <head>
     <title>风险评估报告</title>
     <script type="text/javascript">
-        //查看基本信息
-        function querydetail(id) {
+        //添加
+        function addRisk(id,irisktype){
             top.layer.open({
                 type: 2,
-                title:"信息",
-                area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/index.shtml?id='+id,
-                btn: ['关闭'],
-                cancel: function(index){ //或者使用btn2
-//                    layer.close(index);
+                title:"添加",
+                area: ['45%', '40%'],
+                content: '${ctx}/hy/authapplyriskdetail/add.shtml?id='+id+'&irisktype='+irisktype,
+                btn: ['确定','关闭'],
+                yes:function(index,layero){
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
+
+                    if (iframeWin.contentWindow.valiForm()) {
+                        $.post("${ctx}/hy/authapplyriskdetail/add.json", doc.find('#formx').serialize(), function (rs) {
+                            if (rs.success) {
+
+                                layer.close(index);
+
+                                top.layer.msg("操作成功!", {icon: 1},function () {
+                                    parent.location.reload();
+                                });
+                            }
+                            else {
+                                top.layer.msg(rs.msg, {icon: 5});
+                            }
+                        });
+                    }
+                }
+                ,cancel: function(index){ //或者使用btn2
                 }
             });
         }
-
     </script>
 
 </head>
 <body>
 <div class="wrapper wrapper-content">
     <div class="ibox">
-        <div class="ibox-title">
-            <h5>风险评估报告</h5>
-        </div>
+        <%--<div class="ibox-title">--%>
+            <%--<h5>风险评估报告</h5>--%>
+        <%--</div>--%>
         <div class="ibox-content">
             <sys:message content="${message}"/>
             <!-- 查询条件 -->
@@ -38,6 +57,8 @@
                         <input type="hidden" id="irisktype" name="irisktype" value="${irisktype}" />
                         <input type="hidden" id="id" name="id" value="${id}" />
                         <div class="form-group">
+                            <span>机构名称：</span>
+                            <input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>
                         </div>
                     </form:form>
                     <br/>
@@ -48,6 +69,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
+                        <a onclick="addRisk('${id}','${irisktype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
@@ -60,13 +82,12 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">类型</th>
-                    <th class="sort-column">入驻方式</th>
-                    <th class="sort-column">注册地址</th>
-                    <th class="sort-column">预审状态</th>
-                    <th class="sort-column">申请时间</th>
-                    <th class="sort-column">变更状态</th>
-                    <th class="sort-column">入驻审核</th>
+                    <th class="sort-column">机构名称</th>
+                    <th class="sort-column">管理人资格</th>
+                    <th class="sort-column">司法异常</th>
+                    <th class="sort-column">行政处罚</th>
+                    <th class="sort-column">经营异常</th>
+                    <th class="sort-column">涉诉情况</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
