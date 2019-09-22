@@ -14,6 +14,7 @@
     <link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="${ctx}/css/layui-extend.css">
     <link rel="stylesheet" href="${ctxStatic}/css/common.css">
+
     <title>风险评估报告</title>
     <style>
         .layui-form-item{
@@ -220,7 +221,7 @@
                 </div>
                 <div class="layui-tab-item">
                     <div class="mytit">
-                        <input name="" placeholder="机构自身评分" /><button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button>
+                        <input name="" placeholder="机构自身评分" /><input type="button" id="jg-addbtn" class="layui-btn layui-btn-warm layui-btn-sm" value="添加"/>
                     </div>
                     <div class="my-block">
                         <div class="layui-form-item">
@@ -237,23 +238,25 @@
                                 </div>
                             </div>
                             <div class="layui-block">
-                                <button class="layui-btn layui-btn-sm">添加</button>
-                                <input type="hidden" name="jgMap[0].sfList[0].iexceptiontype" value="0">
-                                <textarea name="jgMap[0].sfList[0].scontent" placeholder="请输入司法异常描述"></textarea>
+                                <div class="jg">
+                                    <input onclick="jgAdd('jg','0',this)" class="layui-btn layui-btn-sm" value="添加" />
+                                    <input type="hidden" name="jgMap[0].sfList[0].iexceptiontype" value="0">
+                                    <textarea name="jgMap[0].sfList[0].scontent" placeholder="请输入司法异常描述"></textarea>
+                                </div>
                             </div>
-                            <div class="layui-block">
-                                <button class="layui-btn layui-btn-sm">添加</button>
+                            <div id="jg-btn-2" class="layui-block">
+                                <input class="layui-btn layui-btn-sm" value="添加" />
                                 <input type="hidden" name="jgMap[0].sfList[1].iexceptiontype" value="1">
                                 <textarea name="jgMap[0].sfList[1].scontent" placeholder="请输入行政处罚描述"></textarea>
                             </div>
-                            <div class="layui-block">
-                                <button class="layui-btn layui-btn-sm">添加</button>
+                            <div id="jg-btn-3" class="layui-block">
+                                <input class="layui-btn layui-btn-sm" value="添加" />
                                 <input type="hidden" name="jgMap[0].sfList[2].iexceptiontype" value="2">
                                 <textarea name="jgMap[0].sfList[2].scontent" placeholder="请输入异常经营描述"></textarea>
                             </div>
-                            <div class="layui-block">
-                                <button class="layui-btn layui-btn-sm">添加</button>
-                                <input type="hidden" name="jgMap[0].sfList[2].iexceptiontype" value="3">
+                            <div id="jg-btn-4" class="layui-block">
+                                <input class="layui-btn layui-btn-sm" value="添加" />
+                                <input type="hidden" name="jgMap[0].sfList[3].iexceptiontype" value="3">
                                 <textarea name="jgMap[0].sfList[3].scontent" placeholder="请输入涉诉情况"></textarea>
                             </div>
                         </div>

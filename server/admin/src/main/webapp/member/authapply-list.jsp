@@ -202,22 +202,22 @@
                     var $ = iframeWin.contentWindow.$;
                     var doc = $(iframeWin.contentWindow.document);
 //                    doc.find("form").first().submit();
-                    if(iframeWin.contentWindow.valiForm()){
-                        $.post("${ctx}/hy/authapplyrisk/save.json",doc.find('#formx').serialize(),function(rs){
-//                            layer.closeAll('loading');
-                            if (rs.success) {
+                    <%--if(iframeWin.contentWindow.valiForm()){--%>
+                        <%--$.post("${ctx}/hy/authapplyrisk/save.json",doc.find('#formx').serialize(),function(rs){--%>
+<%--//                            layer.closeAll('loading');--%>
+                            <%--if (rs.success) {--%>
 
-                                layer.close(index);
+                                <%--layer.close(index);--%>
 
-                                top.layer.msg("操作成功!",{icon:1},function () {
-                                    parent.location.reload();
-                                });
-                            }
-                            else {
-                                top.layer.msg(rs.msg,{icon:5});
-                            }
-                        });
-                    }
+                                <%--top.layer.msg("操作成功!",{icon:1},function () {--%>
+                                    <%--parent.location.reload();--%>
+                                <%--});--%>
+                            <%--}--%>
+                            <%--else {--%>
+                                <%--top.layer.msg(rs.msg,{icon:5});--%>
+                            <%--}--%>
+                        <%--});--%>
+                    <%--}--%>
                 },
                 cancel: function (index) {
                 }
@@ -276,7 +276,7 @@
                     <th class="sort-column">申请时间</th>
                     <th class="sort-column">变更状态</th>
                     <th class="sort-column">入驻审核</th>
-                    <th class="sort-column">操作</th>
+                    <th class="sort-column" style="width: 300px">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -329,7 +329,18 @@
                                     </c:if>
 
                                     <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
-                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>
+                                        <%--<a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>--%>
+                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a>
+                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a>
+                                        <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a>
+                                        <c:if test="${obj.icorporatetype ne 30}">
+                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a>
+                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a>
+                                        </c:if>
+                                        <c:if test="${obj.icorporatetype eq 30}">
+                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a>
+                                            <a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a>
+                                        </c:if>
                                     </c:if>
                                 </c:if>
                             </shiro:hasAnyPermission>
