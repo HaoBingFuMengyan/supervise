@@ -114,23 +114,23 @@
     <div id="leftbar">
         <div class="menu" style="border-bottom:none;">
             <div class="trade" data-flag="open">
-                <span class="icon icon-ren"></span><strong>会员信息</strong><i class="icon fr">&#xe636;</i>
+                <span class="icon icon-ren"></span><strong>企业服务</strong><i class="icon fr">&#xe636;</i>
             </div>
 
             <div class="left_middle">
                 <ul>
                     <li>
                         <i></i>
-                        <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>我要申请</a></li>
+                        <a href="${ctx}/index.shtml"><i class="icon icon-guanli"></i>发起申请</a></li>
 
                     <li>
                     <li>
                         <i></i>
-                        <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请列表</a>
+                        <a href="${ctx}/hy/authapply/list.shtml?type=0"><i class="icon icon-guanli"></i>申请企业入驻</a>
                     </li>
                     <li>
                         <i></i>
-                        <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业列表</a>
+                        <a href="${ctx}/hy/authapply/list.shtml?type=1"><i class="icon icon-guanli"></i>入驻企业管理</a>
                     </li>
                     <%--<li>--%>
                         <%--<i></i>--%>
