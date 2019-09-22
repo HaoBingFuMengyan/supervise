@@ -13,6 +13,7 @@ import com.frogsing.member.utils.MEMBER.CheckStatus;
 import com.frogsing.member.utils.MEMBER.MemberType;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.member.utils.MEMBERCol.hy_authapply;
+import com.frogsing.member.vo.AuthVo;
 import com.frogsing.member.vo.MemVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -265,6 +266,22 @@ public class AuthapplyService implements IAuthapplyService {
 		this.authapplyDao.saveAndFlush(auth);
 
 		return apply;
+	}
+
+	/**
+	 * 评分
+	 *
+	 * @param authVo
+	 * @param user
+	 */
+	@Override
+	public void score(AuthVo authVo, ILoginUser user) {
+		Authapply authapply = authapplyDao.findOne(authVo.getId());
+
+		if (authapply == null)
+			E.S("系统错误，请联系管理员");
+
+//		authapply.set
 	}
 
 	/**

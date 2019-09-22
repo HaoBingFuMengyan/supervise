@@ -2,6 +2,7 @@ package com.frogsing.member;
 
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.Authapply;
+import com.frogsing.member.vo.AuthVo;
 import com.frogsing.member.vo.MemVo;
 
 import javax.frogsing.exception.ServiceException;
@@ -70,6 +71,14 @@ public interface IAuthapplyService  {
 	 * @return
 	 */
 	Authapply changeInfo(MemVo memVo,Authapply authapply,ILoginUser user);
+
+
+	/**
+	 * 评分
+	 * @param authVo
+	 * @param user
+	 */
+	void score(AuthVo authVo,ILoginUser user);
 
 
 	/**

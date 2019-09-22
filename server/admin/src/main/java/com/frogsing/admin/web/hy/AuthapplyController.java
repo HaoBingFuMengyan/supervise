@@ -7,6 +7,7 @@ import com.frogsing.heart.jpa.PageUtils;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.persistence.XSpec;
 import com.frogsing.heart.security.shiro.ShiroUtils;
+import com.frogsing.heart.utils.B;
 import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Msg;
 import com.frogsing.heart.web.Result;
@@ -19,6 +20,7 @@ import com.frogsing.member.po.NaturalHolder;
 import com.frogsing.member.service.AuthapplyService;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
+import com.frogsing.member.vo.AuthVo;
 import com.frogsing.operator.po.Operator;
 import com.frogsing.operator.utils.OPERATOR;
 import org.apache.http.auth.AUTH;
@@ -158,6 +160,7 @@ public class AuthapplyController {
 
     @RequestMapping(value = "report_detail.shtml")
     public String reportDetail(@RequestParam(value = "id") String id, Model model, HttpServletRequest request) {
+        model.addAttribute("data",queryService.findOne(Authapply.class,id));
         return "/member/authapply-report-detail";
     }
 
@@ -416,5 +419,40 @@ public class AuthapplyController {
     @RequiresPermissions("riskcheck:add")
     public String riskAdd(Model model,HttpServletRequest request){
         return "/member/authapply-riskcheck-add";
+    }
+
+    /**
+     * 企业评分
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "score.shtml")
+    public String risk(@RequestParam(value = "id") String id,
+            Model model,HttpServletRequest request){
+
+        model.addAttribute("id",id);
+        return "/member/authapply-score";
+    }
+
+    @RequestMapping(value = "score.json")
+    @ResponseBody
+    public Result authcore(AuthVo authVo,Model model, HttpServletRequest request){
+        try {
+            if (B.Y(authVo.getId()))
+                return Result.failure("系统错误，请联系管理员");
+
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyService.score(authVo,user);
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
     }
 }
