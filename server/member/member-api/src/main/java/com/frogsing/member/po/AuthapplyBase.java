@@ -106,6 +106,13 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Integer bisincompany=0; //是否入住企业 int
 	private   Integer irisklevel=0; //等级 int
 	private   Double fscore; //整体评分 double
+	private   Double fjgscore; //机构自身评分 double
+	private   Double fhxscore; //核心人员评分 double
+	private   Double fglqyscore; //关联企业评分 double
+	private   Double fzgjjscore; //在管基金评分 double
+	private   Double fwbascore; //未备案企业 double
+	private   Double fglrscore; //管理人合规性 double
+	private   Double fjjyzscore; //基金运作情况 double
 	   /**
 		会员ID String
 		*/
@@ -1479,6 +1486,97 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setFscore(Double  fscore) {
 			this.fscore =  fscore;//整体评分 double
+		}
+	   /**
+		机构自身评分 double
+		*/
+		@Column(name="fjgscore")
+		public Double getFjgscore() {
+			return  fjgscore;//机构自身评分 double
+		}
+		/**
+		机构自身评分 double
+		*/
+		public void setFjgscore(Double  fjgscore) {
+			this.fjgscore =  fjgscore;//机构自身评分 double
+		}
+	   /**
+		核心人员评分 double
+		*/
+		@Column(name="fhxscore")
+		public Double getFhxscore() {
+			return  fhxscore;//核心人员评分 double
+		}
+		/**
+		核心人员评分 double
+		*/
+		public void setFhxscore(Double  fhxscore) {
+			this.fhxscore =  fhxscore;//核心人员评分 double
+		}
+	   /**
+		关联企业评分 double
+		*/
+		@Column(name="fglqyscore")
+		public Double getFglqyscore() {
+			return  fglqyscore;//关联企业评分 double
+		}
+		/**
+		关联企业评分 double
+		*/
+		public void setFglqyscore(Double  fglqyscore) {
+			this.fglqyscore =  fglqyscore;//关联企业评分 double
+		}
+	   /**
+		在管基金评分 double
+		*/
+		@Column(name="fzgjjscore")
+		public Double getFzgjjscore() {
+			return  fzgjjscore;//在管基金评分 double
+		}
+		/**
+		在管基金评分 double
+		*/
+		public void setFzgjjscore(Double  fzgjjscore) {
+			this.fzgjjscore =  fzgjjscore;//在管基金评分 double
+		}
+	   /**
+		未备案企业 double
+		*/
+		@Column(name="fwbascore")
+		public Double getFwbascore() {
+			return  fwbascore;//未备案企业 double
+		}
+		/**
+		未备案企业 double
+		*/
+		public void setFwbascore(Double  fwbascore) {
+			this.fwbascore =  fwbascore;//未备案企业 double
+		}
+	   /**
+		管理人合规性 double
+		*/
+		@Column(name="fglrscore")
+		public Double getFglrscore() {
+			return  fglrscore;//管理人合规性 double
+		}
+		/**
+		管理人合规性 double
+		*/
+		public void setFglrscore(Double  fglrscore) {
+			this.fglrscore =  fglrscore;//管理人合规性 double
+		}
+	   /**
+		基金运作情况 double
+		*/
+		@Column(name="fjjyzscore")
+		public Double getFjjyzscore() {
+			return  fjjyzscore;//基金运作情况 double
+		}
+		/**
+		基金运作情况 double
+		*/
+		public void setFjjyzscore(Double  fjjyzscore) {
+			this.fjjyzscore =  fjjyzscore;//基金运作情况 double
 		}
 	
 //frogsingcode//
