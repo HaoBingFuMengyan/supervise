@@ -81,8 +81,10 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
-                        <a onclick="addRisk('${id}','${irisktype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
-                        <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
+                        <shiro:hasAnyPermission name="exception:add">
+                            <a onclick="addRisk('${id}','${irisktype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
+                        </shiro:hasAnyPermission>
+                            <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
                         <button  class="btn btn-primary btn-rounded btn-outline btn-sm " onclick="search()" ><i class="fa fa-search"></i> 查询</button>
