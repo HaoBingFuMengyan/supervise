@@ -313,7 +313,7 @@
                     <th class="sort-column">申请时间</th>
                     <th class="sort-column">变更状态</th>
                     <th class="sort-column">入驻审核</th>
-                    <th class="sort-column" style="width: 300px">操作</th>
+                    <th class="sort-column">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -391,8 +391,10 @@
 
                             <%--企业申请入住招商机构审核--%>
                             <shiro:hasAnyPermission name="authapply:firstcheck">
-                                <c:if test="${obj.istatus eq 1 && obj.iprocess eq 10}">
-                                    <a onclick="firstcheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>审核</a>
+                                <c:if test="${operator.ioperatortype eq 20}">
+                                    <c:if test="${obj.istatus eq 1 && obj.iprocess eq 10}">
+                                        <a onclick="firstcheck('${obj.id}')" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>审核</a>
+                                    </c:if>
                                 </c:if>
                             </shiro:hasAnyPermission>
                         </td>
