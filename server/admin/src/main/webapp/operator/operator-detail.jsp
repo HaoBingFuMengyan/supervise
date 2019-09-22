@@ -74,7 +74,7 @@
 			<td><form:input path="" htmlEscape="false" maxlength="100" readonly="true" placeholder="请在左边树选择部门" class="form-control " value="${department.sname}"/></td>
 			<td class="active col-md-2"><label class="pull-right"><font color="red">*</font>类型:</label></td>
 			<td class="col-md-4">
-				<op:OperatorType op="select" name="ioperatortype" option="class='form-control valid' aria-invalid='false'"/>
+				<op:OperatorType op="select" name="ioperatortype" val="${data.ioperatortype}" option="class='form-control valid' aria-invalid='false'"/>
 			</td>
 		</tr>
 		<tr id="rolename">
