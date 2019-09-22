@@ -51,14 +51,22 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
                 break;
             //核心人员
             case HXRY:
+                riskDetail.setSname(authapplyRiskDetail.getSname());
+                riskDetail.setScard(authapplyRiskDetail.getScard());
+                riskDetail.setScardno(authapplyRiskDetail.getScardno());
                 riskDetail.setIrisktype(MEMBER.RiskType.HXRY.val());
                 break;
             //关联企业
             case GLQY:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setScard(authapplyRiskDetail.getScard());
                 riskDetail.setIrisktype(MEMBER.RiskType.GLQY.val());
                 break;
             //在管企业
             case ZGQY:
+                riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setStype(authapplyRiskDetail.getStype());
                 riskDetail.setIrisktype(MEMBER.RiskType.ZGQY.val());
                 break;
             //未备案的合伙企业

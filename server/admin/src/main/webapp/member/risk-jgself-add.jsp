@@ -108,24 +108,106 @@
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">机构名称<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" id="scnname" name="scnname" placeholder="(必填项)"
-                                       class="layui-input" lay-verify="required" autocomplete="off"/>
+                    <c:choose>
+                        <c:when test="${irisktype eq 0}"><%--机构自身--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">机构名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="scnname" name="scnname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">管理人资格</label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="smanager" id="smanager"
-                                       class="layui-input" autocomplete="off"/>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">管理人资格</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="smanager" id="smanager"
+                                               class="layui-input" autocomplete="off"/>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 1}"><%--核心人员--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">姓名<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">身份<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scard" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">证件号<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scardno" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 2}"><%--关联企业--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">机构名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scnname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">身份<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scard" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 3}"><%--在管企业--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scnname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">类型<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="stype" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">托管方<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="strustname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                    </c:choose>
                 </div>
             </div>
 

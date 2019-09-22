@@ -112,16 +112,13 @@ public class AuthapplyRiskDetailController {
         switch (riskType){
             //机构自身
             case JGSELF:
-                return "/member/risk-jgself-add";
             //核心人员
             case HXRY:
-                return "/member/risk-hxry-add";
             //关联企业
             case GLQY:
-                return "/member/risk-glqy-add";
             //在管企业
             case ZGQY:
-                return "/member/risk-zgqy-add";
+                return "/member/risk-jgself-add";
             //未备案的合伙企业
             case WBAHHQY:
                 return "/member/risk-wbaqy-add";
