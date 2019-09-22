@@ -11,6 +11,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <script type="text/javascript">
+        //风险检测报告
+        function riskcheck(id,irisktype){
+            top.layer.open({
+                type: 2,
+                title: "风险评估报告",
+                area: ['95%', '95%'],
+                content: '${ctx}/hy/authapplyriskdetail/risk.shtml?id='+id+'&irisktype='+irisktype,
+                btn: ['关闭'],
+                cancel: function (index) {
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <div class="layui-collapse" style="border-top: none;">
@@ -62,9 +76,25 @@
                         </div>
                     </div>
                     <div class="layui-inline">
-                        <label class="layui-form-label">未备案合伙企业：</label>
+                        <label class="layui-form-label">合伙企业：</label>
                         <div class="layui-input-inline">
                             ${data.fwbascore}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <div class="layui-form-item">
+                        <div class="layui-block">
+                            <label class="layui-form-label">风险异常：</label>
+                            <div class="layui-input-block">
+                                <a onclick="riskcheck('${data.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a>
+                                <a onclick="riskcheck('${data.id}',1)" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>核心人员</a>
+                                <a onclick="riskcheck('${data.id}',2)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>关联企业</a>
+                                <a onclick="riskcheck('${data.id}',3)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>在管基金</a>
+                                <a onclick="riskcheck('${data.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a>
+                            </div>
                         </div>
                     </div>
                 </div>
