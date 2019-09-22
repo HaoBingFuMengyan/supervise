@@ -118,10 +118,9 @@ public class AuthapplyRiskDetailController {
             case GLQY:
             //在管企业
             case ZGQY:
-                return "/member/risk-jgself-add";
             //未备案的合伙企业
             case WBAHHQY:
-                return "/member/risk-wbaqy-add";
+                return "/member/risk-jgself-add";
             default:
                 return "";
         }

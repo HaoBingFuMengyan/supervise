@@ -41,6 +41,11 @@
             var layer = layui.layer
                 , layedit = layui.layedit
                 , laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#dsetdate',
+                trigger: 'click'
+            });
             form.verify({
 //                required: function (value) {
 //                    if (pub.isnull(value)) {
@@ -202,6 +207,53 @@
                                     <label class="layui-form-label">托管方<em class="red">*</em></label>
                                     <div class="layui-input-inline">
                                         <input type="text" name="strustname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 4}"><%--未备案企业--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scnname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">成立时间<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="dsetdate" name="dsetdate" placeholder="(必填项)" readonly
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">合伙人数量<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="fnum" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">自然合伙人数量<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="fnaturalnum" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">对外投资情况<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sinvest" placeholder="(必填项)"
                                                class="layui-input" lay-verify="required" autocomplete="off"/>
                                     </div>
                                 </div>
