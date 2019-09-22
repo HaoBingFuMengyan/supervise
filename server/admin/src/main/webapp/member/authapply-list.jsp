@@ -366,7 +366,6 @@
                                     </c:if>
 
                                     <c:if test="${(obj.iapprovalstatus ne 3 && obj.iapprovalstatus ne 0) || obj.istatus ne 0}">
-                                        <%--<a onclick="riskcheck('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>评估报告</a>--%>
                                         <ul class="hard-list">
                                             <li>风险评估
                                                 <ul>
