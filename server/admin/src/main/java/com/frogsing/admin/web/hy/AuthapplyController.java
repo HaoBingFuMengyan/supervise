@@ -84,6 +84,36 @@ public class AuthapplyController {
     }
 
     /**
+     * 准入基金列表
+     * @param start
+     * @param limit
+     * @param sort
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "bisincompany.shtml")
+    public String bisincompany(@RequestParam(value = "start", defaultValue = "0") int start,
+                       @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
+                       @RequestParam(value = "sort", defaultValue = "") String[] sort,Model model,
+                       ServletRequest request){
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
+
+
+        XSpec<Authapply> xSpec = MEMBERCol.hy_authapply.xspec();
+        xSpec.and(searchParams);
+
+        xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapply.bisincompany, Consts.BoolType.NO.val()));
+
+        Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
+
+        Page<Authapply> list = queryService.listPage(pageable,xSpec);
+        model.addAttribute("list",list);
+
+        return "/member/authapply-bisincompany";
+    }
+
+    /**
      * 街道办事处待审核
      * @param model
      * @param request
