@@ -113,6 +113,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Double fwbascore; //未备案企业 double
 	private   Double fglrscore; //管理人合规性 double
 	private   Double fjjyzscore; //基金运作情况 double
+	private   Double fwarnnum; //预警数 double
 	   /**
 		会员ID String
 		*/
@@ -1577,6 +1578,19 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setFjjyzscore(Double  fjjyzscore) {
 			this.fjjyzscore =  fjjyzscore;//基金运作情况 double
+		}
+	   /**
+		预警数 double
+		*/
+		@Column(name="fwarnnum")
+		public Double getFwarnnum() {
+			return  fwarnnum;//预警数 double
+		}
+		/**
+		预警数 double
+		*/
+		public void setFwarnnum(Double  fwarnnum) {
+			this.fwarnnum =  fwarnnum;//预警数 double
 		}
 	
 //frogsingcode//

@@ -584,4 +584,21 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.ExceptionType.values();
 		}
 	}
+	public static class TagBizType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.BizType.get(val);
+		}
+		public void setJjglr(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.BizType.JJGLR,val);
+		}
+		public void setCtjj(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.BizType.CTJJ,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.BizType.values();
+		}
+	}
 }

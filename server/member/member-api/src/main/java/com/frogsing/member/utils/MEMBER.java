@@ -1850,4 +1850,72 @@ public static enum ExceptionType implements  IConst{
 	} 
 	
 }
+public static enum BizType implements  IConst{
+	JJGLR(0,"基金管理人"),
+	CTJJ(1,"创投基金");
+	public  static BizType get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return BizType.JJGLR;
+    	 case 1:
+    		return BizType.CTJJ;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   BizType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return BizType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return BizType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(BizType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }
