@@ -23,7 +23,6 @@ import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.member.vo.AuthVo;
 import com.frogsing.operator.po.Operator;
 import com.frogsing.operator.utils.OPERATOR;
-import org.apache.http.auth.AUTH;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -426,30 +425,6 @@ public class AuthapplyController {
         return "/member/authapply-risk";
     }
 
-
-    /**
-     * 风险排查
-     * @param model
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "riskcheck.shtml")
-    @RequiresPermissions("riskcheck:query")
-    public String riskCheck(Model model,HttpServletRequest request){
-        return "/member/authapply-riskcheck";
-    }
-
-    /**
-     * 风险排查新增
-     * @param model
-     * @param request
-     * @return
-     */
-    @RequestMapping(value = "riskcheck-add.shtml")
-    @RequiresPermissions("riskcheck:add")
-    public String riskAdd(Model model,HttpServletRequest request){
-        return "/member/authapply-riskcheck-add";
-    }
 
     /**
      * 企业评分

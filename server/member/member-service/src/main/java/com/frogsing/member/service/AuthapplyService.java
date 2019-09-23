@@ -302,6 +302,7 @@ public class AuthapplyService implements IAuthapplyService {
 		authapply.setFjgscore(authVo.getFjgscore());
 		authapply.setFhxscore(authVo.getFhxscore());
 		authapply.setFglqyscore(authVo.getFglqyscore());
+		authapply.setFwarnnum(authVo.getFwarnnum());
 
 		if (fscore >= 90)
 			authapply.setIrisklevel(MEMBER.RiskLevel.YX.val());

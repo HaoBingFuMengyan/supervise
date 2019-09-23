@@ -148,6 +148,13 @@
                                        class="layui-input" autocomplete="off" value="${data.fwbascore}"/>
                             </div>
                         </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">预警数<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="fwarnnum" id="fwarnnum" placeholder="(必填项)" lay-verify="required"
+                                       class="layui-input" autocomplete="off" value="${data.fwarnnum}"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

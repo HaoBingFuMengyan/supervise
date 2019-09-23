@@ -15,6 +15,7 @@ public class AuthVo implements Serializable {
     private   Double fwbascore; //未备案企业 double
     private   Double fglrscore; //管理人合规性 double
     private   Double fjjyzscore; //基金运作情况 double
+    private   Double fwarnnum;//预警数
 
 
     public String getId() {
@@ -79,5 +80,13 @@ public class AuthVo implements Serializable {
 
     public void setFjjyzscore(Double fjjyzscore) {
         this.fjjyzscore = fjjyzscore;
+    }
+
+    public Double getFwarnnum() {
+        return fwarnnum;
+    }
+
+    public void setFwarnnum(Double fwarnnum) {
+        this.fwarnnum = fwarnnum;
     }
 }

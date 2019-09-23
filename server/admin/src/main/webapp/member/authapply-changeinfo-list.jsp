@@ -105,7 +105,7 @@
                             <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
                         <td>${obj.iregmoney}</td>
-                        <td></td>
+                        <td>${obj.fwarnnum}</td>
                         <td>
                             <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                         </td>
