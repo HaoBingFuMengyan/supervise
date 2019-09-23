@@ -26,6 +26,12 @@
             top:10px;
             z-index: 1000;
         }
+        .red{
+            color:#ff0000
+        }
+        .layui-form{
+            padding-top: 30px
+        }
     </style>
     <script type="text/javascript">
         var device;

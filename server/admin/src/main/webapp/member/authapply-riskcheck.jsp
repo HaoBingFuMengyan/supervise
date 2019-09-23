@@ -10,7 +10,7 @@
             top.layer.open({
                 type: 2,
                 title:"详情",
-                area: ['95%', '95%'],
+                area: ['75%', '75%'],
                 content: '${ctx}/hy/authapplywarn/detail.shtml?id='+id,
                 btn: ['关闭'],
                 cancel: function(index){ //或者使用btn2
@@ -23,7 +23,7 @@
             top.layer.open({
                 type: 2,
                 title:"迁入基金风险排查",
-                area: ['95%', '95%'],
+                area: ['75%', '75%'],
                 content: '${ctx}/hy/authapplywarn/riskcheck-add.shtml',
                 btn: ['确定','关闭'],
                 yes:function(index,layero){

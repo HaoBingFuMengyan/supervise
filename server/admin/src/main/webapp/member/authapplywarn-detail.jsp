@@ -14,7 +14,7 @@
 <body>
 <div class="layui-collapse" style="border-top: none;">
     <div class="layui-colla-item">
-        <div class="layui-colla-content layui-show">
+        <div class="layui-colla-content layui-show" style="padding-top: 30px">
             <div class="layui-info">
                 <div class="layui-form-item">
                     <div class="layui-inline">
