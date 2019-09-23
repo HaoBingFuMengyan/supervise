@@ -45,6 +45,12 @@
                             <member:RiskLevel op="label" val="${data.irisklevel}"/>
                         </div>
                     </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">预警数：</label>
+                        <div class="layui-input-inline">
+                            ${data.fwarnnum}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="layui-form-item">

@@ -9,9 +9,9 @@
         function querydetail(id) {
             top.layer.open({
                 type: 2,
-                title:"信息",
+                title:"详情",
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/index.shtml?id='+id,
+                content: '${ctx}/hy/authapplywarn/detail.shtml?id='+id,
                 btn: ['关闭'],
                 cancel: function(index){ //或者使用btn2
 //                    layer.close(index);
@@ -24,13 +24,30 @@
                 type: 2,
                 title:"迁入基金风险排查",
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapply/riskcheck-add.shtml',
-                btn: ['提交','关闭'],
+                content: '${ctx}/hy/authapplywarn/riskcheck-add.shtml',
+                btn: ['确定','关闭'],
                 yes:function(index,layero){
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
 
+                    if (iframeWin.contentWindow.valiForm()) {
+                        $.post("${ctx}/hy/authapplywarn/save.json", doc.find('#formx').serialize(), function (rs) {
+                            if (rs.success) {
+
+                                top.layer.close(index);
+
+                                top.layer.msg("操作成功!", {icon: 1},function () {
+                                    parent.location.reload();
+                                });
+                            }
+                            else {
+                                top.layer.msg(rs.msg, {icon: 5});
+                            }
+                        });
+                    }
                 }
                 ,cancel: function(index){ //或者使用btn2
-//                    layer.close(index);
                 }
             });
         }
@@ -48,7 +65,7 @@
             <!-- 查询条件 -->
             <div class="row">
                 <div class="col-sm-12">
-                    <form:form id="searchForm" action="${ctx}/hy/authapply/riskcheck.shtml" method="post" class="form-inline">
+                    <form:form id="searchForm" action="${ctx}/hy/authapplywarn/riskcheck.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
                             <span>公司名称：</span>
@@ -87,7 +104,24 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                    <c:forEach items="${list.content}" var="obj">
+                        <tr>
+                            <td>${obj.scnname}</td>
+                            <td>
+                                <member:BizType op="label" val="${obj.ibiztype}"/>
+                            </td>
+                            <td>
+                                <member:CheckStatus op="label" val="${obj.istatus}"/>
+                            </td>
+                            <td></td>
+                            <td>
+                                <mw:format label="date" value="${obj.dadddate}"/>
+                            </td>
+                            <td>
+                                <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
             <br/>

@@ -1,20 +1,15 @@
 package com.frogsing.admin.web.hy;
 
-import com.frogsing.heart.consts.Consts;
 import com.frogsing.heart.jpa.PageUtils;
-import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.persistence.XSpec;
 import com.frogsing.heart.security.shiro.ShiroUtils;
 import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
-import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.AuthapplyWarn;
 import com.frogsing.member.service.AuthapplyWarnService;
 import com.frogsing.member.utils.MEMBERCol;
-import com.frogsing.operator.po.Operator;
-import com.frogsing.operator.utils.OPERATOR;
 import com.frogsing.parameter.service.QueryService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,5 +100,19 @@ public class AuthapplyWarnController {
             ex.printStackTrace();
             return Result.failure("系统错误，请联系管理员");
         }
+    }
+
+    /**
+     * 详情
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "detail.shtml")
+    public String detail(@RequestParam(value = "id") String id ,Model model,HttpServletRequest request){
+        model.addAttribute("data",queryService.findOne(AuthapplyWarn.class,id));
+
+        return "/member/authapplywarn-detail";
     }
 }
