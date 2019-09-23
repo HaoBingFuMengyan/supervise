@@ -932,6 +932,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String fglrscore="fglrscore" ;
             /**基金运作情况**/
             public static final String fjjyzscore="fjjyzscore" ;
+            /**预警数**/
+            public static final String fwarnnum="fwarnnum" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1130,6 +1132,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Double> fglrscore(Root<?> root){return root.get("fglrscore");}
             /**基金运作情况**/
             public static  Path<Double> fjjyzscore(Root<?> root){return root.get("fjjyzscore");}
+            /**预警数**/
+            public static  Path<Double> fwarnnum(Root<?> root){return root.get("fwarnnum");}
 
     }
 /**意见反馈表**/
@@ -1501,6 +1505,87 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskExce> xspec() {
             public static  Path<String> scontent(Root<?> root){return root.get("scontent");}
             /**备注**/
             public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+
+    }
+/**基金风险排查表**/
+//public static final String hy_authapplywarn="hy_authapplywarn" ;
+public static class hy_authapplywarn {
+public static XSpec<com.frogsing.member.po.AuthapplyWarn> xspec() {
+    return new XSpec<com.frogsing.member.po.AuthapplyWarn>(com.frogsing.member.po.AuthapplyWarn.class);
+    }
+    public static final String tablename="hy_authapplywarn";
+            /**企业名称**/
+            public static final String scnname="scnname" ;
+            /**证件类型**/
+            public static final String icardtype="icardtype" ;
+            /**社会统一信用代码**/
+            public static final String ssocialcreditno="ssocialcreditno" ;
+            /**业务类型**/
+            public static final String ibiztype="ibiztype" ;
+            /**姓名**/
+            public static final String sname="sname" ;
+            /**证件号**/
+            public static final String scardno="scardno" ;
+            /**实际控制人姓名**/
+            public static final String skzrname="skzrname" ;
+            /**控制人证件类型**/
+            public static final String ikrzcardtype="ikrzcardtype" ;
+            /**控制人证件号**/
+            public static final String skzrcardno="skzrcardno" ;
+            /**状态**/
+            public static final String istatus="istatus" ;
+            /**审核人**/
+            public static final String scheckuser="scheckuser" ;
+            /**审核日期**/
+            public static final String dcheckdate="dcheckdate" ;
+            /**审核意见**/
+            public static final String scheckinfo="scheckinfo" ;
+            /**备注**/
+            public static final String sremark="sremark" ;
+            /**添加日期**/
+            public static final String dadddate="dadddate" ;
+            /**添加人**/
+            public static final String sadduser="sadduser" ;
+            /**修改日期**/
+            public static final String dmodifydate="dmodifydate" ;
+            /**修改人**/
+            public static final String smodifyoperator="smodifyoperator" ;
+            /**企业名称**/
+            public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
+            /**证件类型**/
+            public static  Path<Integer> icardtype(Root<?> root){return root.get("icardtype");}
+            /**社会统一信用代码**/
+            public static  Path<String> ssocialcreditno(Root<?> root){return root.get("ssocialcreditno");}
+            /**业务类型**/
+            public static  Path<Integer> ibiztype(Root<?> root){return root.get("ibiztype");}
+            /**姓名**/
+            public static  Path<String> sname(Root<?> root){return root.get("sname");}
+            /**证件号**/
+            public static  Path<String> scardno(Root<?> root){return root.get("scardno");}
+            /**实际控制人姓名**/
+            public static  Path<String> skzrname(Root<?> root){return root.get("skzrname");}
+            /**控制人证件类型**/
+            public static  Path<Integer> ikrzcardtype(Root<?> root){return root.get("ikrzcardtype");}
+            /**控制人证件号**/
+            public static  Path<String> skzrcardno(Root<?> root){return root.get("skzrcardno");}
+            /**状态**/
+            public static  Path<Integer> istatus(Root<?> root){return root.get("istatus");}
+            /**审核人**/
+            public static  Path<String> scheckuser(Root<?> root){return root.get("scheckuser");}
+            /**审核日期**/
+            public static  Path<Date> dcheckdate(Root<?> root){return root.get("dcheckdate");}
+            /**审核意见**/
+            public static  Path<String> scheckinfo(Root<?> root){return root.get("scheckinfo");}
+            /**备注**/
+            public static  Path<String> sremark(Root<?> root){return root.get("sremark");}
+            /**添加日期**/
+            public static  Path<Date> dadddate(Root<?> root){return root.get("dadddate");}
+            /**添加人**/
+            public static  Path<String> sadduser(Root<?> root){return root.get("sadduser");}
+            /**修改日期**/
+            public static  Path<Date> dmodifydate(Root<?> root){return root.get("dmodifydate");}
+            /**修改人**/
+            public static  Path<String> smodifyoperator(Root<?> root){return root.get("smodifyoperator");}
 
     }
 
