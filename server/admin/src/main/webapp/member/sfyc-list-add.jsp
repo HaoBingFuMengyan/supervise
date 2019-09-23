@@ -30,6 +30,11 @@
         .red {
             color: red;
         }
+        #scontent{
+            min-height:150px;
+            width: 100%;
+            padding: 10px
+        }
     </style>
     <script type="text/javascript">
         var device;
@@ -109,11 +114,11 @@
             <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">
                     <div class="layui-form-item">
-                        <div class="layui-inline">
+                        <div class="layui-inline" style="width: 100%">
                             <label class="layui-form-label">内容<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" id="scontent" name="scontent" placeholder="(必填项)"
-                                       class="layui-input" lay-verify="required" autocomplete="off"/>
+                            <div class="layui-input-inline" style="width: calc(100% - 150px)">
+                                <textarea type="text" id="scontent" name="scontent" placeholder="(必填项)"
+                                          class="layui-input" lay-verify="required" autocomplete="off"></textarea>
                             </div>
                         </div>
                     </div>

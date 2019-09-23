@@ -105,11 +105,11 @@
                             <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
                         <td>${obj.iregmoney}</td>
-                        <td>${obj.fwarnnum}</td>
+                        <td></td>
                         <td>
                             <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                         </td>
-                        <td></td>
+                        <td>${obj.fwarnnum}</td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 
