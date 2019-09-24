@@ -320,7 +320,7 @@
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">证件号<em class="red">*</em></label>
+                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="scardno" placeholder="(必填项最大只能18位)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
@@ -363,7 +363,7 @@
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">社会信用代码<em class="red">*</em></label>
+                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="scompanycardno" placeholder="(必填项统一社会信用代码)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
@@ -397,9 +397,9 @@
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">社会信用代码<em class="red">*</em></label>
+                            <label class="layui-form-label">证件号码<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <input type="text" name="ssocialcreditno" placeholder="(必填项统一社会信用代码)"
+                                <input type="text" name="ssocialcreditno" placeholder="(必填项)"
                                        class="layui-input" lay-verify="required" autocomplete="off"/>
                             </div>
                         </div>
