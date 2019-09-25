@@ -103,7 +103,7 @@
         $(function () {
             $("textarea").keydown(function (e) {
                 if (e.keyCode == "13") {
-                    this.value = this.value + '\n';
+                    this.value = this.value + '<br/>';
                 }
             });
         })
