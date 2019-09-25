@@ -296,7 +296,9 @@
                                 </c:if>
                             </c:if>
                             <c:if test="${operator.ioperatortype eq 10}"><%--监管--%>
-                                <a onclick="fengxianpg('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>风险评估</a>
+                                <c:if test="${obj.istatus ne 0}">
+                                    <a onclick="fengxianpg('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>风险评估</a>
+                                </c:if>
                             </c:if>
                             </td>
                         </tr>

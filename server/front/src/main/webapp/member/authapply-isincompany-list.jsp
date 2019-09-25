@@ -96,15 +96,12 @@
                                class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0"/>
                         <div class="form-group">
-                            <span>公司名称：</span>
+                            <span>企业名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
-                            <span>预审状态：</span>
-                            <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus"
-                                                defval="" defname="全部" option="class='form-control input-sm'"/>
-
-                            <span>变更状态：</span>
-                            <member:ApprovalStatus op="select" val="${search_eq_iapprovalstatus}" name="search_eq_iapprovalstatus"
-                                                defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>业务类型：</span>
+                            <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <span>入驻类型：</span>
+                            <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
                     <br/>
@@ -134,12 +131,11 @@
                    class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">公司名称</th>
-                    <th class="sort-column">类型</th>
-                    <th class="sort-column">注册地址</th>
-                    <th class="sort-column">预审状态</th>
-                    <th class="sort-column">申请时间</th>
-                    <th class="sort-column">变更状态</th>
+                    <th class="sort-column">企业名称</th>
+                    <th class="sort-column">业务类型</th>
+                    <th class="sort-column">入驻日期</th>
+                    <th class="sort-column">认缴规模</th>
+                    <th class="sort-column">入驻方式</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -148,19 +144,14 @@
                     <tr>
                         <td>${obj.scnname}</td>
                         <td>
-                            <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
+                            <member:BizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
-                                ${obj.sregaddress}
+                            <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
+                        <td>${obj.iregmoney}</td>
                         <td>
-                            <member:CheckStatus op="label" val="${obj.istatus}"/>
-                        </td>
-                        <td>
-                            <mw:format label="datetime" value="${obj.dapplydate}"/>
-                        </td>
-                        <td>
-                            <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
+                            <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
                         </td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
