@@ -45,12 +45,6 @@
                             <member:RiskLevel op="label" val="${data.irisklevel}"/>
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">预警数：</label>
-                        <div class="layui-input-inline">
-                            ${data.fwarnnum}
-                        </div>
-                    </div>
                 </div>
 
                 <div class="layui-form-item">
@@ -89,22 +83,12 @@
                     </div>
                 </div>
 
-
-                <%--<div class="layui-form-item">--%>
-                    <%--<div class="layui-form-item">--%>
-                        <%--<div class="layui-block">--%>
-                            <%--<label class="layui-form-label">风险异常：</label>--%>
-                            <%--<div class="layui-input-block">--%>
-                                <%--<a onclick="riskcheck('${data.id}',0)" class="layui-btn layui-btn-sm layui-btn-normal"><i class="fa fa-edit"></i>机构自身</a>--%>
-                                <%--<a onclick="riskcheck('${data.id}',1)" class="layui-btn layui-btn-sm layui-btn-warm"><i class="fa fa-edit"></i>核心人员</a>--%>
-                                <%--<a onclick="riskcheck('${data.id}',2)" class="layui-btn layui-btn-sm layui-btn-danger"><i class="fa fa-edit"></i>关联企业</a>--%>
-                                <%--<a onclick="riskcheck('${data.id}',3)" class="layui-btn layui-btn-sm layui-btn-normal"><i class="fa fa-edit"></i>在管基金</a>--%>
-                                <%--<a onclick="riskcheck('${data.id}',4)" class="layui-btn layui-btn-sm"><i class="fa fa-edit"></i>未备案企业</a>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>预警数</legend>
+                </fieldset>
+                <div class="layui-form-item">
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=7" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>机构自身</legend>
                 </fieldset>

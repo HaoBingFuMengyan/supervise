@@ -30,12 +30,6 @@
                             <member:RiskLevel op="label" val="${data.irisklevel}"/>
                         </div>
                     </div>
-                    <div class="layui-inline">
-                        <label class="layui-form-label">预警数：</label>
-                        <div class="layui-input-inline">
-                            ${data.iwarnnum}
-                        </div>
-                    </div>
                 </div>
 
                 <div class="layui-form-item">
@@ -92,6 +86,12 @@
                     </div>
                 </c:if>
 
+                <fieldset class="layui-elem-field layui-field-title">
+                    <legend>预警数</legend>
+                </fieldset>
+                <div class="layui-form-item">
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=7" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>机构自身</legend>
                 </fieldset>
