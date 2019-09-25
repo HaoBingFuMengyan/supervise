@@ -233,7 +233,7 @@
             top.layer.open({
                 type: 2,
                 title: '风险总评',
-                area: ['60%', '45%'],
+                area: ['60%', '65%'],
                 content: '${ctx}/hy/authapply/score.shtml?id='+id,
                 btn: ['确定', '关闭'],
                 yes: function (index, layero) {
