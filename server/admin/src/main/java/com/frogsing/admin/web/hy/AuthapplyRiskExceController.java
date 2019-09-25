@@ -94,6 +94,10 @@ public class AuthapplyRiskExceController {
             case ZJXCFQK:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.ZJXCFQK.val()));
                 break;
+            //风险预警
+            case FXYJ:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.FXYJ.val()));
+                break;
             default:
                 return "";
         }
@@ -128,6 +132,8 @@ public class AuthapplyRiskExceController {
             case DWTZQk:
             //中基协处罚情况
             case ZJXCFQK:
+            //风险预警
+            case FXYJ:
                 return "/member/sfyc-list-add";
             default:
                 return "";
