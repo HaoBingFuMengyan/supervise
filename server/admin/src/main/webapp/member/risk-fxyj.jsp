@@ -51,19 +51,6 @@
             });
         }
 
-        function del(id){
-            $.post("${ctx}/hy/authapplyriskdetail/delete.json",{id: id}, function (rs) {
-                if (rs.success) {
-
-                    top.layer.msg("操作成功!", {icon: 1},function () {
-                        location.reload();
-                    });
-                }
-                else {
-                    top.layer.msg(rs.msg, {icon: 5});
-                }
-            });
-        }
     </script>
 
 </head>
@@ -96,9 +83,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
-                        <shiro:hasAnyPermission name="exception:add">
-                            <a onclick="addRisk('${id}','${irisktype}','${type}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
-                        </shiro:hasAnyPermission>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
@@ -117,25 +101,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list.content}" var="obj">
-                    <tr>
-                        <td>${obj.iwarnnum == null ? 0 : obj.iwarnnum}条</td>
-                        <td>
-                            <a onclick="exceptionAdd('风险预警','${obj.id}',9)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险预警</a>
-                            <shiro:hasAnyPermission name="exception:del">
-                                <a onclick="del('${obj.id}')" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>删除</a>
-                            </shiro:hasAnyPermission>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <tr>
+                    <td>${data.iwarnnum == null ? 0 : data.iwarnnum}条</td>
+                    <td>
+                        <a onclick="exceptionAdd('风险预警','${data.id}',9)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险预警</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
-            <shiro:hasAnyPermission name="exception:see">
-            <br/>
-            <div class="mpage">
-                <mw:page pageobj="list" />
-            </div>
-            </shiro:hasAnyPermission>
         </div>
     </div>
 </div>

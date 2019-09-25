@@ -122,7 +122,7 @@ public class AuthapplyRiskDetailController {
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskdetail.irisktype,MEMBER.RiskType.FXYJ.val()));
 
                 list = queryService.listPage(pageable,xSpec);
-                model.addAttribute("list",list);
+                model.addAttribute("data",list.getContent().get(0));
                 return "/member/risk-fxyj";
             default:
                 return "";
