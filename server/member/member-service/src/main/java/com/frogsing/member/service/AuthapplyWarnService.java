@@ -150,6 +150,17 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
 
         this.authapplyWarnDao.save(authapplyWarn);
 
+        AuthapplyRiskDetail riskDetail = new AuthapplyRiskDetail();
+        riskDetail.setId(null);
+        riskDetail.setSmemberid("");
+        riskDetail.setSauthapplyid(authapplyWarn.getId());
+        riskDetail.setDdate(new Date());
+        riskDetail.setSadduserid(user.getId());
+        riskDetail.setSaddusername(user.getLoginName());
+        riskDetail.setIwarnnum(0);
+        riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
+        authapplyRiskDetailDao.save(riskDetail);
+
     }
 
     /**

@@ -55,6 +55,9 @@ public class AuthapplyService implements IAuthapplyService {
 	@Autowired
 	private ControHolderDao controHolderDao;
 
+	@Autowired
+	private AuthapplyRiskDetailDao authapplyRiskDetailDao;
+
 
 
 	/* (non-Javadoc)
@@ -77,6 +80,17 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setScheckuser(currentUser.getLoginName());
 
 		authapplyDao.saveAndFlush(apply);
+
+		AuthapplyRiskDetail riskDetail = new AuthapplyRiskDetail();
+		riskDetail.setId(null);
+		riskDetail.setSmemberid(apply.getSmemberid());
+		riskDetail.setSauthapplyid(apply.getId());
+		riskDetail.setDdate(new Date());
+		riskDetail.setSadduserid(currentUser.getId());
+		riskDetail.setSaddusername(currentUser.getLoginName());
+		riskDetail.setIwarnnum(0);
+		riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
+		authapplyRiskDetailDao.save(riskDetail);
 	}
 
 	/**
@@ -331,6 +345,17 @@ public class AuthapplyService implements IAuthapplyService {
 		apply.setScheckinfo(scheckinfo);
 		apply.setScheckuser(user.getLoginName());
 		authapplyDao.saveAndFlush(apply);
+
+		AuthapplyRiskDetail riskDetail = new AuthapplyRiskDetail();
+		riskDetail.setId(null);
+		riskDetail.setSmemberid(apply.getSmemberid());
+		riskDetail.setSauthapplyid(apply.getId());
+		riskDetail.setDdate(new Date());
+		riskDetail.setSadduserid(user.getId());
+		riskDetail.setSaddusername(user.getLoginName());
+		riskDetail.setIwarnnum(0);
+		riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
+		authapplyRiskDetailDao.save(riskDetail);
 	}
 
 
