@@ -40,6 +40,7 @@ public class OperatorBase  extends  BaseEntity{
 	private   Integer ilastterminaltype=0; //最后登录APP终端 int
 	private   String slastterminalid; //终端ID String
 	private   Integer ioperatortype=0; //类型 int
+	private   String saddress; //地址 String
 	   /**
 		管理员编号 String
 		*/
@@ -439,6 +440,19 @@ public class OperatorBase  extends  BaseEntity{
 		*/
 		public void setIoperatortype(Integer  ioperatortype) {
 			this.ioperatortype =  ioperatortype;//类型 int
+		}
+	   /**
+		地址 String
+		*/
+		@Column(name="saddress",length=100)
+		public String getSaddress() {
+			return  saddress;//地址 String
+		}
+		/**
+		地址 String
+		*/
+		public void setSaddress(String  saddress) {
+			this.saddress =  saddress;//地址 String
 		}
 	
 //frogsingcode//

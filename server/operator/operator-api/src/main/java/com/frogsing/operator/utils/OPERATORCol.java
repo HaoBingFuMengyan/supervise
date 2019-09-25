@@ -65,6 +65,8 @@ public static XSpec<com.frogsing.operator.po.Operator> xspec() {
             public static final String slastterminalid="slastterminalid" ;
             /**类型**/
             public static final String ioperatortype="ioperatortype" ;
+            /**地址**/
+            public static final String saddress="saddress" ;
             /**管理员编号**/
             public static  Path<String> soperatorno(Root<?> root){return root.get("soperatorno");}
             /**用户名**/
@@ -117,6 +119,8 @@ public static XSpec<com.frogsing.operator.po.Operator> xspec() {
             public static  Path<String> slastterminalid(Root<?> root){return root.get("slastterminalid");}
             /**类型**/
             public static  Path<Integer> ioperatortype(Root<?> root){return root.get("ioperatortype");}
+            /**地址**/
+            public static  Path<String> saddress(Root<?> root){return root.get("saddress");}
 
     }
 /**系统管理员登陆信息**/
