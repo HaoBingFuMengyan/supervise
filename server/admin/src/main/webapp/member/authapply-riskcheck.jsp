@@ -140,7 +140,7 @@
                 type: 2,
                 title: "风险评估报告",
                 area: ['95%', '95%'],
-                content: '${ctx}/hy/authapplyriskdetail/risk.shtml?id='+id+'&irisktype='+irisktype,
+                content: '${ctx}/hy/authapplyriskdetail/risk.shtml?id='+id+'&irisktype='+irisktype+'&type=1',
                 btn: ['关闭'],
                 cancel: function (index) {
                 }
@@ -238,8 +238,8 @@
                                                     <li> <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a></li>
                                                 </c:if>
                                                 <c:if test="${obj.ibiztype eq 1}">
-                                                    <li><a onclick="riskcheck('${obj.id}',5)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a></li>
-                                                    <li><a onclick="riskcheck('${obj.id}',6)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a></li>
+                                                    <li><a onclick="riskcheck('${obj.id}',5)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人合规性</a></li>
+                                                    <li><a onclick="riskcheck('${obj.id}',6)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作情况</a></li>
                                                 </c:if>
                                             </ul>
                                         </li>

@@ -46,6 +46,10 @@
                 elem: '#dsetdate',
                 trigger: 'click'
             });
+            laydate.render({
+                elem: '#beian',
+                trigger: 'click'
+            });
             form.verify({
 //                required: function (value) {
 //                    if (pub.isnull(value)) {
@@ -246,6 +250,64 @@
                                     <label class="layui-form-label">自然合伙人数量<em class="red">*</em></label>
                                     <div class="layui-input-inline">
                                         <input type="text" name="fnaturalnum" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">对外投资情况<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sinvest" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 5}"><%--管理人合规性--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">机构名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="scnname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">中基协处罚情况<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sinvest" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 6}"><%--基金运作情况--%>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">名称<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="sname" placeholder="(必填项)"
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="dsetdate" id="beian" placeholder="(必填项)" readonly
+                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-inline">
+                                    <label class="layui-form-label">托管方<em class="red">*</em></label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" name="strustname" placeholder="(必填项)"
                                                class="layui-input" lay-verify="required" autocomplete="off"/>
                                     </div>
                                 </div>
