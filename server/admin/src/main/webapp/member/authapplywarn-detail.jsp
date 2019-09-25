@@ -9,7 +9,12 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <style>
+        legend{
+            font-size: 15px!important;
+            color:#1E9FFF
+        }
+    </style>
 </head>
 <body>
 <div class="layui-collapse" style="border-top: none;">
