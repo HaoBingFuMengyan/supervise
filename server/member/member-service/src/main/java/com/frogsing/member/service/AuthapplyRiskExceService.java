@@ -95,4 +95,62 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
         this.authapplyRiskExceDao.save(riskExce);
         this.authapplyRiskDetailDao.save(authapplyRiskDetail);
     }
+
+    /**
+     * 删除
+     *
+     * @param id
+     * @param user
+     */
+    @Override
+    public void delete(String id, ILoginUser user) {
+        AuthapplyRiskExce authapplyRiskExce = authapplyRiskExceDao.findOne(id);
+
+        if (authapplyRiskExce == null)
+            E.S("该风险异常不存在，不能删除");
+
+        AuthapplyRiskDetail authapplyRiskDetail = queryService.findOne(AuthapplyRiskDetail.class,authapplyRiskExce.getSriskdetailid());
+
+        if (authapplyRiskDetail == null)
+            E.S("系统异常，请联系管理员");
+
+        MEMBER.ExceptionType exceptionType = MEMBER.ExceptionType.get(authapplyRiskExce.getIexceptiontype());
+        switch (exceptionType){
+            //司法异常
+            case SFYC:
+                authapplyRiskDetail.setSsfexce(String.valueOf(authapplyRiskDetail.getSsfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSsfexce()) - 1));
+                break;
+            //行政处罚
+            case XZCF:
+                authapplyRiskDetail.setSxzcfexce(String.valueOf(authapplyRiskDetail.getSxzcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSxzcfexce()) - 1));
+                break;
+            //经营情况
+            case JYQK:
+                authapplyRiskDetail.setSjjinvice(String.valueOf(authapplyRiskDetail.getSjjinvice() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSjjinvice()) - 1));
+                break;
+            //涉诉情况
+            case SSQK:
+                authapplyRiskDetail.setSshensuexce(String.valueOf(authapplyRiskDetail.getSshensuexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSshensuexce()) - 1));
+                break;
+            //披露异常
+            case PLYC:
+                authapplyRiskDetail.setSplexce(String.valueOf(authapplyRiskDetail.getSplexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSplexce()) - 1));
+                break;
+            //清算异常
+            case QSYC:
+                authapplyRiskDetail.setSqsexce(String.valueOf(authapplyRiskDetail.getSqsexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSqsexce()) - 1));
+                break;
+            //可疑交易
+            case KYJY:
+                authapplyRiskDetail.setSkyjiaoyi(String.valueOf(authapplyRiskDetail.getSkyjiaoyi() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSkyjiaoyi()) - 1));
+                break;
+            default:
+                E.S("未知类型");
+                break;
+        }
+
+        this.authapplyRiskExceDao.delete(authapplyRiskExce);
+        this.authapplyRiskDetailDao.save(authapplyRiskDetail);
+
+    }
 }

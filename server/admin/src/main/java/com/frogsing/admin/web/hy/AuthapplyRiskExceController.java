@@ -148,4 +148,24 @@ public class AuthapplyRiskExceController {
         }
 
     }
+
+    @RequestMapping(value = "delete.json")
+    @ResponseBody
+    public Result delete(@RequestParam(value = "id")String id,Model model,HttpServletRequest request){
+        try {
+            if (B.Y(id))
+                return Result.failure("该风险报告不存在");
+
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyRiskExceService.delete(id,user);
+            return Result.success("已经帮您删除了");
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
 }

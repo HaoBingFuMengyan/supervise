@@ -10,4 +10,11 @@ public interface IAuthapplyRiskDetailService {
 
     //id 认证公司ID
     void save(String id, int irisktype, AuthapplyRiskDetail authapplyRiskDetail, ILoginUser user);
+
+    /**
+     * 删除
+     * @param id
+     * @param user
+     */
+    void delete(String id,ILoginUser user);
 }

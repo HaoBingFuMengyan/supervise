@@ -5,6 +5,7 @@ import com.frogsing.heart.exception.E;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyRiskDetailService;
 import com.frogsing.member.dao.AuthapplyRiskDetailDao;
+import com.frogsing.member.dao.AuthapplyRiskExceDao;
 import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.utils.MEMBER;
@@ -26,6 +27,9 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
 
     @Autowired
     private IQueryService queryService;
+
+    @Autowired
+    private AuthapplyRiskExceDao authapplyRiskExceDao;
 
     @Override
     public void save(String id, int irisktype, AuthapplyRiskDetail authapplyRiskDetail, ILoginUser user) {
@@ -90,6 +94,27 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
         }
 
         this.authapplyRiskDetailDao.save(riskDetail);
+
+    }
+
+    /**
+     * 删除
+     *
+     * @param id
+     * @param user
+     */
+    @Override
+    public void delete(String id, ILoginUser user) {
+        AuthapplyRiskDetail authapplyRiskDetail = authapplyRiskDetailDao.findOne(id);
+
+        if (authapplyRiskDetail == null)
+            E.S("该风险报告不存在");
+
+        long count = authapplyRiskExceDao.countBySriskdetailid(id);
+        if (count != 0)
+            E.S("请先删除明细");
+        else
+            this.authapplyRiskDetailDao.delete(authapplyRiskDetail);
 
     }
 }
