@@ -90,38 +90,38 @@
                     <legend>预警数</legend>
                 </fieldset>
                 <div class="layui-form-item">
-                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=7" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=7" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                 </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>机构自身</legend>
                 </fieldset>
                 <div class="layui-form-item">
-                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=0" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=0" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                 </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>核心人员</legend>
                 </fieldset>
                 <div class="layui-form-item">
-                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=1" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=1" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                 </div>
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>关联企业</legend>
                 </fieldset>
                 <div class="layui-form-item">
-                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=2" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                    <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=2" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                 </div>
                 <c:if test="${data.ibiztype eq 0}">
                     <fieldset class="layui-elem-field layui-field-title">
                         <legend>在管基金</legend>
                     </fieldset>
                     <div class="layui-form-item">
-                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=3" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=3" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
                         <legend>未备案企业</legend>
                     </fieldset>
                     <div class="layui-form-item">
-                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=4" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=4" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                     </div>
                 </c:if>
                 <c:if test="${data.ibiztype eq 1}">
@@ -129,13 +129,13 @@
                         <legend>管理人合规性</legend>
                     </fieldset>
                     <div class="layui-form-item">
-                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=5" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=5" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
                         <legend>基金运作情况</legend>
                     </fieldset>
                     <div class="layui-form-item">
-                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=6" allowtransparency="true" frameborder="0" scrolling="0" width="100%" height="200px"></iframe>
+                        <iframe  src="${ctx}/hy/authapplyriskdetail/risk.shtml?id=${data.id}&irisktype=6" allowtransparency="true" frameborder="0" scrolling="0" width="100%"></iframe>
                     </div>
                 </c:if>
             </div>

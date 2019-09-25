@@ -65,11 +65,11 @@
                         <div class="form-group">
                             <span>注册地址：</span>
                             <input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>
-                            <span>业务类型：</span>
+                            <span style="margin-left: 20px">业务类型：</span>
                             <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>入驻方式：</span>
+                            <span style="margin-left: 20px">入驻方式：</span>
                             <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>预审状态：</span>
+                            <span style="margin-left: 20px">预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus" defval="" defname="全部" option="class='form-control input-sm'"/>
                         </div>
                     </form:form>
