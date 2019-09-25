@@ -1,9 +1,12 @@
 package com.frogsing.member.service;
 
 import com.frogsing.heart.data.IQueryService;
+import com.frogsing.heart.exception.E;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyWarnService;
+import com.frogsing.member.dao.AuthapplyRiskDetailDao;
 import com.frogsing.member.dao.AuthapplyWarnDao;
+import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.po.AuthapplyWarn;
 import com.frogsing.member.utils.MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
 
     @Autowired
     private AuthapplyWarnDao authapplyWarnDao;
+
+    @Autowired
+    private AuthapplyRiskDetailDao authapplyRiskDetailDao;
 
 
     @Override
@@ -47,6 +53,73 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
 
 
         this.authapplyWarnDao.save(warn);
+
+    }
+
+    @Override
+    public void save(String id, int irisktype, AuthapplyRiskDetail authapplyRiskDetail, ILoginUser user) {
+        AuthapplyWarn authapply = queryService.findOne(AuthapplyWarn.class,id);
+        if (authapply == null)
+            E.S("该企业存在异常，不能添加");
+
+        AuthapplyRiskDetail riskDetail = new AuthapplyRiskDetail();
+        riskDetail.setId(null);
+        riskDetail.setSmemberid("");
+        riskDetail.setSauthapplyid(authapply.getId());
+        riskDetail.setDdate(new Date());
+        riskDetail.setSadduserid(user.getId());
+        riskDetail.setSaddusername(user.getLoginName());
+
+        MEMBER.RiskType riskType = MEMBER.RiskType.get(irisktype);
+        switch (riskType){
+            //机构自身
+            case JGSELF:
+            //核心人员
+            case HXRY:
+            //关联企业
+            case GLQY:
+            //在管企业
+            case ZGQY:
+            //未备案的合伙企业
+            case WBAHHQY:
+                break;
+            //管理人合规性
+            case GLRHGX:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setSinvest(authapplyRiskDetail.getSinvest());//这里的投资情况作为管理人合规性的中基协处罚情况
+                riskDetail.setIrisktype(MEMBER.RiskType.GLRHGX.val());
+                break;
+            //基金运作情况
+            case JJYZQK:
+                riskDetail.setSname(authapplyRiskDetail.getSname());
+                riskDetail.setDsetdate(authapplyRiskDetail.getDsetdate());//备案日期
+                riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
+                riskDetail.setSinvest(authapplyRiskDetail.getSinvest());
+                riskDetail.setIrisktype(MEMBER.RiskType.JJYZQK.val());
+                break;
+            default:
+                E.S("未知类型");
+                break;
+        }
+
+        this.authapplyRiskDetailDao.save(riskDetail);
+    }
+
+    @Override
+    public void check(String id, int istatus, ILoginUser user) {
+        AuthapplyWarn authapplyWarn = authapplyWarnDao.findOne(id);
+        if (authapplyWarn == null)
+            E.S("该企业存在异常，请勿操作");
+
+        if (MEMBER.CheckStatus.WAIT.isNot(authapplyWarn.getIstatus()))
+            E.S("请勿重复操作");
+
+        authapplyWarn.setIstatus(istatus);
+        authapplyWarn.setScheckuser(user.getId());
+        authapplyWarn.setDcheckdate(new Date());
+        authapplyWarn.setScheckinfo("");
+
+        this.authapplyWarnDao.save(authapplyWarn);
 
     }
 }

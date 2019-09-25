@@ -4,6 +4,32 @@
 <html>
 <head>
     <title>基金基本信息</title>
+    <style>
+        .hard-list{
+            display: inline-block;
+            padding-left: 10px;
+        }
+        .hard-list li{
+            position: relative;
+            list-style: none;
+        }
+        .hard-list li ul{
+            display: none;
+            position: absolute;
+            left: 0;
+            background: #fff;
+            z-index: 1000;
+            padding: 10px;
+            border-radius: 3px;
+            box-shadow: 0 0 16px 0 hsla(0,0%,77%,.5);
+        }
+        .hard-list li:hover ul{
+            display: block;
+        }
+        .hard-list li:hover ul li{
+            margin-bottom: 5px;
+        }
+    </style>
     <script type="text/javascript">
         //查看基本信息
         function querydetail(id) {
@@ -15,6 +41,62 @@
                 btn: ['关闭'],
                 cancel: function(index){ //或者使用btn2
 //                    layer.close(index);
+                }
+            });
+        }
+
+        function check(id) {
+            top.layer.open({
+                type: 2,
+                title:"详情",
+                area: ['75%', '75%'],
+                content: '${ctx}/hy/authapplywarn/detail.shtml?id='+id,
+                btn: ['通过', '拒绝', '关闭'],
+                btn1: function (indexp, layero) {
+                    top.layer.confirm('确定要审核通过吗？', {
+                        btn: ['确定', '取消'] //按钮
+                    }, function () {
+                        $.post("${ctx}/hy/authapplywarn/check.json",{id: id,istatus:1},function(rs){
+//                            layer.closeAll('loading');
+                            if (rs.success) {
+
+                                layer.close(indexp);
+
+                                top.layer.msg(isnull(rs.msg) ? "操作成功!" : rs.msg,{icon:1},function () {
+                                    parent.location.reload();
+                                });
+                            }
+                            else {
+                                top.layer.msg(rs.msg,{icon:5});
+                            }
+                        });
+                    }, function () {
+                        layer.close(indexp);
+                    });
+                },
+                btn2: function (indexp, layero) {
+                    top.layer.confirm('确定要拒绝审核吗？', {
+                        btn: ['确定', '取消'] //按钮
+                    }, function () {
+                        $.post("${ctx}/hy/authapplywarn/check.json",{id: id,istatus:2},function(rs){
+//                            layer.closeAll('loading');
+                            if (rs.success) {
+                                layer.close(indexp);
+
+                                top.layer.msg(isnull(rs.msg) ? "操作成功!" : rs.msg,{icon:1},function () {
+                                    parent.location.reload();
+                                })
+                            }
+                            else {
+                                top.layer.msg(rs.msg,{icon:5});
+                            }
+                        });
+                    }, function () {
+                        top.layer.close(indexp);
+                    });
+                    return false;//避免关闭顶层窗口
+                },
+                btn3: function (index) {
                 }
             });
         }
@@ -51,6 +133,19 @@
                 }
             });
         }
+
+        //风险检测报告
+        function riskcheck(id,irisktype){
+            top.layer.open({
+                type: 2,
+                title: "风险评估报告",
+                area: ['95%', '95%'],
+                content: '${ctx}/hy/authapplyriskdetail/risk.shtml?id='+id+'&irisktype='+irisktype,
+                btn: ['关闭'],
+                cancel: function (index) {
+                }
+            });
+        }
     </script>
 
 </head>
@@ -58,7 +153,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>风险排查</h5>
+            <h5>拟迁入基金风险排查</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
@@ -99,6 +194,7 @@
                     <th class="sort-column">业务类型</th>
                     <th class="sort-column">审核状态</th>
                     <th class="sort-column">风险评级</th>
+                    <th class="sort-column">备案日期</th>
                     <th class="sort-column">申请时间</th>
                     <th class="sort-column">操作</th>
                 </tr>
@@ -113,12 +209,42 @@
                             <td>
                                 <member:CheckStatus op="label" val="${obj.istatus}"/>
                             </td>
+                            <td>
+                                <member:CheckStatus op="label" val="${obj.istatus}"/>
+                            </td>
                             <td></td>
                             <td>
                                 <mw:format label="date" value="${obj.dadddate}"/>
                             </td>
                             <td>
-                                <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                                <%--<a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>--%>
+
+                                <shiro:hasAnyPermission name="riskcheck:check">
+                                    <c:if test="${obj.istatus eq 0}">
+                                        <a onclick="check('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>审核</a>
+                                    </c:if>
+                                </shiro:hasAnyPermission>
+
+                                <c:if test="${obj.istatus ne 0}">
+                                    <ul class="hard-list">
+                                        <li>风险评估
+                                            <ul>
+                                                <li><a onclick="authapplyScore('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险总评</a> </li>
+                                                <li><a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a> </li>
+                                                <li><a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a></li>
+                                                <li><a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a></li>
+                                                <c:if test="${obj.icorporatetype eq 0}">
+                                                    <li> <a onclick="riskcheck('${obj.id}',3)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a></li>
+                                                    <li> <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a></li>
+                                                </c:if>
+                                                <c:if test="${obj.icorporatetype eq 1}">
+                                                    <li><a onclick="riskcheck('${obj.id}',5)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a></li>
+                                                    <li><a onclick="riskcheck('${obj.id}',6)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a></li>
+                                                </c:if>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>

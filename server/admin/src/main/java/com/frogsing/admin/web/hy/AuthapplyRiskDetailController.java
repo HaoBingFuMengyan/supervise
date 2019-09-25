@@ -11,6 +11,7 @@ import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.service.AuthapplyRiskDetailService;
+import com.frogsing.member.service.AuthapplyWarnService;
 import com.frogsing.member.utils.MEMBER;
 import com.frogsing.member.utils.MEMBERCol;
 import com.frogsing.parameter.service.QueryService;
@@ -40,6 +41,9 @@ public class AuthapplyRiskDetailController {
 
     @Autowired
     private AuthapplyRiskDetailService authapplyRiskDetailService;
+
+    @Autowired
+    private AuthapplyWarnService authapplyWarnService;
 
 
     @RequestMapping(value = "risk.shtml")
@@ -96,6 +100,20 @@ public class AuthapplyRiskDetailController {
                 list = queryService.listPage(pageable,xSpec);
                 model.addAttribute("list",list);
                 return "/member/risk-wbaqy";
+            //管理人合规性
+            case GLRHGX:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskdetail.irisktype,MEMBER.RiskType.GLRHGX.val()));
+
+                list = queryService.listPage(pageable,xSpec);
+                model.addAttribute("list",list);
+                return "/member/risk-glrhgx";
+            //基金运作情况
+            case JJYZQK:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskdetail.irisktype,MEMBER.RiskType.JJYZQK.val()));
+
+                list = queryService.listPage(pageable,xSpec);
+                model.addAttribute("list",list);
+                return "/member/risk-jjyzqk";
             default:
                 return "";
         }
@@ -120,6 +138,10 @@ public class AuthapplyRiskDetailController {
             case ZGQY:
             //未备案的合伙企业
             case WBAHHQY:
+            //管理人合规性
+            case GLRHGX:
+            //基金运作情况
+            case JJYZQK:
                 return "/member/risk-jgself-add";
             default:
                 return "";
@@ -140,7 +162,29 @@ public class AuthapplyRiskDetailController {
 
             ILoginUser user = ShiroUtils.getCurrentUser();
 
-            this.authapplyRiskDetailService.save(id,irisktype,authapplyRiskDetail,user);
+            MEMBER.RiskType riskType = MEMBER.RiskType.get(irisktype);
+            switch (riskType){
+                //机构自身
+                case JGSELF:
+                    //核心人员
+                case HXRY:
+                    //关联企业
+                case GLQY:
+                    //在管企业
+                case ZGQY:
+                    //未备案的合伙企业
+                case WBAHHQY:
+                    this.authapplyRiskDetailService.save(id,irisktype,authapplyRiskDetail,user);
+                    break;
+                    //管理人合规性
+                case GLRHGX:
+                    //基金运作情况
+                case JJYZQK:
+                    this.authapplyWarnService.save(id,irisktype,authapplyRiskDetail,user);
+                default:
+                    break;
+            }
+
             return Result.success();
         }catch (ServiceException ex){
             ex.printStackTrace();

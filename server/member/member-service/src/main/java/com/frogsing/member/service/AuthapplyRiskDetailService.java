@@ -78,6 +78,12 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
                 riskDetail.setSinvest(authapplyRiskDetail.getSinvest());
                 riskDetail.setIrisktype(MEMBER.RiskType.WBAHHQY.val());
                 break;
+            //管理人合规性
+            case GLRHGX:
+                break;
+            //基金运作情况
+            case JJYZQK:
+                break;
             default:
                 E.S("未知类型");
                 break;
