@@ -2,13 +2,16 @@ package com.frogsing.member.service;
 
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
+import com.frogsing.heart.utils.F;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyWarnService;
 import com.frogsing.member.dao.AuthapplyRiskDetailDao;
 import com.frogsing.member.dao.AuthapplyWarnDao;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.po.AuthapplyWarn;
 import com.frogsing.member.utils.MEMBER;
+import com.frogsing.member.vo.AuthVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -146,6 +149,40 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
         authapplyWarn.setScheckinfo("");
 
         this.authapplyWarnDao.save(authapplyWarn);
+
+    }
+
+    /**
+     * 评分
+     *
+     * @param authVo
+     * @param user
+     */
+    @Override
+    public void score(AuthVo authVo, ILoginUser user) {
+        AuthapplyWarn authapply = authapplyWarnDao.findOne(authVo.getId());
+
+        if (authapply == null)
+            E.S("系统错误，请联系管理员");
+
+        if (MEMBER.BizType.JJGLR.isEq(authVo.getIbiztype())){
+            authapply.setFzgjjscore(authVo.getFzgjjscore());
+            authapply.setFwbascore(authVo.getFwbascore());
+        }
+
+        if (MEMBER.BizType.CTJJ.isEq(authVo.getIbiztype())){
+            authapply.setFglrscore(authVo.getFglrscore());
+            authapply.setFjjyzscore(authVo.getFjjyzscore());
+        }
+
+        authapply.setFscore(authVo.getFscore());
+        authapply.setFjgscore(authVo.getFjgscore());
+        authapply.setFhxscore(authVo.getFhxscore());
+        authapply.setFglqyscore(authVo.getFglqyscore());
+        authapply.setIwarnnum(authVo.getFwarnnum().intValue());
+        authapply.setIrisklevel(authVo.getIrisklevel());
+
+        this.authapplyWarnDao.save(authapply);
 
     }
 }

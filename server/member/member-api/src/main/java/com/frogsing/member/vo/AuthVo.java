@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class AuthVo implements Serializable {
 
     private   String id;
+    private   Double fscore;
+    private   Integer irisklevel;//等级
     private   Double fjgscore; //机构自身评分 double
     private   Double fhxscore; //核心人员评分 double
     private   Double fglqyscore; //关联企业评分 double
@@ -17,6 +19,8 @@ public class AuthVo implements Serializable {
     private   Double fjjyzscore; //基金运作情况 double
     private   Double fwarnnum;//预警数
 
+    private Integer ibiztype;
+
 
     public String getId() {
         return id;
@@ -24,6 +28,22 @@ public class AuthVo implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Double getFscore() {
+        return fscore;
+    }
+
+    public void setFscore(Double fscore) {
+        this.fscore = fscore;
+    }
+
+    public Integer getIrisklevel() {
+        return irisklevel;
+    }
+
+    public void setIrisklevel(Integer irisklevel) {
+        this.irisklevel = irisklevel;
     }
 
     public Double getFjgscore() {
@@ -88,5 +108,13 @@ public class AuthVo implements Serializable {
 
     public void setFwarnnum(Double fwarnnum) {
         this.fwarnnum = fwarnnum;
+    }
+
+    public Integer getIbiztype() {
+        return ibiztype;
+    }
+
+    public void setIbiztype(Integer ibiztype) {
+        this.ibiztype = ibiztype;
     }
 }

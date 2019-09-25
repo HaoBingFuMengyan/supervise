@@ -9,9 +9,11 @@ import com.frogsing.heart.utils.S;
 import com.frogsing.heart.web.Result;
 import com.frogsing.heart.web.Servlets;
 import com.frogsing.heart.web.login.ILoginUser;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.AuthapplyWarn;
 import com.frogsing.member.service.AuthapplyWarnService;
 import com.frogsing.member.utils.MEMBERCol;
+import com.frogsing.member.vo.AuthVo;
 import com.frogsing.operator.po.Operator;
 import com.frogsing.operator.utils.OPERATOR;
 import com.frogsing.parameter.service.QueryService;
@@ -150,6 +152,41 @@ public class AuthapplyWarnController {
 
             this.authapplyWarnService.check(id,istatus,user);
 
+            return Result.success();
+        }catch (ServiceException ex){
+            ex.printStackTrace();
+            return Result.failure(ex.getMessage());
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return Result.failure("系统错误，请联系管理员");
+        }
+    }
+
+    /**
+     * 企业评分
+     * @param id
+     * @param model
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "score.shtml")
+    public String risk(@RequestParam(value = "id") String id,
+                       Model model,HttpServletRequest request){
+
+        model.addAttribute("data",queryService.findOne(AuthapplyWarn.class,id));
+        return "/member/authapply-warn-score";
+    }
+
+    @RequestMapping(value = "score.json")
+    @ResponseBody
+    public Result authcore(AuthVo authVo, Model model, HttpServletRequest request){
+        try {
+            if (B.Y(authVo.getId()))
+                return Result.failure("系统错误，请联系管理员");
+
+            ILoginUser user = ShiroUtils.getCurrentUser();
+
+            this.authapplyWarnService.score(authVo,user);
             return Result.success();
         }catch (ServiceException ex){
             ex.printStackTrace();

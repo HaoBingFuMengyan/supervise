@@ -81,9 +81,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="pull-left">
-                        <%--<shiro:hasAnyPermission name="exception:add">--%>
-                            <%--<a onclick="addRisk('${id}','${irisktype}','${type}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>--%>
-                        <%--</shiro:hasAnyPermission>--%>
+                        <shiro:hasAnyPermission name="exception:add">
+                            <a onclick="addRisk('${id}','${irisktype}','${type}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
+                        </shiro:hasAnyPermission>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>
                     <div class="pull-right">
