@@ -585,6 +585,12 @@ public  class MEMBERTag{
 		public void setKyjy(int val) {
 			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.KYJY,val);
 		}
+		public void setDwtzqk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.DWTZQk,val);
+		}
+		public void setZjxcfqk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ExceptionType.ZJXCFQK,val);
+		}
 		@Override
 		public IConst[] GetVals() {
 			return com.frogsing.member.utils.MEMBER.ExceptionType.values();

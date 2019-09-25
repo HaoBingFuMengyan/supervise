@@ -35,6 +35,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 	private   String splexce; //披露异常 String
 	private   String sqsexce; //清算异常 String
 	private   String skyjiaoyi; //可疑交易 String
+	private   String szjxcfexce; //中基协处罚情况 String
 	private   Date ddate; //添加时间 Date
 	private   String sadduserid; //添加人 String
 	private   String saddusername; //添加人名称 String
@@ -334,6 +335,19 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 		*/
 		public void setSkyjiaoyi(String  skyjiaoyi) {
 			this.skyjiaoyi =  skyjiaoyi;//可疑交易 String
+		}
+	   /**
+		中基协处罚情况 String
+		*/
+		@Column(name="szjxcfexce",length=50)
+		public String getSzjxcfexce() {
+			return  szjxcfexce;//中基协处罚情况 String
+		}
+		/**
+		中基协处罚情况 String
+		*/
+		public void setSzjxcfexce(String  szjxcfexce) {
+			this.szjxcfexce =  szjxcfexce;//中基协处罚情况 String
 		}
 	   /**
 		添加时间 Date

@@ -934,6 +934,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String fjjyzscore="fjjyzscore" ;
             /**预警数**/
             public static final String fwarnnum="fwarnnum" ;
+            /**备案时间**/
+            public static final String drecorddate="drecorddate" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1134,6 +1136,8 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Double> fjjyzscore(Root<?> root){return root.get("fjjyzscore");}
             /**预警数**/
             public static  Path<Double> fwarnnum(Root<?> root){return root.get("fwarnnum");}
+            /**备案时间**/
+            public static  Path<Date> drecorddate(Root<?> root){return root.get("drecorddate");}
 
     }
 /**意见反馈表**/
@@ -1402,6 +1406,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static final String sqsexce="sqsexce" ;
             /**可疑交易**/
             public static final String skyjiaoyi="skyjiaoyi" ;
+            /**中基协处罚情况**/
+            public static final String szjxcfexce="szjxcfexce" ;
             /**添加时间**/
             public static final String ddate="ddate" ;
             /**添加人**/
@@ -1462,6 +1468,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static  Path<String> sqsexce(Root<?> root){return root.get("sqsexce");}
             /**可疑交易**/
             public static  Path<String> skyjiaoyi(Root<?> root){return root.get("skyjiaoyi");}
+            /**中基协处罚情况**/
+            public static  Path<String> szjxcfexce(Root<?> root){return root.get("szjxcfexce");}
             /**添加时间**/
             public static  Path<Date> ddate(Root<?> root){return root.get("ddate");}
             /**添加人**/
@@ -1570,6 +1578,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyWarn> xspec() {
             public static final String fjjyzscore="fjjyzscore" ;
             /**预警数**/
             public static final String iwarnnum="iwarnnum" ;
+            /**备案时间**/
+            public static final String drecorddate="drecorddate" ;
             /**企业名称**/
             public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
             /**证件类型**/
@@ -1626,6 +1636,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyWarn> xspec() {
             public static  Path<Double> fjjyzscore(Root<?> root){return root.get("fjjyzscore");}
             /**预警数**/
             public static  Path<Integer> iwarnnum(Root<?> root){return root.get("iwarnnum");}
+            /**备案时间**/
+            public static  Path<Date> drecorddate(Root<?> root){return root.get("drecorddate");}
 
     }
 

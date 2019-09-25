@@ -2248,6 +2248,18 @@
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
+ 		<attribute> 
+ 			<name>dwtzqk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>zjxcfqk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
  	</tag> 
 	<function>
 		<description>BizType</description>

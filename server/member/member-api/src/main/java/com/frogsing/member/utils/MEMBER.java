@@ -1780,7 +1780,9 @@ public static enum ExceptionType implements  IConst{
 	SSQK(3,"涉诉情况"),
 	PLYC(4,"披露异常"),
 	QSYC(5,"清算异常"),
-	KYJY(6,"可疑交易");
+	KYJY(6,"可疑交易"),
+	DWTZQk(7,"对外投资情况"),
+	ZJXCFQK(8,"中基协处罚情况");
 	public  static ExceptionType get(int i){
     	 switch(i)
     	 {
@@ -1798,6 +1800,10 @@ public static enum ExceptionType implements  IConst{
     		return ExceptionType.QSYC;
     	 case 6:
     		return ExceptionType.KYJY;
+    	 case 7:
+    		return ExceptionType.DWTZQk;
+    	 case 8:
+    		return ExceptionType.ZJXCFQK;
     	 }
     	 return null;
      }

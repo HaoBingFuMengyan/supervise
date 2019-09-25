@@ -114,6 +114,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Double fglrscore; //管理人合规性 double
 	private   Double fjjyzscore; //基金运作情况 double
 	private   Double fwarnnum; //预警数 double
+	private   Date drecorddate; //备案时间 Date
 	   /**
 		会员ID String
 		*/
@@ -1591,6 +1592,19 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setFwarnnum(Double  fwarnnum) {
 			this.fwarnnum =  fwarnnum;//预警数 double
+		}
+	   /**
+		备案时间 Date
+		*/
+		@Column(name="drecorddate")
+		public Date getDrecorddate() {
+			return  drecorddate;//备案时间 Date
+		}
+		/**
+		备案时间 Date
+		*/
+		public void setDrecorddate(Date  drecorddate) {
+			this.drecorddate =  drecorddate;//备案时间 Date
 		}
 	
 //frogsingcode//
