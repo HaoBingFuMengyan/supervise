@@ -86,6 +86,14 @@ public class AuthapplyRiskExceController {
             case KYJY:
                 xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.KYJY.val()));
                 break;
+            //对外投资情况
+            case DWTZQk:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.DWTZQk.val()));
+                break;
+            //中基协处罚情况
+            case ZJXCFQK:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskexce.iexceptiontype,MEMBER.ExceptionType.ZJXCFQK.val()));
+                break;
             default:
                 return "";
         }
@@ -116,6 +124,10 @@ public class AuthapplyRiskExceController {
             case QSYC:
             //可疑交易
             case KYJY:
+            //对外投资情况
+            case DWTZQk:
+            //中基协处罚情况
+            case ZJXCFQK:
                 return "/member/sfyc-list-add";
             default:
                 return "";

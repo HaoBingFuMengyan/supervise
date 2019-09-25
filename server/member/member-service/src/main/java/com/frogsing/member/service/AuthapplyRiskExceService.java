@@ -2,6 +2,7 @@ package com.frogsing.member.service;
 
 import com.frogsing.heart.data.IQueryService;
 import com.frogsing.heart.exception.E;
+import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyRiskExceService;
 import com.frogsing.member.dao.AuthapplyRiskDetailDao;
@@ -9,6 +10,7 @@ import com.frogsing.member.dao.AuthapplyRiskExceDao;
 import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.po.AuthapplyRiskExce;
 import com.frogsing.member.utils.MEMBER;
+import com.frogsing.member.utils.MEMBERCol;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -87,6 +89,18 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
 
                 authapplyRiskDetail.setSkyjiaoyi(String.valueOf(authapplyRiskDetail.getSkyjiaoyi() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSkyjiaoyi()) + 1));
                 break;
+            //对外投资情况
+            case DWTZQk:
+                riskExce.setIexceptiontype(MEMBER.ExceptionType.DWTZQk.val());
+
+                authapplyRiskDetail.setSinvest(String.valueOf(authapplyRiskDetail.getSinvest() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSinvest()) + 1));
+                break;
+            //中基协处罚情况
+            case ZJXCFQK:
+                riskExce.setIexceptiontype(MEMBER.ExceptionType.ZJXCFQK.val());
+
+                authapplyRiskDetail.setSzjxcfexce(String.valueOf(authapplyRiskDetail.getSzjxcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSzjxcfexce()) + 1));
+                break;
             default:
                 E.S("未知类型");
                 break;
@@ -143,6 +157,14 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
             //可疑交易
             case KYJY:
                 authapplyRiskDetail.setSkyjiaoyi(String.valueOf(authapplyRiskDetail.getSkyjiaoyi() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSkyjiaoyi()) - 1));
+                break;
+            //对外投资情况
+            case DWTZQk:
+                authapplyRiskDetail.setSinvest(String.valueOf(authapplyRiskDetail.getSinvest() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSinvest()) - 1));
+                break;
+            //中基协处罚情况
+            case ZJXCFQK:
+                authapplyRiskDetail.setSzjxcfexce(String.valueOf(authapplyRiskDetail.getSzjxcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSzjxcfexce()) - 1));
                 break;
             default:
                 E.S("未知类型");
