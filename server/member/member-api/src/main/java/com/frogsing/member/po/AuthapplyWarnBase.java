@@ -1,5 +1,4 @@
 package com.frogsing.member.po;
-
 //frogsingcode//
 
 
@@ -33,6 +32,16 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 	private   String sadduser; //添加人 String
 	private   Date dmodifydate; //修改日期 Date
 	private   String smodifyoperator; //修改人 String
+	private   Integer irisklevel=0; //等级 int
+	private   Double fscore; //整体评分 double
+	private   Double fjgscore; //机构自身评分 double
+	private   Double fhxscore; //核心人员评分 double
+	private   Double fglqyscore; //关联企业评分 double
+	private   Double fzgjjscore; //在管基金评分 double
+	private   Double fwbascore; //未备案企业 double
+	private   Double fglrscore; //管理人合规性 double
+	private   Double fjjyzscore; //基金运作情况 double
+	private   Double fwarnnum; //预警数 double
 	   /**
 		企业名称 String
 		*/
@@ -301,8 +310,150 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 		public void setSmodifyoperator(String  smodifyoperator) {
 			this.smodifyoperator =  smodifyoperator;//修改人 String
 		}
+	   /**
+		等级 int
+	    RiskLevel:
+	    0:YX:优秀
+1:LH:良好
+2:XC:瑕疵
+3:FX:风险
+ 
+		*/
+		@Column(name="irisklevel")
+		public Integer getIrisklevel() {
+			return  irisklevel;//等级 int
+		}
+		/**
+		等级 int
+	    RiskLevel:
+	    0:YX:优秀
+1:LH:良好
+2:XC:瑕疵
+3:FX:风险
+ 
+		*/
+		public void setIrisklevel(Integer  irisklevel) {
+			this.irisklevel =  irisklevel;//等级 int
+		}
+	   /**
+		整体评分 double
+		*/
+		@Column(name="fscore")
+		public Double getFscore() {
+			return  fscore;//整体评分 double
+		}
+		/**
+		整体评分 double
+		*/
+		public void setFscore(Double  fscore) {
+			this.fscore =  fscore;//整体评分 double
+		}
+	   /**
+		机构自身评分 double
+		*/
+		@Column(name="fjgscore")
+		public Double getFjgscore() {
+			return  fjgscore;//机构自身评分 double
+		}
+		/**
+		机构自身评分 double
+		*/
+		public void setFjgscore(Double  fjgscore) {
+			this.fjgscore =  fjgscore;//机构自身评分 double
+		}
+	   /**
+		核心人员评分 double
+		*/
+		@Column(name="fhxscore")
+		public Double getFhxscore() {
+			return  fhxscore;//核心人员评分 double
+		}
+		/**
+		核心人员评分 double
+		*/
+		public void setFhxscore(Double  fhxscore) {
+			this.fhxscore =  fhxscore;//核心人员评分 double
+		}
+	   /**
+		关联企业评分 double
+		*/
+		@Column(name="fglqyscore")
+		public Double getFglqyscore() {
+			return  fglqyscore;//关联企业评分 double
+		}
+		/**
+		关联企业评分 double
+		*/
+		public void setFglqyscore(Double  fglqyscore) {
+			this.fglqyscore =  fglqyscore;//关联企业评分 double
+		}
+	   /**
+		在管基金评分 double
+		*/
+		@Column(name="fzgjjscore")
+		public Double getFzgjjscore() {
+			return  fzgjjscore;//在管基金评分 double
+		}
+		/**
+		在管基金评分 double
+		*/
+		public void setFzgjjscore(Double  fzgjjscore) {
+			this.fzgjjscore =  fzgjjscore;//在管基金评分 double
+		}
+	   /**
+		未备案企业 double
+		*/
+		@Column(name="fwbascore")
+		public Double getFwbascore() {
+			return  fwbascore;//未备案企业 double
+		}
+		/**
+		未备案企业 double
+		*/
+		public void setFwbascore(Double  fwbascore) {
+			this.fwbascore =  fwbascore;//未备案企业 double
+		}
+	   /**
+		管理人合规性 double
+		*/
+		@Column(name="fglrscore")
+		public Double getFglrscore() {
+			return  fglrscore;//管理人合规性 double
+		}
+		/**
+		管理人合规性 double
+		*/
+		public void setFglrscore(Double  fglrscore) {
+			this.fglrscore =  fglrscore;//管理人合规性 double
+		}
+	   /**
+		基金运作情况 double
+		*/
+		@Column(name="fjjyzscore")
+		public Double getFjjyzscore() {
+			return  fjjyzscore;//基金运作情况 double
+		}
+		/**
+		基金运作情况 double
+		*/
+		public void setFjjyzscore(Double  fjjyzscore) {
+			this.fjjyzscore =  fjjyzscore;//基金运作情况 double
+		}
+	   /**
+		预警数 double
+		*/
+		@Column(name="fwarnnum")
+		public Double getFwarnnum() {
+			return  fwarnnum;//预警数 double
+		}
+		/**
+		预警数 double
+		*/
+		public void setFwarnnum(Double  fwarnnum) {
+			this.fwarnnum =  fwarnnum;//预警数 double
+		}
 	
-	//frogsingcode//
+//frogsingcode//
 	
 	
 	

@@ -1695,7 +1695,9 @@ public static enum RiskType implements  IConst{
 	HXRY(1,"核心人员"),
 	GLQY(2,"关联企业"),
 	ZGQY(3,"在管企业"),
-	WBAHHQY(4,"未备案的合伙企业");
+	WBAHHQY(4,"未备案的合伙企业"),
+	GLRHGX(5,"管理人合规性"),
+	JJYZQK(6,"基金运作情况");
 	public  static RiskType get(int i){
     	 switch(i)
     	 {
@@ -1709,6 +1711,10 @@ public static enum RiskType implements  IConst{
     		return RiskType.ZGQY;
     	 case 4:
     		return RiskType.WBAHHQY;
+    	 case 5:
+    		return RiskType.GLRHGX;
+    	 case 6:
+    		return RiskType.JJYZQK;
     	 }
     	 return null;
      }

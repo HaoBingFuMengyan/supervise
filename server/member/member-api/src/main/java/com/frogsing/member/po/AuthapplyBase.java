@@ -1230,10 +1230,10 @@ public class AuthapplyBase  extends  BaseEntity{
 		}
 	   /**
 		企业业务类型 int
-	    CompanyBizType:
-	    10:ZRJJ:责任公司基金管理
-20:HHJJ:合伙企业基金管理
-30:HHFT:合伙企业风投基金 
+	    BizType:
+	    0:JJGLR:基金管理人
+1:CTJJ:创投基金
+ 
 		*/
 		@Column(name="icorbiztype")
 		public Integer getIcorbiztype() {
@@ -1241,10 +1241,10 @@ public class AuthapplyBase  extends  BaseEntity{
 		}
 		/**
 		企业业务类型 int
-	    CompanyBizType:
-	    10:ZRJJ:责任公司基金管理
-20:HHJJ:合伙企业基金管理
-30:HHFT:合伙企业风投基金 
+	    BizType:
+	    0:JJGLR:基金管理人
+1:CTJJ:创投基金
+ 
 		*/
 		public void setIcorbiztype(Integer  icorbiztype) {
 			this.icorbiztype =  icorbiztype;//企业业务类型 int

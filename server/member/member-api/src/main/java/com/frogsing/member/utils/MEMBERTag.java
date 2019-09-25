@@ -547,6 +547,12 @@ public  class MEMBERTag{
 		public void setWbahhqy(int val) {
 			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.WBAHHQY,val);
 		}
+		public void setGlrhgx(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.GLRHGX,val);
+		}
+		public void setJjyzqk(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.RiskType.JJYZQK,val);
+		}
 		@Override
 		public IConst[] GetVals() {
 			return com.frogsing.member.utils.MEMBER.RiskType.values();
