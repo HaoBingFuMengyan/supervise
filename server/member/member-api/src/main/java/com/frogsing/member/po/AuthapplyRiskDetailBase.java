@@ -68,6 +68,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 4:WBAHHQY:未备案的合伙企业
 5:GLRHGX:管理人合规性
 6:JJYZQK:基金运作情况
+7:FXYJ:风险预警
  
 		*/
 		@Column(name="irisktype")
@@ -84,6 +85,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 4:WBAHHQY:未备案的合伙企业
 5:GLRHGX:管理人合规性
 6:JJYZQK:基金运作情况
+7:FXYJ:风险预警
  
 		*/
 		public void setIrisktype(Integer  irisktype) {

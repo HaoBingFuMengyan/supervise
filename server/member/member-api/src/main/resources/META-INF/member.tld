@@ -2141,6 +2141,12 @@
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 
  		
+ 		<attribute> 
+ 			<name>fxyj</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
  	</tag> 
 	<function>
 		<description>ExceptionType</description>
@@ -2256,6 +2262,12 @@
  		
  		<attribute> 
  			<name>zjxcfqk</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>fxyj</name>
 			<required>false</required> 
 			<rtexprvalue>true</rtexprvalue> 
  		</attribute> 

@@ -1697,7 +1697,8 @@ public static enum RiskType implements  IConst{
 	ZGQY(3,"在管企业"),
 	WBAHHQY(4,"未备案的合伙企业"),
 	GLRHGX(5,"管理人合规性"),
-	JJYZQK(6,"基金运作情况");
+	JJYZQK(6,"基金运作情况"),
+	FXYJ(7,"风险预警");
 	public  static RiskType get(int i){
     	 switch(i)
     	 {
@@ -1715,6 +1716,8 @@ public static enum RiskType implements  IConst{
     		return RiskType.GLRHGX;
     	 case 6:
     		return RiskType.JJYZQK;
+    	 case 7:
+    		return RiskType.FXYJ;
     	 }
     	 return null;
      }
@@ -1782,7 +1785,8 @@ public static enum ExceptionType implements  IConst{
 	QSYC(5,"清算异常"),
 	KYJY(6,"可疑交易"),
 	DWTZQk(7,"对外投资情况"),
-	ZJXCFQK(8,"中基协处罚情况");
+	ZJXCFQK(8,"中基协处罚情况"),
+	FXYJ(9,"风险预警");
 	public  static ExceptionType get(int i){
     	 switch(i)
     	 {
@@ -1804,6 +1808,8 @@ public static enum ExceptionType implements  IConst{
     		return ExceptionType.DWTZQk;
     	 case 8:
     		return ExceptionType.ZJXCFQK;
+    	 case 9:
+    		return ExceptionType.FXYJ;
     	 }
     	 return null;
      }

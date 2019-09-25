@@ -43,6 +43,7 @@ public class AuthapplyRiskExceBase  extends  BaseEntity{
 6:KYJY:可疑交易
 7:DWTZQk:对外投资情况
 8:ZJXCFQK:中基协处罚情况
+9:FXYJ:风险预警
  
 		*/
 		@Column(name="iexceptiontype")
@@ -61,6 +62,7 @@ public class AuthapplyRiskExceBase  extends  BaseEntity{
 6:KYJY:可疑交易
 7:DWTZQk:对外投资情况
 8:ZJXCFQK:中基协处罚情况
+9:FXYJ:风险预警
  
 		*/
 		public void setIexceptiontype(Integer  iexceptiontype) {
