@@ -117,6 +117,13 @@ public class AuthapplyRiskDetailController {
                 list = queryService.listPage(pageable,xSpec);
                 model.addAttribute("list",list);
                 return "/member/risk-jjyzqk";
+            //风险预警
+            case FXYJ:
+                xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapplyriskdetail.irisktype,MEMBER.RiskType.FXYJ.val()));
+
+                list = queryService.listPage(pageable,xSpec);
+                model.addAttribute("list",list);
+                return "/member/risk-fxyj";
             default:
                 return "";
         }
@@ -147,6 +154,8 @@ public class AuthapplyRiskDetailController {
             case GLRHGX:
             //基金运作情况
             case JJYZQK:
+            //风险预警
+            case FXYJ:
                 return "/member/risk-jgself-add";
             default:
                 return "";

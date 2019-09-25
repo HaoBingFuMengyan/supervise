@@ -109,7 +109,7 @@
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
                         <td>${obj.scnname}</td>
-                        <td>${obj.sinvest}</td>
+                        <td>${obj.szjxcfexce == null ? 0 : obj.szjxcfexce +1}条</td>
                         <td>${obj.ssfexce == null ? 0 : obj.ssfexce +1}条</td>
                         <td>${obj.sxzcfexce == null ? 0 : obj.sxzcfexce +1}条</td>
                         <td>${obj.sjjinvice == null ? 0 : obj.sjjinvice +1}条</td>
@@ -119,6 +119,7 @@
                             <a onclick="exceptionAdd('行政处罚','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>行政处罚</a>
                             <a onclick="exceptionAdd('经营情况','${obj.id}',2)" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>经营情况</a>
                             <a onclick="exceptionAdd('涉诉情况','${obj.id}',3)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>涉诉情况</a>
+                            <a onclick="exceptionAdd('中基协处罚情况','${obj.id}',8)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>中基协处罚情况</a>
                         </td>
                     </tr>
                 </c:forEach>

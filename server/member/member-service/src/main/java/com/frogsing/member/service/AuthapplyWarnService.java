@@ -93,13 +93,22 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
                 break;
             //在管企业
             case ZGQY:
+                riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setStype(authapplyRiskDetail.getStype());
+                riskDetail.setIrisktype(MEMBER.RiskType.ZGQY.val());
+                break;
             //未备案的合伙企业
             case WBAHHQY:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setDsetdate(authapplyRiskDetail.getDsetdate());
+                riskDetail.setFnum(authapplyRiskDetail.getFnum());
+                riskDetail.setFnaturalnum(authapplyRiskDetail.getFnaturalnum());
+                riskDetail.setIrisktype(MEMBER.RiskType.WBAHHQY.val());
                 break;
             //管理人合规性
             case GLRHGX:
                 riskDetail.setScnname(authapplyRiskDetail.getScnname());
-                riskDetail.setSinvest(authapplyRiskDetail.getSinvest());//这里的投资情况作为管理人合规性的中基协处罚情况
                 riskDetail.setIrisktype(MEMBER.RiskType.GLRHGX.val());
                 break;
             //基金运作情况
@@ -107,7 +116,6 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
                 riskDetail.setSname(authapplyRiskDetail.getSname());
                 riskDetail.setDsetdate(authapplyRiskDetail.getDsetdate());//备案日期
                 riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
-                riskDetail.setSinvest(authapplyRiskDetail.getSinvest());
                 riskDetail.setIrisktype(MEMBER.RiskType.JJYZQK.val());
                 break;
             default:

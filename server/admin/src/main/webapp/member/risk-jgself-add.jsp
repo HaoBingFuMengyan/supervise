@@ -254,15 +254,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="layui-form-item">
-                                <div class="layui-inline">
-                                    <label class="layui-form-label">对外投资情况<em class="red">*</em></label>
-                                    <div class="layui-input-inline">
-                                        <input type="text" name="sinvest" placeholder="(必填项)"
-                                               class="layui-input" lay-verify="required" autocomplete="off"/>
-                                    </div>
-                                </div>
-                            </div>
                         </c:when>
                         <c:when test="${irisktype eq 5}"><%--管理人合规性--%>
                             <div class="layui-form-item">
@@ -270,15 +261,6 @@
                                     <label class="layui-form-label">机构名称<em class="red">*</em></label>
                                     <div class="layui-input-inline">
                                         <input type="text" name="scnname" placeholder="(必填项)"
-                                               class="layui-input" lay-verify="required" autocomplete="off"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="layui-form-item">
-                                <div class="layui-inline">
-                                    <label class="layui-form-label">中基协处罚情况<em class="red">*</em></label>
-                                    <div class="layui-input-inline">
-                                        <input type="text" name="sinvest" placeholder="(必填项)"
                                                class="layui-input" lay-verify="required" autocomplete="off"/>
                                     </div>
                                 </div>
@@ -312,11 +294,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </c:when>
+                        <c:when test="${irisktype eq 7}"><%--风险预警--%>
                             <div class="layui-form-item">
                                 <div class="layui-inline">
-                                    <label class="layui-form-label">对外投资情况<em class="red">*</em></label>
+                                    <label class="layui-form-label">条数<em class="red">*</em></label>
                                     <div class="layui-input-inline">
-                                        <input type="text" name="sinvest" placeholder="(必填项)"
+                                        <input type="text" name="sname" placeholder="(必填项)"
                                                class="layui-input" lay-verify="required" autocomplete="off"/>
                                     </div>
                                 </div>

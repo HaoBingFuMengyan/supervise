@@ -108,11 +108,13 @@
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
                         <td>${obj.scnname}</td>
-                        <td>${obj.dsetdate}</td>
+                        <td><mw:format label="date" value="${obj.dsetdate}"/></td>
                         <td>${obj.fnum}</td>
                         <td>${obj.fnaturalnum}</td>
-                        <td>${obj.sinvest}</td>
-                        <td></td>
+                        <td>${obj.sinvest == null ? 0 : obj.sinvest + 1}条</td>
+                        <td>
+                            <a onclick="exceptionAdd('对外投资情况','${obj.id}',7)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>对外投资情况</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -111,12 +111,13 @@
                         <td>${obj.sname}</td>
                         <td><mw:format label="date" value="${obj.dsetdate}"/></td>
                         <td>${obj.strustname}</td>
-                        <td>${obj.sinvest}</td>
+                        <td>${obj.sinvest == null ? 0 :obj.sinvest + 1}条</td>
                         <td>${obj.splexce == null ? 0 : obj.splexce +1}条</td>
                         <td>${obj.skyjiaoyi == null ? 0 : obj.skyjiaoyi +1}条</td>
                         <td>
                             <a onclick="exceptionAdd('披露异常','${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>披露异常</a>
                             <a onclick="exceptionAdd('可疑交易','${obj.id}',6)" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>可疑交易</a>
+                            <a onclick="exceptionAdd('对外投资情况','${obj.id}',7)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>对外投资情况</a>
                         </td>
                     </tr>
                 </c:forEach>
