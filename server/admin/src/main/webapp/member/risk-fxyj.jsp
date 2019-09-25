@@ -101,14 +101,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list.content}" var="obj">
-                    <tr>
-                        <td>${obj.iwarnnum == null ? 0 : obj.iwarnnum}条</td>
-                        <td>
-                            <a onclick="exceptionAdd('风险预警','${obj.id}',9)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险预警</a>
-                        </td>
-                    </tr>
-                </c:forEach>
+                <tr>
+                    <td>${data.iwarnnum == null ? 0 : data.iwarnnum}条</td>
+                    <td>
+                        <a onclick="exceptionAdd('风险预警','${data.id}',9)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险预警</a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
