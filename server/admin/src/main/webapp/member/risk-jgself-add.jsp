@@ -110,6 +110,7 @@
           enctype="multipart/form-data" autocomplete="on">
         <input type="hidden" name="id" value="${id}">
         <input type="hidden" name="irisktype" value="${irisktype}">
+        <input type="hidden" name="type" value="${type}">
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">

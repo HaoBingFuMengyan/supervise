@@ -74,10 +74,23 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
         switch (riskType){
             //机构自身
             case JGSELF:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setSmanager(authapplyRiskDetail.getSmanager());
+                riskDetail.setIrisktype(MEMBER.RiskType.JGSELF.val());
+                break;
             //核心人员
             case HXRY:
+                riskDetail.setSname(authapplyRiskDetail.getSname());
+                riskDetail.setScard(authapplyRiskDetail.getScard());
+                riskDetail.setScardno(authapplyRiskDetail.getScardno());
+                riskDetail.setIrisktype(MEMBER.RiskType.HXRY.val());
+                break;
             //关联企业
             case GLQY:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setScard(authapplyRiskDetail.getScard());
+                riskDetail.setIrisktype(MEMBER.RiskType.GLQY.val());
+                break;
             //在管企业
             case ZGQY:
             //未备案的合伙企业

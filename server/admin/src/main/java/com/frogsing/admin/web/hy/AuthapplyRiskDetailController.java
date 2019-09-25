@@ -45,13 +45,15 @@ public class AuthapplyRiskDetailController {
     @Autowired
     private AuthapplyWarnService authapplyWarnService;
 
-
+    //type == 1 风险排查
     @RequestMapping(value = "risk.shtml")
     public String risk(@RequestParam(value = "id")String id,
                        @RequestParam(value = "irisktype") int irisktype,
                        @RequestParam(value = "start", defaultValue = "0") int start,
                        @RequestParam(value = "limit", defaultValue = PageUtils.Limit) int limit,
-                       @RequestParam(value = "sort", defaultValue = "") String[] sort,Model model, HttpServletRequest request){
+                       @RequestParam(value = "sort", defaultValue = "") String[] sort,
+                       @RequestParam(value = "type", defaultValue = "0") int type,
+                       Model model, HttpServletRequest request){
 
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, model);
         XSpec<AuthapplyRiskDetail> xSpec = MEMBERCol.hy_authapplyriskdetail.xspec();
@@ -64,6 +66,7 @@ public class AuthapplyRiskDetailController {
         MEMBER.RiskType riskType = MEMBER.RiskType.get(irisktype);
         model.addAttribute("id",id);
         model.addAttribute("irisktype",irisktype);
+        model.addAttribute("type",type);
         switch (riskType){
             //机构自身
             case JGSELF:
@@ -123,10 +126,12 @@ public class AuthapplyRiskDetailController {
     @RequestMapping(value = "add.shtml")
     public String add(@RequestParam(value = "id")String id,
                        @RequestParam(value = "irisktype") int irisktype,
+                      @RequestParam(value = "type", defaultValue = "0") int type,
                        Model model, HttpServletRequest request){
         MEMBER.RiskType riskType = MEMBER.RiskType.get(irisktype);
         model.addAttribute("id",id);
         model.addAttribute("irisktype",irisktype);
+        model.addAttribute("type",type);
         switch (riskType){
             //机构自身
             case JGSELF:
@@ -152,6 +157,7 @@ public class AuthapplyRiskDetailController {
     @ResponseBody
     public Result addSave(@RequestParam(value = "id")String id,
                           @RequestParam(value = "irisktype") int irisktype,
+                          @RequestParam(value = "type", defaultValue = "0") int type,
                           Model model, HttpServletRequest request,AuthapplyRiskDetail authapplyRiskDetail){
         try {
             if (B.Y(id))
@@ -162,28 +168,10 @@ public class AuthapplyRiskDetailController {
 
             ILoginUser user = ShiroUtils.getCurrentUser();
 
-            MEMBER.RiskType riskType = MEMBER.RiskType.get(irisktype);
-            switch (riskType){
-                //机构自身
-                case JGSELF:
-                    //核心人员
-                case HXRY:
-                    //关联企业
-                case GLQY:
-                    //在管企业
-                case ZGQY:
-                    //未备案的合伙企业
-                case WBAHHQY:
-                    this.authapplyRiskDetailService.save(id,irisktype,authapplyRiskDetail,user);
-                    break;
-                    //管理人合规性
-                case GLRHGX:
-                    //基金运作情况
-                case JJYZQK:
-                    this.authapplyWarnService.save(id,irisktype,authapplyRiskDetail,user);
-                default:
-                    break;
-            }
+            if (type == 0)
+                this.authapplyRiskDetailService.save(id,irisktype,authapplyRiskDetail,user);
+            if (type == 1)
+                this.authapplyWarnService.save(id,irisktype,authapplyRiskDetail,user);
 
             return Result.success();
         }catch (ServiceException ex){

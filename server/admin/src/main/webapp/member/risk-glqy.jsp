@@ -6,12 +6,12 @@
     <title>风险评估报告</title>
     <script type="text/javascript">
         //添加
-        function addRisk(id,irisktype){
+        function addRisk(id,irisktype,type){
             top.layer.open({
                 type: 2,
                 title:"添加",
                 area: ['45%', '40%'],
-                content: '${ctx}/hy/authapplyriskdetail/add.shtml?id='+id+'&irisktype='+irisktype,
+                content: '${ctx}/hy/authapplyriskdetail/add.shtml?id='+id+'&irisktype='+irisktype+'&type='+type,
                 btn: ['确定','关闭'],
                 yes:function(index,layero){
                     var iframeWin = layero.find('iframe')[0];
@@ -82,7 +82,7 @@
                 <div class="col-sm-12">
                     <div class="pull-left">
                         <shiro:hasAnyPermission name="exception:add">
-                            <a onclick="addRisk('${id}','${irisktype}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
+                            <a onclick="addRisk('${id}','${irisktype}','${type}')" class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" title="添加"><i class="fa fa-plus"></i> 添加</a>
                         </shiro:hasAnyPermission>
                         <button class="btn btn-white btn-sm " data-toggle="tooltip" data-placement="left" onclick="sortOrRefresh()" title="刷新"><i class="glyphicon glyphicon-repeat"></i> 刷新</button>
                     </div>

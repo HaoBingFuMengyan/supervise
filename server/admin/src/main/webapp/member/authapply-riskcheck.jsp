@@ -233,11 +233,11 @@
                                                 <li><a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a> </li>
                                                 <li><a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a></li>
                                                 <li><a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a></li>
-                                                <c:if test="${obj.icorporatetype eq 0}">
+                                                <c:if test="${obj.ibiztype eq 0}">
                                                     <li> <a onclick="riskcheck('${obj.id}',3)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>在管基金</a></li>
                                                     <li> <a onclick="riskcheck('${obj.id}',4)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>未备案企业</a></li>
                                                 </c:if>
-                                                <c:if test="${obj.icorporatetype eq 1}">
+                                                <c:if test="${obj.ibiztype eq 1}">
                                                     <li><a onclick="riskcheck('${obj.id}',5)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>管理人情况</a></li>
                                                     <li><a onclick="riskcheck('${obj.id}',6)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>基金运作</a></li>
                                                 </c:if>
