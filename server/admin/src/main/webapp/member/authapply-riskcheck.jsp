@@ -256,7 +256,7 @@
                                 <member:CheckStatus op="label" val="${obj.istatus}"/>
                             </td>
                             <td>
-                                <member:CheckStatus op="label" val="${obj.istatus}"/>
+                                <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                             </td>
                             <td>
                                 <mw:format label="date" value="${obj.drecorddate}"/>
