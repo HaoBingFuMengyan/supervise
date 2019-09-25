@@ -10,7 +10,18 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+<style>
+    .layui-info .layui-form-item .layui-inline .layui-input-inline{
+        color:#333
+    }
+    .redfont{
+        color:#ff0000
+    }
+    legend{
+        font-size: 15px!important;
+        color:#1E9FFF
+    }
+</style>
 </head>
 <body>
 <div class="layui-collapse" style="border-top: none;">
@@ -21,7 +32,7 @@
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">注册资金(万元)：</label>
-                        <div class="layui-input-inline">
+                        <div class="layui-input-inline redfont">
                             ${data.iregmoney}
                         </div>
                     </div>
@@ -172,9 +183,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <fieldset class="layui-elem-field layui-field-title">
                     <legend>法定/委派代表人信息</legend>
-
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名：</label>
@@ -195,9 +206,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <fieldset class="layui-elem-field layui-field-title">
                     <legend>企业联系人信息</legend>
-
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名：</label>
@@ -218,9 +229,9 @@
                             </div>
                         </div>
                     </div>
-
+                    <fieldset class="layui-elem-field layui-field-title">
                     <legend>实际控制人信息</legend>
-
+                    </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名：</label>
