@@ -49,6 +49,7 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
         warn.setIkrzcardtype(authapplyWarn.getIkrzcardtype());
         warn.setSkzrname(authapplyWarn.getSkzrname());
         warn.setSkzrcardno(authapplyWarn.getSkzrcardno());
+        warn.setIrisklevel(99);
 
         warn.setIstatus(MEMBER.CheckStatus.WAIT.val());
         warn.setDadddate(new Date());
