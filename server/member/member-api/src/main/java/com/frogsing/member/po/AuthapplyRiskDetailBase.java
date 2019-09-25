@@ -45,6 +45,7 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 	private   String sremark; //备注 String
 	private   String smemberid; //会员ID String
 	private   String sauthapplyid; //认证id String
+	private   Integer iwarnnum=0; //预警数 int
 	   /**
 		风险id String
 		*/
@@ -467,6 +468,19 @@ public class AuthapplyRiskDetailBase  extends  BaseEntity{
 		*/
 		public void setSauthapplyid(String  sauthapplyid) {
 			this.sauthapplyid =  sauthapplyid;//认证id String
+		}
+	   /**
+		预警数 int
+		*/
+		@Column(name="iwarnnum")
+		public Integer getIwarnnum() {
+			return  iwarnnum;//预警数 int
+		}
+		/**
+		预警数 int
+		*/
+		public void setIwarnnum(Integer  iwarnnum) {
+			this.iwarnnum =  iwarnnum;//预警数 int
 		}
 	
 //frogsingcode//

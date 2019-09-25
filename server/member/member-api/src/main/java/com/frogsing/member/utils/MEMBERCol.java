@@ -1426,6 +1426,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static final String smemberid="smemberid" ;
             /**认证id**/
             public static final String sauthapplyid="sauthapplyid" ;
+            /**预警数**/
+            public static final String iwarnnum="iwarnnum" ;
             /**风险id**/
             public static  Path<String> sriskid(Root<?> root){return root.get("sriskid");}
             /**类型**/
@@ -1488,6 +1490,8 @@ public static XSpec<com.frogsing.member.po.AuthapplyRiskDetail> xspec() {
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**认证id**/
             public static  Path<String> sauthapplyid(Root<?> root){return root.get("sauthapplyid");}
+            /**预警数**/
+            public static  Path<Integer> iwarnnum(Root<?> root){return root.get("iwarnnum");}
 
     }
 /**企业风险监测报告异常表**/

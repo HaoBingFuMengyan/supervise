@@ -84,10 +84,20 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
                 break;
             //管理人合规性
             case GLRHGX:
+                riskDetail.setScnname(authapplyRiskDetail.getScnname());
+                riskDetail.setIrisktype(MEMBER.RiskType.GLRHGX.val());
                 break;
             //基金运作情况
             case JJYZQK:
+                riskDetail.setSname(authapplyRiskDetail.getSname());
+                riskDetail.setDsetdate(authapplyRiskDetail.getDsetdate());//备案日期
+                riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
+                riskDetail.setIrisktype(MEMBER.RiskType.JJYZQK.val());
                 break;
+            //风险预警
+            case FXYJ:
+                riskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum());
+                riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
             default:
                 E.S("未知类型");
                 break;

@@ -118,6 +118,10 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
                 riskDetail.setStrustname(authapplyRiskDetail.getStrustname());
                 riskDetail.setIrisktype(MEMBER.RiskType.JJYZQK.val());
                 break;
+            //风险预警
+            case FXYJ:
+                riskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum());
+                riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
             default:
                 E.S("未知类型");
                 break;
