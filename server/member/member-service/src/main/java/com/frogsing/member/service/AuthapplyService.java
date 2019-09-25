@@ -284,34 +284,22 @@ public class AuthapplyService implements IAuthapplyService {
 		if (authapply == null)
 			E.S("系统错误，请联系管理员");
 
-		double fscore = 0D;
-
-		if (MEMBER.CompanyBizType.ZRJJ.isEq(authapply.getIcorbiztype()) || MEMBER.CompanyBizType.HHJJ.isEq(authapply.getIcorbiztype())){
-			fscore = F.divide(F.add(F.add(F.add(F.add(authVo.getFjgscore(),authVo.getFhxscore()),authVo.getFglqyscore()),authVo.getFzgjjscore()),authVo.getFwbascore()),5,2);
+		if (MEMBER.BizType.JJGLR.isEq(authVo.getIbiztype())){
 			authapply.setFzgjjscore(authVo.getFzgjjscore());
 			authapply.setFwbascore(authVo.getFwbascore());
 		}
 
-		if (MEMBER.CompanyBizType.HHFT.isEq(authapply.getIcorbiztype())){
-			fscore = F.divide(F.add(F.add(F.add(F.add(authVo.getFjgscore(),authVo.getFhxscore()),authVo.getFglqyscore()),authVo.getFglrscore()),authVo.getFjjyzscore()),5,2);
+		if (MEMBER.BizType.CTJJ.isEq(authVo.getIbiztype())){
 			authapply.setFglrscore(authVo.getFglrscore());
 			authapply.setFjjyzscore(authVo.getFjjyzscore());
 		}
 
-		authapply.setFscore(fscore);
+		authapply.setFscore(authVo.getFscore());
 		authapply.setFjgscore(authVo.getFjgscore());
 		authapply.setFhxscore(authVo.getFhxscore());
 		authapply.setFglqyscore(authVo.getFglqyscore());
-		authapply.setFwarnnum(authVo.getFwarnnum());
-
-		if (fscore >= 90)
-			authapply.setIrisklevel(MEMBER.RiskLevel.YX.val());
-		else if (fscore < 90 && fscore >= 75)
-			authapply.setIrisklevel(MEMBER.RiskLevel.LH.val());
-		else if (fscore < 75 && fscore >= 60)
-			authapply.setIrisklevel(MEMBER.RiskLevel.XC.val());
-		else
-			authapply.setIrisklevel(MEMBER.RiskLevel.FX.val());
+		authapply.setIrisklevel(authVo.getIrisklevel());
+		authapply.setDrecorddate(authVo.getDrecorddate());
 
 
 		this.authapplyDao.saveAndFlush(authapply);

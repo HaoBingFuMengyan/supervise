@@ -137,12 +137,6 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">申请时间：</label>
-                        <div class="layui-input-inline">
-                            <mw:format label="datetime" value="${data.dapplydate}"/>
-                        </div>
-                    </div>
                     <c:if test="${data.istatus eq 1}">
                         <div class="layui-inline">
                             <label class="layui-form-label">注册地址：</label>
@@ -153,16 +147,6 @@
                     </c:if>
                 </div>
 
-                <c:if test="${data.istatus eq 1}">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">风险报告结果：</label>
-                            <div class="layui-input-inline">
-                                    ${data.sriskresult}
-                            </div>
-                        </div>
-                    </div>
-                </c:if>
 
             </div>
         </div>

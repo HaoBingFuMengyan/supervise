@@ -107,19 +107,21 @@ public class MemberAction extends BaseAction {
 
             model.addAttribute("member",member);
 
-            model.addAttribute("icorbiztype",icorbiztype);
-
         } catch (Exception e) {
             Msg.error(model, "系统异常，请联系管理员");
             e.printStackTrace();
         }
 
-        if (MEMBER.CompanyBizType.ZRJJ.isEq(icorbiztype))
+        if (MEMBER.CompanyBizType.ZRJJ.isEq(icorbiztype)) {
+            model.addAttribute("icorbiztype",0);
             return "member/authapplyed";
-        else if (MEMBER.CompanyBizType.HHJJ.isEq(icorbiztype))
+        }else if (MEMBER.CompanyBizType.HHJJ.isEq(icorbiztype)) {
+            model.addAttribute("icorbiztype",0);
             return "member/authapplyed-hhjj";
-        else
+        }else{
+            model.addAttribute("icorbiztype",1);
             return "member/authapplyed-hhft";
+        }
     }
 
     /**

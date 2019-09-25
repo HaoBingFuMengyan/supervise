@@ -319,7 +319,7 @@
                 <tbody>
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
-                        <td><member:CompanyBizType op="label" val="${obj.icorbiztype}"/></td>
+                        <td><member:BizType op="label" val="${obj.icorbiztype}"/></td>
                         <td>
                             <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
                         </td>
@@ -354,7 +354,7 @@
                             </c:choose>
                         </td>
                         <td>
-                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>企业详情</a>
 
                             <shiro:hasAnyPermission name="authapply:check">
                                 <c:if test="${operator.ioperatortype eq 30}">
@@ -370,6 +370,7 @@
                                             <li>风险评估
                                                 <ul>
                                                     <li><a onclick="authapplyScore('${obj.id}')" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险总评</a> </li>
+                                                    <li><a onclick="riskcheck('${obj.id}',7)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>风险预警</a> </li>
                                                     <li><a onclick="riskcheck('${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>机构自身</a> </li>
                                                     <li><a onclick="riskcheck('${obj.id}',1)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>核心人员</a></li>
                                                     <li><a onclick="riskcheck('${obj.id}',2)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>关联企业</a></li>

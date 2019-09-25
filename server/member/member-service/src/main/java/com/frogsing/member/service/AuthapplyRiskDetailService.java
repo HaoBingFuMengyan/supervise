@@ -98,6 +98,7 @@ public class AuthapplyRiskDetailService implements IAuthapplyRiskDetailService {
             case FXYJ:
                 riskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum());
                 riskDetail.setIrisktype(MEMBER.RiskType.FXYJ.val());
+                break;
             default:
                 E.S("未知类型");
                 break;

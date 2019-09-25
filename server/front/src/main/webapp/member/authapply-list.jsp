@@ -126,7 +126,7 @@
                 <c:forEach items="${list.content}" var="obj">
                     <tr>
                         <td>
-                            <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
+                            <member:BizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
                             <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
@@ -161,7 +161,7 @@
                         <td>
 
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
-                                    class="fa fa-edit"></i>基本信息</a>
+                                    class="fa fa-edit"></i>企业详情</a>
 
                             <c:if test="${obj.istatus eq 1 && (obj.iprocess eq 10 || obj.iprocess == null || obj.iprocess eq 0 || obj.iprocess eq 40)}">
                                 <a onclick="applyRegister('${obj.id}')" class="btn btn-danger btn-xs"><i

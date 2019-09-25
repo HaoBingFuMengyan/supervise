@@ -136,12 +136,6 @@
                 </div>
 
                 <div class="layui-form-item">
-                    <div class="layui-inline">
-                        <label class="layui-form-label">申请时间：</label>
-                        <div class="layui-input-inline">
-                            <mw:format label="datetime" value="${data.dapplydate}"/>
-                        </div>
-                    </div>
                     <c:if test="${data.istatus eq 1}">
                         <div class="layui-inline">
                             <label class="layui-form-label">注册地址：</label>
@@ -151,39 +145,6 @@
                         </div>
                     </c:if>
                 </div>
-
-                <c:if test="${data.istatus eq 1}">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">检测报告结果：</label>
-                            <div class="layui-input-inline">
-                                    ${data.sriskresult}
-                            </div>
-                        </div>
-                    </div>
-                </c:if>
-
-                <c:if test="${(data.istatus eq 1 && operator.ioperatortype eq 10) || isAdmin eq 1}">
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">检测报告内文：</label>
-                            <div class="layui-input-inline">
-                                    ${data.srisktext}
-                            </div>
-                        </div>
-                    </div>
-                </c:if>
-                <%--企业变更申请之后，街道办事处、工商管理局和金融监管局可以看到风险检测报告内文--%>
-                <%--<c:if test="${data.bisincompany eq 1 && (operator.ioperatortype eq 10 || operator.ioperatortype eq 20 || operator.ioperatortype eq 30) || isAdmin eq 1}">--%>
-                    <%--<div class="layui-form-item">--%>
-                        <%--<div class="layui-inline">--%>
-                            <%--<label class="layui-form-label">检测报告内文：</label>--%>
-                            <%--<div class="layui-input-inline">--%>
-                                    <%--${data.srisktext}--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</c:if>--%>
             </div>
         </div>
     </div>

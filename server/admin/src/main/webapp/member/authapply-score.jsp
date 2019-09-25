@@ -1,3 +1,4 @@
+<%@ taglib prefix="member" uri="http://www.frogsing.com/tags/member" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/include/taglib.jsp" %>
 <!DOCTYPE html>
@@ -41,6 +42,15 @@
             var layer = layui.layer
                 , layedit = layui.layedit
                 , laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#drecorddate',
+                trigger: 'click'
+            });
+            laydate.render({
+                elem: '#drecorddate1',
+                trigger: 'click'
+            });
 
             form.verify({
 //                required: function (value) {
@@ -105,9 +115,26 @@
           onkeydown="if(event.keyCode==13) return false;"
           enctype="multipart/form-data" autocomplete="on">
         <input type="hidden" name="id" value="${data.id}">
+        <input type="hidden" name="ibiztype" value="${data.icorbiztype}">
         <div class="layui-tab layui-tab-card">
             <div class="layui-tab-content">
                 <div id="projectInfo" class="layui-tab-item layui-show">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">整体评分<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="fscore" placeholder="(必填项)" value="${data.fscore}"
+                                       class="layui-input" lay-verify="required" autocomplete="off"/>
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">风险等级<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:RiskLevel op="select" val="${data.irisklevel}" defname="请选择风险等级" name="irisklevel"
+                                                  option="class='layui-input' lay-verify='required'"/>
+                            </div>
+                        </div>
+                    </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
                             <label class="layui-form-label">机构自身<em class="red">*</em></label>
@@ -124,38 +151,74 @@
                             </div>
                         </div>
                     </div>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">关联企业<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="fglqyscore" id="fglqyscore" placeholder="(必填项)" lay-verify="required"
-                                       class="layui-input" autocomplete="off" value="${data.fglqyscore}"/>
+                    <c:if test="${data.icorbiztype eq 0}">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">关联企业<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fglqyscore" id="fglqyscore" placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fglqyscore}"/>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">在管基金<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fzgjjscore" id="fzgjjscore" placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fzgjjscore}"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">在管基金<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="fzgjjscore" id="fzgjjscore" placeholder="(必填项)" lay-verify="required"
-                                       class="layui-input" autocomplete="off" value="${data.fzgjjscore}"/>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">未备案合伙企业<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fwbascore" id="fwbascore" placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fwbascore}"/>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="drecorddate" id="drecorddate1" placeholder="(必填项)" lay-verify="required" readonly
+                                           class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <div class="layui-inline">
-                            <label class="layui-form-label">未备案合伙企业<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="fwbascore" id="fwbascore" placeholder="(必填项)" lay-verify="required"
-                                       class="layui-input" autocomplete="off" value="${data.fwbascore}"/>
+                    </c:if>
+                    <c:if test="${data.icorbiztype eq 1}">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">关联企业<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fglqyscore" placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fglqyscore}"/>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">管理人合规性<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fglrscore"  placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fglrscore}"/>
+                                </div>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">预警数<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <input type="text" name="fwarnnum" id="fwarnnum" placeholder="(必填项)" lay-verify="required"
-                                       class="layui-input" autocomplete="off" value="${data.fwarnnum}"/>
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">基金运作情况<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="fjjyzscore" placeholder="(必填项)" lay-verify="required"
+                                           class="layui-input" autocomplete="off" value="${data.fjjyzscore}"/>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="drecorddate" id="drecorddate" placeholder="(必填项)" lay-verify="required" readonly
+                                           class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </c:if>
                 </div>
             </div>
 
