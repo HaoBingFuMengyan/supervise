@@ -77,6 +77,10 @@
 				<op:OperatorType op="select" name="ioperatortype" val="${data.ioperatortype}" option="class='form-control valid' aria-invalid='false'"/>
 			</td>
 		</tr>
+		<tr>
+			<td class="active col-md-2"><label class="pull-right">地址:</label></td>
+			<td colspan="3"><form:input path="saddress" htmlEscape="false" maxlength="100" class="form-control"/></td>
+		</tr>
 		<tr id="rolename">
 			<td class="active col-md-2"><label class="pull-right"><font color="red">*</font>用户角色:</label></td>
 			<td colspan="3">
