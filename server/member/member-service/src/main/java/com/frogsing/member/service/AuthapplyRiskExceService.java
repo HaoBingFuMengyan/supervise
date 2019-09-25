@@ -194,7 +194,7 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
                 if (authapply == null)
                     E.S("该企业不存在");
 
-                authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() -1);
+                authapply.setFwarnnum(authapply.getFwarnnum() -1);
 
                 authapplyDao.saveAndFlush(authapply);
                 break;
