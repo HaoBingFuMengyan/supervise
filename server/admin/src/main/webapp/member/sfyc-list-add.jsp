@@ -100,6 +100,13 @@
                 return true;
             }
         };
+        $(function () {
+            $("textarea").keydown(function (e) {
+                if (e.keyCode == "13") {
+                    this.value = this.value + '\n';
+                }
+            });
+        })
     </script>
 </head>
 <body>
