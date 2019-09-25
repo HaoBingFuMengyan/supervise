@@ -476,6 +476,7 @@ public class MemberService implements IMemberService {
         apply.setIauthapplysource(obj.getIauthapplysource());
 
         apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
+        apply.setIrisklevel(99);
 
         Authapply authapply = authapplyDao.saveAndFlush(apply);
 

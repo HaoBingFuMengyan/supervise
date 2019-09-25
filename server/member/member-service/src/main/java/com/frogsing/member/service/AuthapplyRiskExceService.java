@@ -115,7 +115,7 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
                 Authapply authapply = queryService.findOne(Authapply.class,authapplyRiskDetail.getSauthapplyid());
 
                 if (authapply != null) {
-                    authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() + 1);
+                    authapply.setFwarnnum(authapply.getFwarnnum() + 1);
 
                     authapplyDao.saveAndFlush(authapply);
                 }

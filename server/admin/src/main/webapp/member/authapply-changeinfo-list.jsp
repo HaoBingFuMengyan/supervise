@@ -159,7 +159,7 @@
                         </td>
                         <td><mw:format label="toint" value="${obj.fwarnnum}"/></td>
                         <td>
-                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>企业信息${obj.fwarnnum}</a>
 
                             <c:if test="${type eq 1}">
                                 <c:if test="${operator.ioperatortype eq 10}">

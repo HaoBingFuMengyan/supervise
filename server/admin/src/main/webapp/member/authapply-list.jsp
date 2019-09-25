@@ -332,7 +332,7 @@
                             <member:CheckStatus op="label" val="${obj.istatus}"/>
                         </td>
                         <td>
-                            <mw:format label="datetime" value="${obj.dapplydate}"/>
+                            <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
                         <td>
                             <member:ApprovalStatus op="label" val="${obj.iapprovalstatus}"/>
