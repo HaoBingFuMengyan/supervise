@@ -101,6 +101,12 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
 
                 authapplyRiskDetail.setSzjxcfexce(String.valueOf(authapplyRiskDetail.getSzjxcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSzjxcfexce()) + 1));
                 break;
+            //风险预警
+            case FXYJ:
+                riskExce.setIexceptiontype(MEMBER.ExceptionType.FXYJ.val());
+
+                authapplyRiskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum() +1);
+                break;
             default:
                 E.S("未知类型");
                 break;
@@ -165,6 +171,10 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
             //中基协处罚情况
             case ZJXCFQK:
                 authapplyRiskDetail.setSzjxcfexce(String.valueOf(authapplyRiskDetail.getSzjxcfexce() == null ? 0 : Integer.valueOf(authapplyRiskDetail.getSzjxcfexce()) - 1));
+                break;
+            //风险预警
+            case FXYJ:
+                authapplyRiskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum() -1);
                 break;
             default:
                 E.S("未知类型");
