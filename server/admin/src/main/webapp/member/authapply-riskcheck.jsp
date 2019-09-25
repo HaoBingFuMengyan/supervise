@@ -209,7 +209,7 @@
                     <form:form id="searchForm" action="${ctx}/hy/authapplywarn/riskcheck.shtml" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
-                            <span>公司名称：</span>
+                            <span>企业名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
                         </div>
                     </form:form>

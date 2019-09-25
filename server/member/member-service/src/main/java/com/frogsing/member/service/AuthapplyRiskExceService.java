@@ -114,12 +114,11 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
 
                 Authapply authapply = queryService.findOne(Authapply.class,authapplyRiskDetail.getSauthapplyid());
 
-                if (authapply == null)
-                    E.S("该企业不存在");
+                if (authapply != null) {
+                    authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() + 1);
 
-                authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() +1);
-
-                authapplyDao.saveAndFlush(authapply);
+                    authapplyDao.saveAndFlush(authapply);
+                }
                 break;
             default:
                 E.S("未知类型");
