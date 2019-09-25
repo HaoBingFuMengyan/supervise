@@ -15,6 +15,7 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <title>会员中心-基金协同监管系统沟通</title>
     <link type="image/x-icon" href="${ctx}/images/favicon.png" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="${ctx }/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx }/of/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx }/of/icon/iconfont.css"/>
     <link href="${ctx}/of/css/centercss.css" rel="stylesheet" type="text/css"/>
