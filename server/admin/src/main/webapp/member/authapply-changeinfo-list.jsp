@@ -4,7 +4,48 @@
 <html>
 <head>
     <title>基金基本信息</title>
+    <script src="${ctxStatic}/layui-v2.4.2/layui/layui.js" type="text/javascript"></script>
+
+    <link href="${ctxStatic}/layui-v2.4.2/layui/css/layui.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript">
+
+        layui.use(['form', 'layedit', 'upload', 'laydate'], function () {
+            device = layui.device();
+            form = layui.form;
+            var layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#drecorddate',
+                trigger: 'click'
+            });
+            laydate.render({
+                elem: '#drecorddate1',
+                trigger: 'click'
+            });
+
+            laydate.render({
+                elem: '#beian',
+                trigger: 'click'
+            });
+            laydate.render({
+                elem: '#beian1',
+                trigger: 'click'
+            });
+
+            form.verify({
+//                required: function (value) {
+//                    if (pub.isnull(value)) {
+//                        return '这是必填项';
+//                    }
+//                }
+            });
+
+            var layupload = layui.upload;
+
+        });
+
         //查看基本信息
         function querydetail(id) {
             top.layer.open({
@@ -39,7 +80,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>企业信息变更列表</h5>
+            <h5>入驻企业统计</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
@@ -53,11 +94,18 @@
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
                             <span>业务类型：</span>
                             <member:CompanyBizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>入驻方式：</span>
+                            <span>入驻类型：</span>
                             <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>风险评级：</span>
                             <member:RiskLevel op="select" val="${search_eq_irisklevel}" name="search_eq_irisklevel" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <%--<span>入驻日期：</span>--%>
+                            <span>入驻日期：</span>
+                            <input id="drecorddate" name="search_gte_dapplydate" value="${search_gte_dapplydate}" class="form-control input-sm">-
+                            <input id="drecorddate1" name="search_lte_dapplydate"  value="${search_lte_dapplydate}"  class="form-control input-sm">
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <span>备案日期：</span>
+                            <input id="beian" name="search_gte_drecorddate" value="${search_gte_drecorddate}" class="form-control input-sm">-
+                            <input id="beian1" name="search_lte_drecorddate"  value="${search_lte_drecorddate}"  class="form-control input-sm">
                         </div>
                     </form:form>
                     <br/>
@@ -82,7 +130,7 @@
                 <tr>
                     <th class="sort-column">公司名称</th>
                     <th class="sort-column">业务类型</th>
-                    <th class="sort-column">入驻方式</th>
+                    <th class="sort-column">入驻类型</th>
                     <th class="sort-column">入驻日期</th>
                     <th class="sort-column">认缴规模(万元)</th>
                     <th class="sort-column">备案日期</th>
