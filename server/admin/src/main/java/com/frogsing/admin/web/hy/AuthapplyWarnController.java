@@ -129,6 +129,20 @@ public class AuthapplyWarnController {
         return "/member/authapplywarn-detail";
     }
 
+    @RequestMapping(value = "index.shtml")
+    public String index(@RequestParam(value = "id") String id ,Model model,HttpServletRequest request){
+        model.addAttribute("data",queryService.findOne(AuthapplyWarn.class,id));
+
+        return "/member/authapplywarn-index";
+    }
+
+    @RequestMapping(value = "report_detail.shtml")
+    public String report(@RequestParam(value = "id") String id ,Model model,HttpServletRequest request){
+        model.addAttribute("data",queryService.findOne(AuthapplyWarn.class,id));
+
+        return "/member/authapplywarn-report";
+    }
+
 
     /**
      * 审核

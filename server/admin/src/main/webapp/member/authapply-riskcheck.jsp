@@ -45,6 +45,19 @@
             });
         }
 
+        function fengxianpg(id) {
+            top.layer.open({
+                type: 2,
+                title:"风险检测报告",
+                area: ['95%', '95%'],
+                content: '${ctx}/hy/authapplywarn/index.shtml?id='+id,
+                btn: ['关闭'],
+                cancel: function(index){ //或者使用btn2
+//                    layer.close(index);
+                }
+            });
+        }
+
         function check(id) {
             top.layer.open({
                 type: 2,
@@ -253,7 +266,7 @@
                             </td>
                             <td>
                                 <%--<a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>--%>
-
+                            <c:if test="${operator.ioperatortype eq 30}">
                                 <shiro:hasAnyPermission name="riskcheck:check">
                                     <c:if test="${obj.istatus eq 0}">
                                         <a onclick="check('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>审核</a>
@@ -281,6 +294,10 @@
                                         </li>
                                     </ul>
                                 </c:if>
+                            </c:if>
+                            <c:if test="${operator.ioperatortype eq 10}"><%--监管--%>
+                                <a onclick="fengxianpg('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>风险评估</a>
+                            </c:if>
                             </td>
                         </tr>
                     </c:forEach>
