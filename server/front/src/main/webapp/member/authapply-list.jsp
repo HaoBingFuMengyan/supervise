@@ -81,6 +81,8 @@
                                class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0"/>
                         <div class="form-group">
+                            <span>业务类型：</span>
+                            <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>预审状态：</span>
                             <member:CheckStatus op="select" val="${search_eq_istatus}" name="search_eq_istatus"
                                                 defval="" defname="全部" option="class='form-control input-sm'"/>
@@ -113,7 +115,7 @@
                    class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">类型</th>
+                    <th class="sort-column">业务类型</th>
                     <th class="sort-column">入驻方式</th>
                     <th class="sort-column">注册地址</th>
                     <th class="sort-column">预审状态</th>

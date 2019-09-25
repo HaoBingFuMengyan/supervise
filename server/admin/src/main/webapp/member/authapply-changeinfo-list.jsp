@@ -90,10 +90,10 @@
                     <form:form id="searchForm" action="${ctx}/hy/authapply/changeinfo.shtml?type=${type}" method="post" class="form-inline">
                         <input type="hidden" id="pageNo" name="start" value="0" />
                         <div class="form-group">
-                            <span>公司名称：</span>
+                            <span>企业名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
                             <span>业务类型：</span>
-                            <member:CompanyBizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>入驻类型：</span>
                             <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>风险评级：</span>
@@ -128,7 +128,7 @@
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
-                    <th class="sort-column">公司名称</th>
+                    <th class="sort-column">企业名称</th>
                     <th class="sort-column">业务类型</th>
                     <th class="sort-column">入驻类型</th>
                     <th class="sort-column">入驻日期</th>

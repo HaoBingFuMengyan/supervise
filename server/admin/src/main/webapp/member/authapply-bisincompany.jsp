@@ -53,7 +53,7 @@
 <div class="wrapper wrapper-content">
     <div class="ibox">
         <div class="ibox-title">
-            <h5>准入基金列表</h5>
+            <h5>拟准入基金列表</h5>
         </div>
         <div class="ibox-content">
             <sys:message content="${message}"/>
@@ -66,7 +66,7 @@
                             <span>注册地址：</span>
                             <input type="text" name="search_like_sregaddress" value="${search_like_sregaddress}" class='form-control input-sm'/>
                             <span>业务类型：</span>
-                            <member:CompanyBizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
+                            <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>入驻方式：</span>
                             <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
                             <span>预审状态：</span>
@@ -109,7 +109,7 @@
                                 ${obj.sregaddress}
                             </c:if>
                         </td>
-                        <td><member:CompanyBizType op="label" val="${obj.icorbiztype}"/></td>
+                        <td><member:BizType op="label" val="${obj.icorbiztype}"/></td>
                         <td>
                             <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
                         </td>
