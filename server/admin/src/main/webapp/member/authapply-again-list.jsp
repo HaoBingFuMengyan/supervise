@@ -141,7 +141,7 @@
                             <mw:format label="datetime" value="${obj.dapplydate}"/>
                         </td>
                         <td>
-                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>企业信息</a>
 
                             <shiro:hasAnyPermission name="authapply:againcheck">
                                 <c:if test="${obj.istatus eq 1 && obj.iprocess eq 20}">

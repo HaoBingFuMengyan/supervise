@@ -155,7 +155,7 @@
                         </td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i
-                                    class="fa fa-edit"></i>基本信息</a>
+                                    class="fa fa-edit"></i>企业信息</a>
 
                             <c:if test="${obj.istatus eq 1 && obj.iprocess eq 30}">
                                 <a onclick="changeInfo('${obj.id}')" class="btn btn-danger btn-xs"><i

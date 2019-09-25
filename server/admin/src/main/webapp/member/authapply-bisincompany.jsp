@@ -134,7 +134,7 @@
                             </c:choose>
                         </td>
                         <td>
-                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
+                            <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>企业信息</a>
                         </td>
                     </tr>
                 </c:forEach>
