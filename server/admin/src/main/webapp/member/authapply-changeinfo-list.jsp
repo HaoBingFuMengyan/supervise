@@ -92,17 +92,17 @@
                         <div class="form-group">
                             <span>企业名称：</span>
                             <input type="text" name="search_like_scnname" value="${search_like_scnname}" class='form-control input-sm'/>
-                            <span>业务类型：</span>
+                            <span style="margin-left: 20px">业务类型：</span>
                             <member:BizType op="select" val="${search_eq_icorbiztype}" name="search_eq_icorbiztype" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>入驻类型：</span>
+                            <span style="margin-left: 20px">入驻类型：</span>
                             <member:AuthapplySource op="select" val="${search_eq_iauthapplysource}" name="search_eq_iauthapplysource" defval="" defname="全部" option="class='form-control input-sm'"/>
-                            <span>风险评级：</span>
+                            <span style="margin-left: 20px">风险评级：</span>
                             <member:RiskLevel op="select" val="${search_eq_irisklevel}" name="search_eq_irisklevel" defval="" defname="全部" option="class='form-control input-sm'"/>
+                        </div>
+                        <div class="form-group" style="display:block;margin-top: 10px;">
                             <span>入驻日期：</span>
                             <input id="drecorddate" name="search_gte_dapplydate" value="${search_gte_dapplydate}" class="form-control input-sm">-
                             <input id="drecorddate1" name="search_lte_dapplydate"  value="${search_lte_dapplydate}"  class="form-control input-sm">
-                        </div>
-                        <div class="form-group" style="margin-top: 10px;">
                             <span>备案日期：</span>
                             <input id="beian" name="search_gte_drecorddate" value="${search_gte_drecorddate}" class="form-control input-sm">-
                             <input id="beian1" name="search_lte_drecorddate"  value="${search_lte_drecorddate}"  class="form-control input-sm">
