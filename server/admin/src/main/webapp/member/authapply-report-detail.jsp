@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="layui-inline">
-                        <label class="layui-form-label">合伙企业：</label>
+                        <label class="layui-form-label">未备案合伙企业：</label>
                         <div class="layui-input-inline">
                             ${data.fwbascore}
                         </div>

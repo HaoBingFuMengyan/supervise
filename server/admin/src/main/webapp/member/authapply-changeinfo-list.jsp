@@ -109,7 +109,7 @@
                         <td>
                             <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                         </td>
-                        <td>${obj.fwarnnum}</td>
+                        <td><mw:format label="toint" value="${obj.fwarnnum}"/></td>
                         <td>
                             <a onclick="querydetail('${obj.id}')" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>基本信息</a>
 

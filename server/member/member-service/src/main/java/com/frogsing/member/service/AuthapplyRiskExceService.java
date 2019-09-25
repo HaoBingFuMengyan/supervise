@@ -5,8 +5,10 @@ import com.frogsing.heart.exception.E;
 import com.frogsing.heart.persistence.SearchFilter;
 import com.frogsing.heart.web.login.ILoginUser;
 import com.frogsing.member.IAuthapplyRiskExceService;
+import com.frogsing.member.dao.AuthapplyDao;
 import com.frogsing.member.dao.AuthapplyRiskDetailDao;
 import com.frogsing.member.dao.AuthapplyRiskExceDao;
+import com.frogsing.member.po.Authapply;
 import com.frogsing.member.po.AuthapplyRiskDetail;
 import com.frogsing.member.po.AuthapplyRiskExce;
 import com.frogsing.member.utils.MEMBER;
@@ -30,6 +32,9 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
 
     @Autowired
     private AuthapplyRiskDetailDao authapplyRiskDetailDao;
+
+    @Autowired
+    private AuthapplyDao authapplyDao;
 
 
     @Override
@@ -106,6 +111,15 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
                 riskExce.setIexceptiontype(MEMBER.ExceptionType.FXYJ.val());
 
                 authapplyRiskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum() +1);
+
+                Authapply authapply = queryService.findOne(Authapply.class,authapplyRiskDetail.getSauthapplyid());
+
+                if (authapply == null)
+                    E.S("该企业不存在");
+
+                authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() +1);
+
+                authapplyDao.saveAndFlush(authapply);
                 break;
             default:
                 E.S("未知类型");
@@ -175,6 +189,15 @@ public class AuthapplyRiskExceService implements IAuthapplyRiskExceService {
             //风险预警
             case FXYJ:
                 authapplyRiskDetail.setIwarnnum(authapplyRiskDetail.getIwarnnum() -1);
+
+                Authapply authapply = queryService.findOne(Authapply.class,authapplyRiskDetail.getSauthapplyid());
+
+                if (authapply == null)
+                    E.S("该企业不存在");
+
+                authapply.setFwarnnum(authapplyRiskDetail.getIwarnnum().doubleValue() -1);
+
+                authapplyDao.saveAndFlush(authapply);
                 break;
             default:
                 E.S("未知类型");
