@@ -96,7 +96,7 @@
                     <tr>
                         <td>${obj.scnname}</td>
                         <td>
-                            <member:CompanyBizType op="label" val="${obj.icorbiztype}"/>
+                            <member:BizType op="label" val="${obj.icorbiztype}"/>
                         </td>
                         <td>
                             <member:AuthapplySource op="label" val="${obj.iauthapplysource}"/>
@@ -105,7 +105,7 @@
                             <mw:format label="date" value="${obj.dapplydate}"/>
                         </td>
                         <td>${obj.iregmoney}</td>
-                        <td></td>
+                        <td><mw:format label="date" value="${obj.drecorddate}"/></td>
                         <td>
                             <member:RiskLevel op="label" val="${obj.irisklevel}"/>
                         </td>

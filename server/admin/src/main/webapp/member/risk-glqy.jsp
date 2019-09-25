@@ -50,6 +50,20 @@
                 }
             });
         }
+
+        function del(id){
+            $.post("${ctx}/hy/authapplyriskdetail/delete.json",{id: id}, function (rs) {
+                if (rs.success) {
+
+                    top.layer.msg("操作成功!", {icon: 1},function () {
+                        location.reload();
+                    });
+                }
+                else {
+                    top.layer.msg(rs.msg, {icon: 5});
+                }
+            });
+        }
     </script>
 
 </head>
@@ -60,6 +74,7 @@
         <%--<h5>风险评估报告</h5>--%>
         <%--</div>--%>
         <div class="ibox-content">
+            <shiro:hasAnyPermission name="exception:see">
             <sys:message content="${message}"/>
             <!-- 查询条件 -->
             <div class="row">
@@ -92,7 +107,7 @@
                     </div>
                 </div>
             </div>
-
+            </shiro:hasAnyPermission>
             <table id="contentTable" class="table table-striped table-bordered table-hover table-condensed dataTables-example dataTable">
                 <thead>
                 <tr>
@@ -119,15 +134,20 @@
                             <a onclick="exceptionAdd('行政处罚','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>行政处罚</a>
                             <a onclick="exceptionAdd('经营情况','${obj.id}',2)" class="btn btn-success btn-xs"><i class="fa fa-edit"></i>经营情况</a>
                             <a onclick="exceptionAdd('涉诉情况','${obj.id}',3)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>涉诉情况</a>
+                            <shiro:hasAnyPermission name="exception:del">
+                                <a onclick="del('${obj.id}')" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>删除</a>
+                            </shiro:hasAnyPermission>
                         </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+            <shiro:hasAnyPermission name="exception:see">
             <br/>
             <div class="mpage">
                 <mw:page pageobj="list" />
             </div>
+            </shiro:hasAnyPermission>
         </div>
     </div>
 </div>
