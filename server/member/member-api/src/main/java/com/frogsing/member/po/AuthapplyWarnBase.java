@@ -41,7 +41,7 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 	private   Double fwbascore; //未备案企业 double
 	private   Double fglrscore; //管理人合规性 double
 	private   Double fjjyzscore; //基金运作情况 double
-	private   Double fwarnnum; //预警数 double
+	private   Integer iwarnnum=0; //预警数 int
 	   /**
 		企业名称 String
 		*/
@@ -440,17 +440,17 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 			this.fjjyzscore =  fjjyzscore;//基金运作情况 double
 		}
 	   /**
-		预警数 double
+		预警数 int
 		*/
-		@Column(name="fwarnnum")
-		public Double getFwarnnum() {
-			return  fwarnnum;//预警数 double
+		@Column(name="iwarnnum")
+		public Integer getIwarnnum() {
+			return  iwarnnum;//预警数 int
 		}
 		/**
-		预警数 double
+		预警数 int
 		*/
-		public void setFwarnnum(Double  fwarnnum) {
-			this.fwarnnum =  fwarnnum;//预警数 double
+		public void setIwarnnum(Integer  iwarnnum) {
+			this.iwarnnum =  iwarnnum;//预警数 int
 		}
 	
 //frogsingcode//

@@ -1569,7 +1569,7 @@ public static XSpec<com.frogsing.member.po.AuthapplyWarn> xspec() {
             /**基金运作情况**/
             public static final String fjjyzscore="fjjyzscore" ;
             /**预警数**/
-            public static final String fwarnnum="fwarnnum" ;
+            public static final String iwarnnum="iwarnnum" ;
             /**企业名称**/
             public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
             /**证件类型**/
@@ -1625,7 +1625,7 @@ public static XSpec<com.frogsing.member.po.AuthapplyWarn> xspec() {
             /**基金运作情况**/
             public static  Path<Double> fjjyzscore(Root<?> root){return root.get("fjjyzscore");}
             /**预警数**/
-            public static  Path<Double> fwarnnum(Root<?> root){return root.get("fwarnnum");}
+            public static  Path<Integer> iwarnnum(Root<?> root){return root.get("iwarnnum");}
 
     }
 
