@@ -1,6 +1,7 @@
 package com.frogsing.member.vo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by haobingfu on 2019/9/22.
@@ -20,6 +21,7 @@ public class AuthVo implements Serializable {
     private   Double fwarnnum;//预警数
 
     private Integer ibiztype;
+    private Date drecorddate;//备案日期
 
 
     public String getId() {
@@ -116,5 +118,13 @@ public class AuthVo implements Serializable {
 
     public void setIbiztype(Integer ibiztype) {
         this.ibiztype = ibiztype;
+    }
+
+    public Date getDrecorddate() {
+        return drecorddate;
+    }
+
+    public void setDrecorddate(Date drecorddate) {
+        this.drecorddate = drecorddate;
     }
 }

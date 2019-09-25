@@ -146,6 +146,39 @@
                 }
             });
         }
+
+        //风险总评
+        function authapplyScore(id){
+            top.layer.open({
+                type: 2,
+                title: '风险总评',
+                area: ['60%', '45%'],
+                content: '${ctx}/hy/authapplywarn/score.shtml?id='+id,
+                btn: ['确定', '关闭'],
+                yes: function (index, layero) {
+                    var iframeWin = layero.find('iframe')[0];
+                    var $ = iframeWin.contentWindow.$;
+                    var doc = $(iframeWin.contentWindow.document);
+                    if (iframeWin.contentWindow.valiForm()) {
+                        $.post("${ctx}/hy/authapplywarn/score.json", doc.find('#formx').serialize(), function (rs) {
+                            if (rs.success) {
+
+                                top.layer.close(index);
+
+                                top.layer.msg("操作成功!", {icon: 1});
+                            }
+                            else {
+                                top.layer.msg(rs.msg, {icon: 5});
+                            }
+                        });
+
+                    }
+
+                },
+                cancel: function (index) {
+                }
+            });
+        }
     </script>
 
 </head>
@@ -212,7 +245,9 @@
                             <td>
                                 <member:CheckStatus op="label" val="${obj.istatus}"/>
                             </td>
-                            <td></td>
+                            <td>
+                                <mw:format label="date" value="${obj.drecorddate}"/>
+                            </td>
                             <td>
                                 <mw:format label="date" value="${obj.dadddate}"/>
                             </td>

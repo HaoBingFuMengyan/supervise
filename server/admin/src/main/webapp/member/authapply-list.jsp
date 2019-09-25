@@ -234,14 +234,14 @@
                 type: 2,
                 title: '风险总评',
                 area: ['60%', '45%'],
-                content: '${ctx}/hy/authapplywarn/score.shtml?id='+id,
+                content: '${ctx}/hy/authapply/score.shtml?id='+id,
                 btn: ['确定', '关闭'],
                 yes: function (index, layero) {
                     var iframeWin = layero.find('iframe')[0];
                     var $ = iframeWin.contentWindow.$;
                     var doc = $(iframeWin.contentWindow.document);
                     if (iframeWin.contentWindow.valiForm()) {
-                        $.post("${ctx}/hy/authapplywarn/score.json", doc.find('#formx').serialize(), function (rs) {
+                        $.post("${ctx}/hy/authapply/score.json", doc.find('#formx').serialize(), function (rs) {
                             if (rs.success) {
 
                                 top.layer.close(index);

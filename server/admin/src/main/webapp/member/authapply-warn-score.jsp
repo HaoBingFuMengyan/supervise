@@ -43,6 +43,15 @@
                 , layedit = layui.layedit
                 , laydate = layui.laydate;
 
+            laydate.render({
+                elem: '#drecorddate',
+                trigger: 'click'
+            });
+            laydate.render({
+                elem: '#drecorddate1',
+                trigger: 'click'
+            });
+
             form.verify({
 //                required: function (value) {
 //                    if (pub.isnull(value)) {
@@ -167,6 +176,13 @@
                                            class="layui-input" autocomplete="off" value="${data.fwbascore}"/>
                                 </div>
                             </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="drecorddate" id="drecorddate1" placeholder="(必填项)" lay-verify="required" readonly
+                                           class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
+                                </div>
+                            </div>
                         </div>
                     </c:if>
                     <c:if test="${data.ibiztype eq 1}">
@@ -182,7 +198,7 @@
                                 <label class="layui-form-label">管理人合规性<em class="red">*</em></label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="fglrscore"  placeholder="(必填项)" lay-verify="required"
-                                           class="layui-input" autocomplete="off" value="${data.fzgjjscore}"/>
+                                           class="layui-input" autocomplete="off" value="${data.fglrscore}"/>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +207,14 @@
                                 <label class="layui-form-label">基金运作情况<em class="red">*</em></label>
                                 <div class="layui-input-inline">
                                     <input type="text" name="fjjyzscore" placeholder="(必填项)" lay-verify="required"
-                                           class="layui-input" autocomplete="off" value="${data.fwbascore}"/>
+                                           class="layui-input" autocomplete="off" value="${data.fjjyzscore}"/>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="drecorddate" id="drecorddate" placeholder="(必填项)" lay-verify="required" readonly
+                                           class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
                                 </div>
                             </div>
                         </div>

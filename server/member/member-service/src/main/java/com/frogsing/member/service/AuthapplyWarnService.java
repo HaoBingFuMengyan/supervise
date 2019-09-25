@@ -179,8 +179,8 @@ public class AuthapplyWarnService implements IAuthapplyWarnService {
         authapply.setFjgscore(authVo.getFjgscore());
         authapply.setFhxscore(authVo.getFhxscore());
         authapply.setFglqyscore(authVo.getFglqyscore());
-        authapply.setIwarnnum(authVo.getFwarnnum().intValue());
         authapply.setIrisklevel(authVo.getIrisklevel());
+        authapply.setDrecorddate(authVo.getDrecorddate());
 
         this.authapplyWarnDao.save(authapply);
 
