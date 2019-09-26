@@ -49,16 +49,6 @@
                 ,layedit = layui.layedit
                 ,laydate = layui.laydate;
 
-            form.on('select(iauthapplysource)', function(data){
-                $('#scnname').remove();
-
-                if(data.value == 20){
-                    $('#iauthapplysource').after('<div class="layui-inline" id="scnname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
-                        + '<div class="layui-input-inline"><input type="text" name="scnname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
-                }
-
-            });
-
             form.on('select(bisjoblegal)', function(data){
 
                 $('#sdsjobcnname').remove();
@@ -388,14 +378,14 @@
                                                         option="class='layui-input' lay-verify='required' lay-filter='iauthapplysource'"/>
                             </div>
                         </div>
-                        <c:if test="${data.iauthapplysource eq 20}">
-                            <div class="layui-inline" id="scnname">
-                                <label class="layui-form-label">企业名称<em class="red">*</em></label>
-                                <div class="layui-input-inline">
-                                    <input type="text" name="scnname" value="${data.scnname}" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>
-                                </div>
-                            </div>
-                        </c:if>
+                        <%--<c:if test="${data.iauthapplysource eq 20}">--%>
+                            <%--<div class="layui-inline" id="scnname">--%>
+                                <%--<label class="layui-form-label">企业名称<em class="red">*</em></label>--%>
+                                <%--<div class="layui-input-inline">--%>
+                                    <%--<input type="text" name="scnname" value="${data.scnname}" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</c:if>--%>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
                         <legend>填写执行董事信息</legend>
