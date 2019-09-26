@@ -248,7 +248,7 @@
                                 <select name="bisjoblegal" class="layui-input" lay-verify="required">
                                     <option value>请先择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="0">无</option>
                                 </select>
                             </div>
                         </div>
@@ -284,7 +284,7 @@
                                 <select name="bisjobmanager">
                                     <option value>请先择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="0">无</option>
                                 </select>
                             </div>
                         </div>
@@ -339,7 +339,7 @@
                                 <select name="bisjob" class="layui-input" lay-verify="required">
                                     <option value>请选择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
-                                    <option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>
+                                    <option value="0">无</option>
                                 </select>
                             </div>
                         </div>

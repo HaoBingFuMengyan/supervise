@@ -1212,6 +1212,8 @@ public static XSpec<com.frogsing.member.po.NaturalHolder> xspec() {
             public static final String famount="famount" ;
             /**是否兼职**/
             public static final String bisjob="bisjob" ;
+            /**企业名称**/
+            public static final String scnname="scnname" ;
             /**股东姓名**/
             public static  Path<String> sname(Root<?> root){return root.get("sname");}
             /**证件类型**/
@@ -1228,6 +1230,8 @@ public static XSpec<com.frogsing.member.po.NaturalHolder> xspec() {
             public static  Path<Double> famount(Root<?> root){return root.get("famount");}
             /**是否兼职**/
             public static  Path<Integer> bisjob(Root<?> root){return root.get("bisjob");}
+            /**企业名称**/
+            public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
 
     }
 /**机构股东信息**/

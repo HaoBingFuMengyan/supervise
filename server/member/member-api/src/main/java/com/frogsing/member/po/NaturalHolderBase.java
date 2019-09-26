@@ -22,6 +22,7 @@ public class NaturalHolderBase  extends  BaseEntity{
 	private   String scardno; //证件号码 String
 	private   Double famount; //出资额 double
 	private   Integer bisjob=0; //是否兼职 int
+	private   String scnname; //企业名称 String
 	   /**
 		股东姓名 String
 		*/
@@ -141,6 +142,19 @@ public class NaturalHolderBase  extends  BaseEntity{
 		*/
 		public void setBisjob(Integer  bisjob) {
 			this.bisjob =  bisjob;//是否兼职 int
+		}
+	   /**
+		企业名称 String
+		*/
+		@Column(name="scnname",length=50)
+		public String getScnname() {
+			return  scnname;//企业名称 String
+		}
+		/**
+		企业名称 String
+		*/
+		public void setScnname(String  scnname) {
+			this.scnname =  scnname;//企业名称 String
 		}
 	
 //frogsingcode//
