@@ -103,6 +103,7 @@ public class AuthapplyController {
         xSpec.and(searchParams);
 
         xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapply.bisincompany, Consts.BoolType.NO.val()));
+        xSpec.and(SearchFilter.eq(MEMBERCol.hy_authapply.istatus, MEMBER.CheckStatus.CHECKED.val()));
 
         Pageable pageable = PageUtils.page(start,limit, S.Desc(MEMBERCol.hy_authapply.dapplydate));
 

@@ -47,7 +47,7 @@
 
     });
     var urls=[
-        ["基本信息", "${ctx}/hy/authapply/detail.shtml?id=${data.id}"],
+        ["企业详情", "${ctx}/hy/authapply/detail.shtml?id=${data.id}"],
         ["自然人股东信息", "${ctx}/hy/authapply/natural_detail.shtml?id=${data.id}"],
         ["机构股东信息", "${ctx}/hy/authapply/company_detail.shtml?id=${data.id}"],
         ["实际控制人信息", "${ctx}/hy/authapply/control_detail.shtml?id=${data.id}"]
