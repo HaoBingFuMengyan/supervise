@@ -936,6 +936,12 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static final String fwarnnum="fwarnnum" ;
             /**备案时间**/
             public static final String drecorddate="drecorddate" ;
+            /**董事兼职企业名称**/
+            public static final String sdsjobcnname="sdsjobcnname" ;
+            /**经理兼职企业名称**/
+            public static final String sjljobcnname="sjljobcnname" ;
+            /**法人名称**/
+            public static final String slegalpersonname="slegalpersonname" ;
             /**会员ID**/
             public static  Path<String> smemberid(Root<?> root){return root.get("smemberid");}
             /**会员编号**/
@@ -1138,6 +1144,12 @@ public static XSpec<com.frogsing.member.po.Authapply> xspec() {
             public static  Path<Double> fwarnnum(Root<?> root){return root.get("fwarnnum");}
             /**备案时间**/
             public static  Path<Date> drecorddate(Root<?> root){return root.get("drecorddate");}
+            /**董事兼职企业名称**/
+            public static  Path<String> sdsjobcnname(Root<?> root){return root.get("sdsjobcnname");}
+            /**经理兼职企业名称**/
+            public static  Path<String> sjljobcnname(Root<?> root){return root.get("sjljobcnname");}
+            /**法人名称**/
+            public static  Path<String> slegalpersonname(Root<?> root){return root.get("slegalpersonname");}
 
     }
 /**意见反馈表**/

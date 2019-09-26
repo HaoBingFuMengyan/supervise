@@ -115,6 +115,9 @@ public class AuthapplyBase  extends  BaseEntity{
 	private   Double fjjyzscore; //基金运作情况 double
 	private   Double fwarnnum; //预警数 double
 	private   Date drecorddate; //备案时间 Date
+	private   String sdsjobcnname; //董事兼职企业名称 String
+	private   String sjljobcnname; //经理兼职企业名称 String
+	private   String slegalpersonname; //法人名称 String
 	   /**
 		会员ID String
 		*/
@@ -1605,6 +1608,45 @@ public class AuthapplyBase  extends  BaseEntity{
 		*/
 		public void setDrecorddate(Date  drecorddate) {
 			this.drecorddate =  drecorddate;//备案时间 Date
+		}
+	   /**
+		董事兼职企业名称 String
+		*/
+		@Column(name="sdsjobcnname",length=50)
+		public String getSdsjobcnname() {
+			return  sdsjobcnname;//董事兼职企业名称 String
+		}
+		/**
+		董事兼职企业名称 String
+		*/
+		public void setSdsjobcnname(String  sdsjobcnname) {
+			this.sdsjobcnname =  sdsjobcnname;//董事兼职企业名称 String
+		}
+	   /**
+		经理兼职企业名称 String
+		*/
+		@Column(name="sjljobcnname",length=50)
+		public String getSjljobcnname() {
+			return  sjljobcnname;//经理兼职企业名称 String
+		}
+		/**
+		经理兼职企业名称 String
+		*/
+		public void setSjljobcnname(String  sjljobcnname) {
+			this.sjljobcnname =  sjljobcnname;//经理兼职企业名称 String
+		}
+	   /**
+		法人名称 String
+		*/
+		@Column(name="slegalpersonname",length=50)
+		public String getSlegalpersonname() {
+			return  slegalpersonname;//法人名称 String
+		}
+		/**
+		法人名称 String
+		*/
+		public void setSlegalpersonname(String  slegalpersonname) {
+			this.slegalpersonname =  slegalpersonname;//法人名称 String
 		}
 	
 //frogsingcode//
