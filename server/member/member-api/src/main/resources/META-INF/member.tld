@@ -2350,6 +2350,83 @@
  		</attribute> 
  		
  	</tag> 
+	<function>
+		<description>ControlType</description>
+		<name>ControlType</name>
+		<function-class>com.frogsing.member.utils.MEMBER$ControlType</function-class>
+		<function-signature> java.lang.String json()</function-signature>
+		<example>obj:json()</example>
+	</function>
+	<function>
+		<description>ControlTypeMap</description>
+		<name>ControlTypeMap</name>
+		<function-class>com.frogsing.member.utils.MEMBER$ControlType</function-class>
+		<function-signature> java.util.Map map()</function-signature>
+		<example>obj:json()</example>
+	</function>
+
+        <tag>
+ 		<description></description> 
+ 		<name>ControlType</name>
+            <tag-class>com.frogsing.member.utils.MEMBERTag$TagControlType</tag-class>
+		 <body-content>scriptless</body-content>
+		 <variable>
+ 			<description></description>
+ 			<name-given>count</name-given>
+ 		</variable> 
+ 		 <attribute> 
+ 			<name>op</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>val</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>option</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>name</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>id</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+		<attribute> 
+ 			<name>defname</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>defval</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>nshow</name>
+			<required>false</required> 
+ 			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		<attribute> 
+ 			<name>zjkg</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 		<attribute> 
+ 			<name>jjkg</name>
+			<required>false</required> 
+			<rtexprvalue>true</rtexprvalue> 
+ 		</attribute> 
+ 		
+ 	</tag> 
 <!--frogsingcode-->
 	<tag-file>
 		<name>member_btn</name>

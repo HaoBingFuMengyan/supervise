@@ -1936,4 +1936,72 @@ public static enum BizType implements  IConst{
 	} 
 	
 }
+public static enum ControlType implements  IConst{
+	ZJKG(0,"直接控股"),
+	JJKG(1,"间接控股");
+	public  static ControlType get(int i){
+    	 switch(i)
+    	 {
+    	 case 0:
+    		return ControlType.ZJKG;
+    	 case 1:
+    		return ControlType.JJKG;
+    	 }
+    	 return null;
+     }
+     
+
+	 private   int   nCode ; 
+	 private   String   nLabel ;
+	 private   ControlType ( int   _nCode,String _nlabel) { 
+	
+	       this. nCode  = _nCode;  
+	       this.nLabel=_nlabel;
+	 } 
+
+      @Override
+     public int val(){
+    	 return nCode;
+     }
+    @Override
+     public String label(){
+    	 return nLabel;
+     }
+     @Override
+     public String getLabel(){
+    	 return nLabel;
+     }
+      @Override
+     public int getVal(){
+    	 return nCode;
+     }
+     @Override
+     public IConst[] vals(){
+    	 return ControlType.values();
+     }
+     
+	@Override
+	public IConst valof(String str) {
+		
+		return ControlType.valueOf(str);
+	} 
+    public static Map<Integer,String> map(){
+		return  com.frogsing.heart.consts.IConstUtils.map(ControlType.values());
+	}
+	public static String json(){
+		return JSONObject.wrap(map(),3).toString();
+	}
+	 @Override
+	public boolean isEq(int i) {
+		
+		return nCode==i;
+	}
+
+	@Override
+	public boolean isNot(int i) {
+		
+		return nCode!=i;
+	} 
+	
+}
 }

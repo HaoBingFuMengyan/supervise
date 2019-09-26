@@ -619,4 +619,21 @@ public  class MEMBERTag{
 			return com.frogsing.member.utils.MEMBER.BizType.values();
 		}
 	}
+	public static class TagControlType extends BaseTag
+	{
+		@Override
+		public IConst GetConst(int val) {
+			return com.frogsing.member.utils.MEMBER.ControlType.get(val);
+		}
+		public void setZjkg(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ControlType.ZJKG,val);
+		}
+		public void setJjkg(int val) {
+			setCurrentconst(com.frogsing.member.utils.MEMBER.ControlType.JJKG,val);
+		}
+		@Override
+		public IConst[] GetVals() {
+			return com.frogsing.member.utils.MEMBER.ControlType.values();
+		}
+	}
 }

@@ -23,6 +23,8 @@ public class ControHolderBase  extends  BaseEntity{
 	private   Double famount; //出资额 double
 	private   Integer bisjob=0; //是否兼职 int
 	private   Integer icomtype=0; //公司类型 int
+	private   Integer icontroltype=0; //控制方式 int
+	private   String scnname; //企业名称 String
 	   /**
 		股东姓名 String
 		*/
@@ -165,6 +167,38 @@ public class ControHolderBase  extends  BaseEntity{
 		*/
 		public void setIcomtype(Integer  icomtype) {
 			this.icomtype =  icomtype;//公司类型 int
+		}
+	   /**
+		控制方式 int
+	    ControlType:
+	    0:ZJKG:直接控股
+1:JJKG:间接控股 
+		*/
+		@Column(name="icontroltype")
+		public Integer getIcontroltype() {
+			return  icontroltype;//控制方式 int
+		}
+		/**
+		控制方式 int
+	    ControlType:
+	    0:ZJKG:直接控股
+1:JJKG:间接控股 
+		*/
+		public void setIcontroltype(Integer  icontroltype) {
+			this.icontroltype =  icontroltype;//控制方式 int
+		}
+	   /**
+		企业名称 String
+		*/
+		@Column(name="scnname",length=50)
+		public String getScnname() {
+			return  scnname;//企业名称 String
+		}
+		/**
+		企业名称 String
+		*/
+		public void setScnname(String  scnname) {
+			this.scnname =  scnname;//企业名称 String
 		}
 	
 //frogsingcode//

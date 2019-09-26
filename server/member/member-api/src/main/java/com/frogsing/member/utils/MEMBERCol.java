@@ -1300,6 +1300,10 @@ public static XSpec<com.frogsing.member.po.ControHolder> xspec() {
             public static final String bisjob="bisjob" ;
             /**公司类型**/
             public static final String icomtype="icomtype" ;
+            /**控制方式**/
+            public static final String icontroltype="icontroltype" ;
+            /**企业名称**/
+            public static final String scnname="scnname" ;
             /**股东姓名**/
             public static  Path<String> sname(Root<?> root){return root.get("sname");}
             /**证件类型**/
@@ -1318,6 +1322,10 @@ public static XSpec<com.frogsing.member.po.ControHolder> xspec() {
             public static  Path<Integer> bisjob(Root<?> root){return root.get("bisjob");}
             /**公司类型**/
             public static  Path<Integer> icomtype(Root<?> root){return root.get("icomtype");}
+            /**控制方式**/
+            public static  Path<Integer> icontroltype(Root<?> root){return root.get("icontroltype");}
+            /**企业名称**/
+            public static  Path<String> scnname(Root<?> root){return root.get("scnname");}
 
     }
 /**企业风险监测报告**/
