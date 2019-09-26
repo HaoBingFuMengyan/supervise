@@ -134,7 +134,7 @@
                     <th class="sort-column">企业名称</th>
                     <th class="sort-column">业务类型</th>
                     <th class="sort-column">入驻日期</th>
-                    <th class="sort-column">认缴规模</th>
+                    <th class="sort-column">认缴规模(万元)</th>
                     <th class="sort-column">入驻方式</th>
                     <th class="sort-column">操作</th>
                 </tr>
