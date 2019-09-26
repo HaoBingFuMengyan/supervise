@@ -177,11 +177,11 @@
                         </div>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
-                         <legend>法定/委派代表人信息</legend>
+                         <legend>法定代表人/委派代表信息</legend>
                     </fieldset>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名：</label>
+                            <label class="layui-form-label">名称：</label>
                             <div class="layui-input-inline">
                                     ${data.sfdlinkman}
                             </div>
@@ -205,7 +205,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名：</label>
+                            <label class="layui-form-label">名称：</label>
                             <div class="layui-input-inline">
                                     ${data.slinkman}
                             </div>
@@ -229,7 +229,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名：</label>
+                            <label class="layui-form-label">名称：</label>
                             <div class="layui-input-inline">
                                     ${data.skzrlinkman}
                             </div>

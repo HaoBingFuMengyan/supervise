@@ -219,13 +219,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">通讯地址<em class="red">*</em></label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sbusaddress" id="sbusaddress" value="${data.sbusaddress}" class="layui-input" lay-verify="required" style="width: 98.6%;"
+                                   placeholder="(必填项)" autocomplete="off">
+                        </div>
+                    </div>
                     <fieldset class="layui-elem-field layui-field-title">
-                        <legend>法定/委派代表人信息</legend>
+                        <legend>法定代表人/委派代表信息</legend>
                     </fieldset>
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="sfdlinkman" id="sfdlinkman" value="${data.sfdlinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
@@ -252,7 +259,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="slinkman" id="slinkman" value="${data.slinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
@@ -279,7 +286,7 @@
 
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名<em class="red">*</em></label>
+                            <label class="layui-form-label">名称<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <input type="text" name="skzrlinkman" id="skzrlinkman" value="${data.skzrlinkman}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
@@ -298,14 +305,6 @@
                                 <input type="text" name="skzremail" id="skzremail" value="${data.skzremail}" class="layui-input" lay-verify="required"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="layui-form-item layui-form-text">
-                        <label class="layui-form-label">通讯地址<em class="red">*</em></label>
-                        <div class="layui-input-block">
-                            <input type="text" name="sbusaddress" id="sbusaddress" value="${data.sbusaddress}" class="layui-input" lay-verify="required" style="width: 98.6%;"
-                                   placeholder="(必填项)" autocomplete="off">
                         </div>
                     </div>
 
