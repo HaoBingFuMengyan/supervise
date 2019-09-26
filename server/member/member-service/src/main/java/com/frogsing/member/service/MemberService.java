@@ -526,6 +526,8 @@ public class MemberService implements IMemberService {
             controHolder.setIcardtype(obj.getIconcardtype()[i]);
             controHolder.setSsocialcreditno(obj.getSsocialcreditno()[i]);
             controHolder.setIcomtype(obj.getIconpanytype()[i]);
+            controHolder.setIcontroltype(obj.getIcontroltype()[i]);
+            controHolder.setScnname(obj.getScontrolname()[i]);
 
             controHolderDao.save(controHolder);
         }

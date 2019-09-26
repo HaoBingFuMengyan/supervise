@@ -46,6 +46,8 @@ public class MemVo implements Serializable {
     private Integer[] iconcardtype;//证件类型
     private String[] ssocialcreditno;//社会统一信用代码
     private Integer[] iconpanytype;//公司类型
+    private Integer[] icontroltype;//控制方式
+    private String[] scontrolname;//上级企业名称
 
     private Integer icorbiztype;//企业业务类型
 
@@ -288,6 +290,22 @@ public class MemVo implements Serializable {
 
     public void setIconpanytype(Integer[] iconpanytype) {
         this.iconpanytype = iconpanytype;
+    }
+
+    public Integer[] getIcontroltype() {
+        return icontroltype;
+    }
+
+    public void setIcontroltype(Integer[] icontroltype) {
+        this.icontroltype = icontroltype;
+    }
+
+    public String[] getScontrolname() {
+        return scontrolname;
+    }
+
+    public void setScontrolname(String[] scontrolname) {
+        this.scontrolname = scontrolname;
     }
 
     public Integer getIcorbiztype() {

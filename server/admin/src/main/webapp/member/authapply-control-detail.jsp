@@ -21,7 +21,7 @@
         <th lay-data="{field:'icardtype', width:180}">证件类型</th>
         <th lay-data="{field:'ssocialcreditno', width:240}">证件号码</th>
         <th lay-data="{field:'icomtype', width:180}">实际控制人类型</th>
-        <%--<th lay-data="{field:'bisjob', width:150}">是否兼职</th>--%>
+        <th lay-data="{field:'icontroltype', width:150}">控制方式</th>
     </tr>
     </thead>
     <tbody>
@@ -37,9 +37,9 @@
             <td>
                 <member:ComType op="label" val="${obj.icomtype}"/>
             </td>
-                <%--<td>--%>
-                <%--<consts:BoolType op="label" val="${obj.bisjob}"/>--%>
-                <%--</td>--%>
+            <td>
+                <member:ControlType op="label" val="${obj.icontroltype}"/>
+            </td>
         </tr>
     </c:forEach>
 

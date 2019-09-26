@@ -80,6 +80,18 @@
 
             })
 
+            form.on('select(icontroltype)', function(data){
+
+                $('#scontrolname').remove();
+                if(data.value == 1){
+                    $('#icontroltype').after('<div class="layui-inline" id="scontrolname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
+                        + '<div class="layui-input-inline"><input type="text" name="scontrolname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
+                }else{
+                    $('#icontroltype').after('<input type="hidden" name="scontrolname" value="无" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>');
+                }
+
+            })
+
             form.on('select(bisjob)', function(data){
 
                 $(this).parent().parent().parent().next().remove();
@@ -452,10 +464,17 @@
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">公司类型<em class="red">*</em></label>
+                            <label class="layui-form-label">控制人类型<em class="red">*</em></label>
                             <div class="layui-input-inline">
                                 <member:ComType op="select" name="iconpanytype" defname="请选择类型"
                                                 option="class='layui-input' lay-verify='required'"/>
+                            </div>
+                        </div>
+                        <div class="layui-inline" id="icontroltype">
+                            <label class="layui-form-label">控制方式<em class="red">*</em></label>
+                            <div class="layui-input-inline">
+                                <member:ControlType op="select" name="icontroltype" defname="请选择类型"
+                                                option="class='layui-input' lay-verify='required' lay-filter='icontroltype'"/>
                             </div>
                         </div>
                     </div>
