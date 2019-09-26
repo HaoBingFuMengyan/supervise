@@ -21,7 +21,7 @@
         <th lay-data="{field:'icardtype', width:180}">证件类型</th>
         <th lay-data="{field:'scardno', width:200}">证件号码</th>
         <th lay-data="{field:'famount', width:180}">出资额(万元)</th>
-        <th lay-data="{field:'bisjob', width:150}">是否兼职</th>
+        <th lay-data="{field:'bisjob', width:150}">兼职情况</th>
     </tr>
     </thead>
     <tbody>
@@ -36,7 +36,12 @@
             <td>${obj.scardno}</td>
             <td>${obj.famount}</td>
             <td>
-                <consts:BoolType op="label" val="${obj.bisjob}"/>
+                <c:if test="${obj.bisjob eq 1}">
+                    ${obj.scnname}
+                </c:if>
+                <c:if test="${obj.bisjob eq 0}">
+                    无
+                </c:if>
             </td>
         </tr>
     </c:forEach>

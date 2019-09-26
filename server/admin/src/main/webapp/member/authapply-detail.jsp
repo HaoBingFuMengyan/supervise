@@ -47,7 +47,7 @@
 
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">董事姓名：</label>
+                        <label class="layui-form-label">执行董事(董事长)：</label>
                         <div class="layui-input-inline">
                             ${data.slegalperson}
                         </div>
@@ -72,10 +72,10 @@
                         <div class="layui-input-block">
                             <c:choose>
                                 <c:when test="${data.bisjoblegal eq 1}">
-                                    在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务
+                                    ${data.sdsjobcnname}
                                 </c:when>
                                 <c:otherwise>
-                                    未在其他公司担任股东/董事/法定代表人/监事等职务
+                                    无
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -109,10 +109,10 @@
                         <div class="layui-input-block">
                             <c:choose>
                                 <c:when test="${data.bisjobmanager eq 1}">
-                                    在XXXXXXXXXXX担任股东/董事/法定代表人/监事等职务
+                                    ${data.sjljobcnname}
                                 </c:when>
                                 <c:otherwise>
-                                    未在其他公司担任股东/董事/法定代表人/监事等职务
+                                    无
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -123,7 +123,8 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">法定代表人：</label>
                         <div class="layui-input-inline">
-                            <member:CorporateType op="label" val="${data.icorporatetype}"/>
+                            <%--<member:CorporateType op="label" val="${data.icorporatetype}"/>--%>
+                            ${data.slegalpersonname}
                         </div>
                     </div>
                     <div class="layui-inline">

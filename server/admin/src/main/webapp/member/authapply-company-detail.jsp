@@ -17,9 +17,9 @@
     <thead>
     <tr>
         <th lay-data="{field:'isortno', width:150,totalRowText:'合计：'}">排序号</th>
-        <th lay-data="{field:'sname', width:200}">股东姓名</th>
-        <th lay-data="{field:'ilicensetype', width:180}">执照类型</th>
-        <th lay-data="{field:'ssocialcreditno', width:240}">社会统一信用代码</th>
+        <th lay-data="{field:'sname', width:200}">股东名称</th>
+        <th lay-data="{field:'ilicensetype', width:180}">证件类型</th>
+        <th lay-data="{field:'ssocialcreditno', width:240}">统一社会信用代码</th>
         <th lay-data="{field:'famount', width:180}">出资额(万元)</th>
         <%--<th lay-data="{field:'bisjob', width:150}">是否兼职</th>--%>
     </tr>

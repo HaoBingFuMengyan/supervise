@@ -17,10 +17,10 @@
     <thead>
     <tr>
         <th lay-data="{field:'isortno', width:150,totalRowText:'合计：'}">排序号</th>
-        <th lay-data="{field:'sname', width:200}">股东姓名</th>
+        <th lay-data="{field:'sname', width:200}">实际控制人名称</th>
         <th lay-data="{field:'icardtype', width:180}">证件类型</th>
         <th lay-data="{field:'ssocialcreditno', width:240}">证件号码</th>
-        <th lay-data="{field:'icomtype', width:180}">公司类型</th>
+        <th lay-data="{field:'icomtype', width:180}">实际控制人类型</th>
         <%--<th lay-data="{field:'bisjob', width:150}">是否兼职</th>--%>
     </tr>
     </thead>
