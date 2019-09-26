@@ -66,7 +66,8 @@ public class UserAction extends BaseAction {
 
     @RequestMapping(value = "/user/set.shtml")
     public String userSet(Model model,HttpServletRequest request){
-        model.addAttribute("data",ShiroUtils.getCurrentUser());
+        ILoginUser user = ShiroUtils.getCurrentUser();
+        model.addAttribute("data",userService.fetchUser(user.getId()));
 
         return "member/user-set";
     }

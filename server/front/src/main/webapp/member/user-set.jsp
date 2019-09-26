@@ -111,7 +111,7 @@
                         <div class="layui-form-item layui-form-text top15">
                             <label class="layui-form-label">手机号<em class="red">*</em></label>
                             <div class="layui-input-block">
-                                <input type="text" name="smobile" id="smobile" class="layui-input" lay-verify="required"
+                                <input type="text" name="smobile" id="smobile" value="${data.smobile}" class="layui-input" lay-verify="required"
                                        style="width: 98.6%;"
                                        placeholder="(必填项)" autocomplete="off">
                             </div>
