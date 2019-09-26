@@ -24,11 +24,16 @@ public class MemVo implements Serializable {
 
     private Integer icorporatetype;//法定代表人
 
+    private   String sdsjobcnname; //董事兼职企业名称 String
+    private   String sjljobcnname; //经理兼职企业名称 String
+    private   String slegalpersonname; //法人名称 String
+
     private String[] sname;//自然人股东姓名
     private Integer[] icardtype;//证件类型
     private String[] scardno;//证件号码
     private double[] famount;//金额
     private Integer[] bisjob;//是否兼职
+    private String[] snaturalname;//兼职企业名称
 
     //机构股东信息
     private String[] scompanyname;//股东姓名
@@ -149,6 +154,30 @@ public class MemVo implements Serializable {
         this.icorporatetype = icorporatetype;
     }
 
+    public String getSdsjobcnname() {
+        return sdsjobcnname;
+    }
+
+    public void setSdsjobcnname(String sdsjobcnname) {
+        this.sdsjobcnname = sdsjobcnname;
+    }
+
+    public String getSjljobcnname() {
+        return sjljobcnname;
+    }
+
+    public void setSjljobcnname(String sjljobcnname) {
+        this.sjljobcnname = sjljobcnname;
+    }
+
+    public String getSlegalpersonname() {
+        return slegalpersonname;
+    }
+
+    public void setSlegalpersonname(String slegalpersonname) {
+        this.slegalpersonname = slegalpersonname;
+    }
+
     public String[] getSname() {
         return sname;
     }
@@ -187,6 +216,14 @@ public class MemVo implements Serializable {
 
     public void setBisjob(Integer[] bisjob) {
         this.bisjob = bisjob;
+    }
+
+    public String[] getSnaturalname() {
+        return snaturalname;
+    }
+
+    public void setSnaturalname(String[] snaturalname) {
+        this.snaturalname = snaturalname;
     }
 
     public String[] getScompanyname() {

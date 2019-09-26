@@ -51,12 +51,43 @@
             var layupload = layui.upload;
 
             form.on('select(iauthapplysource)', function(data){
+                $('#scnname').remove();
 
                 if(data.value == 20){
                     $('#iauthapplysource').after('<div class="layui-inline" id="scnname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
                         + '<div class="layui-input-inline"><input type="text" name="scnname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
-                }else {
-                    $('#scnname').remove();
+                }
+
+            })
+
+            form.on('select(bisjoblegal)', function(data){
+
+                $('#sdsjobcnname').remove();
+                if(data.value == 1){
+                    $('#bisjoblegal').after('<div class="layui-inline" id="sdsjobcnname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
+                        + '<div class="layui-input-inline"><input type="text" name="sdsjobcnname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
+                }
+
+            })
+
+            form.on('select(bisjobmanager)', function(data){
+
+                $('#sjljobcnname').remove();
+                if(data.value == 1){
+                    $('#bisjobmanager').after('<div class="layui-inline" id="sjljobcnname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
+                        + '<div class="layui-input-inline"><input type="text" name="sjljobcnname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
+                }
+
+            })
+
+            form.on('select(bisjob)', function(data){
+
+                $(this).parent().parent().parent().next().remove();
+                if(data.value == 1){
+                    $(this).parent().parent().parent().after('<div class="layui-inline"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
+                        + '<div class="layui-input-inline"><input type="text" name="snaturalname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
+                }else{
+                    $(this).parent().parent().parent().after('<input type="hidden" name="snaturalname" value="无" placeholder="(必填项)" class="layui-input" />');
                 }
 
             })
@@ -147,7 +178,7 @@
         $(document).ready(function () {
             //添加自然人股东信息
             $("#addbtn").click(function () {
-                var innerHTML = '<div class="layui-form-item"><input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
+                var innerHTML = '<div class="layui-form-item" data-info="natural"><input type="button" class="delete layui-btn layui-btn-danger layui-btn-xs" value="删除" /><div class="layui-inline"><label class="layui-form-label">姓名<em class="red">*</em></label>'
                     + '<div class="layui-input-inline"><input type="text" name="sname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">证件类型<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<member:MemberCardType op="select" name="icardtype" defname="请选择证件类型" option="class=\\'layui-input\\' lay-verify=\\'required\\'"/>'
@@ -156,8 +187,8 @@
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">出资额<em class="red">*</em></label><div class="layui-input-inline">'
                     + '<input type="text" data-id="regamount" name="famount" placeholder="(必填项只能正整数)" class="layui-input" lay-verify="required" autocomplete="off"/>'
                     + '</div></div><div class="layui-inline"><label class="layui-form-label">兼职情况<em class="red">*</em></label>'
-                    + '<div class="layui-input-inline"><select name="bisjob" class="layui-input" lay-verify="required">'
-                    + '<option value>请选择</option><option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option><option value="0">未在其他公司担任股东/董事/法定代表人/监事等职务</option>'
+                    + '<div class="layui-input-inline"><select name="bisjob" class="layui-input" lay-verify="required" lay-filter="bisjob">'
+                    + '<option value>请选择</option><option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option><option value="0">无</option>'
                     + '</select></div></div></div>';
 
                 $("#company").before(innerHTML);
@@ -186,6 +217,22 @@
                 })
             });
 
+
+            $('#slegalperson').change(function () {
+                $('#faren1').remove();
+                var sname=$(this).val();
+                var innerHTML = '<option value="'+sname+'" id="faren1">'+sname+'</option>';
+                $("#slegalpersonname").append(innerHTML);
+                form.render();
+            });
+
+            $('#smanagername').change(function () {
+                $('#faren2').remove();
+                var sname=$(this).val();
+                var innerHTML = '<option value="'+sname+'" id="faren2"">'+sname+'</option>';
+                $("#slegalpersonname").append(innerHTML);
+                form.render();
+            })
         });
         
 
@@ -244,8 +291,8 @@
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <select name="bisjoblegal" class="layui-input" lay-verify="required">
+                            <div class="layui-input-inline" id="bisjoblegal">
+                                <select name="bisjoblegal" class="layui-input" lay-verify="required" lay-filter='bisjoblegal'>
                                     <option value>请先择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">无</option>
@@ -280,8 +327,8 @@
                         </div>
                         <div class="layui-inline">
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
-                            <div class="layui-input-inline">
-                                <select name="bisjobmanager">
+                            <div class="layui-input-inline" id="bisjobmanager">
+                                <select name="bisjobmanager" lay-filter="bisjobmanager">
                                     <option value>请先择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">无</option>
@@ -296,15 +343,16 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">法定代表人<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <member:CorporateType op="select" name="icorporatetype" defname="请选择法人代表"
-                                                      option="class='layui-input' lay-verify='required'"/>
+                                <select name="slegalpersonname" id="slegalpersonname">
+                                    <option value>请先择</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <fieldset class="layui-elem-field layui-field-title">
                          <legend>填写自然人股东信息<button type="button" id="addbtn" class="layui-btn layui-btn-warm layui-btn-sm">添加</button></legend>
                     </fieldset>
-                    <div class="layui-form-item">
+                    <div class="layui-form-item" data-info="natural">
                         <div class="layui-inline">
                             <label class="layui-form-label">姓名<em class="red">*</em></label>
                             <div class="layui-input-inline">
@@ -336,7 +384,7 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">兼职情况<em class="red">*</em></label>
                             <div class="layui-input-inline">
-                                <select name="bisjob" class="layui-input" lay-verify="required">
+                                <select name="bisjob" class="layui-input" lay-verify="required" lay-filter="bisjob">
                                     <option value>请选择</option>
                                     <option value="1">在其他公司担任股东/董事/法定代表人/监事等职务</option>
                                     <option value="0">无</option>

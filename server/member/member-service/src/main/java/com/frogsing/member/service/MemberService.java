@@ -477,6 +477,9 @@ public class MemberService implements IMemberService {
 
         apply.setIcorbiztype(obj.getIcorbiztype());//企业业务类型
         apply.setIrisklevel(99);
+        apply.setSdsjobcnname(obj.getSdsjobcnname());
+        apply.setSjljobcnname(obj.getSjljobcnname());
+        apply.setSlegalpersonname(obj.getSlegalpersonname());
 
         Authapply authapply = authapplyDao.saveAndFlush(apply);
 
@@ -491,7 +494,8 @@ public class MemberService implements IMemberService {
             naturalHolder.setIcardtype(obj.getIcardtype()[i]);
             naturalHolder.setScardno(obj.getScardno()[i]);
             naturalHolder.setFamount(obj.getFamount()[i]);
-            naturalHolder.setBisjob(obj.getBisjob()[0]);
+            naturalHolder.setBisjob(obj.getBisjob()[i]);
+            naturalHolder.setScnname(obj.getSnaturalname()[i]);
 
             naturalHolderDao.save(naturalHolder);
         }
