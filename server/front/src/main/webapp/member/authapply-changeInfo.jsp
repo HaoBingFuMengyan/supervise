@@ -332,7 +332,9 @@
                     $(this).parent().remove();
                 })
             });
-
+            $(".layui-form-item .delete").click(function () {
+                $(this).parent().remove();
+            })
             $('#slegalperson').change(function () {
                 $('#faren1').remove();
                 var sname=$(this).val();
