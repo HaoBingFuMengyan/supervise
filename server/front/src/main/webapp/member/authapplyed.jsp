@@ -87,7 +87,7 @@
                     $('#icontroltype').after('<div class="layui-inline" id="scontrolname"><label class="layui-form-label">企业名称<em class="red">*</em></label>'
                         + '<div class="layui-input-inline"><input type="text" name="scontrolname" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/></div></div>');
                 }else{
-                    $('#icontroltype').after('<input type="hidden" name="scontrolname" value="无" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>');
+                    $('#icontroltype').after('<input type="hidden" id="scontrolname" name="scontrolname" value="无" placeholder="(必填项)" class="layui-input" lay-verify="required" autocomplete="off"/>');
                 }
 
             })
