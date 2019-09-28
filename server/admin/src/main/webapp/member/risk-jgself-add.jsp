@@ -278,7 +278,7 @@
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-inline">
-                                    <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                    <label class="layui-form-label">备案日期</label>
                                     <div class="layui-input-inline">
                                         <input type="text" name="dsetdate" id="beian" readonly
                                                class="layui-input" autocomplete="off"/>
