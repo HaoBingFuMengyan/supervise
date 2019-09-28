@@ -43,7 +43,7 @@ public class ControHolderBase  extends  BaseEntity{
 	    CardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证
+30:HKPASS:港澳台通行证
 40:YYZZ:营业执照 
 		*/
 		@Column(name="icardtype")
@@ -55,7 +55,7 @@ public class ControHolderBase  extends  BaseEntity{
 	    CardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证
+30:HKPASS:港澳台通行证
 40:YYZZ:营业执照 
 		*/
 		public void setIcardtype(Integer  icardtype) {

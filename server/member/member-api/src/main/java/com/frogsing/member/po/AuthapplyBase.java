@@ -1106,7 +1106,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		@Column(name="ilegaltype")
 		public Integer getIlegaltype() {
@@ -1117,7 +1117,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		public void setIlegaltype(Integer  ilegaltype) {
 			this.ilegaltype =  ilegaltype;//执行董事证件类型 int
@@ -1174,7 +1174,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		@Column(name="imanagertype")
 		public Integer getImanagertype() {
@@ -1185,7 +1185,7 @@ public class AuthapplyBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		public void setImanagertype(Integer  imanagertype) {
 			this.imanagertype =  imanagertype;//公司经理证件类型 int

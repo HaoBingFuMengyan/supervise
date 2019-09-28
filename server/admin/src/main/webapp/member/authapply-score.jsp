@@ -177,9 +177,9 @@
                                 </div>
                             </div>
                             <div class="layui-inline">
-                                <label class="layui-form-label">备案日期<em class="red">*</em></label>
+                                <label class="layui-form-label">备案日期</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="drecorddate" id="drecorddate1" placeholder="(必填项)" lay-verify="required" readonly
+                                    <input type="text" name="drecorddate" id="drecorddate1"  readonly
                                            class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label">备案日期<em class="red">*</em></label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="drecorddate" id="drecorddate" placeholder="(必填项)" lay-verify="required" readonly
+                                    <input type="text" name="drecorddate" id="drecorddate" readonly
                                            class="layui-input" autocomplete="off" value="<mw:format label="date" value="${data.drecorddate}"/>"/>
                                 </div>
                             </div>

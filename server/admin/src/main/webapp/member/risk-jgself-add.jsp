@@ -160,7 +160,7 @@
                             </div>
                             <div class="layui-form-item">
                                 <div class="layui-inline">
-                                    <label class="layui-form-label">证件号<em class="red">*</em></label>
+                                    <label class="layui-form-label">证件<em class="red">*</em></label>
                                     <div class="layui-input-inline">
                                         <input type="text" name="scardno" placeholder="(必填项)"
                                                class="layui-input" lay-verify="required" autocomplete="off"/>
@@ -280,8 +280,8 @@
                                 <div class="layui-inline">
                                     <label class="layui-form-label">备案日期<em class="red">*</em></label>
                                     <div class="layui-input-inline">
-                                        <input type="text" name="dsetdate" id="beian" placeholder="(必填项)" readonly
-                                               class="layui-input" lay-verify="required" autocomplete="off"/>
+                                        <input type="text" name="dsetdate" id="beian" readonly
+                                               class="layui-input" autocomplete="off"/>
                                     </div>
                                 </div>
                             </div>

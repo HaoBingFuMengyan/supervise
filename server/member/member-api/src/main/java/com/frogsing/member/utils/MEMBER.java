@@ -980,7 +980,7 @@ public static enum SpotType implements  IConst{
 public static enum CardType implements  IConst{
 	ID(10,"身份证"),
 	PASSPORT(20,"护照"),
-	HKPASS(30,"港澳通行证"),
+	HKPASS(30,"港澳台通行证"),
 	YYZZ(40,"营业执照");
 	public  static CardType get(int i){
     	 switch(i)
@@ -1190,7 +1190,7 @@ public static enum ComType implements  IConst{
 public static enum MemberCardType implements  IConst{
 	ID(10,"身份证"),
 	PASSPORT(20,"护照"),
-	HKPASS(30,"港澳通行证");
+	HKPASS(30,"港澳台通行证");
 	public  static MemberCardType get(int i){
     	 switch(i)
     	 {

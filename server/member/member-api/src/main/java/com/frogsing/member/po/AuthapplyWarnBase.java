@@ -58,10 +58,11 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 		}
 	   /**
 		证件类型 int
-	    MemberCardType:
+	    CardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证
+40:YYZZ:营业执照 
 		*/
 		@Column(name="icardtype")
 		public Integer getIcardtype() {
@@ -69,10 +70,11 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 		}
 		/**
 		证件类型 int
-	    MemberCardType:
+	    CardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证
+40:YYZZ:营业执照 
 		*/
 		public void setIcardtype(Integer  icardtype) {
 			this.icardtype =  icardtype;//证件类型 int
@@ -155,7 +157,7 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		@Column(name="ikrzcardtype")
 		public Integer getIkrzcardtype() {
@@ -166,7 +168,7 @@ public class AuthapplyWarnBase  extends  BaseEntity{
 	    MemberCardType:
 	    10:ID:身份证
 20:PASSPORT:护照
-30:HKPASS:港澳通行证 
+30:HKPASS:港澳台通行证 
 		*/
 		public void setIkrzcardtype(Integer  ikrzcardtype) {
 			this.ikrzcardtype =  ikrzcardtype;//控制人证件类型 int

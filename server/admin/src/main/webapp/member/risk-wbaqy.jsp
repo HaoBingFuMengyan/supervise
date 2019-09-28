@@ -115,7 +115,7 @@
                     <th class="sort-column">成立日期</th>
                     <th class="sort-column">合伙人数量</th>
                     <th class="sort-column">自然合伙人数量</th>
-                    <th class="sort-column">对外投资情况</th>
+                    <th class="sort-column">异常情况</th>
                     <th class="sort-column">操作</th>
                 </tr>
                 </thead>
@@ -128,7 +128,7 @@
                         <td>${obj.fnaturalnum}</td>
                         <td>${obj.sinvest == null ? 0 : obj.sinvest + 1}条</td>
                         <td>
-                            <a onclick="exceptionAdd('对外投资情况','${obj.id}',7)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>对外投资情况</a>
+                            <a onclick="exceptionAdd('异常情况','${obj.id}',7)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>异常情况</a>
                             <shiro:hasAnyPermission name="exception:del">
                                 <a onclick="del('${obj.id}')" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>删除</a>
                             </shiro:hasAnyPermission>

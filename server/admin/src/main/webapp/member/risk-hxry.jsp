@@ -113,9 +113,9 @@
                 <tr>
                     <th class="sort-column">姓名</th>
                     <th class="sort-column">身份</th>
-                    <th class="sort-column">证件号</th>
-                    <th class="sort-column">司法异常</th>
-                    <th class="sort-column">行政处罚</th>
+                    <th class="sort-column">证件</th>
+                    <th class="sort-column">任职资格</th>
+                    <th class="sort-column">负面影响</th>
                     <th class="sort-column">涉诉情况</th>
                     <th class="sort-column">操作</th>
                 </tr>
@@ -130,8 +130,8 @@
                         <td>${obj.sxzcfexce == null ? 0 : obj.sxzcfexce +1}条</td>
                         <td>${obj.sshensuexce == null ? 0 : obj.sshensuexce +1}条</td>
                         <td>
-                            <a onclick="exceptionAdd('司法异常','${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>司法异常</a>
-                            <a onclick="exceptionAdd('行政处罚','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>行政处罚</a>
+                            <a onclick="exceptionAdd('任职资格','${obj.id}',0)" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>任职资格</a>
+                            <a onclick="exceptionAdd('负面影响','${obj.id}',1)" class="btn btn-danger btn-xs"><i class="fa fa-edit"></i>负面影响</a>
                             <a onclick="exceptionAdd('涉诉情况','${obj.id}',3)" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>涉诉情况</a>
                             <shiro:hasAnyPermission name="exception:del">
                                 <a onclick="del('${obj.id}')" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i>删除</a>
