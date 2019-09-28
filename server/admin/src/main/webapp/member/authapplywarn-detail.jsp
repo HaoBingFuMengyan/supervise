@@ -54,7 +54,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">证件类型：</label>
                         <div class="layui-input-inline">
-                            <member:MemberCardType op="label" val="${data.icardtype}"/>
+                            <member:CardType op="label" val="${data.icardtype}"/>
                         </div>
                     </div>
                     <div class="layui-inline">
@@ -77,7 +77,7 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">证件类型：</label>
                         <div class="layui-input-inline">
-                            <member:MemberCardType op="label" val="${data.ikrzcardtype}"/>
+                            <member:CardType op="label" val="${data.ikrzcardtype}"/>
                         </div>
                     </div>
                     <div class="layui-inline">

@@ -140,7 +140,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">证件类型<em class="red">*</em></label>
                 <div class="layui-input-inline">
-                    <member:MemberCardType op="select" name="icardtype" defname="请选择证件类型"
+                    <member:CardType op="select" name="icardtype" defname="请选择证件类型"
                                            option="class='layui-input' lay-verify='required'"/>
                 </div>
             </div>
@@ -166,7 +166,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label">证件类型<em class="red">*</em></label>
                 <div class="layui-input-inline">
-                    <member:MemberCardType op="select" name="ikrzcardtype" defname="请选择证件类型"
+                    <member:CardType op="select" name="ikrzcardtype" defname="请选择证件类型"
                                            option="class='layui-input' lay-verify='required'"/>
                 </div>
             </div>
