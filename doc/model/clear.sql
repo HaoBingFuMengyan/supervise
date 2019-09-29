@@ -1,0 +1,10 @@
+DELETE FROM cx_messagedetail;
+DELETE FROM cx_message;
+DELETE FROM hy_authapplyriskdetail;
+DELETE FROM hy_authapply;
+DELETE FROM hy_authapplyrisk;
+DELETE FROM hy_authapplywarn;
+DELETE FROM hy_authapplyriskexce;
+DELETE FROM hy_companyholder;
+DELETE FROM hy_naturalholder;
+DELETE FROM hy_controholder;
