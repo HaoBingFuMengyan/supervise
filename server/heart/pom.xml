@@ -20,7 +20,7 @@
 		<shiro.version>1.3.2</shiro.version>
 		<cxf.version>2.7.5</cxf.version>
 		<activemq.version>5.7.0</activemq.version>
-		<quartz.version>2.2.0</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<jedis.version>2.1.0</jedis.version>
 		<ehcache.version>2.6.6</ehcache.version>
 		<spymemcached.version>2.9.1</spymemcached.version>
