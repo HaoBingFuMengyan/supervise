@@ -11,7 +11,7 @@
 	<properties>
 		<!-- 主要依赖库的版本定义 -->
 		<frog.version>five1.0-SNAPSHOT</frog.version>
-		<spring.version>4.3.8.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<hibernate.version>5.0.12.Final</hibernate.version>
 		<mybatis.version>3.2.2</mybatis.version>
 		<spring-data-jpa.version>1.9.2.RELEASE</spring-data-jpa.version>
